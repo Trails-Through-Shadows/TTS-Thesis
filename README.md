@@ -37,7 +37,7 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 
 ### [Miroslav Osoba](https://github.com/Orfian) (OSO0008)
 
-> ### Tvorba ??? výpravné evoluční hry </br> <sup>Creation of the ??? for the Narrative Evolution Game</sup>
+> ### Tvorba uživatelského prostředí výpravné evoluční hry </br> <sup>Creation of the User Environment for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/structure.md)
