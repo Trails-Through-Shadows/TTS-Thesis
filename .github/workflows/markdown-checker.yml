@@ -1,0 +1,44 @@
+name: Markdown Lint Check
+
+on: [push, pull_request]
+
+jobs:
+  kor0289:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint './kor0289/**/*.md'
+
+  kov0354:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint './kov0354/**/*.md'
+
+  mik0486:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint './mik0486/**/*.md'
+
+  oso0008:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g markdownlint-cli
+      - run: markdownlint './oso0008/**/*.md'
