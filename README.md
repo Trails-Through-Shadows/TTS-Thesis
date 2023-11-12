@@ -14,6 +14,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/structure.md)
+>
+> [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kov0354.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kov0354.yml)
 
 ### [Pavel Mikula](https://github.com/Firestone82) (MIK0486)
 
@@ -21,6 +23,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/structure.md)
+>
+> [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/mik0486.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/mik0486.yml)
 
 ### [Martin Korotwitschka](https://github.com/rcMarty) (KOR0289)
 
@@ -28,6 +32,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/structure.md)
+>
+> [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kor0289.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kor0289.yml)
 
 ### [Miroslav Osoba](https://github.com/Orfian) (OSO0008)
 
@@ -35,6 +41,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/structure.md)
+>
+> [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/oso0008.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/oso0008.yml)
 
 ## Recommended literature
 
