@@ -1,9 +1,10 @@
-# Osnova bakalářské práce: "Tvorba herního modelu výpravné evoluční hry"
+# Osnova
 
 ## 1. Úvod
 - Účel a motivace práce
 - Cíle práce
 - Metodika a struktura práce
+
 
 ## 2. Teoretická část
 - Přehled a historie deskových a online her
@@ -13,7 +14,7 @@
     - Herní mechanismy a dynamika
     - Principy výpravnosti a narativu ve hrách
 - Přehled existujících řešení a analýza
-    - Deskové hry a online hry s evolučními prvkami
+    - Deskové hry a online hry s evolučními prvky
     - Analýza herních modelů a mechanismů
 
 ## 3. Analýza a návrh herního modelu
