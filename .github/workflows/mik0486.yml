@@ -32,5 +32,5 @@ jobs:
         if: success()
         with:
           name: MIK0486-Thesis
-          path: mik0486/main.pdf
+          path: mik0486/src/main.pdf
           if-no-files-found: error
