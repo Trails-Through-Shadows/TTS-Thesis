@@ -7,30 +7,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: DavidAnson/markdownlint-cli2-action@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
+          fix: true
           glob: 'kor0289/**/*.md'
 
   kov0354:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: DavidAnson/markdownlint-cli2-action@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
+          fix: true
           glob: 'kov0354/**/*.md'
 
   mik0486:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: DavidAnson/markdownlint-cli2-action@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
+          fix: true
           glob: 'mik0486/**/*.md'
 
   oso0008:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: DavidAnson/markdownlint-cli2-action@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
+          fix: true
           glob: 'oso0008/**/*.md'
