@@ -31,6 +31,6 @@ jobs:
         uses: actions/upload-artifact@v3
         if: success()
         with:
-          name: MIK0486-Thesis.pdf
+          name: MIK0486-Thesis
           path: mik0486/main.pdf
           if-no-files-found: error

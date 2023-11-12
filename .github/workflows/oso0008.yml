@@ -31,6 +31,6 @@ jobs:
         uses: actions/upload-artifact@v3
         if: success()
         with:
-          name: OSO0008-Thesis.pdf
+          name: OSO0008-Thesis
           path: oso0008/main.pdf
           if-no-files-found: error

@@ -31,6 +31,6 @@ jobs:
         uses: actions/upload-artifact@v3
         if: success()
         with:
-          name: KOR0289-Thesis.pdf
+          name: KOR0289-Thesis
           path: kor0289/main.pdf
           if-no-files-found: error
