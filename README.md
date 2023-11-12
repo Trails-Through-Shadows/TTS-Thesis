@@ -10,39 +10,31 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 
 ### [Barbora Kovalská](https://github.com/Kkobarii) (KOV0354)
 
-> ### Tvorba herního modelu výpravné evoluční hry </br> <small>Creation of the Game Model for the Narrative Evolution Game</small>
+> ### Tvorba herního modelu výpravné evoluční hry </br> <sup>Creation of the Game Model for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/structure.md)
-> 
-> &nbsp;
 
 ### [Pavel Mikula](https://github.com/Firestone82) (MIK0486)
 
-> ### Tvorba administrativního rozhraní výpravné evoluční hry </br> <small>Creation of the Administrative Interface for the Narrative Evolution Game</small>
+> ### Tvorba administrativního rozhraní výpravné evoluční hry </br> <sup>Creation of the Administrative Interface for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/structure.md)
-> 
-> &nbsp;
 
 ### [Martin Korotwitschka](https://github.com/rcMarty) (KOR0289)
 
-> ### Tvorba API výpravné evoluční hry </br> <small>API Design for the Narrative Evolution Game</small>
+> ### Tvorba API výpravné evoluční hry </br> <sup>API Design for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/structure.md)
-> 
-> &nbsp;
 
 ### [Miroslav Osoba](https://github.com/Orfian) (OSO0008)
 
-> ### Tvorba ??? výpravné evoluční hry </br> <small>Creation of the ??? for the Narrative Evolution Game</small>
+> ### Tvorba ??? výpravné evoluční hry </br> <sup>Creation of the ??? for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/specification.pdf) </br>
 [Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/structure.md)
-> 
-> &nbsp;
 
 ## Recommended literature
 
