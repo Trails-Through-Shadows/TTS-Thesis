@@ -1,0 +1,68 @@
+name: LateX Compiler - KOV0354
+
+on: [push, pull_request]
+
+jobs:
+  check_changes:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.set_output.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check for changes in directories
+        id: set_output
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const changedFiles = (await github.rest.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: 'master',
+              head: context.sha
+            })).data.files.map(file => file.filename);
+
+            const changed = changedFiles.some(file => file.startsWith('kov0354/'));
+            core.setOutput('changed', changed.toString());
+
+  # Define your jobs for LaTeX compilation here, conditionally executed
+  process:
+    needs: check_changes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # If changes are detected, compile and upload the LaTeX document
+      - name: Compiling LaTeX documents
+        if: needs.check_changes.outputs.changed == 'true'
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: kov0354
+
+      - name: Upload LaTeX documents
+        if: needs.check_changes.outputs.changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: kov0354.pdf
+          path: kov0354/main.pdf
+          if-no-files-found: error
+
+      # If no changes are detected, download the artifact from the previous successful run
+      - name: Download previous artifact
+        if: needs.check_changes.outputs.changed == 'false'
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: your-workflow-file-name.yml # Replace with your workflow file name
+          name: kov0354.pdf
+          path: ./temp
+
+      # Upload the downloaded artifact as main.pdf
+      - name: Re-upload as main.pdf
+        if: needs.check_changes.outputs.changed == 'false'
+        uses: actions/upload-artifact@v3
+        with:
+          name: main.pdf
+          path: ./temp/kov0354.pdf
+
+
