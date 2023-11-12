@@ -1,18 +1,26 @@
-name: Build LaTeX document
-on: [push]
+name: Compile and Upload LaTeX Documents
+
+on: [push, pull_request]
 
 jobs:
-  build_latex:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Set up Git repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+
+      - name: Process LaTeX Document in latex_test
+        uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
-      - name: Upload PDF file
+          root_file: latex_test/main.tex
+          working_directory: latex_test
+        if: always() && success() && github.event_name == 'push'
+        continue-on-error: true
+
+      - name: Upload PDF from latex_test
         uses: actions/upload-artifact@v3
+        if: success() && github.event_name == 'push'
         with:
-          name: PDF
-          path: main.pdf
+          name: PDF-latex_test
+          path: latex_test/main.pdf
