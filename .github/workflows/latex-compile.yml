@@ -1,18 +1,69 @@
-name: Build LaTeX document
-on: [push]
+name: LateX Compiler
+
+on: [push, pull_request]
 
 jobs:
-  build_latex:
+  kor0289:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v3
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-      - name: Upload PDF file
+          working_directory: kor0289
+      - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
+        if: success()
         with:
-          name: PDF
-          path: main.pdf
+          name: kor0289.pdf
+          path: kor0289/main.pdf
+          if-no-files-found: error
+  kov0354:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: kov0354
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: kov0354.pdf
+          path: kov0354/main.pdf
+          if-no-files-found: error
+  mik0486:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: mik0486
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: mik0486.pdf
+          path: mik0486/main.pdf
+          if-no-files-found: error
+  oso0008:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: oso0008
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: oso0008.pdf
+          path: oso0008/main.pdf
+          if-no-files-found: error
