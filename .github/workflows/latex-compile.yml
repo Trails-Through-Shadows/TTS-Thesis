@@ -1,26 +1,20 @@
-name: Compile and Upload LaTeX Documents
+name: Parallel Compile and Upload LaTeX Documents
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  compile-test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Process LaTeX Document in latex_test
+      - uses: actions/checkout@v2
+      - name: Compile LaTeX Document in latex_test
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: main.tex
-          working_directory: latex_test
-        if: always() && success() && github.event_name == 'push'
-        continue-on-error: true
-
+          root_file: latex_test/main.tex
       - name: Upload PDF from latex_test
-        uses: actions/upload-artifact@v3
-        if: success() && github.event_name == 'push'
+        uses: actions/upload-artifact@v2
+        if: success()
         with:
-          name: PDF-latex_test
+          name: latex_test.pdf
           path: latex_test/main.pdf
+          if-no-files-found: error # Fail the job if no files are found
