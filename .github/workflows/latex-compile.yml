@@ -6,15 +6,16 @@ jobs:
   compile-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Compile LaTeX Document in latex_test
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: latex_test/main.tex
+          root_file: main.tex
+          working_directory: latex_test
       - name: Upload PDF from latex_test
         uses: actions/upload-artifact@v2
         if: success()
         with:
           name: latex_test.pdf
           path: latex_test/main.pdf
-          if-no-files-found: error # Fail the job if no files are found
+          if-no-files-found: error
