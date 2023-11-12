@@ -1,0 +1,40 @@
+name: Markdown Lint Check
+
+on: [push, pull_request]
+
+jobs:
+  kor0289:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'kor0289/**/*.md'
+
+  kov0354:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'kov0354/**/*.md'
+
+  mik0486:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'mik0486/**/*.md'
+
+  oso0008:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'oso0008/**/*.md'
