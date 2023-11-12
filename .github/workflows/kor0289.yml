@@ -1,0 +1,36 @@
+name: Compile LaTeX - KOR0289
+
+on:
+  push:
+    paths:
+      - 'kor0289/**'
+  pull_request:
+    paths:
+      - 'kor0289/**'
+
+jobs:
+  check-markdown:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'kor0289/**/*.md'
+  build-latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: kor0289
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: KOR0289-Thesis.pdf
+          path: kor0289/main.pdf
+          if-no-files-found: error

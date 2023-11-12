@@ -1,0 +1,36 @@
+name: Compile LaTeX - OSO0008
+
+on:
+  push:
+    paths:
+      - 'oso0008/**'
+  pull_request:
+    paths:
+      - 'oso0008/**'
+
+jobs:
+  check-markdown:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
+        with:
+          fix: true
+          globs: 'oso0008/**/*.md'
+  build-latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: oso0008
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: OSO0008-Thesis.pdf
+          path: oso0008/main.pdf
+          if-no-files-found: error
