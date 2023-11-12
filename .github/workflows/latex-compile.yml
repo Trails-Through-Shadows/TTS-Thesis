@@ -1,21 +1,69 @@
-name: Parallel Compile and Upload LaTeX Documents
+name: LateX Compiler
 
 on: [push, pull_request]
 
 jobs:
-  compile-test:
+  kor0289:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Compile LaTeX Document in latex_test
+      - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: latex_test
-      - name: Upload PDF from latex_test
-        uses: actions/upload-artifact@v2
+          working_directory: kor0289
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
         if: success()
         with:
-          name: latex_test.pdf
-          path: latex_test/main.pdf
+          name: kor0289.pdf
+          path: kor0289/main.pdf
+          if-no-files-found: error
+  kov0354:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: kov0354
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: kov0354.pdf
+          path: kov0354/main.pdf
+          if-no-files-found: error
+  mik0486:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: mik0486
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: mik0486.pdf
+          path: mik0486/main.pdf
+          if-no-files-found: error
+  oso0008:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: oso0008
+      - name: Upload LaTeX documents
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: oso0008.pdf
+          path: oso0008/main.pdf
           if-no-files-found: error
