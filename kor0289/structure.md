@@ -16,6 +16,12 @@
 - Formáty využívající se v API
   - Json
   - XML
+- Zabezpečení a autentifikace
+  - Autentifikace
+    - API key
+    - Oauth
+    - JWT
+  - Zabezpečení vůči útokům
 
 ## 3. Implementace
 
