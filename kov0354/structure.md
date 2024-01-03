@@ -30,10 +30,14 @@
 - Struktura a obsah příručky
 - Jak příručka napomáhá uživatelům
 
-## 8. Závěr
+## 8. Testování
+- Testování funkčnosti
+- User feedback
+
+## 9. Závěr
 - Shrnutí dosažených výsledků
 - Možnosti dalšího rozvoje a výzkumu
 
-## 9. Seznam literatury
+## 10. Seznam literatury
 
-## 10. Přílohy
+## 11. Přílohy
