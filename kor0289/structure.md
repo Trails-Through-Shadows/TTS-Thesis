@@ -47,3 +47,19 @@
 - Technická dokumentace
 - Příklady herních situací
 - Schémata a vizualizace
+
+### Poznámky co přidat "nad rámec"
+
+- něco jako wishlist od ostatních
+- testování
+- hosting
+- ms technologie,
+- content delivery network
+
+  - cloud
+  - pro grafku
+  - enjinx
+  - open cv
+
+  - formáty obrázku a multimédií
+  - konvence
