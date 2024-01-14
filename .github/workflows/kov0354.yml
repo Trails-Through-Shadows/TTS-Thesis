@@ -32,5 +32,5 @@ jobs:
         if: success()
         with:
           name: KOV0354-Thesis
-          path: kov0354/main.pdf
+          path: kov0354/src/main.pdf
           if-no-files-found: error
