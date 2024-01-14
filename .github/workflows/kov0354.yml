@@ -26,7 +26,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: kov0354
+          working_directory: kov0354/src
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
