@@ -10,6 +10,7 @@
 ## 3. Analýza a návrh herního modelu
 - Požadavky na herní model
 - Návrh herního modelu
+- Návrh herního plánu
 - Návrh pravidel a uživatelského chování
 
 ## 4. Implementace a vizualizace
