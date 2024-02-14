@@ -11,7 +11,7 @@
 - Kdy se začaly podobat tomu, co se snažíme vytvořit my?
 - Jaké jsou nejnovější trendy?
 
-### Základy herní teorie a herního designu
+### Základy teorie a herního designu
 - Co je to herní teorie a herní design?
 - Jaké jsou základní principy herní teorie?
 - Možná taky něco o tom jak psát příběhy a jak funguje výpravnost

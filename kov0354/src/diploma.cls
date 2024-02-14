@@ -168,13 +168,13 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 \RequirePackage[\the\Dipl@BabelLanguageOptions]{babel}
-\newgeometry{a4paper, twoside=false, includefoot, nohead, nomarginpar, left=25mm, right=25mm, top=25mm, bottom=25mm}
+\newgeometry{twoside=false, includefoot, nohead, nomarginpar, left=25mm, right=25mm, top=25mm, bottom=25mm}
 \savegeometry{Dipl@OneSide}
-\newgeometry{a4paper, twoside=false, nofoot, nohead, nomarginpar, left=25mm, right=25mm, top=25mm, bottom=25mm}
+\newgeometry{twoside=false, nofoot, nohead, nomarginpar, left=25mm, right=25mm, top=25mm, bottom=25mm}
 \savegeometry{Dipl@OneSideNoFoot}
-\newgeometry{a4paper, twoside, includefoot, nohead, nomarginpar, left=35mm, right=25mm, top=25mm, bottom=25mm}
+\newgeometry{twoside, includefoot, nohead, nomarginpar, left=35mm, right=25mm, top=25mm, bottom=25mm}
 \savegeometry{Dipl@TwoSide}
-\newgeometry{a4paper, twoside, nofoot, nohead, nomarginpar, left=35mm, right=25mm, top=25mm, bottom=25mm}
+\newgeometry{twoside, nofoot, nohead, nomarginpar, left=35mm, right=25mm, top=25mm, bottom=25mm}
 \savegeometry{Dipl@TwoSideNoFoot}
 \ifthenelse{\value{Dipl@CurrentThesisType}=\Dipl@PhDThesis}
 {
