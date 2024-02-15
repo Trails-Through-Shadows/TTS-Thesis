@@ -28,11 +28,15 @@
 
 \AddAcronym{TTS}{Trails Through Shadows}
 \AddAcronym{RPG}{Role Playing Game}
+\AddAcronym{D\&D}{Dungeons \& Dragons}
 
 \addbibresource{Resources/websites.bib}
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
 \newcolumntype{d}[1]{D{,}{,}{#1}}
+
+% Uprava hloubky obsahu - pozdeji smazat !
+\setcounter{tocdepth}{2}
 
 
 % Zacatek dokumentu
@@ -52,7 +56,8 @@
 % Text zaverecne prace.
 \input{Chapters/Introduction.tex}
 
-\input{Chapters/Theory.tex}
+\input{Chapters/History.tex}
+\input{Chapters/GameDesign.tex}
 
 \input{Chapters/Conclusion.tex}
 

@@ -1,0 +1,85 @@
+\chapter{Teorie herního designu}
+\label{chap:design}
+
+V této kapitole si popíšeme základní pojmy herní teorie a designu, které nám poslouží jako základ pro náš vlastní návrh. \cite{building_blocks_of_tabletop_design_2022}
+
+
+\section{Herní struktura}
+\label{sec:basics}
+
+Herní struktura je základním stavebním kamenem každé hry. Jedná se o sadu pravidel, která určují, jak se hraje, co mohou hráči dělat a jakým způsobem se hra vyhrává. Typy struktur se liší podle jejich přístupu k herním systémům a mechanikám. 
+
+\subsection{Kompetetivní hry}
+\label{subsec:competitive}
+
+Kompetetivní hry tvoří velkou část trhu s deskovými hrami. V těchto hrách se hráči snaží porazit ostatní a dosáhnout vítězství. Tyto hry můžou být symetrické, kdy všichni hráči začínají se stejnou nebo alespoň podobnou silou, nebo asymetrické, kdy mají hráči různé schopnosti a cíle. Častým problémem bývá vybalancovat hru tak, aby byla zábavná pro všechny hráče, a to i přesto, že se může stát, že jeden hráč bude mít výhodu. Dále se často stává, že hra skončí remízou. V takovém případě se může o vítězi rozhodnout buď pomocí nějakých dodatečných pravidel, nebo může skončit sdíleným vítězstvím.
+
+Příklady: \textit{Monopoly}, \textit{Carcassonne}, \textit{Šachy}, \textit{Race for the Galaxy}
+
+\subsection{Kooperativní hry}
+\label{subsec:cooperative}
+
+Naopak kooperativní hry se snaží hráče spojit proti společnému nepříteli nebo problému. Hráči spolupracují na dosažení cíle, který je obvykle nějakým způsobem předem daný. Velkou výhodou toho typu her je to, že odstraňují překážky, které by lidem bránily si tento typ her zahrát. Když jsou hráči spolu ve stejném týmu, dokáží vyrovnat jejich schopnosti a zkušenosti, což může novým hráčům pomoci se do hry dostat.
+
+Kooperativní hry se dají dále rozdělovat podle různých kritérií. Například některé mohou hráče spojit v boji proti oponentovi ve formě umělé inteligence nebo sady algoritmů, zatímco jiné dávají týmu za úkol vyřešit hádanku a nemají žádného protivníka. Dalším kritériem může být, jestli hra má skryté informace, nebo jestli jsou všechny informace sdílené. Sdílení zdrojů, způsob komunikace a způsob, jakým se hra vyhrává, jsou dalšími faktory, které mohou kooperativní hru ovlivnit.
+
+Příklady: \textit{Pandemic}, \textit{Arkham Horror}, \textit{Gloomhaven}, \textit{Na vlnách neznáma}
+
+
+\subsection{Hry se scénářem}
+\label{subsec:scenario}
+
+Tento typ her se často zaměřuje především na příběh, historickou tematiku a RPG elementy. Průběh hrou se skládá z jednotlivých epizod, které můžou být předem naplánované a navázané na sebe. Tento systém se často používá v tzv. \textit{dungeon crawlerech}, kde hráči prochází jeden dungeon za druhým. S tímto formátem je jednoduché vyměnit mapu, typy nepřátel nebo příběhové zabarvení a hráči mohou zažít více dobrodružství bez toho, aby se museli učit nová pravidla. Taky je to jednoduchý způsob jak nastavit obtížnost hry, protože každý scénář může být jiný.
+
+Příklady: \textit{Osadníci z Katanu}, \textit{Gloomhaven}, \textit{Pathfinder}
+
+\subsection{Legacy hry}
+\label{subsec:legacy}
+
+Legacy hry jsou speciální typ her, který se vyznačuje nenávratnými změnami, které hráči během hraní páchají na herních komponentách. Jde o změny fyzického rázu, jako je psaní na herní desku, trhání karet nebo lepení nálepek. Tyto změny mohou být způsobeny výsledkem hry, nebo mohou být součástí příběhu. Tento typ her se často zaměřuje na příběh a vývoj postav, a proto mají velmi blízko k RPG žánru. Kampaně v nich mohou trvat i několik měsíců či let, rozdělených do jednotlivých několikahodinových sezení. Jedná se o relativně nový fenomén, který se však v posledních letech začal rozšiřovat a získal si své publikum.
+
+Příklady: \textit{Risk Legacy}, \textit{Harry Potter: Hogwarts Battle}, \textit{Gloomhaven}
+
+
+\section{Pořadí a struktura tahů}
+\label{sec:turns}
+
+Se zavedením struktury přichází potřeba rozhodovat, kdy hráči mohou konat různé akce nebo kroky. Odsud vznikla myšlenka \textbf{tahu} - jednotky času, během které mohou hráči se hrou interagovat. Více tahů pak tvoří jedno \textbf{kolo}, přičemž běžné hry se skládají z několika takovýchto kol. V některých titulech se kola navíc rozdělují do několika \textbf{fází}, které většinou rozdělují akce do různých typů, čímž umožňují ještě větší stukturovanost herního kola. Tato pravidla se však mohou lišit podle typu hry, a proto si zde přiblížíme několik základních typů struktury tahů.
+
+\subsection{Kolo s pevným pořadím}
+\label{subsec:fixed_order}
+
+Jedná se o nejzákladnější typ struktury kola, kdy se pořadí hráčů určí jednou na začátku hry a od té doby zůstává neměnné. Obvykle se nějakým způsobem vybere první hráč a dál tahy pokračují podél stolu ve směru nebo proti směru hodinových ručiček (například v klasické karetní hře \textit{Prší}). Tento typ struktury je velmi jednoduchý a intuitivní, ale může být nevýhodný pro hry, kde je výhoda mít první tah, nebo chceme zajistit, aby všichni hráči měli stejný počet tahů. Toto se dá řešit zvýhodněním odstaních hráčů jinými způsoby, například herními bonusy (mana navíc pro druhého hráče v \textit{Hearthstonu}), nebo tím, že budeme monitorovat, který hráč začínal, a poslední kolo se vždy dojede až k němu, i kdyby hra byla ukončena v průběhu kola (jako v \textit{Through the Ages}, kde všichni dojedou celé kolo po tom, co jeden hráč zvítězí).
+
+\subsection{Kolo s pořadím podle statistik}
+\label{subsec:stat_order}
+
+Tento typ struktury kola se snaží vyrovnat výhody a nevýhody, které mohou vzniknout z pevného pořadí. Pořadí se v tomto případě mění podle nějakého skóre, které se během hry mění. Určující statistikou může být například počet bodů, které hráči mají (tokeny populace v \textit{Civilizaci}), nebo nějaké pevnější statistiky spojené se samotnými postavami. Tento systém se často používá v RPG hrách, kde se pořadí může měnit podle iniciativy postav (klasická iniciativa v \textit{D\&D}), nebo ve hrách, kde se pořadí mění podle toho, jak dobře nebo špatně se hráči daří (znevýhodnění nejlepších hráčů ve \textit{Vysokém napětí}). Hra pak dokáže být dynamičtější a aktivně reagovat na změny, což přináší nové strategické možnosti a větší zapojení hráčů.
+
+\subsection{Kolo s pořadím určeném v reálném čase}
+\label{subsec:realtime_order}
+
+Další zajímavou možností určení pořadí je nechat hráčům volnou ruku, často omezenou nějakým časovým limitem. Je pak na rychlosti samotných hráčů, jak rychle dokážou reagovat na situaci a provést svůj tah. Silnou stránkou tohoto systému je to, že hra může být mnohem rychlejší a dynamická a často s sebou přináší vyšší úroveň soutěživosti (například u hry \textit{Dobble}). Nevýhodou je to, že může být pro některé hráče stresující a může být obtížné udržet přehled o tom, co se děje. Také se designer musí více rozmyslet, jak řešit chyby hráčů a také podvádění, které v tomto zmatku bývá častější.
+
+\subsection{Kolo s náhodným pořadím}
+\label{subsec:random_order}
+% TODO - najít hru, která tohle používá
+
+Náhodný výběr figurek nebo žetonů reprezentujících jednotlivé hráče, často losované z pytlíku nebo balíčku, je skvělý způsob, jak udělat hru méně předvídatelnou. Bohužel s sebou nese i snížené možnosti strategie ze strany hráčů, takže se hodí spíše pro hry, které nemají s náhodou problém a snaží se být spíše zábavné a chaotické. V opačném případě se musí zavést nějaké doplňkové mechanismy, které hráčům umožní reagovat na náhodu a otočit ji ve svůj prospěch.
+
+\subsection{Kolo se současným výběrem akcí}
+\label{subsec:action_selection_order}
+
+Posledním typem struktury kola, který si zde přiblížíme, je kolo, kde hráči vybírají akce současně, často v tajnosti. Když jsou všichni připraveni nebo po uplynutí nějakého určeného času, se všechny akce odhalí najednou a provedou se. Často je tady třeba také druhotná mechanika pro určení pořadí, ve kterém se akce vyhodnotí (například v \textit{Race for the Galaxy}, kde si hráči nejprve zvolí fáze, které chtějí hrát, a pak si v tajnosti zvolí akce, které se pak vyhodnotí v pořadí vybraných fází). Tajné vybírání akcí je vhodné pro hry, které dávají důraz na strategii a odhadování akcí soupeřů.
+
+\section{Akce}
+\label{sec:actions}
+
+\subsection{Rozhodnutí akce}
+\label{subsec:action_resolution}
+
+\section{Pohyb po herním poli}
+\label{sec:movement}
+
+\section{Konec hry}
+\label{sec:end}

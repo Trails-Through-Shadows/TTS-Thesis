@@ -1,14 +1,15 @@
-\chapter{Teoretická část}
+\chapter{Historie a základní pojmy}
 \label{chap:theory}
 
 V této kapitole si popíšeme historii deskových her, představíme základní pojmy herní teorie a designu a zanalyzujeme některé existující hry, které nám poslouží jako inspirace pro náš vlastní návrh.
 
-\section{Přehled a historie deskových her}
+
+\section{Historický vývoj}
 \label{sec:history}
 
-Deskové hry lidstvo provázejí už překvapivě dlouhou dobu. Ať už sloužily jako zábava, nástroj ke vzdělávání nebo jen jako aktivitu umožňující sociální kontakt, vždy byly součástí lidské kultury. Vývoj deskových her odráží vývoj lidské civilizace - změny v technologiích, kultuře a filozofii. V následujících sekcích si přiblížíme historii, kterou si deskové hry v průběhu času prošly.
+Deskové hry lidstvo provázejí už překvapivě dlouhou dobu. Ať už sloužily jako zábava, nástroj ke vzdělávání nebo jen jako aktivita umožňující sociální kontakt, vždy byly součástí lidské kultury. Vývoj deskových her odráží vývoj lidské civilizace - změny v technologiích, kultuře a filozofii. V následujících sekcích si přiblížíme historii, kterou si deskové hry v průběhu času prošly.
 
-\subsection{Počátky deskových her}
+\subsection{Počátky}
 \label{subsec:beginnings}
 
 Za úplně první deskové hry bychom mohli považovat kostky. Ty byly nalezeny v různých prehistorických nalezištích, což znamená, že lidstvo si s nimi hrálo dřív, než začalo zanechávat písemné záznamy. Kromě kostek se však našly i jiné předměty, které byly pravděpodobně používány k hraní her. Šlo například o sadu barevných vyřezávaných kamínků, které byly nalezeny v Turecku, nebo zdobená dřívka z Mezopotámie. \cite{attia_2018}
@@ -45,10 +46,22 @@ V německu se deskové hry rozrostly tak moc, že se zde vytvořila vlastní kul
 \subsection{Moderní směr}
 \label{subsec:modern}
 
-Kvůli vzniku a úspěchu spousty dalších her, například \textit{Carcassonne}, \textit{Ticket to Ride} nebo \textit{Risc}, se čím dál více lidí chtělo stát jejich vývojáři. V tomto jim pomohl jeden z dalších milníků - vznik Kickstarteru. Tato platforma umožňuje vývojářům prezentovat své nápady a získat na ně finanční podporu od lidí, kteří by je chtěli vidět na trhu.  \cite{attia_2018}
+Kvůli vzniku a úspěchu spousty dalších her, například \textit{Carcassonne}, \textit{Ticket to Ride} nebo \textit{Risk}, se čím dál více lidí chtělo stát jejich vývojáři. V tomto jim pomohl jeden z dalších milníků - vznik Kickstarteru. Tato platforma umožňuje vývojářům prezentovat své nápady a získat na ně finanční podporu od lidí, kteří by je chtěli vidět na trhu.  \cite{attia_2018}
 
 Díky tomu deskové hry prošly další revolucí, neboť teď tu byla možnost propagovat hru přímo hráčům, kteří by ji chtěli hrát. Velmi úspěšné projekty jako \textit{Exploding Kittens} nebo \textit{Gloomhaven} získaly na Kickstarteru miliony dolarů. Také zde začaly vznikat deskové implementace existujících videoherních titulů, jako například \textit{Darkest Dungeon: The Board Game}, \textit{The Witcher: Old World} nebo \textit{Dark Souls - The Board Game}. \cite{kickstarter}
 
-Nemůžeme zapomenout zmínit ani giganta mezi deskovými hrami, který přinesl revoluci v herním designu - \textbf{Dungeons \& Dragons}. Tato hra, vytvořená Gary Gygaxem a Davidem Arnesonem, byla první hrou, která se zaměřovala na příběh a roleplay. Hráči si v ní vytvářeli své postavy a procházeli s nimi dobrodružstvím, které jim připravoval tzv. \textit{Dungeon Master} - hráč, který hru řídil a vytvářel pro ostatní hráče příběh. Hra byla tak úspěšná, že vytvořila celý žánr - \textit{tabletop RPGs} - a inspirovala spoustu dalších her, jak deskových, tak videoherních. \cite{dndbeyond_2023}
+Nemůžeme zapomenout zmínit ani giganta mezi deskovými hrami, který přinesl revoluci v herním designu - \textbf{Dungeons \& Dragons}. Tato hra, vytvořená Gary Gygaxem a Davidem Arnesonem, byla první hrou, která se zaměřovala na příběh a roleplay. Hráči si v ní vytvářeli své postavy a procházeli s nimi dobrodružstvím, které jim připravoval tzv. \textit{Dungeon Master} - hráč, který hru řídil a vytvářel pro ostatní hráče příběh. Hra byla tak úspěšná, že vytvořila celý žánr - \textit{tabletop RPGs} - a inspirovala spoustu dalších her, jak deskových, tak videoherních. \cite{dnd_beyond_2023}
 
 V moderních hrách můžeme pozorovat, že se stále více zaměřují na roleplay a příběh a hlouběji implementují RPG prvky. I herní mechanismy se stávají více komplexními a vývojáři se nebojí experimentovat s novými nápady. Hry začínají být i obsáhlejší, což se projevuje v delší době hraní, větší složitosti pravidel a větším množství fyzických komponent.
+
+
+\section{Definice pojmu desková a stolní hra}
+\label{subsec:boardgame_definition}
+
+V této oblasti herního designu se můžeme setkat se dvěma základními pojmy: \textit{desková hra} a \textit{stolní hra}. Tyto pojmy se často používají zaměnitelně, ale mají odlišné významy. Proto si je zde přiblížíme.
+
+\textbf{Desková hra} (board game) je obvykle hra, jejíž hlavní součástí a neoddělitelnou komponentou je herní deska. Samotné provedení desky se může lišit, může se jednat o klasickou čtvercovou desku, nebo o jiný tvar, jako například kruhovou, hexagonální nebo jinou. Deska může být také rozdělena na políčka, která mohou mít různé vlastnosti, například barvu, číslo nebo symbol. Hra může mít také další komponenty, jako jsou karty, kostky, figurky, žetony, atd. Herní systém většinou bývá intuitivní a jenoduchý, snažící se zaměřit na širší publikum hráčů. Herní mechaniky se často točí okolo desky a ostatních fyzických komponent a neobsahují velkou míru abstrakce. Do této kategorie patří například Monopoly, Osadníci z Katanu nebo Carcassonne. \cite{board_game_supply_2023}
+
+\textbf{Stolní hra} (tabletop game) je obecnější termín, který zahrnuje všechny hry, které se hrají na stole. To znamená, že do této kategorie můžeme zařadit i hry, které nemají herní desku, jako například karetní hry, hry s kostkami, nebo hry, které se hrají pouze s papírem a tužkou. I když jsou komponenty jejich důležitou součástí, některé stolní hry si dovolují vyšší míru abstrakce herních systémů, což jim dává větší možnosti hloubky na úkor odcizení některých skupin hráčů. Toto můžeme pozorovat například u prosperujícího žánru RPG her, kam můžeme zařadit Na vlnách neznáma, Gloomhaven nebo i výše zmíněné Dungeons \& Dragons. \cite{board_game_supply_2023}
+
+Pro účely této práce se budeme věnovat především deskovým hrám, ale budeme se snažit zahrnout i některé prvky stolních her, které by mohly být pro náš návrh užitečné.
