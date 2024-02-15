@@ -1,5 +1,4 @@
-# Osnova Bakalářské práce:
-# Tvorba administrativního rozhrananí výpravně evoluční hry
+# Osnova Bakalářské práce: <br> Tvorba administrativního rozhrananí výpravně evoluční hry
 
 ## Úvod
 - Úvod do témata (Krátký přehled o významu a důležitosti administrativních rozhraní)
