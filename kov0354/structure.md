@@ -116,3 +116,11 @@
 
 
 ## 11. Přílohy
+
+
+
+- do game designu přidat rozdělení podle toho jak moc to spolupracuje s apkou
+- franchising
+- herní psychologie
+- příloha rejstřík her
+- sada pravidel coby kdyby
