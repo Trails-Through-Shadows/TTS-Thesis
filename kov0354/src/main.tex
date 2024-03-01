@@ -1,4 +1,4 @@
-\documentclass[czech,bachelor]{diploma}
+\documentclass[czech,bachelor]{../../shared/diploma}
 
 \usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
 \usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
@@ -30,7 +30,7 @@
 \AddAcronym{RPG}{Role Playing Game}
 \AddAcronym{D\&D}{Dungeons \& Dragons}
 
-\addbibresource{Resources/sauce.bib}
+\addbibresource{resources/sauce.bib}
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
 \newcolumntype{d}[1]{D{,}{,}{#1}}
@@ -54,13 +54,13 @@
 % \clearpage
 
 % Text zaverecne prace.
-\input{Chapters/Introduction.tex}
+\input{chapters/Introduction.tex}
 
-\input{Chapters/History.tex}
-\input{Chapters/GameDesign.tex}
-\input{Chapters/OtherGames.tex}
+\input{chapters/History.tex}
+\input{chapters/GameDesign.tex}
+\input{chapters/OtherGames.tex}
 
-\input{Chapters/Conclusion.tex}
+\input{chapters/Conclusion.tex}
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]

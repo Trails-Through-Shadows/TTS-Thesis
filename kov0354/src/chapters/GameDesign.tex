@@ -1,7 +1,7 @@
 \chapter{Teorie herního designu}
 \label{chap:game_design}
 
-V této kapitole si popíšeme základní pojmy herní teorie a designu, které nám poslouží jako základ pro náš vlastní návrh. \cite{building_blocks_of_tabletop_design_2022}
+V této kapitole jsou popsány základní pojmy herní teorie a designu, které budou sloužit jako základ pro vlastní návrh. \cite{building_blocks_of_tabletop_design_2022}
 
 
 %%% section: Structure %%%
@@ -48,7 +48,7 @@ Příklady: \textit{Risk Legacy}, \textit{Harry Potter: Hogwarts Battle}, \texti
 \section{Pořadí a struktura tahů}
 \label{sec:turns}
 
-Se zavedením struktury přichází potřeba rozhodovat, kdy hráči mohou konat různé akce nebo kroky. Odsud vznikla myšlenka \textbf{tahu} - jednotky času, během které mohou hráči se hrou interagovat. Více tahů pak tvoří jedno \textbf{kolo}, přičemž běžné hry se skládají z několika takovýchto kol. V některých titulech se kola navíc rozdělují do několika \textbf{fází}, které většinou rozdělují akce do různých typů, čímž umožňují ještě větší stukturovanost herního kola. Tato pravidla se však mohou lišit podle typu hry, a proto si zde přiblížíme několik základních typů struktury tahů.
+Se zavedením struktury přichází potřeba rozhodovat, kdy hráči mohou konat různé akce nebo kroky. Odsud vznikla myšlenka \textbf{tahu} - jednotky času, během které mohou hráči se hrou interagovat. Více tahů pak tvoří jedno \textbf{kolo}, přičemž běžné hry se skládají z několika takovýchto kol. V některých titulech se kola navíc rozdělují do několika \textbf{fází}, které většinou třídí akce do různých typů, čímž umožňují ještě větší stukturovanost herního kola. Tato pravidla se však mohou lišit podle typu hry, proto se tato sekce věnuje přiblížení několika základních typů struktury tahů.
 
 \subsection{Kolo s pevným pořadím}
 \label{subsec:fixed_order}
@@ -82,7 +82,7 @@ Posledním typem struktury kola, který si zde přiblížíme, je kolo, kde hrá
 \section{Akce}
 \label{sec:actions}
 
-Když jsme přiblížili, jak se hráči během hry střídají, je třeba podívat se na to, co mohou vlastně dělat. To nás přivádí k \textbf{akcím}, které pomáhají jednoduše a srozumitelně definovat, co mohou hráči dělat a jakým způsobem toho mohou dosáhnout. Jedná se o atomický krok v rámci hry, příkladem může být hod kostkou, pohyb figurkou, nebo zahraní karty. Akce hře dodávají dynamiku a určují celkový pocit a atmosféru, kterou hra vytváří.
+Po přiblížení variant střídání hráčů během hry je vhodné zaměřit se na to, co mohou ve hře vlastně dělat. Tím se dostáváme k \textbf{akcím}, které pomáhají jednoduše a srozumitelně definovat, co mohou hráči dělat a jakým způsobem toho mohou dosáhnout. Jedná se o atomický krok v rámci hry, příkladem může být hod kostkou, pohyb figurkou, nebo zahraní karty. Akce hře dodávají dynamiku a určují celkový pocit a atmosféru, kterou hra vytváří.
 
 \subsection{Akční body}
 \label{subsec:action_points}
@@ -121,7 +121,7 @@ Další zajímavou obměnou je zavedení kritických úspěchů a neúspěchů. 
 \section{Pohyb po herním poli}
 \label{sec:movement}
 
-Už první deskové hry jako \textit{Senet} nebo \textit{Mahjong} (sekce \ref{subsec:beginnings}) měly \textbf{pohyb} po herním poli jako centrální herní mechaniku. Způsob, jakým hráči pohybují svými figurkami má velký vliv na to, jakou atmosféru hra nabízí a jaké strategické možnosti hráčům dává. V rychlosti si tedy popíšeme několik různých mechanik, které jsou s pohybem spojené.
+Už první deskové hry jako \textit{Senet} nebo \textit{Mahjong} (sekce \ref{subsec:beginnings}) měly \textbf{pohyb} po herním poli jako centrální herní mechaniku. Způsob, jakým hráči pohybují svými figurkami má velký vliv na to, jakou atmosféru hra nabízí a jaké strategické možnosti hráčům dává. Následující sekce popisuje několik různých mechanik, které jsou s pohybem spojené.
 
 \subsection{Rozdělení herního pole}
 \label{subsec:tessellation}
@@ -162,12 +162,12 @@ Aby byl herní svět co nejvíce rozmanitý, můžeme vytvořit více map, kter�
 \section{Konec hry}
 \label{sec:end}
 
-Samotný herní systém může být sebelepší, ale pokud nemá jasně definovaný konec, může se stát, že hráči si po jejím ukončení odnesou jen zklamání. Proto je důležité, aby hra měla dobře popsaný \textbf{cíl} a způsob, jakým se dá dosáhnout. Na závěr analýzy herního designu se tedy podíváme na to, jaké cíle můžeme u deskových her vidět.
+Samotný herní systém může být sebelepší, ale pokud nemá jasně definovaný konec, může se stát, že hráči si po jejím ukončení odnesou jen zklamání. Proto je důležité, aby hra měla pečlivě vymezený \textbf{cíl} a způsob, jakým se dá dosáhnout. Závěrná sekce analýzy herního designu je tedy zaměřena na to, jaké cíle se u deskových her vyskytují.
 
 \subsection{Body vítězství}
 \label{subsec:victory_points}
 
-Ve většině moderních her můžeme najít nějakou verzi systému bodu vítězství. Jedná se o velmi flexibilní mechaniku, kdy hráči během hry sbírají jednu nebo více surovin, které se po ukončení hry převedou na body a určí vítěze. Vítězné body je možné udělovat mnoha způsoby.
+Většina moderních her využívá nějakou verzi systému bodu vítězství. Jedná se o velmi flexibilní mechaniku, kdy hráči během hry sbírají jednu nebo více surovin, které se po ukončení hry převedou na body a určí vítěze. Vítězné body je možné udělovat mnoha způsoby.
 
 První z nich je získání bodů \textbf{ze stavu hry}. Hráči často mají předem určené cíle a snaží se s herním stavem manipulovat tak, aby je to co nejvíce odráželo. To, kdy se budou body počítat, může také ovlivnit ideální strategii. V některých hrách se body počítají až na konci hry (\textit{7 Wonders or Agricola}), jinak se ale mohou počítat po intervalech (třikrát za hru v \textit{El Grande}), po určitých akcích hráčů (hráč zahraje speciální kartu počítání bodů v \textit{The Expanse Board Game}), nebo náhodně (vylosování speciální karty z balíčku v \textit{Airlines}).
 
@@ -189,3 +189,15 @@ Další možností je zahrnout do hry nějaký druh zdroje, který se postupně 
 \label{subsec:cooperative_goals}
 
 V kooperativních hrách je vhodné vymyslet jiný způsob, jak ukončit hru - místo soutěžení o vítězství můžeme hráče motivovat ke společnému dosáhnutí nějakého cíle. Společný cíl může mít různé podoby, ať už poražení společného nepřítele (vyléčení všech nemocí v \textit{Pandemic}), dosažení nějakého bodového maxima (zabrání dostatečného množství pevností v \textit{Duně}) nebo splnění nějakého úkolu (zničení Jednoho prstenu v \textit{War of the Ring}). Týmové cíle podporují spolupráci a komunikaci, musíme si ale dávat pozor, aby se hráči necítili, že nemají na herní dění dostatečný vliv.
+
+
+%%% section: App %%%
+\section{Podpůrné aplikace}
+\label{sec:app}
+
+V posledních letech se stále více vývojářů stolních her snaží využít moderní technologie, ať už ve formě mobilních aplikací, nebo webových stránek. Tyto aplikace mohou sloužit k různým účelům, jako je například pouhé zobrazení pravidel, ale může jít i o stěžejní část hry. Tato sekce rozebírá fáze propojení mezi hrou a aplikací a možnosti, které se s tím pojí.
+
+\subsection{Stupně integrace}
+\label{subsec:app_integration}
+
+Neboť jsou podpůrné aplikace relativně novým fenoménem, po celou historii vývoje byla většina stolních her \textbf{plně fyzická} záležitost. I do dnes se tato tradice stále drží, spousta nově vyvinutých her se neopírají o žádnou podpůrnou aplikaci a všechnu administrativu nechávají čistě na hráčích. Nejde jen o samotný herní plán, figurky nebo karty a kostky, ale také o pravidla, která jsou většinou tištěná na papíře a přiložená k hře. 

@@ -94,21 +94,21 @@
 \setcounter{Dipl@CurrentThesisLanguage}{\Dipl@CzechLanguage}
 \Dipl@BabelLanguageOptions={english,main=czech}
 \Dipl@SupervisorCaption={Vedoucí práce}
-\Dipl@FacultyLogoFileName={Figures/FEI_CZ.pdf}
+\Dipl@FacultyLogoFileName={../../shared/FEI_CZ.pdf}
 }
 \DeclareOption{english}
 {
 \setcounter{Dipl@CurrentThesisLanguage}{\Dipl@EnglishLanguage}
 \Dipl@BabelLanguageOptions{czech,main=english}
 \Dipl@SupervisorCaption={Supervisor}
-\Dipl@FacultyLogoFileName={Figures/FEI_EN.pdf}
+\Dipl@FacultyLogoFileName={../../shared/FEI_EN.pdf}
 }
 \DeclareOption{slovak}
 {
 \setcounter{Dipl@CurrentThesisLanguage}{\Dipl@SlovakLanguage}
 \Dipl@BabelLanguageOptions={english,main=slovak}
 \Dipl@SupervisorCaption={Vedoucí práce}
-\Dipl@FacultyLogoFileName={Figures/FEI_CZ.pdf}
+\Dipl@FacultyLogoFileName={../../shared/FEI_CZ.pdf}
 }
 \DeclareOption{bachelor}
 {
