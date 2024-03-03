@@ -29,14 +29,14 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: kor0289
+          working_directory: kor0289/src
 
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
         with:
           name: KOR0289-Thesis
-          path: kor0289/main.pdf
+          path: kor0289/src/main.pdf
           if-no-files-found: error
 
       - name: Upload LaTeX documents to server
