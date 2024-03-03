@@ -1,39 +1,47 @@
-\documentclass[czech,bachelor]{diploma}
+\documentclass[czech,bachelor]{../../shared/diploma}
 
 \usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
 \usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
-\usepackage[cpp]{diplomalst}
+\usepackage{float} % lepsi umistovani obrazku (H)
 
-% Zadame pozadovane vstupy pro generovani titulnich stran.
-\ThesisAuthor{Pavel Mikula, MIK0486}
-\ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
+% Pozadovane vstupy pro generovani titulnich stran.
+\ThesisAuthor{Pavel Mikula}
+\ThesisSupervisor{doc. Ing. Radoslav Fasuga, Ph.D.}
 \CzechThesisTitle{Tvorba administrativního rozhraní výpravné evoluční hry}
 \EnglishThesisTitle{Creation of the Administrative Interface for the Narrative Evolution Game}
 \SubmissionYear{2024}
 
 \ThesisAssignmentFileName{../specification.pdf}
 
-% Pokud nechceme nikomu dekovat makro zapoznamkujeme.
-\Acknowledgement{Rád bych na tomto místě poděkoval všem, kteří mi s prací pomohli, protože bez nich by tato práce nevznikla.}
+\CzechAbstract{
+    Tato bakalářská práce se zabývá tvorbou administrativního rozhraní pro správu obsahu výpravné evoluční hry, kde rozhraní umožňuje
+    kompletní operace nad objekty jako jsou postavy, předměty, lokace, události a další. Pro vytvoření administrativního rozhraní je nutné
+    provést analýzu možných rozhraní, návrh a následnou implementaci. Jako finální produkt práce by měl vzniknout funkční prototyp
+    administrativní rozhraní, který bude umožňovat kompletní správu obsahu pomocí napojení na webové API, které bude poskytovat
+    data přímým přístupem k databázi.
+}
+\CzechKeywords{administrativní rozhraní, výpravně evoluční hra, správa obsahu hry, vykreslování, interaktivní editor}
 
-\CzechAbstract{Tohle je český abstrakt, zbytek odstavce je tvořen výplňovým textem. Naší si rozmachu potřebami s posílat v poskytnout ty má plot. Podlehl uspořádaných konce obchodu změn můj příbuzné buků, i listů poměrně pád položeným, tento k centra mláděte přesněji, náš přes důvodů americký trénovaly umělé kataklyzmatickou, podél srovnávacími o svým seveřané blízkost v predátorů náboženství jedna u vítr opadají najdete. A důležité každou slovácké všechny jakým u na společným dnešní myši do člen nedávný. Zjistí hází vymíráním výborná.}
+% TODO: Zkontrolovat, zda je abstrakt v angličtině správný, by AI
+\EnglishAbstract{
+    This bachelor thesis focuses on the development of an administrative interface for managing the content of an narrative evolutionary game.
+    The interface enables comprehensive content management, including characters, items, locations, events, and more.
+    To create the administrative interface, it is necessary to perform an analysis of possible interfaces, design a solution,
+    and subsequently implement it. The final product of this work should be a functional prototype of the administrative interface,
+    allowing complete content management through integration with a web API providing direct access to the database.
+}
+\EnglishKeywords{administrative interface, expansive evolutionary game, game content management, rendering, interactive editor}
 
-\CzechKeywords{typografie; \LaTeX; diplomová práce}
-
-\EnglishAbstract{This is English abstract. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aenean placerat. Vivamus ac leo pretium faucibus. Duis risus. Fusce consectetuer risus a nunc. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Aliquam erat volutpat. Donec vitae arcu. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vestibulum fermentum tortor id mi. Etiam bibendum elit eget erat. Pellentesque pretium lectus id turpis. Nulla quis diam.}
-
-\EnglishKeywords{typography; \LaTeX; master thesis}
-
-\AddAcronym{DVD}{Digital Versatile Disc}
-\AddAcronym{TNT}{Trinitrotoluen}
-\AddAcronym{UML}{Unified Modeling Language}
+\AddAcronym{API}{Aplikační programové rozhraní}
+\AddAcronym{JS}{JavaScript}
 \AddAcronym{HTML}{Hyper Text Markup Language}
-\AddAcronym{TUG}{\TeX{} Users Group}
 
-\addbibresource{biblatex-examples.bib}
-\addbibresource{coffee.bib}
+\Acknowledgement{
+    Rád bych na tomto místě poděkoval vedoucímu práce doc. Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady, trpělivost a ochotu věnovat mi svůj čas.
+    Dále bych chtěl poděkovat svým kolegům Martinovi Koritwitschkovi, Baboře Kovalské a Miroslavovi Osobovi za jejich asistenci při vývoji.
+}
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
 \newcolumntype{d}[1]{D{,}{,}{#1}}
@@ -42,36 +50,29 @@
 % Zacatek dokumentu
 \begin{document}
 
-% Nechame vysazet titulni strany.
+% Titulni strany
 \MakeTitlePages
 
-% Jsou v praci obrazky? Pokud ano vysazime jejich seznam a odstrankujeme.
-% Pokud ne smazeme nasledujici dve makra.
+% Obrazky
 \listoffigures
 \clearpage
 
-% Jsou v praci tabulky? Pokud ano vysazime jejich seznam a odstrankujeme.
-% Pokud ne smazeme nasledujici dve makra.
+% Tabulky
 \listoftables
 \clearpage
 
-% A nasleduje text zaverecne prace.
-\input{Chapters/Introduction.tex}
-\input{Chapters/SampleChapter1.tex}
-\input{Chapters/SampleChapter2.tex}
-\input{Chapters/TechnicalDetails.tex}
-\input{Chapters/Conclusion.tex}
+% Úvod
+\input{chapters/Introduction}
+
+% Kapitoly
+\input{chapters/SampleChapter1}
+\input{chapters/SampleChapter2}
+\input{chapters/TechnicalDetails}
+
+% Zaver
+\input{chapters/Conclusion}
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
-
-% Prilohy
-\appendix
-\input{Chapters/Appendix1.tex}
-\input{Chapters/Appendix2.tex}
-
-% Priloha vlozena primo do hlavniho LaTeX souboru. Ne vsechny prilohy je nutne mit ve zvlastnich souborech.
-\chapter{Dlouhý zdrojový kód}
-\lstinputlisting[label=src:CppExternal,caption={Dlouhý zdrojový kód v jazyce C++ načtený s externího souboru}]{SourceCodes/ArraySortingAlgorithms.cpp}
 
 \end{document}

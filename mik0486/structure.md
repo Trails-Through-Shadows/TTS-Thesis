@@ -22,7 +22,6 @@
 	*(Výzkum a vývoj rozhraní pro mobilní a desktopová zařízení, včetně technických a uživatelských aspektů.)*
 - Asynchronní komunikace s API
 	*(Řešení asynchronní komunikace mezi clientem a API tak aby došlo k co největší plynulosti)*
-- 
 
 ## Spolupracé a teamwork
 - Dynamika týmu
