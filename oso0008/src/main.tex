@@ -1,0 +1,61 @@
+\documentclass[czech,bachelor]{../../shared/diploma}
+
+\usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
+\usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
+\usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
+\usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
+
+\usepackage{float} % lepsi umistovani obrazku (H)
+
+% Pozadovane vstupy pro generovani titulnich stran.
+\ThesisAuthor{Miroslav Osoba}
+\ThesisSupervisor{doc. Ing. Radoslav Fasuga, Ph.D.}
+
+\CzechThesisTitle{Tvorba uživatelského prostředí výpravné evoluční hry}
+\EnglishThesisTitle{Creation of the User Environment for the Narrative Evolution Game}
+
+\SubmissionYear{2024}
+
+\ThesisAssignmentFileName{../specification.pdf}
+
+\Acknowledgement{TODO Acknowledgement}
+
+\CzechAbstract{TODO Cz Abstract}
+\CzechKeywords{hybridní desková hra; uživatelské prostředí}
+
+\EnglishAbstract{TODO En Abstract}
+\EnglishKeywords{hybrid board game; user environment}
+
+\addbibresource{resources/sauce.bib}
+
+% Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
+\newcolumntype{d}[1]{D{,}{,}{#1}}
+
+% Uprava hloubky obsahu - pozdeji smazat !
+\setcounter{tocdepth}{2}
+
+
+% Zacatek dokumentu
+\begin{document}
+
+% Titulni strany
+\MakeTitlePages
+
+% Seznam obrazku
+% \listoffigures
+% \clearpage
+
+% Seznam tabulek
+% \listoftables
+% \clearpage
+
+% Text zaverecne prace.
+\input{chapters/Introduction.tex}
+
+\input{chapters/HybridGames.tex}
+\input{chapters/UserInterface.tex}
+
+% Seznam literatury
+\printbibliography[title={Literatura}, heading=bibintoc]
+
+\end{document}
