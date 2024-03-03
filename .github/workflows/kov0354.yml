@@ -14,19 +14,23 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
+
       - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
           fix: true
           globs: 'kov0354/**/*.md'
+
   build-latex:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           working_directory: kov0354/src
+
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
@@ -34,3 +38,30 @@ jobs:
           name: KOV0354-Thesis
           path: kov0354/src/main.pdf
           if-no-files-found: error
+
+      - name: Upload LaTeX documents to server
+        uses: appleboy/scp-action@v0.1.7
+        if: success()
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: kov0354/src/main.pdf
+          target: /srv/tts-game/TTS-Docs/static/thesis/kov0354
+          strip_components: 2
+
+  restart:
+    runs-on: ubuntu-latest
+    needs: build-latex
+    steps:
+      - name: Execute SSH Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            service tts-docs restart
