@@ -37,27 +37,12 @@ jobs:
         run: ls -R
 
       - name: Upload LaTeX documents to artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: success()
         with:
           name: MIK0486-Thesis
           path: mik0486/src/main.pdf
           if-no-files-found: error
-
-  upload-latex:
-    runs-on: ubuntu-latest
-    needs: build-latex
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: List files in src
-        run: ls -R
-
-      - name: Download LaTeX documents from build
-        uses: actions/download-artifact@v4
-        with:
-          name: MIK0486-Thesis
-          path: distfiles
 
       - name: List files in src
         run: ls -R
@@ -69,5 +54,5 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: distfiles/*
+          source: mik0486/src/main.pdf
           target: /srv/tts-game/TTS-Docs/static/thesis
