@@ -38,6 +38,42 @@
 \setcounter{tocdepth}{2}
 
 
+\usepackage{glossaries}
+
+% \makeglossaries
+
+% Define the glossary entry style
+\newglossarystyle{gameslist}{
+   \setglossarystyle{list}% base this style on the list style
+   \renewcommand*{\glossentry}[2]{
+      \item[\glsentryitem{##1}%
+            \glstarget{##1}{\glossentryname{##1}}]
+         \glossentrydesc{##1}\glspostdescription\space
+         \url{\glossentrysymbol{##1}}
+   }
+}
+
+% Define the glossary entry
+\newglossaryentry{game1}{
+   name={Game Name 1},
+   description={Description of Game 1},
+   symbol={URL1},
+   sort={game1}
+}
+
+\newglossaryentry{game2}{
+   name={Game Name 2},
+   description={Description of Game 2},
+   symbol={URL2},
+   sort={game2}
+}
+
+
+
+% Define more entries as needed
+
+
+
 % Zacatek dokumentu
 \begin{document}
 
@@ -63,5 +99,12 @@
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
+
+% Přílohy
+\appendix
+\input{chapters/GameList.tex}
+
+\printglossary[style=gameslist]
+I just need to figure out how to do a custom glossary in latex.
 
 \end{document}
