@@ -28,14 +28,14 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          working_directory: oso0008
+          working_directory: oso0008/src
 
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
         with:
           name: OSO0008-Thesis
-          path: oso0008/main.pdf
+          path: oso0008/src/main.pdf
           if-no-files-found: error
 
       - name: Upload LaTeX documents to server
