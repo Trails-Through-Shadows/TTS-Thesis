@@ -14,19 +14,23 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
+
       - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
           fix: true
           globs: 'kor0289/**/*.md'
+
   build-latex:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           working_directory: kor0289
+
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
@@ -34,3 +38,14 @@ jobs:
           name: KOR0289-Thesis
           path: kor0289/main.pdf
           if-no-files-found: error
+
+      - name: Upload LaTeX documents to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: kor0289/src/main.pdf
+          target: /srv/tts-game/TTS-Docs/static/thesis/kor0289
+          strip_components: 2

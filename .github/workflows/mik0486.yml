@@ -1,14 +1,12 @@
 name: Compile LaTeX - MIK0486
 
-#on:
-#  push:
-#    paths:
-#      - 'mik0486/**'
-#  pull_request:
-#    paths:
-#      - 'mik0486/**'
 on:
   push:
+    paths:
+      - 'mik0486/**'
+  pull_request:
+    paths:
+      - 'mik0486/**'
 
 jobs:
   check-markdown:
@@ -33,9 +31,6 @@ jobs:
           root_file: main.tex
           working_directory: mik0486/src
 
-      - name: List files in src
-        run: ls -R
-
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4
         if: success()
@@ -43,9 +38,6 @@ jobs:
           name: MIK0486-Thesis
           path: mik0486/src/main.pdf
           if-no-files-found: error
-
-      - name: List files in src
-        run: ls -R
 
       - name: Upload LaTeX documents to server
         uses: appleboy/scp-action@v0.1.7
@@ -55,4 +47,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           source: mik0486/src/main.pdf
-          target: /srv/tts-game/TTS-Docs/static/thesis
+          target: /srv/tts-game/TTS-Docs/static/thesis/mik0486
+          strip_components: 2

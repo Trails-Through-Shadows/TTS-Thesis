@@ -1,4 +1,4 @@
-# Osnova
+# Osnovaa
 
 ## 1. Úvod
 - Účel a motivace práce

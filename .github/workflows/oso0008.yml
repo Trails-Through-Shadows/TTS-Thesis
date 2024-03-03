@@ -18,15 +18,18 @@ jobs:
         with:
           fix: true
           globs: 'oso0008/**/*.md'
+
   build-latex:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           working_directory: oso0008
+
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
         if: success()
@@ -34,3 +37,14 @@ jobs:
           name: OSO0008-Thesis
           path: oso0008/main.pdf
           if-no-files-found: error
+
+      - name: Upload LaTeX documents to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: oso0008/src/main.pdf
+          target: /srv/tts-game/TTS-Docs/static/thesis/oso0008
+          strip_components: 2
