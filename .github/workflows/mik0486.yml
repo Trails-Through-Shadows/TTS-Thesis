@@ -1,12 +1,12 @@
 name: Compile LaTeX - MIK0486
 
-on:
-  push:
-    paths:
-      - 'mik0486/**'
-  pull_request:
-    paths:
-      - 'mik0486/**'
+#on:
+#  push:
+#    paths:
+#      - 'mik0486/**'
+#  pull_request:
+#    paths:
+#      - 'mik0486/**'
 
 jobs:
   check-markdown:
