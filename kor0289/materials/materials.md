@@ -3,7 +3,7 @@
 this is all my materials that ill have or smthng
 
 
-### webs and so on
+## webs and so on
 
 spring boot documentation
 
@@ -21,7 +21,7 @@ amazon what is restful api
 
 - https://aws.amazon.com/what-is/restful-api/
 
-### diplomky
+## diplomky
 
 - propojení I/O zařízení s webem pomocí Java springboot
 
