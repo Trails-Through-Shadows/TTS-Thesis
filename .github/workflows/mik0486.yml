@@ -16,6 +16,7 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
+
       - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
           fix: true
@@ -25,12 +26,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
           working_directory: mik0486/src
-      - name: Upload LaTeX documents
+
+      - name: List files in src
+        run: ls -R
+
+      - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v3
         if: success()
         with:
@@ -44,12 +50,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - name: List files in src
+        run: ls -R
+
+      - name: Download LaTeX documents from build
+        uses: actions/download-artifact@v4
         with:
           name: MIK0486-Thesis
           path: distfiles
 
-      - name: copy file via ssh password
+      - name: List files in src
+        run: ls -R
+
+      - name: Upload LaTeX documents to server
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SSH_HOST }}
