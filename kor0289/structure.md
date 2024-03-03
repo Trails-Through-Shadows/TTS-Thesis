@@ -23,7 +23,7 @@
     - JWT
   - Zabezpečení vůči útokům
 - cdn
-  -
+
 
 ## 3. Implementace
 
