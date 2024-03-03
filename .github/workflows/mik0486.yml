@@ -43,6 +43,12 @@ jobs:
     needs: build-latex
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: MIK0486-Thesis
+          path: distfiles
+
       - name: copy file via ssh password
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -50,5 +56,5 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "mik0486/src/main.pdf"
+          source: distfiles/*
           target: /srv/tts-game/TTS-Docs/static/thesis
