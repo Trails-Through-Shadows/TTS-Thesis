@@ -1,0 +1,88 @@
+\chapter{Standardy využívané pro tvorbu API}
+V této kapitole si porovnáme a představíme různé architektury které se používají pro tvorbu \gls{api}.
+Hlavní nástroje co si představíme jsou na trhu a v nějaké míře se používají jsou REST, Webhooky a SOAP
+
+\subsection*{Úvod}
+\gls{api} je universální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Vlastně to je soubor definicí, protokolů a občas i nepsaných pravidel.
+
+\section{REST}
+\gls{rest} což můžeme přeložit jako reprezentační stavový přenos. Je to nejčastěji používaná architektura API. REST byl původně vytvořen jako vodítko jak komunikovat na velké síti jako je Internet. Popularita REST API je z důvodu jednoduchosti implementace a provádění změn. Taky je velice výkonné a přehledné i na velkých projektech.
+Webové služby které využívají architekturu REST pro API jsou nazývána RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě.
+
+Níže si popíšeme základní principy REST API
+
+\subsection{Uniform interface}
+Klíčová vlastnost RESTful služeb. Indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji v JSON.
+
+Jednotné rozhraní by mělo dodržovat tyto pravidla\
+\begin{enumerate}
+	\item Požadavky by měly identifikovat zdroje.
+	\item Klient je schopen z přijmutých dat provést úpravu nebo smazání dat.
+	\item KLient je schopen přijmout metadata o tom jaký typ zprávy jde a tím pádem jak tuto zprávu zpracovat.
+	\item Klient může dostat informace o ostatních datech které se vážou k tomuto požadavku. (HATEOAS)
+\end{enumerate}
+
+\subsection{Stateless (bezstavový)}
+Komunikační metoda kdy server obslouží každého klienta zvlášť a nezávisle na jeho předchozích akcí. Klienti mohou dávat požadavky nezávisle na pořadí. Server si tudíž neuchovává data o klientech.
+
+\subsection{Layered system}
+Styl architektury kdy klient se může připojit i k jiným zprostředkovatelům a pořád dostane odpověď od serveru. Servery taktéž se mohou dotazovat na jiné servery při zpracovávání požadavků od klienta. Tímto způsobem můžeme mít více vrstev jako je bezpečnostní vrstva, aplikační vrstva či business logika.
+Tyto vrstvy jou stále pro klienta neviditelné.
+
+\subsection{Cacheability}
+Velká výhoda je že RESTful webové služby podporují cache. Vyžaduje aby Server tyto data označil jako cacheable či non-cacheable. Při stejném dotazu klienta vícekrát za nějaký krátký čas se použijí již stáhnutá data. Například pro obrázky. Tím se docílí o hodně rychlejší odezvy.
+
+\subsection{Code on demand}
+Dnes již málo používané, REST API může vrátit kód co má klient vykonat. Tím může server rozšířit klienta o funkcionalitu. Např. při validaci formuláře se ihned může zobrazit chybová hláška.
+
+
+
+\subsection{Jak funguje RESTful API} % TODO reformat this bcs its not the same as rest
+RESTful API funguje na protokolu HTTP/S. Nejdříve klient pošle request serveru podle dokumentace konkrétní API. Server poté zkontroluje zda je klient oprávněn tuto operaci provést. Poté zpracuje požadavek a pošle odpověď s příslušným stavovým kódem.
+
+\subsection{Co obsahuje request na RESTful API} % TODO reformat this bcs its not the same as rest
+Požadavky na RESTful API musí obsahovat následující
+\subsubsection{URI}
+Unique resource identifier je unikátní identifikátor pro určité data. V RESTful API nejčastěji URL, které se taktéž říká endpoint. URL specifikuje cestu k daným datům.
+\subsubsection{Metoda}
+Jak již bylo předtím zmíněno, RESTful API typicky používá HTTP/S protokol. V tomto protokolu máme několik možností metod.
+
+\begin{description}
+	\item[GET] - Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
+	\item[POST] - Požadavek pro vložení kompletně nových dat. Data pro vložení se zároveň vloží do message body. Zde se s opakovaným voláním vloží zase znovu ta stejná data.
+	\item[PUT] - Požadavek pro úpravu dat. Data pro přepsání dat jsou vložena do message body. Opakované volání vrátí vždy stejný výsledek.
+	\item[DELETE] - Požadavek pro smazání dat.
+	\item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt.
+\end{description}
+
+\subsection{Co obsahuje odpověď od serveru}
+REST principy vyžadují aby v odpovědi byli obsaženy tyto věci.
+\subsubsection{Stavové kódy}
+Stavovými kódy lehce zjistíme jak daný požadavek dopadl. Zda-li úspěšně nebo se vyskytla chyba. Proto je důležité je správně používat. Stav je trojmístné číslo a podle počátečního čísla poznáme typ odpovědi. Kód začínající 2xx značí úspěch, 4xx chybu na straně klienta, 5xx chybu na straně serveru a v neposlední řadě 3xx což označuje přesměrování URL.
+Nejčastěji využívané kódy jsou tyto:
+
+\begin{description}
+	\item[200 OK] - Vše proběhlo v pořádku.
+	\item[201 Created] - vše proběhlo v pořádku při požadavku POST (data byla zapsána).
+	\item[400 Bad Request] - Server nepřijímá tyto data. Chyba na straně uživatele.
+	\item[401 Unauthorized] - Klient nemá potřebná oprávnění pro vykonání této akce.
+	\item[404 Not Found] - Adresa či data na které se klient dotazuje neexistují.
+	\item[500 Internal Server Error] - Obecná chyba na straně serveru.
+\end{description}
+
+\subsubsection{Message body}
+Ať už požadavek či odpověď, mohou obsahovat další data. Nikde není specifikováno v jakém formátu budou. Toto rozhodnutí je čistě na programátorech. Ale nejčastěji se používá JSON nebo XML. Jedná se o čistě textovou reprezentaci dat.
+
+Například při požadavku GET pro uživatele s ID 1 server vrátí v message body JSON
+\begin{verbatim}
+	{"name":"Jožko Mrkvička", "age":30}
+\end{verbatim}
+Tento objekt reprezentuje uživatele který se jmenuje Jožko Mrkvička a je mu 30 let.
+
+\subsubsection{Headers}
+V hlavičkách jsou přídavné informace. Ať už kódování body, datum a čas, typ obsahu v body. Nebo na straně klienta autorizaci jako třeba session key.
+
+\section{SOAP}
+
+
+\endinput

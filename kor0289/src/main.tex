@@ -1,0 +1,57 @@
+% Nejprve uvedeme tridu dokumentu s volbami
+\documentclass[czech,bachelor]{../../shared/diploma}
+% Dalsi doplnujici baliky maker
+\usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
+\usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
+\usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
+\usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
+\usepackage[cpp]{../../shared/diplomalst}
+
+\usepackage[]{glossaries}
+
+% dark theme enable
+%\usepackage{xcolor} \pagecolor[rgb]{0,0,0} \color[rgb]{1,1,1}
+
+% Zadame pozadovane vstupy pro generovani titulnich stran.
+\ThesisAuthor{Martin Korotwitschka}
+\ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
+\CzechThesisTitle{Tvorba API pro výpravnou hru}
+\EnglishThesisTitle{Creating API for a Role-Playing Game}
+\SubmissionYear{2024}
+\ThesisAssignmentFileName{../specification.pdf}
+
+
+% Pokud nechceme nikomu dekovat makro zapoznámkujeme.
+\Acknowledgement{Rád bych na tomto místě poděkoval všem, kteří mi s prací pomohli, protože bez nich by tato práce nevznikla.}
+\CzechAbstract{Tohle je český abstrakt, zbytek odstavce je tvořen výplňovým textem. Naší si rozmachu potřebami s posílat v poskytnout ty má plot. Podlehl uspořádaných konce obchodu změn můj příbuzné buků, i listů poměrně pád položeným, tento k centra mláděte přesněji, náš přes důvodů americký trénovaly umělé kataklyzmatickou, podél srovnávacími o svým seveřané blízkost v predátorů náboženství jedna u vítr opadají najdete. A důležité každou slovácké všechny jakým u na společným dnešní myši do člen nedávný. Zjistí hází vymíráním výborná.}
+\CzechKeywords{API; REST; RESTful; výpravná hra; Java; Springboot;}
+\EnglishAbstract{This is English abstract. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aenean placerat. Vivamus ac leo pretium faucibus. Duis risus. Fusce consectetuer risus a nunc. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Aliquam erat volutpat. Donec vitae arcu. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vestibulum fermentum tortor id mi. Etiam bibendum elit eget erat. Pellentesque pretium lectus id turpis. Nulla quis diam.}
+\EnglishKeywords{API; REST; RESTful; adventure game; Java; Springboot;}
+
+\setacronymstyle{long-sc-short}
+\newacronym{api}{API}{application interface}
+\newglossaryentry{rest}{name={REST},description={representational state transfer}}
+
+\AddAcronym{TTS}{Trails through shadows}
+\AddAcronym{API}{Application Interface}
+\AddAcronym{REST}{REpresentational State Transfer}
+\AddAcronym{SOAP}{simple object access protocol}
+
+% Zacatek dokumentu
+\begin{document}
+
+% Nechame vysazet titulni strany.
+\MakeTitlePages
+
+
+% A nasleduje text zaverecne prace.
+\input{chapters/intruduction.tex}
+\input{chapters/standards.tex}
+\input{chapters/conclusion.tex}
+
+% Seznam literatury
+\printbibliography[title={Literatura}, heading=bibintoc]
+
+
+
+\end{document}
