@@ -48,3 +48,18 @@ jobs:
           source: oso0008/src/main.pdf
           target: /srv/tts-game/TTS-Docs/static/thesis/oso0008
           strip_components: 2
+
+  restart:
+    runs-on: ubuntu-latest
+    needs: build-latex
+    steps:
+      - name: Execute SSH Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            service tts-docs restart
