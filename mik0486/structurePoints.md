@@ -3,7 +3,7 @@
 - Obecná teorie administrativního rozhraní (co to má zajišťovat, ..)
 - Analýza existující řešení (rozebrat hry, které už existují)
 
-# Vývoj 
+# Vývoj rozhraní
 - Django
   - Templating
   - Package, Middleware...
