@@ -12,14 +12,14 @@ V této kapitole jsou popsány základní pojmy herní teorie a designu, které 
 Herní struktura je základním stavebním kamenem každé hry. Jedná se o sadu pravidel, která určují, jak se hraje, co mohou hráči dělat a jakým způsobem se hra vyhrává. Typy struktur se liší podle jejich přístupu k herním systémům a mechanikám. 
 
 \subsection{Kompetetivní hry}
-\label{subsec:competitive}
+\label{subsec:structure_competitive}
 
 Kompetetivní hry tvoří velkou část trhu s deskovými hrami. V těchto hrách se hráči snaží porazit ostatní a dosáhnout vítězství. Tyto hry můžou být symetrické, kdy všichni hráči začínají se stejnou nebo alespoň podobnou silou, nebo asymetrické, kdy mají hráči různé schopnosti a cíle. Častým problémem bývá vybalancovat hru tak, aby byla zábavná pro všechny hráče, a to i přesto, že se může stát, že jeden hráč bude mít výhodu. Dále se často stává, že hra skončí remízou. V takovém případě se může o vítězi rozhodnout buď pomocí nějakých dodatečných pravidel, nebo může skončit sdíleným vítězstvím.
 
 Příklady: \textit{Monopoly}, \textit{Carcassonne}, \textit{Šachy}, \textit{Race for the Galaxy}
 
 \subsection{Kooperativní hry}
-\label{subsec:cooperative}
+\label{subsec:structure_cooperative}
 
 Naopak kooperativní hry se snaží hráče spojit proti společnému nepříteli nebo problému. Hráči spolupracují na dosažení cíle, který je obvykle nějakým způsobem předem daný. Velkou výhodou toho typu her je to, že odstraňují překážky, které by lidem bránily si tento typ her zahrát. Když jsou hráči spolu ve stejném týmu, dokáží vyrovnat jejich schopnosti a zkušenosti, což může novým hráčům pomoci se do hry dostat.
 
@@ -29,14 +29,14 @@ Příklady: \textit{Pandemic}, \textit{Arkham Horror}, \textit{Gloomhaven}, \tex
 
 
 \subsection{Hry se scénářem}
-\label{subsec:scenario}
+\label{subsec:structure_scenario}
 
 Tento typ her se často zaměřuje především na příběh, historickou tematiku a RPG elementy. Průběh hrou se skládá z jednotlivých epizod, které můžou být předem naplánované a navázané na sebe. Tento systém se často používá v tzv. \textit{dungeon crawlerech}, kde hráči prochází jeden dungeon za druhým. S tímto formátem je jednoduché vyměnit mapu, typy nepřátel nebo příběhové zabarvení a hráči mohou zažít více dobrodružství bez toho, aby se museli učit nová pravidla. Taky je to jednoduchý způsob jak nastavit obtížnost hry, protože každý scénář může být jiný.
 
 Příklady: \textit{Osadníci z Katanu}, \textit{Gloomhaven}, \textit{Pathfinder}
 
 \subsection{Legacy hry}
-\label{subsec:legacy}
+\label{subsec:structure_legacy}
 
 Legacy hry jsou speciální typ her, který se vyznačuje nenávratnými změnami, které hráči během hraní páchají na herních komponentách. Jde o změny fyzického rázu, jako je psaní na herní desku, trhání karet nebo lepení nálepek. Tyto změny mohou být způsobeny výsledkem hry, nebo mohou být součástí příběhu. Tento typ her se často zaměřuje na příběh a vývoj postav, a proto mají velmi blízko k RPG žánru. Kampaně v nich mohou trvat i několik měsíců či let, rozdělených do jednotlivých několikahodinových sezení. Jedná se o relativně nový fenomén, který se však v posledních letech začal rozšiřovat a získal si své publikum.
 
@@ -51,28 +51,28 @@ Příklady: \textit{Risk Legacy}, \textit{Harry Potter: Hogwarts Battle}, \texti
 Se zavedením struktury přichází potřeba rozhodovat, kdy hráči mohou konat různé akce nebo kroky. Odsud vznikla myšlenka \textbf{tahu} - jednotky času, během které mohou hráči se hrou interagovat. Více tahů pak tvoří jedno \textbf{kolo}, přičemž běžné hry se skládají z několika takovýchto kol. V některých titulech se kola navíc rozdělují do několika \textbf{fází}, které většinou třídí akce do různých typů, čímž umožňují ještě větší stukturovanost herního kola. Tato pravidla se však mohou lišit podle typu hry, proto se tato sekce věnuje přiblížení několika základních typů struktury tahů.
 
 \subsection{Kolo s pevným pořadím}
-\label{subsec:fixed_order}
+\label{subsec:turns_fixed_order}
 
 Jedná se o nejzákladnější typ struktury kola, kdy se pořadí hráčů určí jednou na začátku hry a od té doby zůstává neměnné. Obvykle se nějakým způsobem vybere první hráč a dál tahy pokračují podél stolu ve směru nebo proti směru hodinových ručiček (například v klasické karetní hře \textit{Prší}). Tento typ struktury je velmi jednoduchý a intuitivní, ale může být nevýhodný pro hry, kde je výhoda mít první tah, nebo chceme zajistit, aby všichni hráči měli stejný počet tahů. Toto se dá řešit zvýhodněním odstaních hráčů jinými způsoby, například herními bonusy (mana navíc pro druhého hráče v \textit{Hearthstonu}), nebo tím, že budeme monitorovat, který hráč začínal, a poslední kolo se vždy dojede až k němu, i kdyby hra byla ukončena v průběhu kola (jako v \textit{Through the Ages}, kde všichni dojedou celé kolo po tom, co jeden hráč zvítězí).
 
 \subsection{Kolo s pořadím podle statistik}
-\label{subsec:stat_order}
+\label{subsec:turns_stat_order}
 
 Tento typ struktury kola se snaží vyrovnat výhody a nevýhody, které mohou vzniknout z pevného pořadí. Pořadí se v tomto případě mění podle nějakého skóre, které se během hry mění. Určující statistikou může být například počet bodů, které hráči mají (tokeny populace v \textit{Civilizaci}), nebo nějaké pevnější statistiky spojené se samotnými postavami. Tento systém se často používá v RPG hrách, kde se pořadí může měnit podle iniciativy postav (klasická iniciativa v \textit{D\&D}), nebo ve hrách, kde se pořadí mění podle toho, jak dobře nebo špatně se hráči daří (znevýhodnění nejlepších hráčů ve \textit{Vysokém napětí}). Hra pak dokáže být dynamičtější a aktivně reagovat na změny, což přináší nové strategické možnosti a větší zapojení hráčů.
 
 \subsection{Kolo s pořadím určeném v reálném čase}
-\label{subsec:realtime_order}
+\label{subsec:turns_realtime_order}
 
 Další zajímavou možností určení pořadí je nechat hráčům volnou ruku, často omezenou nějakým časovým limitem. Je pak na rychlosti samotných hráčů, jak rychle dokážou reagovat na situaci a provést svůj tah. Silnou stránkou tohoto systému je to, že hra může být mnohem rychlejší a dynamická a často s sebou přináší vyšší úroveň soutěživosti (například u hry \textit{Dobble}). Nevýhodou je to, že může být pro některé hráče stresující a může být obtížné udržet přehled o tom, co se děje. Také se designer musí více rozmyslet, jak řešit chyby hráčů a také podvádění, které v tomto zmatku bývá častější.
 
 \subsection{Kolo s náhodným pořadím}
-\label{subsec:random_order}
+\label{subsec:turns_random_order}
 % TODO - najít hru, která tohle používá
 
 Náhodný výběr figurek nebo žetonů reprezentujících jednotlivé hráče, často losované z pytlíku nebo balíčku, je skvělý způsob, jak udělat hru méně předvídatelnou. Bohužel s sebou nese i snížené možnosti strategie ze strany hráčů, takže se hodí spíše pro hry, které nemají s náhodou problém a snaží se být spíše zábavné a chaotické. V opačném případě se musí zavést nějaké doplňkové mechanismy, které hráčům umožní reagovat na náhodu a otočit ji ve svůj prospěch.
 
 \subsection{Kolo se současným výběrem akcí}
-\label{subsec:action_selection_order}
+\label{subsec:turns_action_selection_order}
 
 Posledním typem struktury kola, který si zde přiblížíme, je kolo, kde hráči vybírají akce současně, často v tajnosti. Když jsou všichni připraveni nebo po uplynutí nějakého určeného času, se všechny akce odhalí najednou a provedou se (v \textit{Gloomhavenu} si hráči nejprve zvolí své akce, ale provést je mohou, až když na ně přijde řada). Často je tady třeba také druhotná mechanika pro určení pořadí, ve kterém se akce vyhodnotí (například v \textit{Race for the Galaxy}, kde si hráči nejprve zvolí fáze, které chtějí hrát, a pak si v tajnosti zvolí akce, které se pak vyhodnotí v pořadí vybraných fází). Tajné vybírání akcí je vhodné pro hry, které dávají důraz na strategii a odhadování akcí soupeřů.
 
@@ -85,27 +85,27 @@ Posledním typem struktury kola, který si zde přiblížíme, je kolo, kde hrá
 Po přiblížení variant střídání hráčů během hry je vhodné zaměřit se na to, co mohou ve hře vlastně dělat. Tím se dostáváme k \textbf{akcím}, které pomáhají jednoduše a srozumitelně definovat, co mohou hráči dělat a jakým způsobem toho mohou dosáhnout. Jedná se o atomický krok v rámci hry, příkladem může být hod kostkou, pohyb figurkou, nebo zahraní karty. Akce hře dodávají dynamiku a určují celkový pocit a atmosféru, kterou hra vytváří.
 
 \subsection{Akční body}
-\label{subsec:action_points}
+\label{subsec:actions_action_points}
 
 Častým způsobem zpeněžení akční ekonomiky je sytém akčních bodů, kdy hráči mají k dispozici určitý počet bodů, které mohou během kola utratit za různé akce. Akce samotné potom mají vždy nějakou cenu, takže hráči musí dobře zvážit, jak své body využijí. Může se jednat o reálné akční body (čtyři body za kolo v \textit{Pandemic}) nebo různé typy bodů (civilní a vojenské body v \textit{Through the Ages}). Jednodušší možnost je definovat body implicitně, pomocí nějakého zjednodušeného pravidla (jako v \textit{Gloomhavenu}, kde hráči mohou za kolo udělat přesně dvě akce). Tento systém je velmi flexibilní a umožňuje hráčům volit různé strategie.
 
 \subsection{Omezený výběr akcí}
-\label{subsec:limited_actions}
+\label{subsec:actions_limited_actions}
 
 Jiný způsob, jak limitovat akce, je dát hráčům na výběr z omezeného množství karet, obvykle s tím pravidlem, že když už si někdo kartu vybral, pro ostatní je pro toto kolo zamčená. Tato praktika přináší možnosti interakce přímo do samotného výběru akcí, kdy hráči musí přemýšlet nejen nad tím, co by chtěli udělat, ale také nad tím, co by chtěli, aby ostatní hráči udělat nemohli (tajný výběr jedné karty z balíčku, který se pak předá dalšímu hráči v \textit{Citadels}). V kooperačních hrách to zase umožňuje hráčům spolupracovat a plánovat své akce tak, aby se co nejvíce doplňovaly, a také přináší možné dilema, jestli si nejlepší akci vybrat pro sebe, nebo ji ponechat jinému hráči (\textit{Na vlnách neznáma}, kde jsou některé akce vylepšující postavu limitované).
 
 \subsection{Pálení akcí}
-\label{subsec:burning_actions}
+\label{subsec:actions_burning_actions}
 
 Některé hry místo ceny nebo omezování akcí mezi hráči používají jiný způsob limitace, a to přidání akcí na jedno použití. Takovéto akce mají často potenciál být mnohem silnější než běžné akce a jejich použití s sebou nese důležité rozhodnutí, kdy je nejlepší je použít. Spolu s pálením akcí se často používá i nějaký způsob, jak získat tyto akce zpět, ať už to je nějaký druh obnovení, nebo nějaký druh zisku, který je spojen s nějakým rizikem (například v \textit{Gloomhavenu} si hráči mohou obnovit své akce pomocí jiných akcí). Něco podobného můžeme pozorovat i v \textit{D\&D}, kde jsou nějaké akce omezené pouze jednou za dlouhý nebo krátký odpočinek. Je však třeba dávat pozor, aby se hráči necítili, že musí své akce šetřit a raději je vůbec nepoužívali.
 
 \subsection{Příběhový výběr}
-\label{subsec:story_choice}
+\label{subsec:actions_story_choice}
 
 Pro hry, které se zaměřují na příběh a vývoj postav, může být vhodné, aby hráči měli možnost volit, jakým směrem se bude příběh ubírat. Tento výběr se pak stává jednou z akcí, většinou takovou, kde je hráčům položena nějaká otázka nebo problém a jejich úkolem je vybrat si možnost, která se jim nejvíce zamlouvá (opět \textit{Gloomhaven}, který při vstupu do města vždy nabídne několik možností, jak se postavit k dané situaci). Pro tento typ her je důležité, aby se hráči cítili, že jejich volba má nějaký význam a že se příběh kvůli nim mění, což s sebou přináší další problémy ohledně toho, jak efektivně měnit svět bez nutnosti vytvoření nového obsahu, který většina hráčů nemusí vůbec zažít.
 
 \subsection{Rozhodnutí konfliktů}
-\label{subsec:action_resolution}
+\label{subsec:actions_action_resolution}
 
 Akce mohou být jednoznačné (tah v \textit{Šachu}, kde se všechno stane přesně tak, jak si to hráč vymyslel), ale v komplexnějších hrách bývají často nejisté, nebo spojené s nějakým druhem náhody. Přichází tedy problém, jak rozhodneme o výsledku akce.
 
@@ -124,7 +124,7 @@ Další zajímavou obměnou je zavedení kritických úspěchů a neúspěchů. 
 Už první deskové hry jako \textit{Senet} nebo \textit{Mahjong} (sekce \ref{subsec:beginnings}) měly \textbf{pohyb} po herním poli jako centrální herní mechaniku. Způsob, jakým hráči pohybují svými figurkami má velký vliv na to, jakou atmosféru hra nabízí a jaké strategické možnosti hráčům dává. Následující sekce popisuje několik různých mechanik, které jsou s pohybem spojené.
 
 \subsection{Rozdělení herního pole}
-\label{subsec:tessellation}
+\label{subsec:movement_tessellation}
 
 Herní pole deskových her mnohdy představuje velký prostor, u komplexnějších her se může jednat klidně o celé kontinenty nebo až galaxie. Aby se hráči v tomto prostoru lépe orientovali, bývá pole často rozděleno na nějaké menší části, které se dají pohodlněji zobrazit na herní desce.
 
@@ -135,12 +135,12 @@ Pokud nám jedna cesta nestačí, můžeme přejít na \textbf{dvoudimenzionáln
 Další možností pak je \textbf{třídimenzionální rozdělení}, kdy se hrací plocha rozčlení do několika vrstev, které se mohou překrývat nebo být oddělené. Rozdělení do výšky můžeme docílit buď pomocí indikátorů úrovně nebo různých pater hracích ploch, které můžeme fyzicky postavit nad sebe.
 
 \subsection{Pohyb podle hodu kostkou}
-\label{subsec:roll_movement}
+\label{subsec:movement_roll_movement}
 
 První způsob určení pohybu, který deskové hry adaptovaly, je pohyb podle nějakého náhodného čísla. Může se jednat o kostku (\textit{Monopoly}), ruletu (\textit{Party Alias}) nebo karty (\textit{Candyland}). Čistá náhoda však může zmírnit taktické plánování, proto můžeme zavést nějaký druh modifikátoru, který hráčům umožní ovlivnit výsledek (například bonusy k rychlosti v \textit{Formula D}).
 
 \subsection{Pohyb podle ceny}
-\label{subsec:cost_movement}
+\label{subsec:movement_cost_movement}
 
 Jiná možnost je nacenit každé políčko na herní desce a dát hráčům nějakou měnu, kterou mohou za pohyb utratit. Často se používá ve válečných hrách, kde vyšší cena políčka může znamenat nepříznivé terénní podmínky a dostupné množství měny zase rychlost jednotlivých figurek (\textit{Rise and Decline of the Third Reich}). Hráči pak mají více možností a musí zvažovat nejen to, kam své figurky posunou, ale také to, kudy bude nejlepší projít.
 
@@ -152,7 +152,7 @@ Dynamická změna herního pole se často používá ve hrách zaměřených na 
 Herní pole však nemusíme jen zvětšovat, ale můžeme ho i odebírat. S podobnou mechanikou se můžeme setkat u dětské hry \textit{Židličky}, ale v kontextu stolních her může jít o opravdové odstraňování herních polí (postupné odstraňování polí v \textit{Isolation}), nebo jen o pouhou limitaci možností, které hráči mají (snižování možností na nové železniční spoje v \textit{Jízdenky, prosím!}).
 
 \subsection{Více map}
-\label{subsec:multiple_maps}
+\label{subsec:movement_multiple_maps}
 
 Aby byl herní svět co nejvíce rozmanitý, můžeme vytvořit více map, které se mohou během hry měnit. Může se jednat o jednotlivé lokace, které jsou spojené cestami (propojení mezi hlavní a podzemní mapou v \textit{Iron Dragon}), nebo jsou všechny umístěné ve světě hry a odemykají se postupně (odhalování nových lokací podle příběhového postupu v \textit{Gloomhavenu}). Zakomponování více lokací se spojujícími cestami může být dobrý způsob, jak hráčům dát možnost volby a také v nich navodit pocit, že jejich postavy jsou součástí nějakého většího světa.
 
@@ -165,7 +165,7 @@ Aby byl herní svět co nejvíce rozmanitý, můžeme vytvořit více map, kter�
 Samotný herní systém může být sebelepší, ale pokud nemá jasně definovaný konec, může se stát, že hráči si po jejím ukončení odnesou jen zklamání. Proto je důležité, aby hra měla pečlivě vymezený \textbf{cíl} a způsob, jakým se dá dosáhnout. Závěrná sekce analýzy herního designu je tedy zaměřena na to, jaké cíle se u deskových her vyskytují.
 
 \subsection{Body vítězství}
-\label{subsec:victory_points}
+\label{subsec:end_victory_points}
 
 Většina moderních her využívá nějakou verzi systému bodu vítězství. Jedná se o velmi flexibilní mechaniku, kdy hráči během hry sbírají jednu nebo více surovin, které se po ukončení hry převedou na body a určí vítěze. Vítězné body je možné udělovat mnoha způsoby.
 
@@ -176,29 +176,29 @@ Jiný přístup je odměňovat hráče body \textbf{za určité akce}. Dobrým p
 Zajímavou dynamiku můžeme do hry přinést také tím, že umožníme vítězné body nejen získat, ale i ztratit. Pokud je možné o všechny body přijít, riskujeme, že se hráči budou soustředit spíše na to, aby shodili vedoucího hráče než aby se snažili sami vyhrát (tohle je velký problém například v karetní hře \textit{Munchkin}). Lepší bývá implementovat mix trvalých a dočasných bodů, což hráčům přidá možnost strategií, ale zároveň omezí potenciální zneužití (dobrým příkladem je \textit{Kemet}).
 
 \subsection{Závod}
-\label{subsec:race}
+\label{subsec:end_race}
 
 Velmi intuitivní způsob, jak určit vítěze, je závod. Hráči se snaží co nejrychleji dosáhnout nějakého cíle, který je předem určen. Ten může být buď fyzický, jako je dosažení určitého pole na herní desce (\textit{Hadi a žebříky}), nebo může být abstraktní, jako dosažení určitého počtu bodů (\textit{Osadníci z Katanu}).
 
 \subsection{Vyčerpání zdrojů}
-\label{subsec:resource_depletion}
+\label{subsec:end_resource_depletion}
 
 Další možností je zahrnout do hry nějaký druh zdroje, který se postupně vyčerpává. Hra je pak přirozeně vedena k očekávanému konci a hráči si mohou sami určit, jak dlouho může trvat. Příklady můžeme vidět ve hře \textit{Through the Ages: A Story of Civilization}, kde hra končí, když v bance dojdou peníze, nebo v \textit{Race for the Galaxy}, kde hráči získávají body z limitovaného množství a konec hry nastane, když body dojdou.
 
 \subsection{Kooperativní cíle}
-\label{subsec:cooperative_goals}
+\label{subsec:end_cooperative_goals}
 
 V kooperativních hrách je vhodné vymyslet jiný způsob, jak ukončit hru - místo soutěžení o vítězství můžeme hráče motivovat ke společnému dosáhnutí nějakého cíle. Společný cíl může mít různé podoby, ať už poražení společného nepřítele (vyléčení všech nemocí v \textit{Pandemic}), dosažení nějakého bodového maxima (zabrání dostatečného množství pevností v \textit{Duně}) nebo splnění nějakého úkolu (zničení Jednoho prstenu v \textit{War of the Ring}). Týmové cíle podporují spolupráci a komunikaci, musíme si ale dávat pozor, aby se hráči necítili, že nemají na herní dění dostatečný vliv.
 
 
 %%% section: App %%%
 \section{Podpůrné aplikace}
-\label{sec:app}
+\label{sec:apps}
 
 V posledních letech se stále více vývojářů stolních her snaží využít moderní technologie, ať už ve formě mobilních aplikací, nebo webových stránek. Tyto aplikace mohou sloužit k různým účelům, jako je například pouhé zobrazení pravidel, ale může jít i o stěžejní část hry. Tato sekce rozebírá fáze propojení mezi hrou a aplikací a možnosti, které se s tím pojí. \cite{corvus_belli_2023}
 
 \subsection{Stupně integrace}
-\label{subsec:app_integration}
+\label{subsec:apps_app_integration}
 
 Neboť jsou podpůrné aplikace relativně novým fenoménem, po celou historii vývoje byla většina stolních her \textbf{plně fyzická} záležitost. I dodnes se tato tradice stále drží, spousta nově vyvinutých her se neopírají o žádnou podpůrnou aplikaci a všechnu administrativu nechávají čistě na hráčích. Nejde jen o samotný herní plán, figurky nebo karty a kostky, ale také o pravidla, která jsou většinou tištěná na papíře a přiložená k hře. Příkladů takovýchto her je mnoho, například \textit{Carcassonne}, \textit{Ticket to Ride} nebo \textit{Osadníci z Katanu}.
 
@@ -209,7 +209,7 @@ V jiných případech může aplikace sloužit jako \textbf{administrativní dop
 Největší míru integrace můžeme vidět v deskových hrách, které jsou \textbf{zcela závislé na aplikaci}. V takovýchto hrách je aplikace nejen doplňkem, ale stěžejní součástí hry, která spravuje herní plán, pravidla a jiné herní mechaniky. Dále se tímto způsobem dá velmi jednoduše a efektivně připojit příběh, který může být ozvláštněn automatickým čtením, zvukovými efekty nebo animacemi. Příkladem může být hra \textit{Mansions of Madness}, kde je aplikace nejen zdrojem pravidel, ale také generuje herní plán, spravuje nepřátele a vytváří silnější atmosféru.
 
 \subsection{Přínosy aplikace}
-\label{subsec:app_benefits}
+\label{subsec:apps_app_benefits}
 
 Prvním přínosem, který byl zmíněn v předchozí sekci, je možnost zjednodušení administrativy. Hlavní benefit spočívá v tom, že hra samotná se postará o monitorování zdrojů nebo počítání bodů. Tímto způsobem se hráči mohou soustředit na samotnou hru a nemusí se starat o to, jestli všechno správně počítají. Hráči mohou také mít jednodušší přístup k informacím, které by jinak byly obtížně dostupné, jako například aktuální stav inventáře, zdrojů nebo bodů ostatních spoluhráčů. Digitalizace pravidel také plní podobnou funkci, hráči nemusí mít všechna pravidla stále při ruce, ale mohou si je kdykoliv vyhledat.
 
@@ -217,12 +217,12 @@ Propojení s aplikací může být také příjemný způsob, jak hru trochu ož
 
 V příběhových hrách může být problém zajistit, aby klíčové informace nebo zvraty byly odhaleny ve správném pořadí a správný čas. U příběhu tištěného na papír jako součást pravidel existuje risk, že hráči si příběh omylem přečtou dřív, než by měli, a přijdou tak o možnost překvapení. Aplikace může tuto situaci řešit tím, že bude informace odhalovat postupně a hráči se nemusí bát, že něco přeskočili nebo zjistili dříve, než to bylo zamýšleno. Takovýto příběh v kombinaci s hlasovým vyprávěním a výstižnými obrázky může být velmi poutavý a zvednout kvalitu herního zážitku.
 
-Deskové hry, které trvají přes několik sezení (\textit{legacy hry}, zmíněny v kapitole \ref{subsec:legacy}) mohou mít problém s udržením konzistence herního stavu mezi jednotlivými sezeními. Za pomocí aplikace mohou vývojáři poskytnout hráčům praktický a pohodlný způsob, jak si rozehranou hru uložit. Tímto způsobem se hráči nemusí strachovat, že by něco zapomněli, a když se ke hře znovu vrátí, budou mít vše přichystané tak, jak minule skončili.
+Deskové hry, které trvají přes několik sezení (\textit{legacy hry}, zmíněny v kapitole \ref{subsec:structure_legacy}) mohou mít problém s udržením konzistence herního stavu mezi jednotlivými sezeními. Za pomocí aplikace mohou vývojáři poskytnout hráčům praktický a pohodlný způsob, jak si rozehranou hru uložit. Tímto způsobem se hráči nemusí strachovat, že by něco zapomněli, a když se ke hře znovu vrátí, budou mít vše přichystané tak, jak minule skončili.
 
 Posledním přínosem, který aplikace může přinést, je možnost rozšíření hry. V případě fyzických rozšíření je potřeba nejen vymyslet nový materiál, ale i zajistit jeho výrobu a distribuci. Digitální rozšíření může být vytvořeno za mnohem nižší cenu a může být distribuováno přímo přes webové stránky nebo aplikaci. Vývojáři pak mají možnost pružně reagovat na zpětnou vazbu od hráčů a mohou také vytvářet obsah, který by byl jinak příliš nákladný na výrobu.
 
 \subsection{Překážky a problémy}
-\label{subsec:app_problems}
+\label{subsec:apps_app_problems}
 
 Přestože může být propojení s aplikací velmi přínosné, může také přinést několik problémů, které je třeba zvážit. Prvním z nich je, že i přes to, že se většina lidí již umí pohybovat v digitálním prostředí, stále existují skupiny, které mají s používáním technologií problém. Může jít o starší lidi, kteří nemají s technologiemi mnoho zkušeností, nebo o osoby s nějakým druhem postižení, které jim znesnadňuje tuto práci. Proto vývojáři musí během návrhu aplikace myslet na to, jak ji udělat co nejpřístupnější pro co nejširší skupinu lidí. Vhodné může být i udělat aplikaci přístupnější na více platformách nebo umožnit její použití i bez připojení k internetu. Aplikace může být také obohacena o možnosti nastavení vizuálu a také jazyků, aby podporovala širokou míru uživatelů.
 
@@ -231,3 +231,11 @@ Dále je důležité produkt s aplikací dobře nacenit. Některé aplikace s se
 S modernizací obchodu s deskovými hrami se však začínají ozývat také obavy o to, zda je vůbec vhodné, aby deskové hry využívaly aplikace. Někteří hráči mají obavy, že se hry příliš digitalizují a ztrácejí tak svůj původní charakter. Ve dnešním světě plném obrazovek se mnozí hráči chtějí odpojit od digitálního světa a desková hra, která se až moc opírá o aplikaci je může odradit. Vývojáři tedy musí najít rovnováhu mezi tím, aby aplikace byla přínosná, ale zároveň aby nebyla příliš nápadná a neodváděla pozornost od samotné hry.
 
 I přes tyto problémy je však možné, že v budoucnosti bude většina deskových her využívat nějakou formu aplikace. Dobře navržená podpůrná aplikace dokáže herní zážitek zlepšit a obohatit, pokud jsou vývojáři při jejím návrhu pečliví a myslí na to, jakým způsobem bude aplikace přínosná pro hráče.
+
+
+%%% section: Psychology %%%
+
+\section{Psychologie deskových her}
+\label{sec:psychology}
+
+// TODO
