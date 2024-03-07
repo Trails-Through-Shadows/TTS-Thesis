@@ -29,6 +29,7 @@
 \AddAcronym{TTS}{Trails Through Shadows}
 \AddAcronym{RPG}{Role Playing Game}
 \AddAcronym{D\&D}{Dungeons \& Dragons}
+
 \addbibresource{resources/sauce.bib}
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
@@ -40,33 +41,34 @@
 
 \usepackage{glossaries}
 
-% \makeglossaries
+\makeglossaries
+\loadglsentries{chapters/GameList.tex}
 
-% Define the glossary entry style
-\newglossarystyle{gameslist}{
-   \setglossarystyle{list}% base this style on the list style
-   \renewcommand*{\glossentry}[2]{
-      \item[\glsentryitem{##1}%
-            \glstarget{##1}{\glossentryname{##1}}]
-         \glossentrydesc{##1}\glspostdescription\space
-         \url{\glossentrysymbol{##1}}
-   }
-}
+% % Define the glossary entry style
+% \newglossarystyle{gameslist}{
+%    \setglossarystyle{list}% base this style on the list style
+%    \renewcommand*{\glossentry}[2]{
+%       \item[\glsentryitem{##1}%
+%             \glstarget{##1}{\glossentryname{##1}}]
+%          \glossentrydesc{##1}\glspostdescription\space
+%          \url{\glossentrysymbol{##1}}
+%    }
+% }
 
-% Define the glossary entry
-\newglossaryentry{game1}{
-   name={Game Name 1},
-   description={Description of Game 1},
-   symbol={URL1},
-   sort={game1}
-}
+% % Define the glossary entry
+% \newglossaryentry{game1}{
+%    name={Game Name 1},
+%    description={Description of Game 1},
+%    symbol={URL1},
+%    sort={game1}
+% }
 
-\newglossaryentry{game2}{
-   name={Game Name 2},
-   description={Description of Game 2},
-   symbol={URL2},
-   sort={game2}
-}
+% \newglossaryentry{game2}{
+%    name={Game Name 2},
+%    description={Description of Game 2},
+%    symbol={URL2},
+%    sort={game2}
+% }
 
 
 
@@ -102,9 +104,10 @@
 
 % Přílohy
 \appendix
-\input{chapters/GameList.tex}
+% \input{chapters/GameList.tex}
+I just need to figure out how to do a custom glossary for \gls{foobar} in latex.
 
-\printglossary[style=gameslist]
-I just need to figure out how to do a custom glossary in latex.
+\printglossaries
+Did it work?
 
 \end{document}
