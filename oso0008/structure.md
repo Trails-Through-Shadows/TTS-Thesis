@@ -12,6 +12,7 @@
 ## 3. GUI
 - Historie
 - Zásady vývoje GUI
+    - Barevná schémata
 - GUI vybraných her
     - Na vlnách neznáma
     - Gloomhaven
