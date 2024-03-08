@@ -1,13 +1,50 @@
 \chapter{Analýza existujících her}
 \label{chap:game_analysis}
 
-V této kapitole se zaměříme na analýzu několika existujících deskových her, které nám poslouží jako inspirace pro náš vlastní návrh. Budeme se snažit zjistit, co dělá tyto hry zajímavými, co je na nich dobré a co bychom naopak chtěli změnit.
+Tato kapitola se zaměřuje na analýzu několika existujících deskových her, které poslouží jako inspirace pro vlastní návrh modelové hry. Rozebrány budou klady i zápory těchto her, co je dělá zajímavými, co je na nich dobré a co by naopak bylo třeba změnit. Analýza se bude zaměřovat především na herní principy, které byly uvedeny v předchozí kapitole \chapterref{chap:game_design}.
+
+
+%%% Forgotten Waters %%%
 
 \section{Na vlnách neznáma}
 \label{sec:forgotten_waters}
 
+Na vlnách neznáma (anglicky \textit{Forgotten Waters}) je kooperativní desková hra pro 3 až 7 hráčů, kterou vydalo v roce 2020 vydavatelství Plaid Hat Games. Hra je zasazena do fantasy světa, kde hráči přebírají role pirátů, jejichž úkolem je spolupracovat, aby úspěšně splnili sen jejich kapitána. Každá z postav má však své vlastní cíle, které jsou reprezentovány vývojem postavy a jejími schopnostmi. Důležitou součástí hry je webová aplikace, která poskytuje hudební a zvukové efekty, včetně hlasového vyprávění, které hráče provází příběhem a vytváří tak atmosféru hry. \cite{forgotten_waters}
+
+\subsection{Herní systém}
+\label{subsec:fw_gameplay}
+
+Z pohledu herní struktury tato hra jednoznačně spadá do kategorie kooperativních her \chapterref{subsec:structure_cooperative}, je však obohacena i o prvky scénářových \chapterref{subsec:structure_scenario} a legacy her \chapterref{subsec:structure_legacy}. Před samotnou hrou si hráči vyberou, pod kterým kapitánem budou sloužit jako posádka, což je v podstatě abstrakce nad pouhým vybráním herní kampaně, která obsahuje předpřipravený scénář, včetně herní mapy a příběhu, kterým budou hráči procházet. Samotná hra pak spočívá v cestování mezi lokacemi a potýkání se s událostmi, které tyto lokace nesou. Kampaň je rozdělena do několika částí, mezi kterými jsou hráči vybídnuti, aby si hru uložili a pokračovali v ní později. Jednotlivé části mohou trvat několik hodin, pokud však hráči chtějí, kampaň jde odehrát během jednoho dlouhého sezení.
+
+Lokace se ve hře vybírají pomocí pohybu lodi po mapě tvořené hexagony. Podle scénáře jsou některé hexagony předem určené, jiné jsou prázdné a když na ně hráči stoupnou, umístí místo nich náhodně vylosovanou lokaci. Herní pole je tedy rozděleno dvoudimenzionálně a mění se dynamicky \chapterref{subsec:map_reveal} podle postupu posádky. Pohyb lodi je ovlivněn hodem hráče, který si vybral, že ji bude toto kolo řídit. Podle jeho úspěšnosti se loď posune u určitý počet polí, pohyb je tedy náhodný \chapterref{subsec:movement_roll_movement} s přidanými modifikátory.
+
+V rámci lokace je hráčům představeno několik možností, které si může vybrat buď několik lidí, nebo jsou přístupné pouze prvnímu z nich \chapterref{subsec:actions_limited_actions}. Některé z nich jsou také povinné - musí si je vybrat alespoň jeden hráč. Tyto možnosti jsou reprezentovány jako vytištěný seznam akcí na stránce knihy, která je součástí balení. Výběr akcí probíhá v pořadí iniciativy, která je reprezentovaná stupnicí věhlasu, jde tedy pořadí podle jisté statistiky \chapterref{subsec:turns_stat_order}. Samotné vyhodnocování probíhá v pořadí od první akce po poslední tak, jak jsou na stránce vytištěny.
+
+Co se týče konce hry, ten je určený předem připraveným scénářem. Každá část končí nějakou událostí, která se vyvolá po dokončení lokace. Po dokončení všech částí hry je dokončen i příběh a následuje příběhový epilog, vyhodnocený podle toho, jak se hráči během hry chovali. Jde tedy o příklad ukončení na základě splnění kooperativního cíle \chapterref{subsec:end_cooperative_goals}. Na závěr hry však ještě probíhá vyhodnocení příběhu jednotlivých postav, které v průběhu hry získávají body souhvězdí, které následně určují, jakým způsobem se příběh postavy vyvine. Jedná se tedy o ukázku konce hry na podle bodů vítězství \chapterref{subsec:end_victory_points}.
+
+\subsection{Fyzické komponenty}
+\label{subsec:fw_components}
+
+\subsection{Podpůrné aplikace}
+\label{subsec:fw_apps}
+
+\subsection{Herní pravidla}
+\label{subsec:fw_rules}
+
+
+%%% Dungeons & Dragons %%%
+
 \section{Dungeons \& Dragons}
 \label{sec:dnd}
 
+
+%%% Gloomhaven %%%
+
 \section{Gloomhaven}
 \label{sec:gloomhaven}
+
+
+%%% Comparison %%%
+
+\section{Porovnání}
+\label{sec:comparison}

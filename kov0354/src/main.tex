@@ -29,6 +29,7 @@
 \AddAcronym{TTS}{Trails Through Shadows}
 \AddAcronym{RPG}{Role Playing Game}
 \AddAcronym{D\&D}{Dungeons \& Dragons}
+
 \addbibresource{resources/sauce.bib}
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
@@ -36,6 +37,48 @@
 
 % Uprava hloubky obsahu - pozdeji smazat !
 \setcounter{tocdepth}{2}
+
+% Custom reference
+\newcommand{\chapterref}[1]{(Kapitola \ref{#1})}
+\newcommand{\imageref}[1]{(Obrázek \ref{#1})}
+\newcommand{\tableref}[1]{(Tabulka \ref{#1})}
+
+
+\usepackage{glossaries}
+
+\makeglossaries
+\loadglsentries{chapters/GameList.tex}
+
+% % Define the glossary entry style
+% \newglossarystyle{gameslist}{
+%    \setglossarystyle{list}% base this style on the list style
+%    \renewcommand*{\glossentry}[2]{
+%       \item[\glsentryitem{##1}%
+%             \glstarget{##1}{\glossentryname{##1}}]
+%          \glossentrydesc{##1}\glspostdescription\space
+%          \url{\glossentrysymbol{##1}}
+%    }
+% }
+
+% % Define the glossary entry
+% \newglossaryentry{game1}{
+%    name={Game Name 1},
+%    description={Description of Game 1},
+%    symbol={URL1},
+%    sort={game1}
+% }
+
+% \newglossaryentry{game2}{
+%    name={Game Name 2},
+%    description={Description of Game 2},
+%    symbol={URL2},
+%    sort={game2}
+% }
+
+
+
+% Define more entries as needed
+
 
 
 % Zacatek dokumentu
@@ -63,5 +106,13 @@
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
+
+% Přílohy
+\appendix
+% \input{chapters/GameList.tex}
+I just need to figure out how to do a custom glossary for \gls{foobar} in latex.
+
+\printglossaries
+Did it work?
 
 \end{document}

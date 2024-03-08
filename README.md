@@ -13,7 +13,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 > ### Tvorba herního modelu výpravné evoluční hry </br> <sup>Creation of the Game Model for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/specification.pdf) </br>
-[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/structure.md)
+[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kov0354/structure.md) </br>
+[Text práce](https://docs.tts-game.fun/thesis/kov0354)
 >
 > [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kov0354.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kov0354.yml)
 
@@ -22,7 +23,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 > ### Tvorba administrativního rozhraní výpravné evoluční hry </br> <sup>Creation of the Administrative Interface for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/specification.pdf) </br>
-[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/structure.md)
+[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/mik0486/structure.md) </br>
+[Text práce](https://docs.tts-game.fun/thesis/mik0486)
 >
 > [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/mik0486.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/mik0486.yml)
 
@@ -31,7 +33,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 > ### Tvorba API výpravné evoluční hry </br> <sup>API Design for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/specification.pdf) </br>
-[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/structure.md)
+[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/kor0289/structure.md) </br>
+[Text práce](https://docs.tts-game.fun/thesis/kor0289)
 >
 > [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kor0289.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/kor0289.yml)
 
@@ -40,7 +43,8 @@ Cílem práce je vytvořit výpravnou evoluční hru, která by kombinovala jak 
 > ### Tvorba uživatelského prostředí výpravné evoluční hry </br> <sup>Creation of the User Environment for the Narrative Evolution Game</sup>
 >
 > [Zadání](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/specification.pdf) </br>
-[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/structure.md)
+[Osnova](https://github.com/Trails-Through-Shadows/TTS-Thesis/blob/master/oso0008/structure.md) </br>
+[Text práce](https://docs.tts-game.fun/thesis/oso0008)
 >
 > [![LaTeX Compilation](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/oso0008.yml/badge.svg)](https://github.com/Trails-Through-Shadows/TTS-Thesis/actions/workflows/oso0008.yml)
 
