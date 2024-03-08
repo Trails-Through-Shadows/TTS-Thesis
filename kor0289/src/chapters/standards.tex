@@ -16,10 +16,10 @@ Klíčová vlastnost RESTful služeb. Indikuje, že server předává a přijím
 
 Jednotné rozhraní by mělo dodržovat tyto pravidla\
 \begin{enumerate}
-	\item Požadavky by měly identifikovat zdroje.
-	\item Klient je schopen z přijmutých dat provést úpravu nebo smazání dat.
-	\item KLient je schopen přijmout metadata o tom jaký typ zprávy jde a tím pádem jak tuto zprávu zpracovat.
-	\item Klient může dostat informace o ostatních datech které se vážou k tomuto požadavku. (HATEOAS)
+    \item Požadavky by měly identifikovat zdroje.
+    \item Klient je schopen z přijmutých dat provést úpravu nebo smazání dat.
+    \item KLient je schopen přijmout metadata o tom jaký typ zprávy jde a tím pádem jak tuto zprávu zpracovat.
+    \item Klient může dostat informace o ostatních datech které se vážou k tomuto požadavku. (HATEOAS)
 \end{enumerate}
 
 \subsection{Stateless (bezstavový)}
@@ -48,11 +48,11 @@ Unique resource identifier je unikátní identifikátor pro určité data. V RES
 Jak již bylo předtím zmíněno, RESTful API typicky používá HTTP/S protokol. V tomto protokolu máme několik možností metod.
 
 \begin{description}
-	\item[GET] - Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
-	\item[POST] - Požadavek pro vložení kompletně nových dat. Data pro vložení se zároveň vloží do message body. Zde se s opakovaným voláním vloží zase znovu ta stejná data.
-	\item[PUT] - Požadavek pro úpravu dat. Data pro přepsání dat jsou vložena do message body. Opakované volání vrátí vždy stejný výsledek.
-	\item[DELETE] - Požadavek pro smazání dat.
-	\item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt.
+    \item[GET] - Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
+    \item[POST] - Požadavek pro vložení kompletně nových dat. Data pro vložení se zároveň vloží do message body. Zde se s opakovaným voláním vloží zase znovu ta stejná data.
+    \item[PUT] - Požadavek pro úpravu dat. Data pro přepsání dat jsou vložena do message body. Opakované volání vrátí vždy stejný výsledek.
+    \item[DELETE] - Požadavek pro smazání dat.
+    \item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt.
 \end{description}
 
 \subsection{Co obsahuje odpověď od serveru}
@@ -62,12 +62,12 @@ Stavovými kódy lehce zjistíme jak daný požadavek dopadl. Zda-li úspěšně
 Nejčastěji využívané kódy jsou tyto:
 
 \begin{description}
-	\item[200 OK] - Vše proběhlo v pořádku.
-	\item[201 Created] - vše proběhlo v pořádku při požadavku POST (data byla zapsána).
-	\item[400 Bad Request] - Server nepřijímá tyto data. Chyba na straně uživatele.
-	\item[401 Unauthorized] - Klient nemá potřebná oprávnění pro vykonání této akce.
-	\item[404 Not Found] - Adresa či data na které se klient dotazuje neexistují.
-	\item[500 Internal Server Error] - Obecná chyba na straně serveru.
+    \item[200 OK] - Vše proběhlo v pořádku.
+    \item[201 Created] - vše proběhlo v pořádku při požadavku POST (data byla zapsána).
+    \item[400 Bad Request] - Server nepřijímá tyto data. Chyba na straně uživatele.
+    \item[401 Unauthorized] - Klient nemá potřebná oprávnění pro vykonání této akce.
+    \item[404 Not Found] - Adresa či data na které se klient dotazuje neexistují.
+    \item[500 Internal Server Error] - Obecná chyba na straně serveru.
 \end{description}
 
 \subsubsection{Message body}
@@ -82,7 +82,48 @@ Tento objekt reprezentuje uživatele který se jmenuje Jožko Mrkvička a je mu 
 \subsubsection{Headers}
 V hlavičkách jsou přídavné informace. Ať už kódování body, datum a čas, typ obsahu v body. Nebo na straně klienta autorizaci jako třeba session key.
 
+\subsection{Shrnutí}
+Dnes nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchý a programátor si může sám určit který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný takže je jeho učící křivka rychlá. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory ale díky podpoře cache se může optimalizovat.
+
 \section{SOAP}
+SOAP neboli Simple Object Access Protocol je další z mnoha architektur API. Taktéž využívá aplikační vrstvu HTTP/S ale klidně může využívat jiné aplikační protokoly. Využívá pro přenos dat XML formát.
+
+Mám se tady rozepsat o tom co je to XML? u JSONU jsem to taky neudělal. Možná tu i rozepíšu JSON.
+
+\subsection{Charakteristika}
+SOAP má tři základní stavební kameny které definují zprávy.
+\begin{description}
+    \item[Envelope] Zapouzdřuje celou právu. Určuje jakou strukturu má zpráva mít a jak ji zpracovat
+    \item[Header] Obsahuje informace o zprávě. Například autentizační údaje
+    \item[Body] Samotná data. Obsahují dotazující informace a informace s odpovědí.
+    \item[(Fault message)] Může a nemusí obsahovat. Obsahuje kód chyby, actor, string a detail
+\end{description}
+
+Z pohledu klienta je podobné jako RESTful architektura. Klient vygeneruje požadavek ve formátu XML. Poté vygenerovaný SOAP požadavek klient pošle na SOAP server a ten následně vyvolá požadovanou aplikaci běžící na serveru. Odpověď z aplikace s požadovanými daty, parametry a hodnotami přepošle nejdříve SOAP request handleru a následně je odpověď poslána klientovi.
+
+\subsection{Výhody}
+\begin{description}
+    \item[Nezávislost na platformě] SOAP může běžet na jakémkoli operačním systému či síťovém protokolu. Což umožňuje komunikaci mezi různými jazyky jak na Windows tak i Linux.
+    \item[HTTP protokol] Primárně se používá HTTP protokol. To je výhoda že se nemusí upravovat firewall. I když funguje na jakémkoli ale tam by se mohlo stát že by se musela upravovat komunikační infrastruktura.
+    \item[Zabezpečení] má vlastní rozšíření Web Services security. Podporuje funkce jako x.509 certifikáty, vlastně-definované tokeny, Kerberos tickety a uživatelské ID/heslo pověření. Taktéž možnost HTTPS přidává vrstvu šifrování.
+\end{description}
+
+\subsection{Nevýhody}
+\begin{description}
+    \item[Rychlost] kvůli vysokému zabudovanému zabezpečení a kvůli serializaci do XML je tento protokol velice pomalý s porovnáním s ostatními
+    \item[Složitost] vzhledem k podpoře více protokolů se nemůže využít funkcí jednotlivých protokolů jako třeba u RESTful cachování a Uniform interface
+\end{description}
+
+\subsection{Shrnutí}
+Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští aby se optimalizovala rychlost tvořených API. To ale neznamená že se už nepoužívá. Díky jeho bezpečnosti je stále využíván bankami, E-komercí, ve zdravotnicví a všude kde je primární apel na bezpečnost.
+
+\section{GraphQL}
+
+
+\section{Porovnání a shrnutí} %TODO předělat tohle jsou jen myšlenky
+\textbf{předělat tohle jsou jen myšlenky co bych měl říct}
+
+Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.
 
 
 \endinput

@@ -8,14 +8,14 @@
 
 ## 2. Teoretická část
 
-- Standardy využívané pro tvorbu API
-  - Rest
-  - Webhooks
-  - Soap
-  - Shrnutí
 - Formáty využívající se v API
   - Json
   - XML
+- Standardy využívané pro tvorbu API
+  - Rest
+  - GraphQL
+  - Soap
+  - Shrnutí
 - Zabezpečení a autentifikace
   - Autentifikace
     - API key
