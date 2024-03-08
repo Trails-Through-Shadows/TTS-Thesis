@@ -11,6 +11,7 @@ Tato kapitola se zaměřuje na analýzu několika existujících deskových her,
 
 Na vlnách neznáma (anglicky \textit{Forgotten Waters}) je kooperativní desková hra pro 3 až 7 hráčů, kterou vydalo v roce 2020 vydavatelství Plaid Hat Games. Hra je zasazena do fantasy světa, kde hráči přebírají role pirátů, jejichž úkolem je spolupracovat, aby úspěšně splnili sen jejich kapitána. Každá z postav má však své vlastní cíle, které jsou reprezentovány vývojem postavy a jejími schopnostmi. Důležitou součástí hry je webová aplikace, která poskytuje hudební a zvukové efekty, včetně hlasového vyprávění, které hráče provází příběhem a vytváří tak atmosféru hry. \cite{forgotten_waters}
 
+
 \subsection{Herní systém}
 \label{subsec:fw_gameplay}
 
@@ -22,8 +23,55 @@ V rámci lokace je hráčům představeno několik možností, které si může 
 
 Co se týče konce hry, ten je určený předem připraveným scénářem. Každá část končí nějakou událostí, která se vyvolá po dokončení lokace. Po dokončení všech částí hry je dokončen i příběh a následuje příběhový epilog, vyhodnocený podle toho, jak se hráči během hry chovali. Jde tedy o příklad ukončení na základě splnění kooperativního cíle \chapterref{subsec:end_cooperative_goals}. Na závěr hry však ještě probíhá vyhodnocení příběhu jednotlivých postav, které v průběhu hry získávají body souhvězdí, které následně určují, jakým způsobem se příběh postavy vyvine. Jedná se tedy o ukázku konce hry na podle bodů vítězství \chapterref{subsec:end_victory_points}.
 
+
 \subsection{Fyzické komponenty}
 \label{subsec:fw_components}
+
+Na vlnách neznáma svůj herní systém podporuje několika fyzickými komponenty, které jsou součástí balení hry. Ty nejdůležitější z nich jsou přiblíženy níže.
+
+\subsubsection*{Herní deska a kniha lokací}
+\label{subsubsec:fw_comp_board_and_book}
+
+Herní deska je tvořena hexagonálním polem, které reprezentuje moře, po kterém se hráči pohybují. Na tuto prázdnou šablonu se umisťují hexagonální žetony navigace, které představují místa, kterými hráči proplouvají. Když hráči plují přes prázdné pole, náhodně vylosují žeton, který na toto pole umístí, což dodává hře pocit, že v ní opravdu prozkoumávají neznámé moře. Jednotlivé žetony navigace mají své vlastní identifikační číslo, které přes aplikaci odkáže hráče na příslušnou stránku v knize lokací.
+
+Kniha lokací je příručka, která obsahuje všechny lokace, které mohou hráči navštívit. Každá lokace má svou vlastní stránku, na které je popsána, včetně možností, které na ní hráči mají. Na levé straně jsou vždy vytištěné jednotlivé akce, na které si hráči během kola postaví své figurky a dále s těmito akcemi pracují. Na pravé straně je vytištěný tematický obrázek, který hře dodává atmosféru.
+
+\subsubsection*{Karty}
+\label{subsubsec:fw_comp_cards}
+
+Většina ve hře karet reprezentuje předměty, které mohou hráči získat a použít. Dělí se na poklady, které hráči získávají různými způsoby během hry, a příběhové karty, které se vztahují k příběhu postav. Karty přinášejí bonusy ke schopnostem, které postavy mohou využít, a také mohou nést složitější bonusy, které jsou ve zkratce popsané na kartě. Jedná se o jednoduchý způsob, jak hráčům umožnit jedinečný vývoj jejich postav, který je zároveň snadno zpřístupněný a přehledný.
+
+\subsubsection*{Role a listy postav}
+\label{subsubsec:fw_comp_roles}
+
+Jako posádka lodi si hráči před začátkem hry rozdělí role, o jejichž povinnosti se musí postarat. Spolu se svou rolí dostanou i list nebo desku, která slouží jako počítadlo pro různé statistiky, které budou hlídat. Jedná se o následující role:
+
+\begin{itemize}
+    \item Lodní písař: Stará se o lodní deník.
+    \item Kormidelník: Hlídá věhlas, který určuje iniciativu při výběru akcí.
+    \item První důstojník: Hlídá nespokojenost a počet členů posádky.
+    \item Bocman: Kontroluje stav trupu - pokud se loď potopí, hra končí.
+    \item Bednář: Hlídá lodní zásoby.
+    \item Dělostřelec: Obsluhuje lodní děla, která se využívají především v soubojích.
+    \item Pozorovatel: Hlídá průběh příběhu.
+\end{itemize}
+
+Pomocí takovéhoto rozdělení rolí mezi hráče je zajištěno, že se všichni hráči budou muset podílet na řízení lodi, a zároveň se také zamezí tomu, aby se některé činnosti opakovaly.
+
+Samotné postavy také mají své vlastní deníky. Tyto deníky slouží jako záznamník pro vývoj postavy, který je reprezentován body souhvězdí, které postava získává během hry. Po konci příběhu se podle těchto bodů vyhodnotí, jaký osud postavu potkal.
+
+\subsubsection*{Kostky}
+\label{subsubsec:fw_comp_dice}
+
+Pro vyhodnocování úspěšnosti akcí se ve hře používají dvanáctistěnné kostky, které se hází vždy, když je třeba určit výsledek zkoušky dovednosti. Když si hráč háže například na sílu, k výsledku hodu kostkou přičte svou vlastní hodnotu síly a případně bonusy, které mohl získat z karet. Výsledek pak porovná s obtížností úkolu, kterou určuje scénář.
+
+Zpestření hodů zajišťují speciální žetony, které upravují výsledek hodu. Jedná se o žetony neštěstí, při kterých si hráč musí hodit znovu a počítat si horší výsledek, a žetony přehození, které naopak umožňují ze dvou výsledků počítat ten lepší. 
+
+\subsubsection*{Figurky}
+\label{subsubsec:fw_comp_figures}
+
+Na vlnách neznáma nepoužívá přímo figurky, ale volí levnější variantu - tzv. standees, ilustrace vytištěné na kartonu, které se postaví do plastových stojanů. Tyto standees reprezentují jak postavy v rámci lokace, tak i samotnou loď na herním plánu. Jednoduchost tohoto způsobu umožňuje snadnou reprezentaci postav a zároveň snižuje náklady na výrobu hry.
+
 
 \subsection{Podpůrné aplikace}
 \label{subsec:fw_apps}
