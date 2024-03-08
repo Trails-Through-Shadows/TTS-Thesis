@@ -38,6 +38,8 @@
 \AddAcronym{JS}{JavaScript}
 \AddAcronym{HTML}{Hyper Text Markup Language}
 
+\addbibresource{resources/sauce.bib}
+
 \Acknowledgement{
     Rád bych na tomto místě poděkoval vedoucímu práce doc. Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady, trpělivost a ochotu věnovat mi svůj čas.
     Dále bych chtěl poděkovat svým kolegům Martinovi Koritwitschkovi, Baboře Kovalské a Miroslavovi Osobovi za jejich asistenci při vývoji.
@@ -45,6 +47,9 @@
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
 \newcolumntype{d}[1]{D{,}{,}{#1}}
+
+% Uprava hloubky obsahu - pozdeji smazat !
+\setcounter{tocdepth}{3}
 
 
 % Zacatek dokumentu
@@ -65,6 +70,7 @@
 \input{chapters/Introduction}
 
 % Kapitoly
+\input{chapters/Development}
 %\input{chapters/SampleChapter1}
 %\input{chapters/SampleChapter2}
 %\input{chapters/TechnicalDetails}
