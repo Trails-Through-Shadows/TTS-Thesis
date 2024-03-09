@@ -326,6 +326,11 @@ INPUT d:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT d:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT d:/texlive/2023/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT main.bcf
+INPUT main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT main.bbl
 INPUT d:/texlive/2023/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm
 INPUT d:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
 INPUT d:/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
