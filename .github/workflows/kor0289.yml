@@ -23,7 +23,7 @@ jobs:
   build-latex:
     runs-on: ubuntu-latest
     env: 
-      CESTA: "\\newcommand{\\CESTA}{.}"
+      ROAD: "\\newcommand{\\ROAD}{.}"
     steps:
       - uses: actions/checkout@v3
 
