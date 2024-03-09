@@ -2,7 +2,8 @@
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní. A to JSON a XML.
 
 \section{JSON}
-JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascriptu. Nicméně mnoho dnešních jazyků už má zabudovanou serializaci do JSONU. Jedná se o textový formát zápisu objektů který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy value může být i další objekt nebo pole. Je využíván primárně k výměně dat mezi webovými aplikacemi a servery. Má jednoduchá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. \textbf{odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu
+JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascriptu. Nicméně mnoho dnešních jazyků už má zabudovanou serializaci do JSONU. Jedná se o textový formát zápisu objektů který je dobře čitelný člověkem. Bohužel nemá podporu komentářů oproti XML které tuto podporu má. Ukládá data do párů \textbf{key:value} kdy value může být i další objekt nebo pole. Znaky v JSONu musí být v kódování UTF-8 ale podporuje i speciální znaky pokud jsou tzv. escaped. Například \verb |\uD83D\uDE10| \textit{neutral-face} . Je využíván primárně k výměně dat mezi webovými aplikacemi a  servery. Má jednoduchá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. \textbf{odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu plus dát emoji 😐 třeba xetex ale to se pak celé rozbije
+
 
 \subsection{Pravidla}
 \textbf{Key} je vždycky string a reprezentuje atribut. \textbf{Value} je hodnota kterou nabývá key a může být text, číslo, logická hodnota, null, další objekt či pole. Jednotlivé atributy jsou vždy odděleny čárkou. Jako příklad máme JSON objekt z našeho API. Tento objekt popisuje hráče, jeho vlastnosti a navíc jeho rasu.
@@ -10,7 +11,7 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
 \newpage
 
 \begin{listing}
-  \begin{minted}{json}
+    \begin{minted}{json}
 {
   "id": 4,
   "clazz": null,
@@ -42,8 +43,8 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
   "dead": false
 }
   \end{minted}
-  \caption{ree}
-  \label{code:sumaradyasm}
+    \caption{Příklad JSON souboru}
+    \label{code:sumaradyasm}
 \end{listing}
 
 V tomto JSONu máme všechno s čím se můžeme potkat. Jako první máme \verb|"ID":4|. ID je klíč a 4 je číslo. To značí že tento objekt má svůj unikátní identifikátor 4. Může se ovšem stát že by naše číslo 4 bylo v uvozovkách \verb|"4"|. To by pak bylo ohodnoceno jako text ne jako číslo a kdybychom s tím dále chtěli pracovat jako s číslem tak si ho musíme v programu přetypovat. \textbf{idk jestli to tu tento příklad dávat } S tím se také pojí deserializace když chceme převádět JSON zpátky na objekt tak datové typy v objektu musí sedět s těmi co jsou v JSONu.
@@ -60,8 +61,73 @@ A nakonec zde máme na řádku 29 jako value \texttt{false}. To značí logickou
 
 
 \section{XML}
-Extensible Markup Language
+Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat. Stejně jako JSON je čitelný i člověkem. Základní stavební blok je node. Atributy pak ukládá do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Také za pomocí XML Schema definition podporuje celou řadu datových typů. Oproti JSONu je zde podpora komentářů. Standardy spravuje W3C \textbf{fest fajny odkaz na w3c specifikaci do bibtex} %TODO bibtech na w3c
 
+
+\subsection{Pravidla}
+Na začátku dokumentu je vždycky XML deklarace, která určuje o jakou verzi se jedná a jaké mají znaky kódování.
+Tag je párová značka. Zapisuje se jako počáteční tag (<character>) a ukončovací (</character>) kde \textit{character} je název atributu podobě jako u JSONu \textbf{key}. Hodnota atributu se píše právě mezi počáteční a ukončovací tag. Taktéž se může psát přímo do tagu <character id=4>. Tomuto páru tagů říkáme \textbf{element}. Tzv. \textit{procesory} analyzují XML dokumenty a posílají dále strukturovaná data aplikaci. Procesory můžou být jak validující tak nevalidující. Pokud jde o validující procesor, musí chybu nahlásit ale pořád může pokračovat.
+
+
+\begin{listing}
+    \begin{minted}{xml}
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="health" type="xs:integer"/>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:attribute name="idRace" type="xs:integer" />
+      <xs:attribute name="idEffect" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <!-- other schema definitions here -->
+</xs:schema>
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="health" type="xs:integer"/>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:attribute name="idRace" type="xs:integer" />
+      <xs:attribute name="idEffect" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <!-- other schema definitions here -->
+</xs:schema>
+<character> 
+    <id>4</id>
+    <clazz></clazz>
+    <race>
+        <id>4</id>
+        <title>Elf</title>
+        <effects>
+            <key>
+                <idRace>4</idRace>
+                <idEffect>25</idEffect>
+            </key>
+            <levelReq>1</levelReq>
+        </effects>
+        <effects>
+            <key idRace="4" idEffect="28"></key>
+            <levelReq>1</levelReq>
+        </effects>
+    </race>
+    <title>Legolas</title>
+    <playerName>Jožko</playerName>
+    <inventory>dagger</inventory>
+    <inventory>robe</inventory>
+    <url>https://api.tts-game.fun/images/characters/elf-bard.png</url>
+    <health>8</health>
+    <dead>false</dead>
+</character>
+  \end{minted}
+    \caption{Příklad XML dokumentu i se schématem}
+    %\label{code:sumaradyasm}
+\end{listing}
+
+%TODO nějaký odkaz pěkný nebo tak něco na 
+Tento XML dokument reprezentuje stejnou strukturu jako JSON zmíněný výše. Je zde navíc na první pohled schéma ve kterém můžeme určit jeden z mnoha datových typů pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není specifikováno schéma tak všechny datové typy jsou pouze text. Taky velká změna oproti JSONu je že víme o jaký objekt se jedná (řádek 23 a 48). Místo obyčejných složených závorek zde máme element který se jmenuje character. Předtím jsme tuto informaci v JSONu nedostali.
+
+%odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif
 
 
 \endinput

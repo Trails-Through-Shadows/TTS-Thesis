@@ -6,13 +6,14 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
 \usepackage{../../shared/diplomalst}
+
 % \usepackage{../../shared/additionallst}
 \immediate\write18{echo $ROAD > .ROAD.tex}
 \immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
 \input{.ROAD}
 
 \usepackage[outputdir=\ROAD]{minted} %
-\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt}
+\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos}
 \renewcommand\listingscaption{Výpis}
 \renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
@@ -56,7 +57,10 @@
 \MakeTitlePages
 \listoflistings
 \clearpage
-
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
 
 % A nasleduje text zaverecne prace.
 \input{chapters/intruduction}
