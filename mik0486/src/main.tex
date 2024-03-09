@@ -5,6 +5,7 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
 \usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage{glossaries}
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Pavel Mikula}
@@ -37,6 +38,7 @@
 \AddAcronym{API}{Aplikační programové rozhraní}
 \AddAcronym{JS}{JavaScript}
 \AddAcronym{HTML}{Hyper Text Markup Language}
+\makeglossaries
 
 \Acknowledgement{
     Rád bych na tomto místě poděkoval vedoucímu práce Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady, trpělivost a ochotu věnovat mi svůj čas.
@@ -72,6 +74,13 @@
 
 % Zaver
 %\input{chapters/Conclusion}
+
+\input{chapters/GlossaryExample}
+
+% Print the glossary
+\printglossaries
+
+% Prilohy
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
