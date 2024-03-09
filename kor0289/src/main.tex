@@ -8,13 +8,13 @@
 \usepackage{../../shared/diplomalst}
 % \usepackage{../../shared/additionallst}
 \immediate\write18{echo $CESTA > .CESTA.tex}
-
 \input{.CESTA}
 
 \usepackage[outputdir=\CESTA]{minted} %
 \setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt}
 \renewcommand\listingscaption{Výpis}
 \renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
+
 
 \usepackage[]{glossaries}
 \setcounter{tocdepth}{3}
