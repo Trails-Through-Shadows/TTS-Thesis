@@ -5,10 +5,11 @@ V této kapitole budou popsány především dva základní formáty dat které 
 JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascriptu. Nicméně mnoho dnešních jazyků už má zabudovanou serializaci do JSONU. Jedná se o textový formát zápisu objektů který je čitelný člověkem. Ukládá data do párů key:value kdy value může být i další objekt nebo pole. Je využíván primárně k výměně dat mezi webovými aplikacemi a servery.
 
 \subsection{idk jak to pojmenovat}
-\textbf{Key} je vždycky string a reprezentuje atribut. \textbf{Value} je hodnota kterou nabývá key a může být text, číslo další objekt či pole. Jako příklad máme JSON objekt z našeho API. Tento objekt popisuje hráče, jeho vlastnosti a navíc jeho rasu.
+\textbf{Key} je vždycky string a reprezentuje atribut. \textbf{Value} je hodnota kterou nabývá key a může být text, číslo, null, další objekt či pole. Jako příklad máme JSON objekt z našeho API. Tento objekt popisuje hráče, jeho vlastnosti a navíc jeho rasu.
 \begin{lstlisting}[language=json, caption=Příklad JSON dokumentu]
 {
   "id": 4,
+  "clazz": null
   "race": {
     "id": 4,
     "title": "Elf",
@@ -31,7 +32,7 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
   },
   "title": "Legolas",
   "playerName": "Jožko",
-  "inventory": [],
+  "inventory": ["dagger","robe"],
   "url": "https://api.tts-game.fun/images/characters/elf-bard.png",
   "health": 8
 }
