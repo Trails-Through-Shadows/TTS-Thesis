@@ -1,0 +1,31 @@
+% Create the glossary
+\newglossary[glignored]{shortcuts}{glsto}{glstr}{Seznam zmíněných stolních her}
+
+% Define the style for the glossary
+\newglossarystyle{shortcuts}{
+    \renewcommand*{\glossaryheader}{}
+    \renewcommand*{\glossentry}[2]{
+        \item \textbf{\glsentryname{##1}} - \glsentrydesc{##1}
+        \\\hspace*{1em}BoardGameGeek: \url{\glsentryuseri{##1}}
+        \ifthenelse{\equal{\glsentryuserii{##1}}{}}{}{\\\hspace*{1em}Vydavatel: \url{\glsentryuserii{##1}}} \\
+    }
+}
+
+% Define the glossary entries
+% user1 - bggurl
+% user2 - publisherurl (optional)
+
+\newglossaryentry{fw}{
+    type=shortcuts,
+    name={BBB},
+    description={Description of Game 2},
+    user1={https://boardgamegeek.com/boardgame/123456},
+    user2={https://www.publisher1.com},
+}
+
+\newglossaryentry{gloomhaven}{
+    type=shortcuts,
+    name={AAA},
+    description={Description of Game 1},
+    user1={https://boardgamegeek.com/boardgame/123456},
+}

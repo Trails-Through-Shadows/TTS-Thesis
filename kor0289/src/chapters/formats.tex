@@ -11,7 +11,7 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
 \newpage
 
 \begin{listing}
-    \begin{minted}{json}
+  \begin{minted}{json}
 {
   "id": 4,
   "clazz": null,
@@ -43,8 +43,8 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
   "dead": false
 }
   \end{minted}
-    \caption{Příklad JSON souboru}
-    \label{code:sumaradyasm}
+  \caption{Příklad JSON souboru}
+  \label{code:sumaradyasm}
 \end{listing}
 
 V tomto JSONu máme všechno s čím se můžeme potkat. Jako první máme \verb|"ID":4|. ID je klíč a 4 je číslo. To značí že tento objekt má svůj unikátní identifikátor 4. Může se ovšem stát že by naše číslo 4 bylo v uvozovkách \verb|"4"|. To by pak bylo ohodnoceno jako text ne jako číslo a kdybychom s tím dále chtěli pracovat jako s číslem tak si ho musíme v programu přetypovat. \textbf{idk jestli to tu tento příklad dávat } S tím se také pojí deserializace když chceme převádět JSON zpátky na objekt tak datové typy v objektu musí sedět s těmi co jsou v JSONu.
@@ -70,7 +70,7 @@ Tag je párová značka. Zapisuje se jako počáteční tag (<character>) a ukon
 
 
 \begin{listing}
-    \begin{minted}{xml}
+  \begin{minted}{xml}
 <?xml version="1.0" encoding="UTF-8" ?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="health" type="xs:integer"/>
@@ -120,14 +120,14 @@ Tag je párová značka. Zapisuje se jako počáteční tag (<character>) a ukon
     <dead>false</dead>
 </character>
   \end{minted}
-    \caption{Příklad XML dokumentu i se schématem}
-    %\label{code:sumaradyasm}
+  \caption{Příklad XML dokumentu i se schématem}
+  %\label{code:sumaradyasm}
 \end{listing}
 
 %TODO nějaký odkaz pěkný nebo tak něco na 
 Tento XML dokument reprezentuje stejnou strukturu jako JSON zmíněný výše. Je zde navíc na první pohled schéma ve kterém můžeme určit jeden z mnoha datových typů pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není specifikováno schéma tak všechny datové typy jsou pouze text. Taky velká změna oproti JSONu je že víme o jaký objekt se jedná (řádek 23 a 48). Místo obyčejných složených závorek zde máme element který se jmenuje character. Předtím jsme tuto informaci v JSONu nedostali.
 
-%odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif
+%odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif a přímo ta stránka https://www.w3.org/TR/xmlschema-2/#built-in-datatypes
 
 
 \endinput
