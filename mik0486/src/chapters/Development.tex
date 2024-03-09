@@ -1,55 +1,49 @@
-\chapter{Vývojové rozhraní}
-\label{ch:development}
-
-\section{Teorie UI/GUI}
-\label{sec:ui-gui-theory}
-% TODO: Zhrnutí o tom co budu popisovat
-
-\subsection{Počátek vzniku uživatelského rozhraní}
-\label{subsec:ui-gui-theory-beginning}
-Jak vznikl od přepínačů, děrných štítku, přes terminály až po moderní GUI
-
-\subsection{Problematika vývoje}
-\label{subsec:ui-gui-theory-problems}
-Problémy s vývojem, jak se vyvíjelo, co bylo těžké, co se zlepšilo
-Rozepsat problémy Flash Playeru pro online hry, jaké jsou jeho alternativy
-
-\subsection{Responzivní design}
-\label{subsec:ui-gui-theory-responsive-design}
-Vznik bootstrapu jako řešení pro responzivní design
-
-% TODO: Zkratky MVT, SEO, Framework, XSS, SQL (Injection), SPA, Open-Source, DOM
-
-\section{Analýza populárních deskových her}
-\label{sec:popular-board-games-analysis}
-
-\subsection{Carcassonne}
-\label{subsec:popular-board-games-analysis-carcassonne}
-
-\subsection{Bang!}
-\label{subsec:popular-board-games-analysis-bang}
-
-\subsection{Codenames (Krycí jména)}
-\label{subsec:popular-board-games-analysis-codenames}
-
-\subsection{Gloomhaven}
-\label{subsec:popular-board-games-analysis-gloomhaven}
+\chapter{Použité technologie}
+\label{ch:technology}
 
 \section{Programovací Jazyky}
 \label{sec:languages}
-Programovací jazyk je formální jazyk, který se v IT používá pro definici algoritmů a struktur obsahujících data. Tyto jazyky jsou následně pomocí kompílátoru nebo interpretrů převedeny do strojového kódu.. A další omáčka o tom
+Programovací jazyk je formální druh komunikace mezi člověkem a počítačem. Slouží jako prostředník mezi lidským a strojovým kódem, což umožňuje programátorům vytvářet aplikace, které pomocí instrukcí ovládají chod počítače. Programovací jazyk můžeme rozdělit do tří hlavní kategorii, které se liší úrovní abstrakce a způsobem zpracování.
+
+\subsection*{Machine Level Language (Strojový Jazyk)}
+Strojový jazyk je nejnižší úrovni programovacího jazyka, tento jazyk je čitelný pouze pro počítač z důvodu jeho zapsání v binární podobě, tedy pomocí nul a jedniček. Jako jazyk je nejrychlejší a nejefektivnější, ale tím, že je pro člověka nečitelný, je téměř nemožné jej přímo psát nebo opravovat. Z tohoto důvodu vznikly vyšší úrovně programovacích jazyků.
+
+\subsection*{Assembly Level Language (Symbolický Jazyk)}
+Symbolický jazyk je prostředníkem mezi strojovým jazykem a vyššími úrovněmi programovacích jazyků. Tento jazyk poskytuje abstrakci nad jazykem strojovým, čímž umožňuje programátorům psát instrukce pomocí symbolů, zkratkových značek a operací s registry, které jsou následně přeloženy do strojového kódu. Tento jazyk je stále velmi nízkoúrovňový, protože je stále přímo závislý na architektuře konkrétního procesoru.
+
+\subsection*{High Level Language (Vysokoúrovňový Jazyk)}
+Vysokoúrovňový jazyk je nejvyšší z úrovni programovacího jazyk a již se blíži k jazyku, které známe z každodenního života v informačních technologiích. Tyto jazyky jsou již navrženy tak, že již nejsou přímo závisle na konkrétní architektuře procesoru, čímž umožňují psát multiplatformní aplikace. Dále jej můžeme štěpit na kompilované a interpretované jazyky. Jako příklad můžeme uvést jazyky jako C, C++, Java, Python, JavaScript, Ruby, PHP a mnoho dalších.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/programmingLanguage}
+    \caption{Translace programovacích jazyků. \cite{programming_language}}
+    \label{fig:programming_language}
+\end{figure}
 
 \subsection{Kompilované Jazyky}
 \label{subsec:languages-compiled}
-Kompilované jazyky jsou převáděny do strojového kódu již při jejich kompilaci, ošetřují tak mnoho chyb rovnou, zlepšují tak rychlost, výkon díky optimalizaci a bezpečnost.. A další omáčka o tom
+Kompilované jazyky jsou ty jazyky, které se při jejich zpracování převádí přímo na kód strojový. Tento proces se nazývá kompilace a výsledný kód je následně spustitelný na konkrétním operačním systému. Tento způsob zpracování má několik výhod:
+
+\begin{itemize}
+    \item \textbf{Rychlost:} Kód, který již byl jednou přeložen, je okamžitě spustitelný bez dalšího zpracování.
+    \item \textbf{Výkon:} Díky překladu do strojového kódu, je možné při kompilaci provádět optimalizace, které zvyšují výkon aplikace.
+    \item \textbf{Bezpečnost:} Kompilované jazyky ošetřují mnoho chyb již při jejich kompilaci, což zvyšuje bezpečnost aplikace a snižuje rizika chyb.
+\end{itemize}
+
+Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, Java, Rust, Go a mnoho dalších.
 
 \subsubsection{TypeScript}
 \label{subsubsec:languages-compiled-typescript}
-% TODO: What is TypeScript
+TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožnuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
+
+Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace.
 
 \subsubsection{Less}
 \label{subsubsec:languages-compiled-less}
-% TODO: What is Less
+Less je dalším z kompilovaných jazyků, které se zaměřují na zlepšení a obohacení jazyka \textit{CSS}. Tento jazyk byl vytvořen v roce 2009 autorem Alexis Sellier a jako TypeScript je jeho cílem poskytnout dodatečné funkce pro pohodlnější a efektivnější psaní kaskádových stylů. Jako hlavní výhody můžeme uvést možnost definovat proměnné, funkce nebo vnořování selectoru.
+
+Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako je \textit{Less.js} nebo \textit{Node.js}.
 
 \subsection{Interpretované Jazyky}
 \label{subsec:languages-interpreted}
@@ -69,17 +63,17 @@ Kompilované jazyky jsou převáděny do strojového kódu již při jejich komp
 
 \subsubsection{HTML}
 \label{subsubsec:languages-markup-html}
+% TODO: What is HTML
 
 \subsubsection{Markdown}
 \label{subsubsec:languages-markup-markdown}
-
-% TODO: Možná něco navíc?
+% TODO: What is Markdown
 
 \section{Frameworky}
 \label{sec:dev-framework}
 Framework, v jiných slovech struktura nebo kostra, představuje v informatice a softwarovém inženýrství abstraktní koncept poskytující základní stavební kameny pro aplikace s širokým spektrem funkcí. Cílem frameworků je usnadnit vývoj aplikací tím, že nabízejí předem definovanou strukturu, kterou lze dále rozšiřovat o vlastní kód a funkcionalitu. Tímto způsobem umožňují frameworky vývojářům rychleji a efektivněji vytvářet aplikace, což přináší zvýšení produktivity, snížení nákladů na vývoj a hlavně standardizaci kódu mezi vývojáři.
 
-Ve svéře informatiky se frameworky dělí podle jazyku nebo zaměření na aplikace. Máme zde druhy frameworku určených na vývoj webů, rozděleny ny frontend a backend, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
+Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikace. Máme zde druhy frameworku určených na vývoj webů, rozděleny ny frontend a backend, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
 
 \subsection*{Rozdíl mezi Frameworkem a Knihovnou}
 Framework a knihovna jsou dvě často zaměňované koncepce, avšak existují zásadní rozdíly mezi nimi. Knihovna je soubor funkcí nebo tříd, které lze využít při vytváření aplikace. Zajišťuje určitou funkcionalitu, ale vývojář nese odpovědnost za řízení toku aplikace a volání funkcí knihovny.
@@ -213,5 +207,8 @@ Celkově lze konstatovat, že technologie šablonování v Djangu přispívá k 
 
 \subsubsection{PIP}
 \label{subsubsec:dev-technology-package-managers-pip}
+
+\subsection{Boostrap}
+\label{subsec:dev-technology-bootstrap}
 
 \endinput

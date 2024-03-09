@@ -35,6 +35,7 @@
 }
 \EnglishKeywords{administrative interface, expansive evolutionary game, game content management, rendering, interactive editor}
 
+% TODO: Zkontrolovat všechny zkratky v dokumentu
 \AddAcronym{API}{Aplikační programové rozhraní}
 \AddAcronym{JS}{JavaScript}
 \AddAcronym{HTML}{Hyper Text Markup Language}
@@ -46,9 +47,12 @@
 }
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
-\newcolumntype{d}[1]{D{,}{,}{#1}}
+\newcolumntype{d}[1]{D{,}{,}{\#1}}
 
 \addbibresource{resources/sauce.bib}
+
+% Uprava hloubky obsahu - pozdeji smazat !
+\setcounter{tocdepth}{3}
 
 % Zacatek dokumentu
 \begin{document}
@@ -68,6 +72,7 @@
 \input{chapters/Introduction}
 
 % Kapitoly
+\input{chapters/Theory}
 \input{chapters/Development}
 %\input{chapters/SampleChapter2}
 %\input{chapters/TechnicalDetails}
