@@ -6,7 +6,15 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
 \usepackage{../../shared/diplomalst}
-\usepackage{../../shared/additionallst}
+% \usepackage{../../shared/additionallst}
+\immediate\write18{echo $CESTA > .CESTA.tex}
+
+\input{.CESTA}
+
+\usepackage[outputdir=\CESTA]{minted} %
+\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt}
+\renewcommand\listingscaption{Výpis}
+\renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
 \usepackage[]{glossaries}
 \setcounter{tocdepth}{3}
@@ -18,7 +26,7 @@
 \ThesisAuthor{Martin Korotwitschka}
 \ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
 \CzechThesisTitle{Tvorba API výpravné evoluční hry}
-\EnglishThesisTitle{CAPI Design for the Narrative Evolution Game}
+\EnglishThesisTitle{API Design for the Narrative Evolution Game}
 \SubmissionYear{2024}
 \ThesisAssignmentFileName{../specification.pdf}
 
@@ -43,7 +51,6 @@
 
 % Zacatek dokumentu
 \begin{document}
-
 % Nechame vysazet titulni strany.
 \MakeTitlePages
 
@@ -52,6 +59,7 @@
 \input{chapters/intruduction}
 \input{chapters/formats}
 \input{chapters/standards}
+
 \input{chapters/conclusion}
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]

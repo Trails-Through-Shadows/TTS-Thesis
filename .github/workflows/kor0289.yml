@@ -22,6 +22,8 @@ jobs:
 
   build-latex:
     runs-on: ubuntu-latest
+    env: 
+      CESTA: "\\newcommand{\\CESTA}{kor0289/src}"
     steps:
       - uses: actions/checkout@v3
 
@@ -30,6 +32,7 @@ jobs:
         with:
           root_file: main.tex
           working_directory: kor0289/src
+          args: -pdf -halt-on-error -interaction=nonstopmode --shell-escape --enable-write18
 
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3

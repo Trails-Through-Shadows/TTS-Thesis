@@ -2,14 +2,18 @@
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní. A to JSON a XML.
 
 \section{JSON}
-JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascriptu. Nicméně mnoho dnešních jazyků už má zabudovanou serializaci do JSONU. Jedná se o textový formát zápisu objektů který je čitelný člověkem. Ukládá data do párů key:value kdy value může být i další objekt nebo pole. Je využíván primárně k výměně dat mezi webovými aplikacemi a servery.
+JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascriptu. Nicméně mnoho dnešních jazyků už má zabudovanou serializaci do JSONU. Jedná se o textový formát zápisu objektů který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy value může být i další objekt nebo pole. Je využíván primárně k výměně dat mezi webovými aplikacemi a servery. Má jednoduchá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost.
 
-\subsection{idk jak to pojmenovat}
-\textbf{Key} je vždycky string a reprezentuje atribut. \textbf{Value} je hodnota kterou nabývá key a může být text, číslo, null, další objekt či pole. Jako příklad máme JSON objekt z našeho API. Tento objekt popisuje hráče, jeho vlastnosti a navíc jeho rasu.
-\begin{lstlisting}[language=json, caption=Příklad JSON dokumentu]
+\subsection{Pravidla}
+\textbf{Key} je vždycky string a reprezentuje atribut. \textbf{Value} je hodnota kterou nabývá key a může být text, číslo, logická hodnota, null, další objekt či pole. Jednotlivé atributy jsou vždy odděleny čárkou. Jako příklad máme JSON objekt z našeho API. Tento objekt popisuje hráče, jeho vlastnosti a navíc jeho rasu.
+
+\newpage
+
+\begin{listing}[]
+  \begin{minted}{json}
 {
   "id": 4,
-  "clazz": null
+  "clazz": null,
   "race": {
     "id": 4,
     "title": "Elf",
@@ -31,20 +35,64 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
     ]
   },
   "title": "Legolas",
-  "playerName": "Jožko",
+  "playerName": "Jozko",
   "inventory": ["dagger","robe"],
   "url": "https://api.tts-game.fun/images/characters/elf-bard.png",
-  "health": 8
+  "health": 8,
+  "dead": false
 }
-\end{lstlisting}
+  \end{minted}
+  \caption{ree}
+  \label{code:sumaradyasm}
+\end{listing}
 
-V tomto JSONu máme všechno s čím se můžeme potkat. Jako první máme \verb|"ID":4|. ID je klíč a 4 je číslo. To značí že tento objekt má svůj unikátní identifikátor 4. Může se ovšem stát že by naše číslo 4 bylo v uvozovkách \verb|"4"|. To by pak bylo ohodnoceno jako text ne jako číslo a kdybychom s tím dále chtěli pracovat jako s číslem tak si ho musíme v programu přetypovat. \textbf{idk jestli to tu tento příklad dávat }S tím se také pojí deserializace když chceme převádět JSON zpátky na objekt tak datové typy v objektu musí sedět s těmi co jsou v JSONu.
+% \begin{lstlisting}[language=json, caption=Příklad JSON dokumentu]
+% {
+%   "id": 4,
+%   "clazz": null,
+%   "race": {
+%     "id": 4,
+%     "title": "Elf",
+%     "effects": [
+%       {
+%         "key": {
+%           "idRace": 4,
+%           "idEffect": 25
+%         },
+%         "levelReq": 1
+%       },
+%       {
+%         "key": {
+%           "idRace": 4,
+%           "idEffect": 28
+%         },
+%         "levelReq": 1
+%       }
+%     ]
+%   },
+%   "title": "Legolas",
+%   "playerName": "Jozko",
+%   "inventory": ["dagger","robe"],
+%   "url": "https://api.tts-game.fun/images/characters/elf-bard.png",
+%   "health": 8,
+%   "dead": false
+% }
+% \end{lstlisting}
 
-Dále zde máme \verb|"title":"Elf"|. Value je v tomto případě text. Taktéž tento řádek v kontextu objektu nám značí že je to rasa která má název Elf.
+V tomto JSONu máme všechno s čím se můžeme potkat. Jako první máme \verb|"ID":4|. ID je klíč a 4 je číslo. To značí že tento objekt má svůj unikátní identifikátor 4. Může se ovšem stát že by naše číslo 4 bylo v uvozovkách \verb|"4"|. To by pak bylo ohodnoceno jako text ne jako číslo a kdybychom s tím dále chtěli pracovat jako s číslem tak si ho musíme v programu přetypovat. \textbf{idk jestli to tu tento příklad dávat } S tím se také pojí deserializace když chceme převádět JSON zpátky na objekt tak datové typy v objektu musí sedět s těmi co jsou v JSONu.
 
-O dva řádky výše je \verb|"race":{<objekt>}|. To je příklad objektu. v tomto případě rasy a ta má nějaké své vlastnosti.
+Dále zde máme na 6 řádku \verb|"title":"Elf"|. Value je v tomto případě text. Taktéž tento řádek v kontextu objektu nám značí že je to rasa která má název Elf.
 
-V key \texttt{"effects"}
+O dva řádky výše je \verb|"race":{<vlastnosti>}|. To je příklad objektu. v tomto případě rasy a ta má nějaké své vlastnosti.
+
+V key \texttt{"effects"} se nachází pole objektů. V tomto případě to jsou klíče co určují rasu a její efekt plus od jaké úrovně je tento efekt zpřístupněn. Stejně tak na řádku 26 je jako value pole textových řetězců. V tomto případě se jedná o inventář hráče a jeho předměty.
+
+A v neposlední řadě máme na řádku 3 jako value \texttt{null}. To nám značí že tento konkrétní key u tohoto objektu zatím nic neobsahuje. Může se stát že v budoucnu nějakou value dostane nebo může existovat u jiného objektu.
+
+A nakonec zde máme na řádku 29 jako value \texttt{false}. To značí logickou hodnotu a tato value má datový typ boolean. V našem případě se jedná o vlastnost která nám říká zda je hráč mrtvý (\texttt{false}) či nikoli (\texttt{true}).
+
+
+\section{XML}
 
 
 \endinput
