@@ -10,7 +10,6 @@
 
 \usepackage[]{glossaries}
 \setcounter{tocdepth}{3}
-\makeglossaries
 
 % dark theme enable
 %\usepackage{xcolor} \pagecolor[rgb]{0,0,0} \color[rgb]{1,1,1}
@@ -39,7 +38,8 @@
 \AddAcronym{API}{Application Interface}
 \AddAcronym{REST}{REpresentational State Transfer}
 \AddAcronym{SOAP}{simple object access protocol}
-\printglossaries
+% \makeglossaries
+% \printglossaries
 
 % Zacatek dokumentu
 \begin{document}
@@ -49,8 +49,8 @@
 
 
 % A nasleduje text zaverecne prace.
-\input{chapters/formats}
 \input{chapters/intruduction}
+\input{chapters/formats}
 \input{chapters/standards}
 \input{chapters/conclusion}
 % Seznam literatury
