@@ -26,6 +26,12 @@ what is soap
 - https://en.wikipedia.org/wiki/SOAP
 - https://www.techtarget.com/searchapparchitecture/definition/SOAP-Simple-Object-Access-Protocol
 
+xml a json
+
+- wikina
+- https://www.w3schools.com/xml/xml_whatis.asp
+- https://zapier.com/resources/guides/apis/data-formats
+
 
 ## diplomky
 

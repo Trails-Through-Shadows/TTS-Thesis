@@ -7,14 +7,15 @@
 \usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
 \usepackage{../../shared/diplomalst}
 % \usepackage{../../shared/additionallst}
-\immediate\write18{echo $CESTA > .CESTA.tex}
+\immediate\write18{echo $ROAD > .ROAD.tex}
+\immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
+\input{.ROAD}
 
-\input{.CESTA}
-
-\usepackage[outputdir=\CESTA]{minted} %
+\usepackage[outputdir=\ROAD]{minted} %
 \setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt}
 \renewcommand\listingscaption{Výpis}
 \renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
+
 
 \usepackage[]{glossaries}
 \setcounter{tocdepth}{3}
@@ -53,6 +54,8 @@
 \begin{document}
 % Nechame vysazet titulni strany.
 \MakeTitlePages
+\listoflistings
+\clearpage
 
 
 % A nasleduje text zaverecne prace.
