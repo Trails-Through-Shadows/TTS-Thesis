@@ -1,0 +1,129 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{what_react_is_and_why_it_matters}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=dbb2647e434364894987225567381dcb}{%
+           family={Baer},
+           familyi={B\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media, Inc.}%
+      }
+      \strng{namehash}{dbb2647e434364894987225567381dcb}
+      \strng{fullhash}{dbb2647e434364894987225567381dcb}
+      \strng{bibnamehash}{dbb2647e434364894987225567381dcb}
+      \strng{authorbibnamehash}{dbb2647e434364894987225567381dcb}
+      \strng{authornamehash}{dbb2647e434364894987225567381dcb}
+      \strng{authorfullhash}{dbb2647e434364894987225567381dcb}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781491996737}
+      \field{month}{8}
+      \field{title}{What React Is and Why It Matters}
+      \field{year}{2018}
+    \endentry
+    \entry{angular_vs_react}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=93f8f86ad3817fb2d5cbc71da947bfad}{%
+           family={Dhaduk},
+           familyi={D\bibinitperiod},
+           given={Hiren},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \strng{fullhash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \strng{bibnamehash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \strng{authorbibnamehash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \strng{authornamehash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \strng{authorfullhash}{93f8f86ad3817fb2d5cbc71da947bfad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Angular vs React: Which to Choose for Your Front End in 2024?}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.simform.com/blog/angular-vs-react/
+      \endverb
+      \verb{url}
+      \verb https://www.simform.com/blog/angular-vs-react/
+      \endverb
+    \endentry
+    \entry{what_is_angular}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c31c335ef37283c451b18ba0dd317de1}{%
+           family={Angular},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{c31c335ef37283c451b18ba0dd317de1}
+      \strng{fullhash}{c31c335ef37283c451b18ba0dd317de1}
+      \strng{bibnamehash}{c31c335ef37283c451b18ba0dd317de1}
+      \strng{authorbibnamehash}{c31c335ef37283c451b18ba0dd317de1}
+      \strng{authornamehash}{c31c335ef37283c451b18ba0dd317de1}
+      \strng{authorfullhash}{c31c335ef37283c451b18ba0dd317de1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Angular?}
+      \verb{urlraw}
+      \verb https://angular.io/guide/what-is-angular
+      \endverb
+      \verb{url}
+      \verb https://angular.io/guide/what-is-angular
+      \endverb
+    \endentry
+    \entry{svelte_and_why_you_should_consider_it}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0b47a6449808f4b6171ef83e1afd560f}{%
+           family={Russo},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{0b47a6449808f4b6171ef83e1afd560f}
+      \strng{fullhash}{0b47a6449808f4b6171ef83e1afd560f}
+      \strng{bibnamehash}{0b47a6449808f4b6171ef83e1afd560f}
+      \strng{authorbibnamehash}{0b47a6449808f4b6171ef83e1afd560f}
+      \strng{authornamehash}{0b47a6449808f4b6171ef83e1afd560f}
+      \strng{authorfullhash}{0b47a6449808f4b6171ef83e1afd560f}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What is Svelte and Why You Should Consider it For Your Business?}
+      \verb{urlraw}
+      \verb https://www.bairesdev.com/blog/svelte-and-why-you-should-consider-it/
+      \endverb
+      \verb{url}
+      \verb https://www.bairesdev.com/blog/svelte-and-why-you-should-consider-it/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
