@@ -8,6 +8,7 @@
 \usepackage{../../shared/diplomalst}
 % \usepackage{../../shared/additionallst}
 \immediate\write18{echo $CESTA > .CESTA.tex}
+\immediate\write18{echo $CESTA "tohle je ten nejhorší hack co jsem kdy udělal"} 
 \input{.CESTA}
 
 \usepackage[outputdir=\CESTA]{minted} %
@@ -53,6 +54,8 @@
 \begin{document}
 % Nechame vysazet titulni strany.
 \MakeTitlePages
+\listoflistings
+\clearpage
 
 
 % A nasleduje text zaverecne prace.
