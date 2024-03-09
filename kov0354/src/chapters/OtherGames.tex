@@ -29,7 +29,7 @@ Co se týče konce hry, ten je určený předem připraveným scénářem. Každ
 
 Na vlnách neznáma svůj herní systém podporuje několika fyzickými komponenty, které jsou součástí balení hry. Ty nejdůležitější z nich jsou přiblíženy níže.
 
-\subsubsection*{Herní deska a kniha lokací}
+\subsubsection*{Herní deska}
 \label{subsubsec:fw_comp_board_and_book}
 
 Herní deska je tvořena hexagonálním polem, které reprezentuje moře, po kterém se hráči pohybují. Na tuto prázdnou šablonu se umisťují hexagonální žetony navigace, které představují místa, kterými hráči proplouvají. Když hráči plují přes prázdné pole, náhodně vylosují žeton, který na toto pole umístí, což dodává hře pocit, že v ní opravdu prozkoumávají neznámé moře. Jednotlivé žetony navigace mají své vlastní identifikační číslo, které přes aplikaci odkáže hráče na příslušnou stránku v knize lokací.
@@ -41,24 +41,24 @@ Kniha lokací je příručka, která obsahuje všechny lokace, které mohou hrá
 
 Většina ve hře karet reprezentuje předměty, které mohou hráči získat a použít. Dělí se na poklady, které hráči získávají různými způsoby během hry, a příběhové karty, které se vztahují k příběhu postav. Karty přinášejí bonusy ke schopnostem, které postavy mohou využít, a také mohou nést složitější bonusy, které jsou ve zkratce popsané na kartě. Jedná se o jednoduchý způsob, jak hráčům umožnit jedinečný vývoj jejich postav, který je zároveň snadno zpřístupněný a přehledný.
 
-\subsubsection*{Role a listy postav}
+\subsubsection*{Postavy a role}
 \label{subsubsec:fw_comp_roles}
 
 Jako posádka lodi si hráči před začátkem hry rozdělí role, o jejichž povinnosti se musí postarat. Spolu se svou rolí dostanou i list nebo desku, která slouží jako počítadlo pro různé statistiky, které budou hlídat. Jedná se o následující role:
 
 \begin{itemize}
-    \item Lodní písař: Stará se o lodní deník.
-    \item Kormidelník: Hlídá věhlas, který určuje iniciativu při výběru akcí.
-    \item První důstojník: Hlídá nespokojenost a počet členů posádky.
-    \item Bocman: Kontroluje stav trupu - pokud se loď potopí, hra končí.
-    \item Bednář: Hlídá lodní zásoby.
-    \item Dělostřelec: Obsluhuje lodní děla, která se využívají především v soubojích.
-    \item Pozorovatel: Hlídá průběh příběhu.
+    \item \textbf{Lodní písař}: Stará se o lodní deník.
+    \item \textbf{Kormidelník}: Hlídá věhlas, který určuje iniciativu při výběru akcí.
+    \item \textbf{První důstojník}: Hlídá nespokojenost a počet členů posádky.
+    \item \textbf{Bocman}: Kontroluje stav trupu - pokud se loď potopí, hra končí.
+    \item \textbf{Bednář}: Hlídá lodní zásoby.
+    \item \textbf{Dělostřelec}: Obsluhuje lodní děla, která se využívají především v soubojích.
+    \item \textbf{Pozorovatel}: Hlídá průběh příběhu.
 \end{itemize}
 
 Pomocí takovéhoto rozdělení rolí mezi hráče je zajištěno, že se všichni hráči budou muset podílet na řízení lodi, a zároveň se také zamezí tomu, aby se některé činnosti opakovaly.
 
-Samotné postavy také mají své vlastní deníky. Tyto deníky slouží jako záznamník pro vývoj postavy, který je reprezentován body souhvězdí, které postava získává během hry. Po konci příběhu se podle těchto bodů vyhodnotí, jaký osud postavu potkal.
+Samotné postavy také mají své vlastní deníky. Tyto deníky slouží jako záznamník pro vývoj postavy, který je reprezentován body souhvězdí, které postava získává během hry. Po konci příběhu se podle těchto bodů vyhodnotí, jaký osud postavu potkal. Kromě těchto příběhů a jejich potenciálu na získávání schopností různé úrovně se však postavy moc neliší.
 
 \subsubsection*{Kostky}
 \label{subsubsec:fw_comp_dice}
@@ -75,6 +75,10 @@ Na vlnách neznáma nepoužívá přímo figurky, ale volí levnější variantu
 
 \subsection{Podpůrné aplikace}
 \label{subsec:fw_apps}
+
+Hlavní funkcionalitu, kterou aplikace přináší, je průvodce příběhem. Při vstupu si hráči zvolí kampaň, kterou chtějí hrát, načež jim aplikace přehraje úvodní dialog a pokud je to potřeba, krok po kroku jim ukáže, jak si mají herní desku a ostatní komponenty připravit. Dále aplikace slouží jako knihovna informací. Každý záznam, který hráčům ukazuje, má svůj třímístný kód, pomocí jehož hráči mohou 
+
+Nově také vznikla aplikace, která umožňuje hru hrát plně online.
 
 \subsection{Herní pravidla}
 \label{subsec:fw_rules}
