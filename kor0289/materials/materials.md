@@ -31,7 +31,14 @@ xml a json
 - wikina
 - https://www.w3schools.com/xml/xml_whatis.asp
 - https://zapier.com/resources/guides/apis/data-formats
+- https://www.w3schools.com/xml/
+- https://aws.amazon.com/what-is/xml/#:~:text=Extensible%20Markup%20Language%20(XML)%20lets,%2C%20and%20third%2Dparty%20applications. - benefits of xml
 
+graphql
+
+- https://graphql.org/
+- https://hygraph.com/learn/graphql
+- wikina
 
 ## diplomky
 

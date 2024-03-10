@@ -11,40 +11,9 @@ JavaSctript Object Notation neboli JSON je formát který je odvozen z Javascrip
 \newpage
 
 \begin{listing}
-  \begin{minted}{json}
-{
-  "id": 4,
-  "clazz": null,
-  "race": {
-    "id": 4,
-    "title": "Elf",
-    "effects": [
-      {
-        "key": {
-          "idRace": 4,
-          "idEffect": 25
-        },
-        "levelReq": 1
-      },
-      {
-        "key": {
-          "idRace": 4,
-          "idEffect": 28
-        },
-        "levelReq": 1
-      }
-    ]
-  },
-  "title": "Legolas",
-  "playerName": "Jožko",
-  "inventory": ["dagger","robe"],
-  "url": "https://api.tts-game.fun/images/characters/elf-bard.png",
-  "health": 8,
-  "dead": false
-}
-  \end{minted}
+  \inputminted{json}{resources/code/player.json}
   \caption{Příklad JSON souboru}
-  \label{code:sumaradyasm}
+  \label{code:json_player}
 \end{listing}
 
 V tomto JSONu máme všechno s čím se můžeme potkat. Jako první máme \verb|"ID":4|. ID je klíč a 4 je číslo. To značí že tento objekt má svůj unikátní identifikátor 4. Může se ovšem stát že by naše číslo 4 bylo v uvozovkách \verb|"4"|. To by pak bylo ohodnoceno jako text ne jako číslo a kdybychom s tím dále chtěli pracovat jako s číslem tak si ho musíme v programu přetypovat. \textbf{idk jestli to tu tento příklad dávat } S tím se také pojí deserializace když chceme převádět JSON zpátky na objekt tak datové typy v objektu musí sedět s těmi co jsou v JSONu.
@@ -70,58 +39,9 @@ Tag je párová značka. Zapisuje se jako počáteční tag (<character>) a ukon
 
 
 \begin{listing}
-  \begin{minted}{xml}
-<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="health" type="xs:integer"/>
-  <xs:element name="key">
-    <xs:complexType>
-      <xs:attribute name="idRace" type="xs:integer" />
-      <xs:attribute name="idEffect" type="xs:integer" />
-    </xs:complexType>
-  </xs:element>
-  <!-- other schema definitions here -->
-</xs:schema>
-<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="health" type="xs:integer"/>
-  <xs:element name="key">
-    <xs:complexType>
-      <xs:attribute name="idRace" type="xs:integer" />
-      <xs:attribute name="idEffect" type="xs:integer" />
-    </xs:complexType>
-  </xs:element>
-  <!-- other schema definitions here -->
-</xs:schema>
-<character> 
-    <id>4</id>
-    <clazz></clazz>
-    <race>
-        <id>4</id>
-        <title>Elf</title>
-        <effects>
-            <key>
-                <idRace>4</idRace>
-                <idEffect>25</idEffect>
-            </key>
-            <levelReq>1</levelReq>
-        </effects>
-        <effects>
-            <key idRace="4" idEffect="28"></key>
-            <levelReq>1</levelReq>
-        </effects>
-    </race>
-    <title>Legolas</title>
-    <playerName>Jožko</playerName>
-    <inventory>dagger</inventory>
-    <inventory>robe</inventory>
-    <url>https://api.tts-game.fun/images/characters/elf-bard.png</url>
-    <health>8</health>
-    <dead>false</dead>
-</character>
-  \end{minted}
+  \inputminted{xml}{resources/code/player.xml}
   \caption{Příklad XML dokumentu i se schématem}
-  %\label{code:sumaradyasm}
+  \label{code:xml_player}
 \end{listing}
 
 %TODO nějaký odkaz pěkný nebo tak něco na 
@@ -133,7 +53,7 @@ Tento XML dokument reprezentuje stejnou strukturu jako JSON zmíněný výše. J
   \caption{Hierarchie datových typů v XML schema}%\cite{british_museum_2021}}
   \label{fig:xml_datatypes}
 \end{figure}
-%odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif a přímo ta stránka https://www.w3.org/TR/xmlschema-2/#built-in-datatypes
+%TODO odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif a přímo ta stránka https://www.w3.org/TR/xmlschema-2/#built-in-datatypes
 
 
 \endinput

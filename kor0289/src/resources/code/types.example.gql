@@ -1,0 +1,38 @@
+type User {
+    name: String
+    email: String
+}
+
+type Query {
+    getAllUsers: [User]
+}
+
+mutation CreateUser($name: String!, $age: Int!) {
+  createUser(userName: $name, age: $age) {
+    name
+    age
+  }
+}
+
+subscription {
+  newPerson {
+    name
+    age
+  }
+}
+
+input UserInput {
+    name: String
+    email: String
+}
+
+
+type Mutation {
+    addUser(newUser: UserInput): User
+}
+
+enum GENDER {
+    MALE
+    FEMALE
+    OTHER
+  }

@@ -1,0 +1,31 @@
+type Key {
+  idRace: Int!
+  idEffect: Int!
+}
+
+type Effects {
+  levelReq: Int
+  key: Key!
+}
+
+type Race {
+  id: Int!
+  title: String!
+  effects: [Effects]
+}
+
+type Character {
+  id: Int!
+  clazz: String
+  title: String!
+  playerName: String
+  url: String
+  health: Int!
+  dead: Boolean!
+  inventory: [String]
+  race: Race
+}
+
+type Query{
+ characters(id:Int): [Character]
+}

@@ -1,0 +1,20 @@
+query CharacterQuery {
+  characters{
+    id,
+    clazz,
+    race {
+      id,
+      title,
+      effects {
+          key {idRace, idEffect},
+          levelReq
+        }    
+    }
+    title,
+    playerName,
+    inventory,
+    url,
+    health,
+    dead
+  }
+}

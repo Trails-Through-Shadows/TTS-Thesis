@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="health" type="xs:integer"/>
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:attribute name="idRace" type="xs:integer" />
+      <xs:attribute name="idEffect" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <!-- other schema definitions here -->
+</xs:schema>
+<character> 
+    <id>4</id>
+    <clazz></clazz>
+    <race>
+        <id>4</id>
+        <title>Elf</title>
+        <effects>
+            <key>
+                <idRace>4</idRace>
+                <idEffect>25</idEffect>
+            </key>
+            <levelReq>1</levelReq>
+        </effects>
+        <effects>
+            <key idRace="4" idEffect="28"></key>
+            <levelReq>1</levelReq>
+        </effects>
+    </race>
+    <title>Legolas</title>
+    <playerName>Jožko</playerName>
+    <inventory>dagger</inventory>
+    <inventory>robe</inventory>
+    <url>https://api.tts-game.fun/images/characters/elf-bard.png</url>
+    <health>8</health>
+    <dead>false</dead>
+</character>
