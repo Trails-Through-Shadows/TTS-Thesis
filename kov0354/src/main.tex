@@ -7,6 +7,9 @@
 
 \usepackage{float} % lepsi umistovani obrazku (H)
 
+\usepackage{glossaries} % balik pro praci s odbornymi pojmy
+\usepackage{hyperref} % vkladani hypertextovych odkazu
+
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
 \ThesisSupervisor{doc. Ing. Radoslav Fasuga, Ph.D.}
@@ -42,12 +45,11 @@
 \newcommand{\chapterref}[1]{(Kapitola \ref{#1})}
 \newcommand{\imageref}[1]{(Obrázek \ref{#1})}
 \newcommand{\tableref}[1]{(Tabulka \ref{#1})}
+\newcommand{\glsref}[1]{\textit{\gls{#1}}}
 
 % Glossary stuff
-\usepackage{glossaries}
-
 \makenoidxglossaries
-\loadglsentries{resources/games.gls}
+\loadglsentries{resources/games.tex}
 
 
 % Zacatek dokumentu
@@ -77,7 +79,7 @@
 \printbibliography[title={Literatura}, heading=bibintoc]
 
 % Seznam zkratek
-\printnoidxglossary[type=gameslist, style=gameslist]
+\printnoidxglossary[title=Seznam zmíněných stolních her, toctitle=Seznam zmíněných stolních her]
 
 % Přílohy
 \appendix

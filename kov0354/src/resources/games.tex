@@ -1,0 +1,53 @@
+% Create the glossary
+\newglossary[glignored]{gamelist}{glsto}{glstr}{Seznam zmíněných stolních her}
+
+% Define the style for the glossary
+\newglossarystyle{gamelist}% style name
+{% base it on the "list" style
+  \setglossarystyle{list}% 
+
+  \renewcommand*{\glossentry}[2]{% 
+    % name
+    \item[\glsentryitem{##1}\glstarget{##1}{\glossentryname{##1}}] -- % 
+    % publisher
+    \glossentrydesc{##1}%
+    % release year (if present)
+    \ifthenelse{\equal{\glsentryuseri{##1}}{}}{}{, \glsentryuseri{##1}}%
+    % page numbers
+    \space(##2)\\%
+    % boardgamegeek link
+    BoardGameGeek: \url{\glsentryuserii{##1}}%
+    % publisher link (if present)
+    \ifthenelse{\equal{\glsentryuseriii{##1}}{}}{}{\\Vydavatel: \url{\glsentryuseriii{##1}}}%
+  }%
+}
+\setglossarystyle{gamelist}
+
+% Define the glossary entries
+  % description - publisher
+  % user1       - release year (optional)
+  % user2       - boardgamegeek url
+  % user3       - publisher url (optional)
+
+\newglossaryentry{forgotten_waters}{
+  name={Na vlnách neznáma},
+  description={Plaid Hat Games},
+  user1={2020},
+  user2={https://boardgamegeek.com/boardgame/302723/forgotten-waters},
+  user3={https://www.plaidhatgames.com/board-games/forgotten-waters/},
+}
+
+\newglossaryentry{gloomhaven}{
+  name={Gloomhaven},
+  description={Cephalofair},
+  user1={2017},
+  user2={https://boardgamegeek.com/boardgame/174430/gloomhaven},
+  user3={https://cephalofair.com/pages/gloomhaven},
+}
+
+\newglossaryentry{monopoly}{
+  name={Monopoly},
+  description={Parker Brothers},
+  user1={1935},
+  user2={https://boardgamegeek.com/boardgame/1406/monopoly},
+}
