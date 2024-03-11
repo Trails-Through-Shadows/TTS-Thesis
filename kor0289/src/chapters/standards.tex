@@ -118,12 +118,45 @@ Z pohledu klienta je podobné jako RESTful architektura. Klient vygeneruje poža
 Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští aby se optimalizovala rychlost tvořených API. To ale neznamená že se už nepoužívá. Díky jeho bezpečnosti je stále využíván bankami, E-komercí, ve zdravotnicví a všude kde je primární apel na bezpečnost.
 
 \section{GraphQL}
+GraphQL byl vyvinut Facebookem dnes již Metou. Je to open-source query language a runtime určený pro API. GraphQL poskytuje deklarativní získávání dat kdy si klient přesně určí jaká data potřebuje. Tím pádem je velice šetrný k datům a není třeba mít více endpointů pro různě rozdělená či vyplněná data. Díky tomu že GraphQL může načítat data z různých zdrojů, není závislý na konkrétní databázi či úložišti.
+
+\subsection{Design}
+Je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměrného nebo nedostatečného načítání. To celkově zrychluje přenos dat. Využívá typový systém pro definici prostředků které nazýváme schéma. při každém požadavku je query zkontrolována oproti schématu a poté vykonána. Server potom vrátí data ve stejném formátu jako byla query typicky jako JSON.
+
+\begin{listing}[h!]
+    \inputminted[]{ts}{resources/code/playertype.gql}
+    \caption{Příklad schématu v GraphQL}
+    \label{code:gql_type}
+\end{listing}
+
+\begin{listing}[h!]
+    \inputminted[]{graphql}{resources/code/playerquery.gql}
+    \caption{Příklad query v GraphQL}
+    \label{code:gql_querry}
+\end{listing}
+
+\subsection{Datové typy}
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+je jich dost a je tu hoafo co popisovat uvidíme jak dlouhé tohle celkově bude
 
 
-\section{Porovnání a shrnutí} %TODO předělat tohle jsou jen myšlenky
+\begin{listing}[h]
+    \inputminted[]{graphql}{resources/code/types.example.gql}
+    \caption{Příklady datových typů}
+    \label{code:gql_datatypes}
+\end{listing}
+
+\begin{description}
+    \item[Type system] - Základ typového systému je Query. Ta určuje jaké objekty mohou být získány (\coderef{code:gql_type} řádek 29). Vlastnosti ve výchozím stavu mohou nabývat hodnotu \texttt{null}. Z datový typ se může dát vykřičník abychom označili že tato hodnota nikdy nebude \texttt{null}. \textbf{dále datové typy zde}
+    \item[Queries] - Query přesně definuje jaká data klient potřebuje. Za pomocí \coderef{code:gql_querry} dostaneme téměř stejný výsledek jako \coderef{code:json_player} akorát celý JSON bude zabalený do \texttt{"characters": {}}
+    \item[Mutations] - Dovoluje pozměnění, smazání, nebo přidání dat ze strany klienta. Po provedení GraphQL vrátí upravená data. Taktéž definuje jaký tvar vrácená data budou mít. \coderef{code:gql_datatypes} řádek whatever kolik to bude.
+    \item[Subscriptions] - Podpora posílání aktualizací v reálném čase. Dotaz je velice podobný jako u query (\coderef{code:gql_datatypes} řádek subsection)
+\end{description}
+
+\section{Porovnání a shrnutí} %TODO předělat tohle jsou jen myšlenky co tu dát
 \textbf{předělat tohle jsou jen myšlenky co bych měl říct}
 
-Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.
+Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Taktéž když budeme potřebovat protivníky nebo hrací plán tak budeme chtít vědět vše o nich a ne jen část dat. Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.
 
 
 \endinput

@@ -1,11 +1,16 @@
 \documentclass[czech,bachelor]{../../shared/diploma}
 
+% Sablonove baliky
 \usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
 \usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
 
+% Moje baliky
 \usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage{glossaries} % balik pro praci s odbornymi pojmy
+\usepackage{hyperref} % vkladani hypertextovych odkazu
+\usepackage{xurl} % zalomeni dlouhych URL
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
@@ -42,43 +47,11 @@
 \newcommand{\chapterref}[1]{(Kapitola \ref{#1})}
 \newcommand{\imageref}[1]{(Obrázek \ref{#1})}
 \newcommand{\tableref}[1]{(Tabulka \ref{#1})}
+\newcommand{\glsref}[1]{\textit{\gls{#1}}}
 
-
-\usepackage{glossaries}
-
-\makeglossaries
-\loadglsentries{chapters/GameList.tex}
-
-% % Define the glossary entry style
-% \newglossarystyle{gameslist}{
-%    \setglossarystyle{list}% base this style on the list style
-%    \renewcommand*{\glossentry}[2]{
-%       \item[\glsentryitem{##1}%
-%             \glstarget{##1}{\glossentryname{##1}}]
-%          \glossentrydesc{##1}\glspostdescription\space
-%          \url{\glossentrysymbol{##1}}
-%    }
-% }
-
-% % Define the glossary entry
-% \newglossaryentry{game1}{
-%    name={Game Name 1},
-%    description={Description of Game 1},
-%    symbol={URL1},
-%    sort={game1}
-% }
-
-% \newglossaryentry{game2}{
-%    name={Game Name 2},
-%    description={Description of Game 2},
-%    symbol={URL2},
-%    sort={game2}
-% }
-
-
-
-% Define more entries as needed
-
+% Glossary stuff
+\makenoidxglossaries
+\loadglsentries{resources/games.tex}
 
 
 % Zacatek dokumentu
@@ -107,12 +80,10 @@
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
 
+% Seznam zkratek
+\printnoidxglossary[title=Seznam zmíněných stolních her, toctitle=Seznam zmíněných stolních her]
+
 % Přílohy
 \appendix
-% \input{chapters/GameList.tex}
-I just need to figure out how to do a custom glossary for \gls{foobar} in latex.
-
-\printglossaries
-Did it work?
 
 \end{document}

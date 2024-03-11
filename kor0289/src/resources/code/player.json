@@ -1,0 +1,30 @@
+{
+    "id": 4,
+    "clazz": null,
+    "race": {
+      "id": 4,
+      "title": "Elf",
+      "effects": [
+        {
+          "key": {
+            "idRace": 4,
+            "idEffect": 25
+          },
+          "levelReq": 1
+        },
+        {
+          "key": {
+            "idRace": 4,
+            "idEffect": 28
+          },
+          "levelReq": 1
+        }
+      ]
+    },
+    "title": "Legolas",
+    "playerName": "Jožko",
+    "inventory": ["dagger","robe"],
+    "url": "https://api.tts-game.fun/images/characters/elf-bard.png",
+    "health": 8,
+    "dead": false
+  }
