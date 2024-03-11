@@ -4,7 +4,84 @@
 Počátek grafických rozhraní se datuje do osmdesátých let minulého století, kdy firma Xerox vyvinula počítač Alto. Jednalo se o první počítač, jehož rozhraní se skládalo z oken, ikon a používalo myš k ovládání. Toto grafické rozhraní pak posloužilo jako odrazový můstek a základ dalším projektům. Jeden z nich byl například Apple Macintosh, který grafické uživatelské rozhraní popularizoval. Dále přišel operační systém Windows, který GUI posunul ještě dál mezi mainstreamové uživatele. GUI se postupem let vyvíjelo společně s novými technologiemi a nyní je neoddělitelnou součástí téměř všech počítačových systémů.
 
 \section{Zásady vývoje webového GUI}
-Pro vývoj moderního GUI je dobré se držet několika základních premis. Jednoduchost je v případě této práce téměř nutná, protože se má jednat o doplněk ke hře samotné, který má za úkol ji ulehčit. Pokud by bylo GUI zbytečně složité, či neintuitivní, ztrácelo by smyslu. Z tohoto důvodu je klíčová i konzistence stránek, což zahrnuje jejich stylování i způsob interakce systému s uživatelem. Dále je pro moderní rozhraní také důležitý responzivní design, který zajišťuje použitelnost daného rozhraní napříč zařízeními a uživatelé tak mohou hru hrát i bez přístupu k větší obrazovce. Těmito způsoby zajistíme co největší přívětivost a intuitivnost našeho programu a uživateli tím usnadníme jeho používání.
+Následující zásady jsou základem přívětivého UI, ve kterém se dokáže uživateů snadno orientovat a které je příjemné na pohled. Vychází z praktických zkušeností grafiků i psychologických poznatků. 
+
+% \subsection{Vzhled}
+\subsection{Obecné zásady}
+Následující text se věnuje nejzákladnějším principům, které by mělo uživatelské rozhraní splňovat.\cite{principles_of_design}
+
+\subsubsection*{Kontrast}
+Kontrast je jedním z nejdůležitějších prvků designu. Zajišťuje, že text a další prvky jsou čitelné a viditelné. Je důležitý pro umocnění dojmu a pro zvýraznění důležitých prvků.
+
+\subsubsection*{Balanc}
+Všechny prvky na stránce mají pomyslou váhu, která je dána jejich velikostí, barvou, kontrastem a dalšími faktory. Zajišťuje, že tyto prvky jsou rozloženy tak, aby stránka působila vyváženě a přehledně.
+
+\subsubsection*{Důraz}
+Důraz slouží pro zvýraznění důležitých prvků a k pomyslnénu ukrytí těch méně podstatných. Můžeme tak ovládat výraznost jistých informací a zároveň usměrňovat pozornost uživatele.
+
+\subsubsection*{Proporce}
+Správně určené proporce podporují výše zmíněný balanc. Pomáhají uživateli orientovat se na stránce a zároveň zajišťují, že stránka působí přehledně a esteticky.
+
+\subsubsection*{Hierarchie}
+Hierarchie je v designu klíčová, zejména pokud jde o zdůraznění důležitých prvků. Tento princip je často demonstrován prostřednictvím titulů a nadpisů. Titul stránky by měl okamžitě vyniknout jako nejdůležitější prvek, zatímco nadpisy by měly být formátovány tak, aby naznačovaly svůj význam ve vztahu k sobě navzájem a k obsahu, který uvádějí.
+
+\subsubsection*{Opakování}
+Opakování je účinným nástrojem pro zdůraznění a sjednocení myšlenek v rámci designu. Lze ho dosáhnout konzistentním použitím barev, písem, tvarů nebo jiných prvků designu. Konzistentní formátování pomáhá sjednotit prvky na celé stránce.
+
+\subsubsection*{Rytmus}
+Slovem rytmus je myšlen styl, jakým jsou prvky (ať už mezery, barvy, velikosti, atd.) na stránce uspořádány a v jakém pořadí použity. Některé rytmické vzory mohou vzbuzovat pocit uspořádanosti a přehlednosti, zatímco jiné mohou působit chaoticky.
+
+\subsubsection*{Vzor}
+V uživateli vzory vyvolávají pocit předvídatelnosti a pohodlí. Může se jednat například o rozložení stránky, které se běžně používá, nebo o způsob zadávání dat, který je uživatelům známý.
+
+\subsubsection*{Volný prostor}
+Volný prostor (white space) je prázdný prostor mezi prvky na stránce, který pomáhá zvýraznit důležité prvky a zároveň zajišťuje, že stránka není přeplněná.
+
+\subsubsection*{Pohyb zraku po stránce}
+Tohoto principu lze dosáhnout dodržením výše zmíněných prvků. Jde o kombinaci všech předešlých principů a jejich aplikaci tak, aby uživatel mohl snadno a pohodlně stránku použít.
+
+\subsubsection*{Rozmanitost}
+Na rozdíl od předešlých bodů, rozmanitost nenapomáhá orientaci na stránce, ale zajišťuje, aby byla pro uživatele zajímavá.
+
+\subsubsection*{Spojitost}
+Spojitost zajišťuje, že všechny prvky na stránce působí jako celek. Většinou se jedná o opakování barev, či používání minimálního množství fontů.
+
+% \begin{itemize}
+%     \item \textbf{Kontrast}: Zajišťuje, že text a další prvky jsou čitelné a viditelné.
+%     \item \textbf{Balanc}: Udržuje vyváženost prvků na stránce.
+%     \item \textbf{Důraz}: Zvýrazňuje důležité prvky a pomáhá usměrňovat pozornost uživatele.
+%     \item \textbf{Proporce}: Podporují balanc a pomáhají uživateli orientovat se na stránce.
+%     \item \textbf{Hierarchie}: Důležitá pro zdůraznění prvků, zvláště titulů a nadpisů.
+%     \item \textbf{Opakování}: Slouží k sjednocení myšlenek v rámci designu.
+%     \item \textbf{Rytmus}: Určuje uspořádání prvků na stránce, což může vyvolat pocit přehlednosti.
+%     \item \textbf{Vzor}: Vybuzuje pocit předvídatelnosti a pohodlí.
+%     \item \textbf{Volný prostor}: Pomáhá zvýraznit důležité prvky a udržuje stránku přehlednou.
+%     \item \textbf{Pohyb zraku po stránce}: Pořadí v jakém si uživatel prvků všimne. Zajišťuje to kombinace předešlých principů.
+%     \item \textbf{Rozmanitost}: Zajišťuje, aby stránka byla zajímavá pro uživatele.
+%     \item \textbf{Spojitost}: Zajišťuje, že všechny prvky působí jako celek.
+% \end{itemize}
+
+\subsection{Teorie barev}
+Výběr barev je nedílnou součástí vývoje každého GUI. Teorie barev se zabývá vztahy mezi barvami a jejich významem. Poznáním těchto nuancí může vývojář využít barvy k ovlivnění uživatelova vnímání své aplikace. Různé barvy mohou budit různý psychologický a emocioální význam. Teorie barev poskytuje základní pravidla a směrnice pro efektivní použití barev v designu, aby se dosáhlo esteticky příjemného výsledku a vyvolalo se požadované emoční nebo vizuální působení. Teorie barev také udává, že existuje několik kategorií základních barev:
+\begin{itemize}
+    \item \textbf{Primární barvy}: Červená, modrá a žlutá. Tyto barvy nelze vytvořit kombinací jiných barev.
+    \item \textbf{Sekundární barvy}: Zelená, fialová a oranžová. Tyto barvy vzniknou smícháním dvou primárních barev.
+    \item \textbf{Terciární barvy}: Těchto šest barev vznikne smícháním primárních a sekundárních barvev. Patří sem například růžová, tyrkysová, či žlutozelená.
+\end{itemize}
+
+Těchto dvanáct barev samozřejmě není jedinými barvami, které lze zejména v počítačové grafice použít. Díky tomu se začalo v grafice používat takzvaný color wheel (barevný kruh).\cite{color_theory_design}
+
+\subsubsection{Color wheel}
+Barevný kruh se často používá díky jeho intuitivnímu rozložení barev. Obsahuje všechny barvy, které lze vytvořit smícháním tří primárních barev a díky přidání černé, či bílé barvy umožňuje i úpravu jejich odstínů. Existuje několik způsobů, jak za pomoci tohoto kruhu vybrat:
+\begin{itemize}
+    \item \textbf{Komplementární}: Barvy, které jsou na opačných stranách kruhu. Při jejich kombinaci vzniká kontrastní efekt.
+    \item \textbf{Monochromatické}: Tyto barvy je sada odstínů jedné barvy. Vytváří harmonický efekt.
+    \item \textbf{Analogické}: Barvy, které jsou vedle sebe na kruhu. Vytváří přirozený a pohodlný efekt, ale je vhodné vybrat jednu z barev jako hlavní a zbytek používat pouze jako akcenty.
+    \item \textbf{Triadické}: Kombinace tří barev, které na kruhu tvoří rovnostranný trojúhelník. Podobně jako způsob komplementární, také vytváří kontrastní efekt.
+    \item \textbf{Tetradické}: Čtyři barvy, které jsou od sebe na kruhu položeny stejně daleko. Vytváří podobný efekt jako triadický způsob, ale je těžší je správně kombinovat.
+\end{itemize}\cite{color_wheel}
+
+% \subsection{Použitelnost}
 
 \section{GUI ve vybraných hybridních hrách}
 
@@ -23,13 +100,13 @@ Zprvopočátku jsem vytvořil prototyp GUI v čistém HTML a CSS, abych věděl,
 \subsubsection{React}
 React je jednou z nejpopulárnějších moderních platforem pro tvorbu webových aplikací. Je to open-source JavaScript knihovna vyvinutá a udržovaná společností Meta (bývalý Facebook). Používá deklarativní programovací paradigma, což znamená, že vývojář specifikuje, jak by měl výsledek vypadat, bez toho, aby musel explicitně popsat, jak daného výsledku dosáhnout. Zároveň je založen na komponentovém přístupu -- celý kód je rozdělen do menších celků zvaných komponenty, což je kombinace JS a HTML, které jsou modulární a znovupoužitelné. Díky jeho schopnosti aktualizovat jednotlivé komponenty se nejčastěji používá pro vývoj jednostránkových webových aplikací. React je známý svou komunitou a ekosystémem, který je kolem něj postavený. Díky tomu je možné najít spoustu předpřipravených komponent a knihoven, které urychlí vývoj aplikace. Zároveň má však poměrně strmou křivku učení, což z něj dělá nepřívětivou volbu pro začátečníky.
 
-React využívá virtuální DOM, který zajišťuje rychlejší a efektivnější vykreslování změn. Při změně v komponentě se nevykreslí celá stránka, ale pouze upravená část. Tím se značně zrychlí vykreslování a zároveň sníží nároky na výkon.\cite{what_react_is_and_why_it_matters, angular_vs_react}
+React využívá virtuální DOM, který zajišťuje rychlejší a efektivnější vykreslování změn. Při změně v komponentě se nevykreslí celá stránka, ale pouze upravená část. Tím se značně zrychlí vykreslování a zároveň sníží nároky na výkon.\cite{react, what_react_is_and_why_it_matters, angular_vs_react}
 
 \subsubsection{Angular}
-Angular je další z vysoce populárních frameworků pro vývoj UI. Opět se jedná o open-source platformu, nyní však vyvinutou a udržovanou společností Google. Angular je založen na jazyce TypeScript a stejně jako React využívá komponentového přístupu a deklarativního programovacího paradigmatu. Jeho převážný význam spočívá ve vytváření rozsáhlých dynamických webových aplikací. Na rozdíl od Reactu se jedná o plněhodnotný framework, který používá reálný DOM. Samotný framework je robustní a bezpečný, což z něj dělá ideální volbu pro vývoj aplikací, které pracují s citlivými daty. Na druhou stranu je však poměrně složitý a náročný na výkon, což je pro menší aplikace nevhodné.\cite{angular_vs_react, what_is_angular}
+Angular je další z vysoce populárních frameworků pro vývoj UI. Opět se jedná o open-source platformu, nyní však vyvinutou a udržovanou společností Google. Angular je založen na jazyce TypeScript a stejně jako React využívá komponentového přístupu a deklarativního programovacího paradigmatu. Jeho převážný význam spočívá ve vytváření rozsáhlých dynamických webových aplikací. Na rozdíl od Reactu se jedná o plněhodnotný framework, který používá reálný DOM. Samotný framework je robustní a bezpečný, což z něj dělá ideální volbu pro vývoj aplikací, které pracují s citlivými daty. Na druhou stranu je však poměrně složitý a náročný na výkon, což je pro menší aplikace nevhodné.\cite{what_is_angular, angular_vs_react}
 
 \subsubsection{Svelte}
-Svelte je moderní framework pro tvorbu webových aplikací. Jedná se o open-source software vyvinutý Richem Harrisem. Svelte se od ostatních frameworků liší tím, že se jeho kód při buildu převede na čistý optimalizovaný JavaScript. Tím se výsledná aplikace značně zrychlí a zároveň se sníží nároky na výkon na straně uživatele. Svelte také nabízí velmi jednoduchý a přívětivý způsob psaní kódu, který vývoj aplikace urychlí. Dokáže také pracovat s TypeScript soubory bez nutnosti jejich předešlé kompilace, což výsledný kód dělá mnohem bezpečnějším a přehlednějším.\cite{svelte_and_why_you_should_consider_it}
+Svelte je moderní framework pro tvorbu webových aplikací. Jedná se o open-source software vyvinutý Richem Harrisem. Svelte se od ostatních frameworků liší tím, že se jeho kód při buildu převede na čistý optimalizovaný JavaScript. Tím se výsledná aplikace značně zrychlí a zároveň se sníží nároky na výkon na straně uživatele. Svelte také nabízí velmi jednoduchý a přívětivý způsob psaní kódu, který vývoj aplikace urychlí. Dokáže také pracovat s TypeScript soubory bez nutnosti jejich předešlé kompilace, což výsledný kód dělá mnohem bezpečnějším a přehlednějším.\cite{svelte_and_why_you_should_consider_it, svelte}
 
 \subsubsection{Srovnání}
 Vzhledem k tomu, že projekt obnáší vytvořiení GUI pro hybridní stolní hru, která nebude nijak extrémně rozsáhlá, a zároveň bude potřebovat co největší rychlost a efektivitu, byl nakoinec vybrán framework Svelte. Ten nabízí všechny potřebné funkce a zároveň je velmi rychlý a efektivní. Jeho jednoduchost by také měla přispět k rychlejšímu vývoji bez dalších větších problémů.
