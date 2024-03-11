@@ -1,11 +1,13 @@
 \chapter{Hybridní hry}
-Hybridní hry kombinují jak prvky fyzické, tak digitální. Jedná se o hry, které mají jakékoliv napojení na technologii, ať už je to elektronické bankovnictví ve hře Monopoly Super Electronic Banking, či čtení příběhu a směrování dalšího postupu hráčů pomocí internetových stránek, ale stále se odehrávají ve fyzickém světě. Podobná spojení vyústí ve zcela nové herní zážitky, které si hráči mohou vyzkoušet.
+Hybridní hry kombinují jak prvky fyzické, tak digitální. Jedná se o hry, které mají jakékoliv napojení na technologii, ať už je to elektronické bankovnictví ve hře Monopoly Super Electronic Banking, či mobilní aplikace Pokémon GO, která vás pomocí map navádí k navštívení památek a zajímavých míst. Podobná spojení vyústí ve zcela nové herní zážitky, které si hráči mohou vyzkoušet.\cite{hybrid_board_games_design}
 
 \section{Vývoj hybridních her}
-První hybridní hry se začaly formovat již na začátku 20. století, kdy se začaly objevovat první hry s elektrickými prvky. Tyto hry byly většinou jednoduché elektrické obvody, které hráč propojoval pro různé efekty. V průběhu času se tyto hry stávaly složitějšími a začaly se objevovat hry, které využívaly počítačové technologie. Hybridní hry mohou být kategorizovány do několika skupin, které se liší podle toho, jakým způsobem technologie využívají.
+První hybridní hry se začaly formovat již na začátku 20. století, kdy se začaly objevovat první hry s elektrickými prvky. Tyto hry byly většinou jednoduché elektrické obvody, které hráč propojoval pro různé efekty. V průběhu času se tyto hry stávaly složitějšími a začaly se objevovat hry, které využívaly počítačové technologie. Hybridní hry mohou být kategorizovány do několika skupin, které se liší podle toho, jakým způsobem technologie využívají.\cite{history_of_hybrid_games}
 
 \subsection{Stolní hry s vlastním zařízením}
 Mezi takovéto hry patří již výše zmíněný Monopoly Super Electronic Banking, který obsahuje elektronické bankovnictví, nebo známá hra Operation, ve které se nesmíte dotknout kovových částí na hrací desce, jinak se rozezní siréna. 
+
+Tato kategorie hybridních her je rozhodně nejstarší. První hrou využívající elektrického proudu, a tudíž zařazenou do hybridních her, je hra Electra (původním názvem Lichtra). Jedná se o jednoduchou kvízovou hru, která vyšla už v roce 1910 v Německu a byla vytvořena společností Sala Games. Hra obsahovala jednoduchý elektrický obvod, který se uzavřel, pokud hráč odpověděl správně. Po této hře následovala dlouhá éra her, jejichž elektronika také spočívala pouze v propojení jednoho, či několika málo obvodů.\cite{history_of_hybrid_games, boardgames_with_apps}
 
 \begin{figure}[H]
     \centering
@@ -14,25 +16,41 @@ Mezi takovéto hry patří již výše zmíněný Monopoly Super Electronic Bank
     \label{fig:electra}
 \end{figure}
 
-Tato kategorie hybridních her je rozhodně nejstarší. První hrou využívající elektrického proudu, a tudíž zařazenou do hybridních her, je hra Electra (původním názvem Lichtra). Jedná se o jednoduchou kvízovou hru, která vyšla už v roce 1910 v Německu a byla vytvořena společností Sala Games. Hra obsahovala jednoduchý elektrický obvod, který se uzavřel, pokud hráč odpověděl správně. Po této hře následovala dlouhá éra her, jejichž elektronika také spočívala pouze v propojení jednoho, či několika málo obvodů.\cite{history_of_hybrid_games, boardgames_with_apps}
-
 Další zmínku ve vývoji her v této kategorii si zasloužila hra Voice of the Mummy, která vyšla v roce 1971. Hra měla v herním plánu zabudovaný přehrávač, který měl simulovat hlas mumie, která při přejití určitých herních polí hráčům určovala další postup.\cite{voice_of_the_mummy}
 
 První hrou, která ve svém designu používala počítačové zařízení byla francouzská hra Simulateur JR10, která vyšla roku 1972. Jednalo se bitevní hru, ve které hráči ovládali různé jednotky. Při střetu jednotek se do počítače vložil děrný štítek s odpovídajícími jednotkami a počítač podle naprogramovaných kritérií náhodně určil výsledek střetu.\cite{simulateur_jr10}
 
-\begin{figure}
+\subsection{Stolní hry s vlastní aplikací}
+V roce 1972 vyšla herní konzole Magnavox Odyssey, která je uznávaná jako první domácí herní konzole na světě. Zároveň s ní vyšlo i několik her, které kombinovaly fyzickou hrací desku s počítačovým programem. Celé UI této konzole zahrnovalo pouze několik svítících bodů na obrazovce, proto byl ke každé hře přiložen lehce průsvitný plán s potiskem, který se na obrazovku přichytil. Součástí větsiny her byly i fyzické komponenty, které pravděpodobně měly sloužit k pozvolnému přechodu ze stolních her na hry digitální.\cite{magnavox_odyssey} Jednou z her na tuto konzoli byla hra Invasion. Její fyzická složka zahrnovala kostky, sadu karet, sadu tokenů a hrací desku. Samotný program byl pak určen k soubojům mezi hráči.\cite{invasion,invasion_gameplay}
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.35\textwidth]{resources/figures/oil_barons.jpg}
-    \caption{Část herní desky Oil Barons.\cite{oil_barons}}
+    \includegraphics[width=0.45\textwidth]{resources/figures/invasion.jpg}
+    \caption{Fyzické komponenty a nalepovací plán hry Invasion.\cite{invasion}}
+    \label{fig:invasion}
+\end{figure}
+
+V roce 1983 vyšlo hned několik her, které kombinovali fyzickou hrací desku s digitální hrou. Jednou z nich byla společností Epyx vydána hra Oil Barons. Jednalo se o počítačovou hru, která šla spustit na zařízeních DOS, Apple II a Commodore 64. Její součástí byla fyzická hrací deska a několik herních tokenů. Samotný program měl za úkol simulovat náhodné výsledky a udržovat stav hry. UI této hry bylo jednoduché a odpovídalo své době.\cite{oil_barons}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{resources/figures/oil_barons.png}
+    \caption{Příklad GUI hry Oil Barons.\cite{oil_barons}}
     \label{fig:oil_barons}
 \end{figure}
 
-\subsection{Stolní hry s počítačovými aplikacemi}
-V roce 1983 byla společností Epyx vydána hra Oil Barons. Jednalo se o počítačovou hru, která šla spustit na zařízeních DOS, Apple II a Commodore 64. Její součástí byla fyzická hrací deska a několik herních tokenů. Samotný program měl za úkol simulovat náhodné výsledky a udržovat stav hry.\cite{oil_barons}
+Další významný vývoj této kategorie hybridních her se uvíjel nejčastěji k mobilním aplikacím a takzvaným companion apps (podpůrným aplikacím). Tyto aplikace slouží k různým účelům, jako je například výběr, či správa herních prvků, nebo vyprávění příběhu. Většina těchto aplikací je oficiální součástí dané hry a nelze ji bez ní hrát. Mezi příklady takovýchto her patří například hra Forgotten Waters (českým názvem Na vlnách neznáma), která využívá aplikaci k vyprávění příběhu, správě nepřátel a k výběru dějové linky.
+
+\subsection{Hry s rozšířenou realitou}
+Nejmladší kategorií hybridních her jsou hry s rozšířenou realitou (AR). Tyto hry využívají technologie, které umožňují hráčům interagovat s digitálními prvky ve skutečném světě. První takovou hrou byla AR Quake, která byla vytvořena v roce 2000. Aby si hráč mohl vyzkoušet tuto hru, musel mít nasazený speciální batoh s počítačem, který pomocí gyroskopů určoval polohu hráče a promítal obraz digitálního světa přes speciální brýle. Hra byla vytvořena jako experiment, který měl ukázat možnosti AR technologií.\cite{ar_history}
+
+Největší rozvoj v popularitě AR her nastal až s vydáním aplikace Pokémon GO v roce 2016. Tato hra využívala GPS a kameru mobilního telefonu k tomu, aby hráči mohli chodit po skutečném světě a chytat virtuální postavičky Pokémonů. Hra byla velice populární a stala se tak první AR hrou, která se dostala do povědomí široké veřejnosti.
 
 \section{Vybrané hybridní hry}
+***Plánuji rozepsat/přepsat v lepším formátu.***
+
 Následující hry jsem vybral jako příklady a inspiraci pro svou práci. Jedná se o stolní hry, které nějakým způsobem využívají právě internetových aplikací pro umocnění herního zážitku.
 
-První z těchto her je Forgotten Waters (českým názvem Na vlnách neznáma). Jedná se o výpravnou RPG hru, která používá aplikaci jako nástroj pro vyprávění herního děje a k zaznamenávání hráčských rozhodnutí, díky čemuž hra dokáže dynamicky reagovat. Aplikace dále udává životy a statistiky nepřátel, slouží k výběru dějové linky a v neposlední řadě přispívá k zážitku hráčů pomocí namluvených scén. Tato aplikace je oficiální součástí dané hry a nelze ji bez ní hrát.
+První z těchto her je Forgotten Waters (českým názvem Na vlnách neznáma). Jedná se o výpravnou RPG hru, která používá aplikaci jako nástroj pro vyprávění herního děje a k zaznamenávání hráčských rozhodnutí, díky čemuž hra dokáže dynamicky reagovat. Aplikace dále udává životy a statistiky nepřátel, slouží k výběru dějové linky a v neposlední řadě přispívá k zážitku hráčů pomocí namluvených scén.
 
 Dále bych chtěl uvést hru s názvem Gloomhaven, pro kterou, na rozdíl od hry předešlé, není aplikace potřebná, a dokonce momentálně neexistuje ani žádná oficiální. Hra samotná obsahuje velké množství různých karet, tokenů a dalších věcí, které, seč jsou pro hru samotnou podstatné, ji zbytečně protahují a komplikují. Z tohoto důvodu vzniklo pro tento titul hned několik pomocných aplikací, které se tyto problémy snaží řešit. Většina z nich si je velice podobná jak funkčností, tak vzhledem, jelikož vycházejí ze stylu samotné stolní hry.
