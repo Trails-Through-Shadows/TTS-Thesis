@@ -1,14 +1,16 @@
 \documentclass[czech,bachelor]{../../shared/diploma}
 
+% Sablonove baliky
 \usepackage[autostyle=true,czech=quotes]{csquotes} % korektni sazba uvozovek, podpora pro balik biblatex
 \usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
 
+% Moje baliky
 \usepackage{float} % lepsi umistovani obrazku (H)
-
 \usepackage{glossaries} % balik pro praci s odbornymi pojmy
 \usepackage{hyperref} % vkladani hypertextovych odkazu
+\usepackage{xurl} % zalomeni dlouhych URL
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
@@ -83,6 +85,5 @@
 
 % Přílohy
 \appendix
-% \input{chapters/GameList.tex}
 
 \end{document}
