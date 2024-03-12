@@ -15,7 +15,7 @@ Tato kapitola se zaměřuje na analýzu několika existujících deskových her,
 \subsection{Herní systém}
 \label{subsec:fw_gameplay}
 
-Z pohledu herní struktury tato hra jednoznačně spadá do kategorie kooperativních her \chapterref{subsec:structure_cooperative}, je však obohacena i o prvky scénářových \chapterref{subsec:structure_scenario} a legacy her \chapterref{subsec:structure_legacy}. Před samotnou hrou si hráči vyberou, pod kterým kapitánem budou sloužit jako posádka, což je v podstatě abstrakce nad pouhým vybráním herní kampaně, která obsahuje předpřipravený scénář, včetně herní mapy a příběhu, kterým budou hráči procházet. Samotná hra pak spočívá v cestování mezi lokacemi a potýkání se s událostmi, které tyto lokace nesou. Kampaň je rozdělena do několika částí, mezi kterými jsou hráči vybídnuti, aby si hru uložili a pokračovali v ní později. Jednotlivé části mohou trvat několik hodin, pokud však hráči chtějí, kampaň jde odehrát během jednoho dlouhého sezení.
+Z pohledu herní struktury tato hra jednoznačně spadá do kategorie kooperativních her \chapterref{subsec:structure_cooperative}, je však obohacena i o prvky scénářových \chapterref{subsec:structure_scenario} a legacy her \chapterref{subsec:structure_legacy}. Před samotnou hrou si hráči vyberou, pod kterým kapitánem budou sloužit jako posádka, což je v podstatě abstrakce nad pouhým vybráním herní kampaně, která obsahuje předpřipravený scénář, včetně herní mapy a příběhu, kterým budou hráči procházet. Samotná hra pak spočívá v cestování mezi lokacemi a potýkání se s událostmi, které tyto lokace nesou. Kampaň je rozdělena do několika částí, mezi kterými jsou hráči vybídnuti, aby si hru uložili a pokračovali v ní později. Jednotlivé části mohou trvat několik hodin, pokud však hráči chtějí, kampaň jde odehrát během jednoho dlouhého sezení. Herní komponenty se hrou však přímo neznehodnocují, s jedním balením je možné odehrát libovolný počet kampaní.
 
 Lokace se ve hře vybírají pomocí pohybu lodi po mapě tvořené hexagony. Podle scénáře jsou některé hexagony předem určené, jiné jsou prázdné a když na ně hráči stoupnou, umístí místo nich náhodně vylosovanou lokaci. Herní pole je tedy rozděleno dvoudimenzionálně a mění se dynamicky \chapterref{subsec:map_reveal} podle postupu posádky. Pohyb lodi je ovlivněn hodem hráče, který si vybral, že ji bude toto kolo řídit. Podle jeho úspěšnosti se loď posune u určitý počet polí, pohyb je tedy náhodný \chapterref{subsec:movement_roll_movement} s přidanými modifikátory.
 
@@ -93,11 +93,45 @@ Hlavní část pravidel je věnována popisu postupu na přípravu hry a průbě
 \section{Dungeons \& Dragons}
 \label{sec:dungeons_and_dragons}
 
-Obrovský vliv, který měla revoluční RPG hra \glsref{dnd} na vývoj stolních her, už byl zmíněn výše. Tato hra je však také zdrojem inspirace pro mnoho deskových her, které se snaží přenést některé z jejích prvků do stolního prostředí, a rozšířit tím svou potenciální hráčskou základnu. Tato sekce se zaměřuje na analýzu prvků, které byly převzaty z \dnd{} do jiných her, a na to, jak se tyto prvky projevily v novém kontextu.
+Obrovský vliv, který měla revoluční RPG hra \glsref{dnd} na vývoj stolních her, už byl zmíněn výše. Tato hra je však také zdrojem inspirace pro mnoho deskových her, které se snaží přenést některé z jejích prvků do stolního prostředí, a rozšířit tím svou potenciální hráčskou základnu. Tato sekce se zaměřuje na analýzu prvků, které byly převzaty z \dnd{} do jiných her. Oproti jiným hrám, které jsou v této práci rozebrané, je však \dnd{} mnohem komplexnější a množství jeho herních mechanik je také mnohem větší, proto se tato sekce bude držet spíše herních systémů a mechanik, které jsou popsány ve výše zmíněné kapitole \textit{\nameref{chap:game_design}}.
 
 
 \subsection{Herní systém}
 \label{subsec:dnd_gameplay}
+
+Prvně je třeba zmínit, že \dnd{} se nedrží klasické symetrické struktury, kterou většina stolních her využívá. Hra je založena na asymetrickém systému, kde jeden z hráčů, označovaný jako \textit{Dungeon Master} (DM) nebo vypravěč, má na starosti vytváření a řízení celého světa, včetně všech postav, které v něm žijí. Ostatní hráči, v tomto světě následně hrají své vlastní postavy a dělají za ně rozhodnutí, stěžejní částí herního zážitku je tedy \textit{roleplay}. Tento systém je základem pro všechny ostatní mechaniky, které jsou v této hře používány. Z tohoto popisu se může zdát, že hráči a DM soupeří o jakousi výhru, ve skutečnosti však spolupracují na vytváření příběhu, který je pro všechny zúčastněné zábavný. Tatu skutečnost z \dnd{} dělá nejen pouhou stolní hru, ale prostředek pro kooperativní vyprávění příběhů.
+
+Svou strukturou je \dnd{} ukázkovým příkladem legacy hry \chapterref{subsec:structure_legacy}, neboť běžná kampaň může trvat až roky a z pohledu ničení herních komponent se tato charakteristika odvíjí od konkrétní kampaně a také kreativity DM a ostatních hráčů. Je zřejmý také strukturální vliv scénáře \chapterref{subsec:structure_scenario} -- pro hráče je přístupná spousta předpřipravených scénářů a kampaní, kterými se DM může řídit, ať už jde o oficiální příběh od vývojářů nebo o neoficiální práci některého z mnoha fanoušků, tvořící pro hru další obsah. Hráči se však příběhu nemusí držet, pokud nechtějí, neboť volnost herních mechanismů dává velkou flexibilitu v improvizaci a nečekaných zvratech, které často nečeká ani sám vypravěč. Ve své podstatě se také jedná o kompetetivní hru \chapterref{subsec:structure_competitive}, i když během roleplaye a herních zvratů se může jednoduše stát, že se některé z postav obrátí proti sobě a je na hráčích, jak tyto konflikty vyřešit. Tyto konflikty by však měly zůstat pouze v mezích herního světa a nevnášet neshody mezi samotné hráče.
+
+I přes to, že příběhové sekce a částí více zaměřené na roleplay nemají téměř žádnou strukturu, během souboje je struktura relativně pevná, samozřejmě s výjimkami. Před soubojem si všechny postavy i nepřátelé hodí na iniciativu, k výsledku si přičítají své vlastní bonusy a výsledné číslo určí pořadí kola, jde tedy o určení pořadí podle statistiky \chapterref{subsec:turns_stat_order}. Ve svém kole má poté hráč přesně určená pravidla, na to, jaké akce může provést. Obvykle se jedná o pohyb, akci (útok zbraní nebo seslání kouzla) a bonusovou akci (interakci s předmětem, vytasení zbraně nebo speciální kouzla), přičemž hráč si může vybrat v jakém pořadí tyto akce provede, pokud vůbec. 
+
+Co se týče pohybu, herní pole je obvykle rozděleno na hexagony, i když přesný vzhled mapy záleží čistě na DM. Po herním poli se hráči mohou pohybovat ve svém kole, vzdálenost, kterou urazí je zapsána v jejich deníku postavy. Mají také možnost sprintovat, což jejich rychlost zdvojnásobí, za cenu spálení akce. Pravidlem také bývá, že akce by měly dávat z prostorového pohledu smysl, například že by se postavy neměly v boji přeskakovat ani střílet po nepřátelích, když jim stojí v cestě jejich spojenci. Opět ale záleží na rozhodnutí hráčů.
+
+Samotné souboje jsou řešeny pomocí kostek. Každá zbraň má svůj vlastní druh kostky, který se hází, když se s ní útočí. Hráč si nejprve hodí kostkou, zda rána vůbec zasáhla, výsledek se porovná s obranou cíle, a pokud se útok povedl, cíl utrpí poškození. Kromě toho se také používají kostky k určení výsledku kouzla, které se sesílá. Výsledky těchto hodů se mohou dále upravovat pomocí bonusů, které postavy získávají z předmětů, nebo z jejich vlastních dovedností.
+
+Konec hry je určený předem připraveným scénářem, který opět může být buď oficiální, nebo vytvořený DM. Hra končí, když hráči splní cíl, který je jim předložen, nebo když všichni hráči zemřou, i v takovém případě však je možnost vrátit se do hry jako jiná postava, pokud s tím ostatní hráči souhlasí. Výsledek hry je tedy určený splněním kooperativního cíle \chapterref{subsec:end_cooperative_goals}.
+
+\subsection{Fyzické komponenty}
+\label{subsec:dnd_components}
+
+Flexibilita a otevřenost \dnd{} s sebou nese i osvobození od fyzických komponent, které by byly nutné k hraní. Hra jako taková ve své podstatě potřebuje jen tři komponenty -- pravidla, kostky a papír. I tak však existuje spousta dalších komponent, které mohou hru ozvláštnit.
+
+\subsubsection*{Pravidla}
+\label{subsubsec:dnd_comp_rules}
+
+Pravidla \dnd{} jsou rozdělena na různé knihy, které se věnují jiným aspektům hry. Hlavními knihami jsou \textit{Player's Handbook}, která obsahuje pravidla pro hráče, \textit{Dungeon Master's Guide}, která pomáhá DM s vytvářením a řízením světa a \textit{Monster Manual}, která obsahuje předpřipravené příšery, se kterými se mohou hráči potýkat. Vývojáři však vydávají i další knihy, které mohou rozšiřovat herní svět, vyprávět nové příběhy, nebo přidávat nová pravidla, která mohou být využita v kampani.
+
+\dnd{} má však i velmi aktivní komunitu, která vytváří vlastní obsah, a tím ještě více rozšiřuje možnosti hry. Opět může jít o nová pravidla, nové příšery, nebo i nové kampaně, které mohou být využity v rámci hry. Tento obsah může být dostupný zdarma nebo za poplatek, ať už v tištěné podobě, nebo v digitální formě.
+
+\subsubsection*{Kostky}
+\label{subsubsec:dnd_comp_dice}
+
+\dnd{} je známé svými mnoha druhy kostek, které se během hry používají. Tou nejznámější a dalo by se říct až ikonickou je dvacetistěnná kostka, která se stala symbolem celé hry. Používá se nejčastěji, od určení iniciativy, přes útoky až po kontroly dovedností. Dalšími kostkami, které se používají, jsou čtyřstěnná, šestistěnná, osmistěnná, desetistěnná a dvanáctistěnná kostka, nejčastěji jako určení poškození od určité zbraně nebo kouzla. Každá sada kostek obsahuje dvě desetistěnné kostky, z nichž jedna určuje desítky a druhá jednotky, což umožňuje hráčům házet procenta.
+
+\subsubsection*{Listy postav}
+\label{subsubsec:dnd_comp_sheets}
+
+To be continued...
 
 
 %%% Gloomhaven %%%
