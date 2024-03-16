@@ -123,14 +123,14 @@ GraphQL byl vyvinut Facebookem dnes již Metou. Je to open-source query language
 \subsection{Design}
 Je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměrného nebo nedostatečného načítání. To celkově zrychluje přenos dat. Využívá typový systém pro definici prostředků které nazýváme schéma. při každém požadavku je query zkontrolována oproti schématu a poté vykonána. Server potom vrátí data ve stejném formátu jako byla query typicky jako JSON.
 
-\begin{listing}[h!]
-    \inputminted[]{ts}{resources/code/playertype.gql}
+\begin{listing}[ht!]
+    \inputminted[]{ts}{resources/code/standards/playertype.gql}
     \caption{Příklad schématu v GraphQL}
     \label{code:gql_type}
 \end{listing}
 
-\begin{listing}[h!]
-    \inputminted[]{graphql}{resources/code/playerquery.gql}
+\begin{listing}[ht!]
+    \inputminted[]{graphql}{resources/code//standards/playerquery.gql}
     \caption{Příklad query v GraphQL}
     \label{code:gql_querry}
 \end{listing}
@@ -140,8 +140,8 @@ aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 je jich dost a je tu hoafo co popisovat uvidíme jak dlouhé tohle celkově bude
 
 
-\begin{listing}[h]
-    \inputminted[]{graphql}{resources/code/types.example.gql}
+\begin{listing}[ht]
+    \inputminted[]{graphql}{resources/code/standards/types.example.gql}
     \caption{Příklady datových typů}
     \label{code:gql_datatypes}
 \end{listing}

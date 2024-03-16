@@ -1,0 +1,29 @@
+\chapter{Zabezpečení a autentizace}
+%TODO hoří má panenko kurva
+V této kapitole bla bla bla bla si projdeme základní autentizační protokoly a standardy.
+Pro jednoduchost se zaměříme na standardy v OpenAPI ve verzi 3.0.
+Autorizaci používáme pro prevenci zneužití a kontrolu nad tím kdo jak API používá a jak často.
+
+\section{API key}
+%odkaz na api key zdroj https://swagger.io/docs/specification/authentication/api-keys/
+API klíč je unikátní token který umožňuje uživateli se autorizovat. Na základě tohoto klíče se přidělí oprávnění. Mohou být poslády jako query param  \texttt{GET /something?key=rea11ysecr5tApIKeY} nebo v hlavičce requestu či jako Cookie \texttt{X-KEY: rea11ysecr5tApIKeY}. API klíč by měl znát jen server a daný klient. Takováto autentizace je brána jako bezpečná pouze při použití dalších bezpečnostních prvků jako je třeba HTTPS/SSL.
+
+Nejčastější použití API klíče je hlavně pro blokování anonymních požadavků. To vyfiltruje případný škodlivý provoz na API. Dále díky jeho jedoduchosti se často používá mezi IoT zařízeními.
+
+\subsection{Popis API klíče}
+\begin{listing}[ht]
+    \inputminted[]{yaml}{resources/code/security/openapi-key.yml}
+    \caption{OpenAPI 3.0 definice}
+    \label{code:api_key}
+\end{listing}
+
+V tomto příkladě jsme si definovali název API key \texttt{X-API-key} který bude v headeru (\ref{code:api_key} řádek 8). Dále s tím můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definic endpointů pokud by bylo třeba specifikovat (\ref{code:api_key} řádek 20,21). Jinak za pomocí \ref{code:api_key} řádek 11,12 aplikujeme autorizaci na všechny operace.
+
+
+Můžeme mít i více API klíčů. Například pro specifikování uživatele a specifikování aplikace.
+
+Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401 který značí neoprávněný přístup. Můžeme si ho definovat takto \ref{code:api_key} řádek 11-16.
+
+\section{OAuth}
+
+
