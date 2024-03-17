@@ -5,10 +5,56 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
 \usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[outputdir=../target]{minted}
+\usepackage{listings}
+\usepackage{color} % Required for custom colors
+
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\renewcommand{\lstlistingname}{Zdrojový Kód} % Set your own caption name for listings
+\lstdefinestyle{customhtml}{
+    language=HTML,                  % Set HTML as the language
+    basicstyle=\ttfamily\small,     % The basic style
+    keywordstyle=\color{blue},      % Keyword style
+    commentstyle=\color{darkgreen}, % Comment style
+    stringstyle=\color{mauve},      % String literal style
+    breaklines=true,                % Break long lines
+    showstringspaces=false,         % Don't show spaces in strings as special character
+    numbers=left,                   % Line numbers on the left
+    numberstyle=\tiny\color{gray},  % Style of line numbers
+    tabsize=2,                      % Set tab size
+    frame=l,                        % Left frame line
+    framesep=5pt,                   % Padding between frame and code
+    xleftmargin=\parindent,         % Indent the frame to fit paragraph layout
+    captionpos=b,                   % Position the caption at the bottom
+    otherkeywords={<!DOCTYPE>,<html>,</html>,<head>,</head>,<meta>,<title>,</title>,<body>,</body>,<h1>,</h1>,<p>,</p>} % Add more keywords
+}
+
+\lstdefinestyle{customcss}{
+    language=CSS,                   % Set CSS as the language
+    basicstyle=\ttfamily\small,     % The basic style
+    keywordstyle=\color{blue},      % Keyword style
+    commentstyle=\color{darkgreen}, % Comment style
+    stringstyle=\color{mauve},      % String literal style
+    breaklines=true,                % Break long lines
+    showstringspaces=false,         % Don't show spaces in strings as special character
+    numbers=left,                   % Line numbers on the left
+    numberstyle=\tiny\color{gray},  % Style of line numbers
+    tabsize=2,                      % Set tab size
+    frame=l,                        % Left frame line
+    framesep=5pt,                   % Padding between frame and code
+    xleftmargin=\parindent,         % Indent the frame to fit paragraph layout
+    captionpos=b,                   % Position the caption at the bottom
+    otherkeywords={body, background-color, @media, only, screen, and, max-width} % Add more keywords
+}
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Pavel Mikula}
-\ThesisSupervisor{doc. Ing. Radoslav Fasuga, Ph.D.}
+\ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
 \CzechThesisTitle{Tvorba administrativního rozhraní výpravné evoluční hry}
 \EnglishThesisTitle{Creation of the Administrative Interface for the Narrative Evolution Game}
 \SubmissionYear{2024}
@@ -34,18 +80,23 @@
 }
 \EnglishKeywords{administrative interface, expansive evolutionary game, game content management, rendering, interactive editor}
 
+% TODO: Zkontrolovat všechny zkratky v dokumentu
 \AddAcronym{API}{Aplikační programové rozhraní}
 \AddAcronym{JS}{JavaScript}
 \AddAcronym{HTML}{Hyper Text Markup Language}
 
 \Acknowledgement{
-    Rád bych na tomto místě poděkoval vedoucímu práce doc. Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady, trpělivost a ochotu věnovat mi svůj čas.
-    Dále bych chtěl poděkovat svým kolegům Martinovi Koritwitschkovi, Baboře Kovalské a Miroslavovi Osobovi za jejich asistenci při vývoji.
+    Rád bych na tomto místě poděkoval vedoucímu práce Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady, trpělivost a ochotu věnovat mi svůj čas.
+    Dále bych chtěl poděkovat svým kolegům Martinu Korotwitschkovi, Barboře Kovalské a Miroslavu Osobovi za jejich asistenci při vývoji.
 }
 
 % Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
-\newcolumntype{d}[1]{D{,}{,}{#1}}
+\newcolumntype{d}[1]{D{,}{,}{\#1}}
 
+\addbibresource{resources/sauce.bib}
+
+% Uprava hloubky obsahu - pozdeji smazat !
+\setcounter{tocdepth}{3}
 
 % Zacatek dokumentu
 \begin{document}
@@ -65,12 +116,14 @@
 \input{chapters/Introduction}
 
 % Kapitoly
-%\input{chapters/SampleChapter1}
-%\input{chapters/SampleChapter2}
-%\input{chapters/TechnicalDetails}
+\input{chapters/Theory}
+\input{chapters/Development}
 
 % Zaver
 %\input{chapters/Conclusion}
+
+% Prilohy
+\appendix
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
