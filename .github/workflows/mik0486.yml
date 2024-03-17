@@ -30,6 +30,7 @@ jobs:
         with:
           root_file: main.tex
           working_directory: mik0486/src
+          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
 
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4

@@ -14,7 +14,6 @@
     <envs />
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build Document" run_configuration_type="LATEX_RUN_CONFIGURATION" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build Sources" run_configuration_type="BIBTEX_RUN_CONFIGURATION" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Make Glossaries" run_configuration_type="MAKEINDEX_RUN_CONFIGURATION" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build Document" run_configuration_type="LATEX_RUN_CONFIGURATION" />
     </method>
