@@ -1,39 +1,137 @@
 \chapter{Teorie a analýza}
 \label{ch:theory_and_analysis}
+V této kapitole se zaměřím na teorii ohledně rozhraní ať se jedná o uživatelské nebo administrativní. \textcolor{red}{Aaa nějak to lépe napsat, píšu to pořád :D ..}
 
 \section{Teorie UI/GUI}
 \label{sec:ui-gui-theory}
-% TODO: Zhrnutí o tom co budu popisovat
+\textcolor{red}{Zde popsat nějaké lehké zhrnutí UI / GUI?}
 
 \subsection{Počátek vzniku uživatelského rozhraní}
 \label{subsec:ui-gui-theory-beginning}
-Jak vznikl od přepínačů, děrných štítku, přes terminály až po moderní GUI
+Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup a výstup. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu nebo pohybem ukazatele myši.
+
+Pro nás se grafická reprezentace v počítači stala již nedílnou součástí našeho života a v dnešní době se sní setkáváme již na každém kroku, ať se jedná o mobilní aplikace, počítačové aplikace nebo webové stránky.
+
+Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, které se mnohdy využíval na vývoj různých webových aplikace ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Význam a ukončení vývoje tohoto softwaru si dále popíšeme v kapitole~\ref{subsec:ui-gui-theory-adobe-flash-player}.
 
 \subsection{Problematika vývoje}
 \label{subsec:ui-gui-theory-problems}
-Problémy s vývojem, jak se vyvíjelo, co bylo těžké, co se zlepšilo
-Rozepsat problémy Flash Playeru pro online hry, jaké jsou jeho alternativy
+Problematika vývoje rozhraní se týká komplexního procesu, který zahrnuje několik oblastí, nad kterými je potřeba se předem zamyslet a následně je implementovat. Většinou při zanedbaní správné implementace těchto sekcí, lze v budoucnu rychle dosáhnout problémům, kde jejich řešení může mít výrazný vliv na funkčnost aplikace. Mezi tyto oblasti spadá například:
+
+\begin{itemize}
+    \item \textbf{Uživatelský vstup}, který reprezentuje jakým způsobem bude uživatel nebo administrátor aplikaci podávat vstup. Tedy jestli se jedná o textový vstup, vstup ovládáním myši nebo dotykovým displejem. Dle tohoto kritéria se poté volí vhodný způsob zpracování vstupu.
+    \item \textbf{Vykreslování}, které se většinou rozděluje na potřeby uživatelské a administrativní částí. Kde uživatelská se zaměřuje více na design a přívětivost pro uživatele, zatímco administrativní se zaměřuje na efektivitu a snadnou správu obsahu. Tento rozdíl můžeme jednoduše vidět na tom, že administrativní rozhraní většinou využívá plný potenciál obrazovky, zatímco uživatelské se snaží dbát na přehlednost a jednoduchost.
+    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky v obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost.
+    \item \textbf{Uživatelská zkušenost} z anglického \textit{\textquote{User Experience}} (UX) se soustředí na to, jak uživatelé vnímají a jak se cítí při používání aplikace. Tedy jak je aplikace přívětivá, snadno ovladatelná a zda splňuje očekávání uživatele.
+    \item \textbf{Bezpečnost} je důležitým aspektem, který se zaobírá zpracováním uživatelských dat, které v mnoha případech obsahuje citlivé informace. Při nesprávném zpracování těchto dat může dojít k úniku dat nebo zneužití. Jako řešení se používají různé techniky, jako je například šifrování, ověřování uživatele nebo zabezpečení připojení.
+\end{itemize}
+
+\subsection{Adobe Flash Player}
+\label{subsec:ui-gui-theory-adobe-flash-player}
+\textcolor{red}{Zde popsat historii a význam Adobe Flash Playeru, jeho vývoj a následné ukončení vývoje.}
 
 \subsection{Responzivní design}
 \label{subsec:ui-gui-theory-responsive-design}
-Vznik bootstrapu jako řešení pro responzivní design
+Responzivní design se stal již skoro povinným standardem pro všechny webové stránky a aplikace. Tento přístup se zaměřuje na webové prvky tak, aby při jejich zobrazení na různých zařízeních s rozdílnou velikosti obrazovky nebo orientace byly pořád stejně přehledné a plně funkční. Této funkčnosti se dosahuje pomocí CSS stylů, které tuto funkcionalitu umožňují pomocí tzv. \textit{\textquote{media queries}}. Tyto dotazy umožňují nastavovat styly podle předem daných kritérii, jako jsou například šířka nebo výška okna, typ zařízení nebo jeho orientace.
+
+Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací. Který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v následující kapitole~\ref{subsec:dev-technology-bootstrap}.
+
+% TODO: Diakritika do komentáře?
+\begin{lstlisting}[style=customcss, language=CSS, caption={Příklad media query pro změnu barvy pozadí pri menší obrazovce}, label={lst:media-query-example}]
+body {
+    background-color: lightgray;
+}
+
+/* Zmena barvy pozadi pri mensi obrazovce */
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+\end{lstlisting}
+
+V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Ale obsahuje media dotaz na řádku 6, které se ptá na velikost obrazovky, kde v případě, že je šířka obrazovka menší než 600px, změní barva pozadí na světle modrou.
 
 \section{Analýza populárních deskových her}
 \label{sec:popular-board-games-analysis}
+Deskových her je v dnešní době na trhu velké množství, kde každým rokem se snaží noví nebo i stálí autoři proniknout ven s novými nápady nebo koncepty. Deskové hry lze rozdělit na několik herních žánru, jako jsou například hry strategické, kooperativní, party, rodinné nebo třeba karetní. Většina z těchto her se zaměřuje na její plný průběh na půdě hracího stolu, existují zde ale i hry, které do tohoto průběhu zapojují i externí zařízení, jako jsou mobilní telefony nebo laptopy. Tyhle hry se nazývají hry hybridní, kde jejich bližší definici popíšu v následující sekci.
 
-\subsection{Carcassonne}
-\label{subsec:popular-board-games-analysis-carcassonne}
+\subsection*{Hybridní hry}
+\label{subsec:popular-board-games-analysis-hybrid-games}
+Hybridní hry jsou hry, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá řici, že hybridní hra je hra taková, které má jakékoliv napojení na technologii. \textcolor{red}{Zde popsat nějaké příklady hybridních her? Nebo prostě více textu.}
 
-\subsection{Bang!}
-\label{subsec:popular-board-games-analysis-bang}
+\subsection{Populární deskové hry}
+\label{subsec:popular-board-games-analysis-popular-games}
+Populárních deskových je na světě velké množství, pro tuto analýzu jsem si vybral několik her, které mi jsou nejbližší a již jsem měl možnost si je zahrát. Díky této zkušenosti můžu lépe popsat možnosti a prvky, které tyto hry obsahují. Mezi tyto hry patří například \textit{Carcassonne}, \textit{Bang!}, \textit{Codenames} nebo \textit{Gloomhaven}.
 
-\subsection{Codenames (Krycí jména)}
-\label{subsec:popular-board-games-analysis-codenames}
+\subsubsection{Carcassonne}
+\label{subsubsec:popular-board-games-analysis-carcassonne}
+Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
 
-\subsection{Gloomhaven}
-\label{subsec:popular-board-games-analysis-gloomhaven}
+\subsubsection{Bang!}
+\label{subsubsec:popular-board-games-analysis-bang}
+Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+
+\subsubsection{Codenames (Krycí jména)}
+\label{subsubsec:popular-board-games-analysis-codenames}
+Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+
+\subsubsection{Gloomhaven}
+\label{subsubsec:popular-board-games-analysis-gloomhaven}
+Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
 
 \section{Administrativní prvky}
 \label{sec:admin-elements}
+Každé administrativní rozhraní se skládá z několika základních prvků, které umožňuje uživatelům s administrativními oprávněním provádět specifické úkony nebo měnit kompletní nastavení aplikace. Mezi takové prvky patří například správa uživatelů, obsahu, nastavení, zobrazení statistik nebo přehled logů. V následujících podkapitolách se blíže zaměřím na tyto jednotlivé prvky.
 
-\endinput
+\subsection{Správa uživatelů}
+\label{subsec:admin-elements-user-management}
+aaa
+
+\subsection{Správa obsahu}
+\label{subsec:admin-elements-content-management}
+aaa
+
+\subsection{Nastavení}
+\label{subsec:admin-elements-settings}
+aaa
+
+\subsection{Statistiky}
+\label{subsec:admin-elements-statistics}
+aaa
+
+\subsection{Logování}
+\label{subsec:admin-elements-logs}
+aaa
+
+\section{Administrativní značky}
+\label{sec:admin-tags}
+Administrativními značkami se rozumí prvky HTML, které jsou specifické pro přijímání požadavků od uživatele nebo uživateli předávají informace. Mezi takové značky patří například formuláře, tlačítka, tabulky nebo grafy. Jednotlivé značky se v nižších podkapitolách pokusím blíže přiblížit.
+
+\subsection{Menu}
+\label{subsec:admin-tags-menu}
+bbb
+
+\subsection{Formulář}
+\label{subsec:admin-tags-form}
+bbb
+
+\subsection{Tlačítko}
+\label{subsec:admin-tags-button}
+bbb
+
+\subsection{Tabulka}
+\label{subsec:admin-tags-table}
+bbb
+
+\subsection{Graf}
+\label{subsec:admin-tags-chart}
+bbb
+
+\subsection{Grid}
+\label{subsec:admin-tags-grid}
+bbb
+
+\subsection{Modální okno}
+\label{subsec:admin-tags-modal}
+bbb

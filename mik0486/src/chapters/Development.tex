@@ -1,29 +1,16 @@
 \chapter{Použité technologie}
 \label{ch:technology}
+V této kapitole se budu věnovat popisu technologii, které jsem použil při vývoji rozhraní nebo jsem mezi nimi uvažoval. V první části se zaměřím na programovací jazyky, které jsou hlavní kamenem pro volbu správného frameworku. Od použití frameworku se již odvíjí další technologie spadající do kategorie frontendu a backendu. Jako poslední budu popisovat technologie, které se užívají v běžném vývoji webových aplikací.
 
 \section{Programovací Jazyky}
 \label{sec:languages}
-Programovací jazyk je formální druh komunikace mezi člověkem a počítačem. Slouží jako prostředník mezi lidským a strojovým kódem, což umožňuje programátorům vytvářet aplikace, které pomocí instrukcí ovládají chod počítače. Programovací jazyk můžeme rozdělit do tří hlavní kategorii, které se liší úrovní abstrakce a způsobem zpracování.
+Programovací jazyky v kontextu uživatelského rozhraní (UI) hrají klíčovou roli ve vývoji a implementaci interaktivních prvků. Proto se v této sekci zaměřím na jejich popis a konkrétní využití v rámci frameworku. Budu
 
-\subsection*{Machine Level Language (Strojový Jazyk)}
-Strojový jazyk je nejnižší úrovni programovacího jazyka, tento jazyk je čitelný pouze pro počítač z důvodu jeho zapsání v binární podobě, tedy pomocí nul a jedniček. Jako jazyk je nejrychlejší a nejefektivnější, ale tím, že je pro člověka nečitelný, je téměř nemožné jej přímo psát nebo opravovat. Z tohoto důvodu vznikly vyšší úrovně programovacích jazyků.
-
-\subsection*{Assembly Level Language (Symbolický Jazyk)}
-Symbolický jazyk je prostředníkem mezi strojovým jazykem a vyššími úrovněmi programovacích jazyků. Tento jazyk poskytuje abstrakci nad jazykem strojovým, čímž umožňuje programátorům psát instrukce pomocí symbolů, zkratkových značek a operací s registry, které jsou následně přeloženy do strojového kódu. Tento jazyk je stále velmi nízkoúrovňový, protože je stále přímo závislý na architektuře konkrétního procesoru.
-
-\subsection*{High Level Language (Vysokoúrovňový Jazyk)}
-Vysokoúrovňový jazyk je nejvyšší z úrovni programovacího jazyk a již se blíži k jazyku, které známe z každodenního života v informačních technologiích. Tyto jazyky jsou již navrženy tak, že již nejsou přímo závisle na konkrétní architektuře procesoru, čímž umožňují psát multiplatformní aplikace. Dále jej můžeme štěpit na kompilované a interpretované jazyky. Jako příklad můžeme uvést jazyky jako C, C++, Java, Python, JavaScript, Ruby, PHP a mnoho dalších.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{figures/programmingLanguage}
-    \caption{Translace programovacích jazyků. \cite{programming_language}}
-    \label{fig:programming_language}
-\end{figure}
+Programovací jazyky a jejich správný výběr je klíčem k úspěšnému softwarovému projektu. V této sekci se pokusím popsat rozdíly mezi jednotlivými jazyky v kontextu vývoje webových aplikací a jejich využití v rámci frameworku.
 
 \subsection{Kompilované Jazyky}
 \label{subsec:languages-compiled}
-Kompilované jazyky jsou ty jazyky, které se při jejich zpracování převádí přímo na kód strojový. Tento proces se nazývá kompilace a výsledný kód je následně spustitelný na konkrétním operačním systému. Tento způsob zpracování má několik výhod:
+Mezi první druh programovacích jazyků patří jazyky kompilované, které se při jejich zpracování převádí přímo na kód strojový. Tento proces se nazývá kompilace a výsledný kód je následně spustitelný na konkrétním operačním systému. Tento způsob zpracování má několik výhod:
 
 \begin{itemize}
     \item \textbf{Rychlost:} Kód, který již byl jednou přeložen, je okamžitě spustitelný bez dalšího zpracování.
@@ -31,19 +18,19 @@ Kompilované jazyky jsou ty jazyky, které se při jejich zpracování převád�
     \item \textbf{Bezpečnost:} Kompilované jazyky ošetřují mnoho chyb již při jejich kompilaci, což zvyšuje bezpečnost aplikace a snižuje rizika chyb.
 \end{itemize}
 
-Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, Java, Rust, Go a mnoho dalších.
+Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, Java, Rust, Go a mnoho dalších. V rámci této práce jsem se zaměřil na jazyk \textit{TypeScript} a \textit{Less}, který mi tak usnadní vývoj frontendu aplikace.
 
 \subsubsection{TypeScript}
 \label{subsubsec:languages-compiled-typescript}
 TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožnuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
 
-Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace.
+Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}, který je součástí balíčku \textit{Node.js}.
 
 \subsubsection{Less}
 \label{subsubsec:languages-compiled-less}
 Less je dalším z kompilovaných jazyků, které se zaměřují na zlepšení a obohacení jazyka \textit{CSS}. Tento jazyk byl vytvořen v roce 2009 autorem Alexis Sellier a jako TypeScript je jeho cílem poskytnout dodatečné funkce pro pohodlnější a efektivnější psaní kaskádových stylů. Jako hlavní výhody můžeme uvést možnost definovat proměnné, funkce nebo vnořování selectoru.
 
-Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako je \textit{Less.js} nebo \textit{Node.js}.
+Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako jsou \textit{Less.js} nebo \textit{Node.js}.
 
 \subsection{Interpretované Jazyky}
 \label{subsec:languages-interpreted}
@@ -73,7 +60,7 @@ Pro využití Less je nutné jej přeložit do kódu CSS, což je možné prové
 \label{sec:dev-framework}
 Framework, v jiných slovech struktura nebo kostra, představuje v informatice a softwarovém inženýrství abstraktní koncept poskytující základní stavební kameny pro aplikace s širokým spektrem funkcí. Cílem frameworků je usnadnit vývoj aplikací tím, že nabízejí předem definovanou strukturu, kterou lze dále rozšiřovat o vlastní kód a funkcionalitu. Tímto způsobem umožňují frameworky vývojářům rychleji a efektivněji vytvářet aplikace, což přináší zvýšení produktivity, snížení nákladů na vývoj a hlavně standardizaci kódu mezi vývojáři.
 
-Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikace. Máme zde druhy frameworku určených na vývoj webů, rozděleny ny frontend a backend, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
+Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikace. Máme zde druhy frameworku určených na vývoj webů, her, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
 
 \subsection*{Rozdíl mezi Frameworkem a Knihovnou}
 Framework a knihovna jsou dvě často zaměňované koncepce, avšak existují zásadní rozdíly mezi nimi. Knihovna je soubor funkcí nebo tříd, které lze využít při vytváření aplikace. Zajišťuje určitou funkcionalitu, ale vývojář nese odpovědnost za řízení toku aplikace a volání funkcí knihovny.
@@ -103,7 +90,6 @@ Na druhé straně MVC, který je často používán ve zbytku frameworku se opro
 
 \subsection{Django}
 \label{subsec:dev-framework-django}
-
 Django je výkonným open-source frameworkem určeným pro vývoj robustních a lehce škálovatelných webových aplikací v programovacím jazyce Python. Od svého veřejného uvedení v roce 2005, pojmenovaného po slavném kytaristovi Django Reinhardtovi, získal popularitu díky své schopnosti urychlit vývoj a poskytnout bezpečné a efektivní nástroje pro tvorbu webových aplikací.
 
 Framework Django přistupuje k architektuře webových aplikací pomocí návrhového vzoru Model-View-Template (MVT), což představuje alternativu k tradičnímu přístupu Model-View-Controller (MVC). Tato struktura usnadňuje komunikaci mezi datovým modelem, prezentační vrstvou a šablonami pro serverové vykreslování.
@@ -114,7 +100,6 @@ V situacích, kde je potřeba dosáhnout interaktivity uživatele s rozhraním, 
 
 \subsection{React}
 \label{subsec:dev-framework-react}
-
 React je významná JavaScriptová knihovna určená pro vytváření uživatelských rozhraní, především na straně klienta. Vyvinutá firmou Facebook, React využívá virtuální DOM k efektivní aktualizaci komponent a podporuje deklarativní syntaxi pro tvorbu interaktivních uživatelských rozhraní. Je široce používán pro vývoj jednostránkových aplikací (SPA), kde je klíčová potřeba dynamických aktualizací.
 
 React vyniká v poskytování responzivního a interaktivního uživatelského přístupu, což z něj činí oblíbenou volbu pro moderní webový vývoj. Jeho komponentový přístup umožňuje rozdělit uživatelské rozhraní do znovupoužitelných částí, což zjednodušuje správu a údržbu kódu. Využívá návrhový vzor \textit{Model-View-Controller}. \cite{about_react}
@@ -152,52 +137,76 @@ Pro plné využití tohoto frameworku, je nutné jeho rozšíření o backendovo
 \subsection{Shrnutí a Srovnání}
 \label{subsec:dev-framework-comparison}
 Srovnání frameworku zmíněných výše dosahuje celkového závěru, že každý z ních má své výhody a nevýhody. Pomocí každého frameworku nebo jejich kombinací lze vytvořit moderní a efektivní webové aplikace, které by splňovaly mnoho požadavků ze strany efektivního vývoje, výkonu a bezpečnosti.
-Každý z frameworků používá jiný jazyk, ať to je buď Python, JavaScript nebo PHP, což může být klíčové pro jeho výběr vzhledem k projektu. Dalším faktorem je dokumentace, komunita a dostupnost nástrojů, které mohou být klíčové pro rychlý vývoj a řešení problémů.
+Každý z frameworků používá jiný jazyk, ať to je buď Python, JavaScript nebo PHP, což může být klíčové pro jeho výběr vzhledem k projektu. Dalším faktorem je dokumentace, komunita a dostupnost nástrojů, které mohou zajistit rychlý vývoj a řešení problémů.
 
-% TODO: Přidat obrázek, popularity frameworků
+Pro můj projekt jsem nakonec zvolil \textbf{Django}. Tento framework jsem zvolil z důvodu, že jsem s ním již v minulosti pracoval a mám tedy určité znalosti a schopnosti pracovat pod jazykem Python. Pokud se podíváme na srovnání frameworku, Django není moc populárním v oblasti frontendu, ale díky jeho šablonovacímu systému a možností rozšíření o JavaScriptové knihovny lze tyto nedostatky vykompenzovat.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics{figures/frameworkGraphs}
+    \caption{Srovnání webových frameworku pro rok 2023. \cite{framework_comparison}}
+    \label{fig:framework_comparison}
+\end{figure}
 
 \section{Zpracování požadavku}
 \label{sec:dev-request-processing}
+Zpracování požadavku je klíčovým prvkem webových aplikací, vzhledem k rozsáhlým rozdílům u frameworku je nutné si blíže představit jak takové zpracování probíhá. V rámci tohoto procesu se setkáváme s dvěma typy zpracování \textit{Server-Side} a \textit{Client-Side}. Jako třetí druh zpracování se dá považovat i \textit{Hybridní} neboli \texit{Pre-Rendering}, který kombinuje oba přístupy.
 
-% TODO: Přidat obrázek, který bude znázorňovat rozdíly mezi SSR, CSR a Hybridním vykreslováním
-% TODO: Zkracený popis
+Při vývoji je nutné si předem určit, který ze stylů zpracování bude pro projekt použit, přechod mezi jednotlivými druhy již v průběhu vývoje může být velmi zdlouhavý a finančně náročný. \cite{request_processing}
 
-\subsection{Client-Side Rendering}
-\label{subsec:dev-request-processing-client-side-rendering}
-Server odesílá uživateli kompletní zdrojový kod, kompilace a vykreslení probíhá až na straně klienta.
-% TODO:
+% TODO: Přidat obrázek, který bude znázorňovat rozdíly mezi SSR, CSR a Hybridním vykreslováním?
 
 \subsection{Server-Side Rendering}
 \label{subsec:dev-request-processing-server-side-rendering}
-Server předvykresluje stránku a odesílá ji uživateli jako kompletní HTML kód.
-% TODO:
+Server-Side Rendering (SSR) je často využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahuji často vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
+
+Jednou z nevýhod SSR je však vysoká náročnost na vypočetní výkon serveru. Tento problém se projevuje zejména v případě, kdy server zaznamená velké množství klientských požadavků v krátkém časovém období. Při každém požadavku dojde k novému kompletnímu vykreslení stránky, i když se obsah stránky změnil jen minimálně.
+
+% TODO: Zobrazit kroky jak to probíhá?
+\textcolor{red}{Note: Zobrazit zde kroky jak to probíhá? Od požadavku až po vykreslení stránky?}
+
+\subsection{Client-Side Rendering}
+\label{subsec:dev-request-processing-client-side-rendering}
+Client-Side Rendering (CSR) je moderní způsob zpracování webových stránek, jehož využití se rozšířilo s příchodem programovacího jazyka JavaScript do světa World-Wide-Web (WWW). Tento přístup umožňuje dynamické vykreslování obsahu stránek přímo na straně klienta, což výrazně snižuje zátěž serveru a zvyšuje rychlost zpracování požadavků.
+
+Ve srovnání s Server-Side Renderingem (SSR) je u CSR náročnější dosáhnout vysokého skóre v oblasti SEO. Důvodem je, že proces vykreslování stránky u klienta může trvat proměnlivě dlouho a existují rizika, že webcrawler, který indexuje stránku ji opustí ještě před jejím kompletním načtením. Tento problém lze řešit pomocí techniky \textit{Pre-Rendering}, kterou popisuji v následující sekci.
+
+% TODO: Zobrazit kroky jak to probíhá?
+\textcolor{red}{Note: Zobrazit zde kroky jak to probíhá? Od požadavku až po vykreslení stránky?}
 
 \subsection{Hybrid Rendering}
 \label{subsec:dev-request-processing-hybrid-rendering}
-Kombinace obou přístupů, kde se stránka předvykreslí na serveru a následně se na straně klienta probíhá další dynamické aktualizace.
-% TODO:
+Hybrid Rendering, také známy jako Pre-Rendering, představuje moderní přístup k zpracování webových stránek, který se pokouší o skloubení výhod Server-Side a Client-Sider renderingu. Tento přístup jednoduše umožnuje vývojářům vytvářet takhzvané "skeleton" stránky, které jsou odeslány klientovi ihned po přijetí požadavku. Po následném načtení stránky klientem, dochází k dynamickému vykreslení obsahu, kde dojde k nahrazení pouze daných části webu, které obsahovaly dynamický obsah.
 
 \section{Technologie}
 \label{sec:dev-technology}
+V nynější sekci se zaměřím na popis bližší popis technologii, které lze využívat během vývoj nebo přímo v rámci daného frameworku. Mezi tyto technologie spadá široké spektrum nástrojů, knihoven, jazyký a dalších prvků, které jsou volně dostupné na internetu a mají za cíl usnadnit vývoj a zvýšit efektivitu vývojáře.
 
 \subsection{Šablonování}
 \label{subsec:dev-technology-templating}
-% TODO: Přepsat z djanga do obecné formy
+Šablonování je klíčovou technologií v rámci vývoje webových aplikací, která slouží k oddělení prezentace dat od logiky jejich zpracování. Tento přístup umožňuje vývojářům a designérům efektivně spolupracovat na vytváření jak statických tak dynamických uživatelských rozhraní, zatímco zvyšuje modularitu, udržitelnost a bezpečnost kódu. Šablonování se většinou využívalo jako externí knihovna, ale s příchodem moderních frameworků jako je Django, React nebo Angular, se stalo nedílnou součástí těchto frameworků.
 
-Šablonování v rámci Djanga představuje klíčovou technologii pro vytváření dynamických uživatelských rozhraní webových aplikací, kde jeho hlavním účelem je oddělit prezentaci dat (Presentation Layer) od logiky zpracování (Business Layer), což vede k zvýšení modularizace a udržitelnosti kódu. Tento systém umožňuje vývojářům definovat strukturu a vzhled webových stránek pomocí šablon, které se na sebe mohou vázat, rozšiřovat se. Tyto šablony obsahují statický HTML kód spolu s vloženými proměnnými, filtry a řídícími strukturami, které se později zpracovávají na serveru a následně odesílají uživateli.
+Jako systém umožňuje definovat strukturu a vzhled webových stránek pomocí šablon, které se na sebe mohou vázat nebo se rozšiřovat. Každá z těchto šablon obsahuje statický HTML kód spolu s vloženými proměnnými, filtry a řídícími strukturami. Finální šablony se poté před odesláním klientovi zpracují na serveru, a výsledný HTML kód je odeslán klientovi.
 
 Mezi hlavní výhody používání šablon patří:
 \begin{enumerate}
-    \item \textbf{Oddělení Prezentace a Logiky:} Šablonování umožňuje jasně a jednoduše oddělit prezentaci dat (HTML kód) od logiky zpracování těchto dat (Python nebo JavaScript). Toto rozdělení zvyšuje čitelnost a spravovatelnost kódu.
-    \item \textbf{Hermetická Integrace s Frameworkem:} Django šablonovací systém je plně integrován s ostatními komponentami frameworku, což usnadňuje přístup k databázím, formulářům a dalším funkcím Djanga přímo ze šablon za pomocí speciálních značek a filtrů.
+    \item \textbf{Oddělení Prezentace a Logiky:} Šablonovací systém oddělením prezentace dat a logiky zpracování umožňuje vývojářům a designérům efektivně spolupracovat.
+    \item \textbf{Univerzální Použitelnost:} Šablony lze použít pro vytváření jak statických tak dynamických uživatelských rozhraní, což zvyšuje modularitu a znovupoužitelnost kódu.
     \item \textbf{Podpora Dynamických Dat:} Díky použití proměnných a filtrů umožňuje šablonovací systém dynamicky zobrazovat data na stránkách. To je klíčové pro vytváření interaktivních a daty řízených uživatelských rozhraní.
     \item \textbf{Zabezpečení:} Systém frameworku obsahuje mechanismy pro prevenci útoků jako Cross-Site Scripting (XSS), Form tampering, SQL injection a další. Tato zabezpečení jsou automaticky aplikována na šablony, což zvyšuje bezpečnost aplikace.
 \end{enumerate}
 
-Celkově lze konstatovat, že technologie šablonování v Djangu přispívá k efektivnímu a strukturovanému vývoji webových aplikací, usnadňuje spolupráci mezi vývojáři a designéry a zvyšuje obecnou robustnost aplikace.
+Celkově lze konstatovat, že technologie šablonování přispívá k efektivnímu a strukturovanému vývoji webových aplikací, usnadňuje spolupráci mezi vývojáři a designéry a zvyšuje obecnou robustnost aplikace. Pro svůj projekt jsem zvolil šablonovací systém \textbf{Django Template Language (DTL)}, který je součástí frameworku Django.
+\\
+
+% Code example
+\lstinputlisting[style=CUSTOMHTML, language=html, caption={Příklad šablony v jazyce DTL.}, label={lst:dtl_template}]{sourceCodes/TemplateExample.html}
 
 \subsection{Balíčkovací systémy}
 \label{subsec:dev-technology-package-managers}
+
+% TODO: Možná odstranit?
+\textcolor{red}{Možná odstranit? Jedná se o technologii, kterou hojně využívám, ale nevím zda je to vhodné pro tuto sekci.}
 
 \subsubsection{NPM}
 \label{subsubsec:dev-technology-package-managers-npm}
