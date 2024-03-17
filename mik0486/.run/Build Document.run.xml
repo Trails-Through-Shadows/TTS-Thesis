@@ -1,12 +1,12 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" activateToolWindowBeforeRun="false">
+  <configuration default="false" name="Build Document" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" activateToolWindowBeforeRun="false">
     <texify>
       <compiler>PDFLATEX</compiler>
       <compiler-path />
       <sumatra-path />
       <pdf-viewer>NONE</pdf-viewer>
       <viewer-command />
-      <compiler-arguments />
+      <compiler-arguments>--shell-escape</compiler-arguments>
       <envs />
       <main-file>$PROJECT_DIR$/mik0486/src/main.tex</main-file>
       <output-path>$PROJECT_DIR$/mik0486/target</output-path>

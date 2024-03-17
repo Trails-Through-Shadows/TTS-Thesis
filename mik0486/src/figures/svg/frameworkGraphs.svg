@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="600"
+   height="390"
+   aria-label="A chart."
+   style="overflow: hidden;"
+   version="1.1"
+   id="svg56"
+   sodipodi:docname="frameworkGraphs.svg"
+   inkscape:export-filename="frameworkGraphs.pdf"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview56"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.1267596"
+     inkscape:cx="194.66234"
+     inkscape:cy="150.69874"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="515"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg56" />
+  <defs
+     id="_ABSTRACT_RENDERER_ID_1676">
+    <clipPath
+       id="_ABSTRACT_RENDERER_ID_1677">
+      <rect
+         x="115"
+         y="75"
+         width="371"
+         height="241"
+         id="rect1" />
+    </clipPath>
+  </defs>
+  <g
+     id="g3">
+    <text
+       text-anchor="start"
+       x="115"
+       y="52.05"
+       font-family="Arial"
+       font-size="13"
+       font-weight="bold"
+       stroke="none"
+       stroke-width="0"
+       fill="#000000"
+       data-darkreader-inline-fill=""
+       data-darkreader-inline-stroke=""
+       style="--darkreader-inline-fill: #e8e6e3; --darkreader-inline-stroke: none;"
+       id="text2">Most used web frameworks worldwide of 2023</text>
+    <rect
+       x="115"
+       y="41"
+       width="371"
+       height="13"
+       stroke="none"
+       stroke-width="0"
+       fill-opacity="0"
+       fill="#ffffff"
+       data-darkreader-inline-fill=""
+       data-darkreader-inline-stroke=""
+       style="--darkreader-inline-fill: #181a1b; --darkreader-inline-stroke: none;"
+       id="rect3" />
+  </g>
+  <g
+     id="g55">
+    <rect
+       x="115"
+       y="75"
+       width="371"
+       height="241"
+       stroke="none"
+       stroke-width="0"
+       fill-opacity="0"
+       fill="#ffffff"
+       data-darkreader-inline-fill=""
+       data-darkreader-inline-stroke=""
+       style="--darkreader-inline-fill: #181a1b; --darkreader-inline-stroke: none;"
+       id="rect7" />
+    <g
+       clip-path="url(https://www.rapidtables.com/tools/bar-graph.html#_ABSTRACT_RENDERER_ID_1677)"
+       id="g33">
+      <g
+         id="g18">
+        <rect
+           x="115"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect8" />
+        <rect
+           x="189"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect9" />
+        <rect
+           x="263"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect10" />
+        <rect
+           x="337"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect11" />
+        <rect
+           x="411"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect12" />
+        <rect
+           x="485"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#cccccc"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #35393b; --darkreader-inline-stroke: none;"
+           id="rect13" />
+        <rect
+           x="152"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#ebebeb"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #232628; --darkreader-inline-stroke: none;"
+           id="rect14" />
+        <rect
+           x="226"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#ebebeb"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #232628; --darkreader-inline-stroke: none;"
+           id="rect15" />
+        <rect
+           x="300"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#ebebeb"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #232628; --darkreader-inline-stroke: none;"
+           id="rect16" />
+        <rect
+           x="374"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#ebebeb"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #232628; --darkreader-inline-stroke: none;"
+           id="rect17" />
+        <rect
+           x="448"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#ebebeb"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #232628; --darkreader-inline-stroke: none;"
+           id="rect18" />
+      </g>
+      <g
+         id="g31">
+        <rect
+           x="116"
+           y="79"
+           width="315"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect19" />
+        <rect
+           x="116"
+           y="97"
+           width="299"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect20" />
+        <rect
+           x="116"
+           y="116"
+           width="162"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect21" />
+        <rect
+           x="116"
+           y="134"
+           width="142"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect22" />
+        <rect
+           x="116"
+           y="153"
+           width="128"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect23" />
+        <rect
+           x="116"
+           y="171"
+           width="122"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect24" />
+        <rect
+           x="116"
+           y="190"
+           width="122"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect25" />
+        <rect
+           x="116"
+           y="208"
+           width="120"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect26" />
+        <rect
+           x="116"
+           y="227"
+           width="98"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect27" />
+        <rect
+           x="116"
+           y="245"
+           width="94"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect28" />
+        <rect
+           x="116"
+           y="264"
+           width="89"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect29" />
+        <rect
+           x="116"
+           y="282"
+           width="87"
+           height="12"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect30" />
+        <rect
+           x="116"
+           y="301"
+           width="84"
+           height="11"
+           stroke="none"
+           stroke-width="0"
+           fill="#1aa7ff"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #0074bc; --darkreader-inline-stroke: none;"
+           id="rect31" />
+      </g>
+      <g
+         id="g32">
+        <rect
+           x="115"
+           y="75"
+           width="1"
+           height="241"
+           stroke="none"
+           stroke-width="0"
+           fill="#333333"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #262a2b; --darkreader-inline-stroke: none;"
+           id="rect32" />
+      </g>
+    </g>
+    <g
+       id="g34" />
+    <g
+       id="g54">
+      <g
+         id="g35">
+        <text
+           text-anchor="middle"
+           x="115.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text34">0</text>
+      </g>
+      <g
+         id="g36">
+        <text
+           text-anchor="middle"
+           x="189.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text35">10</text>
+      </g>
+      <g
+         id="g37">
+        <text
+           text-anchor="middle"
+           x="263.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text36">20</text>
+      </g>
+      <g
+         id="g38">
+        <text
+           text-anchor="middle"
+           x="337.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text37">30</text>
+      </g>
+      <g
+         id="g39">
+        <text
+           text-anchor="middle"
+           x="411.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text38">40</text>
+      </g>
+      <g
+         id="g40">
+        <text
+           text-anchor="middle"
+           x="485.5"
+           y="335.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#444444"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #bdb7af; --darkreader-inline-stroke: none;"
+           id="text39">50</text>
+      </g>
+      <g
+         id="g41">
+        <text
+           text-anchor="end"
+           x="102"
+           y="89.28076923076922"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text40">Node.js</text>
+      </g>
+      <g
+         id="g42">
+        <text
+           text-anchor="end"
+           x="102"
+           y="107.74230769230769"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text41">React</text>
+      </g>
+      <g
+         id="g43">
+        <text
+           text-anchor="end"
+           x="102"
+           y="126.20384615384614"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text42">jQuery</text>
+      </g>
+      <g
+         id="g44">
+        <text
+           text-anchor="end"
+           x="102"
+           y="144.66538461538462"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text43">Express</text>
+      </g>
+      <g
+         id="g45">
+        <text
+           text-anchor="end"
+           x="102"
+           y="163.12692307692308"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text44">Angular</text>
+      </g>
+      <g
+         id="g46">
+        <text
+           text-anchor="end"
+           x="102"
+           y="181.58846153846156"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text45">Next.js</text>
+      </g>
+      <g
+         id="g47">
+        <text
+           text-anchor="end"
+           x="102"
+           y="200.05"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text46">ASP.NET Core</text>
+      </g>
+      <g
+         id="g48">
+        <text
+           text-anchor="end"
+           x="102"
+           y="218.51153846153846"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text47">Vue.js</text>
+      </g>
+      <g
+         id="g49">
+        <text
+           text-anchor="end"
+           x="102"
+           y="236.97307692307692"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text48">WordPress</text>
+      </g>
+      <g
+         id="g50">
+        <text
+           text-anchor="end"
+           x="102"
+           y="255.43461538461537"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text49">ASP.NET</text>
+      </g>
+      <g
+         id="g51">
+        <text
+           text-anchor="end"
+           x="102"
+           y="273.8961538461538"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text50">Flask</text>
+      </g>
+      <g
+         id="g52">
+        <text
+           text-anchor="end"
+           x="102"
+           y="292.3576923076923"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text51">Spring Boot</text>
+      </g>
+      <g
+         id="g53">
+        <text
+           text-anchor="end"
+           x="102"
+           y="310.8192307692307"
+           font-family="Arial"
+           font-size="13"
+           stroke="none"
+           stroke-width="0"
+           fill="#222222"
+           data-darkreader-inline-fill=""
+           data-darkreader-inline-stroke=""
+           style="--darkreader-inline-fill: #d3cfc9; --darkreader-inline-stroke: none;"
+           id="text52">Django</text>
+      </g>
+    </g>
+  </g>
+  <g
+     id="g56" />
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57"
+     transform="matrix(0.72812395,0,0,0.72812395,26.714576,29.091652)"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan3">42.65%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9"
+     transform="matrix(0.72812395,0,0,0.72812395,10.999279,47.309827)"
+     inkscape:label="react"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan4">40.58%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7"
+     transform="matrix(0.72812395,0,0,0.72812395,-125.68359,65.979915)"
+     inkscape:label="jQuery"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan5">21.95%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9"
+     transform="matrix(0.72812395,0,0,0.72812395,-146.01127,84.322617)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="express"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan6">19.28%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4"
+     transform="matrix(0.72812395,0,0,0.72812395,-160.06754,102.95177)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="angular"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan7">17.46%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3"
+     transform="matrix(0.72812395,0,0,0.72812395,-166.40002,121.29192)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="nextjs"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan8">16.67%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4"
+     transform="matrix(0.72812395,0,0,0.72812395,-166.39746,139.98757)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="aspCore"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan9">16.57%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2"
+     transform="matrix(0.72812395,0,0,0.72812395,-168.38467,158.30215)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="vuejs"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan10">16.38%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2-4"
+     transform="matrix(0.72812395,0,0,0.72812395,-189.99337,176.96456)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="wordpress"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan11">13.38%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2-4-8"
+     transform="matrix(0.72812395,0,0,0.72812395,-194.33096,195.63463)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="asp"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan12">12.79%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2-4-8-2"
+     transform="matrix(0.72812395,0,0,0.72812395,-199.31818,213.95944)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="flask"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan13">12.16%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2-4-8-2-7"
+     transform="matrix(0.72812395,0,0,0.72812395,-201.00104,231.962)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="spring"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan14">11.95%</tspan></text>
+  <text
+     xml:space="preserve"
+     style="white-space:pre;inline-size:50.4605;overflow:hidden;fill:#000000"
+     x="505.03836"
+     y="80.792839"
+     id="text57-9-7-9-4-3-4-2-4-8-2-7-5"
+     transform="matrix(0.72812395,0,0,0.72812395,-203.88639,250.64827)"
+     inkscape:transform-center-x="-30.588235"
+     inkscape:label="django"><tspan
+       x="505.03836"
+       y="80.792839"
+       id="tspan15">11.47%</tspan></text>
+</svg>
