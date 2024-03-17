@@ -36,19 +36,8 @@ Responzivní design se stal již skoro povinným standardem pro všechny webové
 
 Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací. Který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v následující kapitole~\ref{subsec:dev-technology-bootstrap}.
 
-% TODO: Diakritika do komentáře?
-\begin{lstlisting}[style=customcss, language=CSS, caption={Příklad media query pro změnu barvy pozadí pri menší obrazovce}, label={lst:media-query-example}]
-body {
-    background-color: lightgray;
-}
-
-/* Zmena barvy pozadi pri mensi obrazovce */
-@media only screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
-    }
-}
-\end{lstlisting}
+% Code example
+\lstinputlisting[language=CSS, caption={Příklad použití media query v css.}, label={lst:media-query-example}]{sourceCodes/MediaQueryExample.css}
 
 V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Ale obsahuje media dotaz na řádku 6, které se ptá na velikost obrazovky, kde v případě, že je šířka obrazovka menší než 600px, změní barva pozadí na světle modrou.
 

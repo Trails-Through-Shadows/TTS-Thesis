@@ -1,0 +1,10 @@
+body {
+    background-color: lightgray;
+}
+
+/* Zmena barvy pozadi pri mensi obrazovce */
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}

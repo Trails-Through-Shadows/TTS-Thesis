@@ -4,9 +4,9 @@
       <compiler>PDFLATEX</compiler>
       <compiler-path />
       <sumatra-path />
-      <pdf-viewer>NONE</pdf-viewer>
+      <pdf-viewer>BUILT-IN-PDF-VIEWER</pdf-viewer>
       <viewer-command />
-      <compiler-arguments>--shell-escape</compiler-arguments>
+      <compiler-arguments />
       <envs />
       <main-file>$PROJECT_DIR$/mik0486/src/main.tex</main-file>
       <output-path>$PROJECT_DIR$/mik0486/target</output-path>
