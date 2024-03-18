@@ -1,40 +1,39 @@
 \chapter{Standardy využívané pro tvorbu API}
-V této kapitole si porovnáme a představíme různé architektury které se používají pro tvorbu \gls{api}.
-Hlavní nástroje co si představíme jsou na trhu a v nějaké míře se používají jsou REST, Webhooky a SOAP
+V této kapitole si porovnáme a představíme různé architektury, které se používají pro tvorbu \gls{api}.
+Hlavní často využívané nástroje, které si představíme, jsou REST, Webhooky a SOAP. 
 
 \subsection*{Úvod}
-\gls{api} je universální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Vlastně to je soubor definicí, protokolů a občas i nepsaných pravidel.
+\gls{api} je univerzální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Ve své podstatě se jedná o soubor definicí, protokolů a občas i nepsaných pravidel.
 
 \section{REST}
-\gls{rest} což můžeme přeložit jako reprezentační stavový přenos. Je to nejčastěji používaná architektura API. REST byl původně vytvořen jako vodítko jak komunikovat na velké síti jako je Internet. Popularita REST API je z důvodu jednoduchosti implementace a provádění změn. Taky je velice výkonné a přehledné i na velkých projektech.
-Webové služby které využívají architekturu REST pro API jsou nazývána RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě.
+\gls{rest}, což můžeme přeložit jako reprezentační stavový přenos, je nejčastěji používaná architektura API. Původně byl vytvořen jako vodítko, jak modelovat komunikaci po Internetu, jeho popularita však dále rostla z důvodu jednoduchosti implementace, flexibility z pohledu provádění změn, výkonnosti a přehlednosti i ve velkých projektech.
 
-Níže si popíšeme základní principy REST API
+Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě.
+
+Níže jsou popsány základní principy, které RESTful API dodržují.
 
 \subsection{Uniform interface}
-Klíčová vlastnost RESTful služeb. Indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji v JSON.
+Jedná se o klíčovou vlastnost RESTful služeb, která indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji se jedná o JSON nebo XML, ale může to být i jiný formát.
 
-Jednotné rozhraní by mělo dodržovat tyto pravidla\
+Jednotné rozhraní by mělo dodržovat následující pravidla.\
 \begin{enumerate}
     \item Požadavky by měly identifikovat zdroje.
-    \item Klient je schopen z přijmutých dat provést úpravu nebo smazání dat.
-    \item KLient je schopen přijmout metadata o tom jaký typ zprávy jde a tím pádem jak tuto zprávu zpracovat.
-    \item Klient může dostat informace o ostatních datech které se vážou k tomuto požadavku. (HATEOAS)
+    \item Klient je schopen z přijatých dat provést úpravu nebo smazání dat.
+    \item Klient je schopen přijmout metadata o tom, o jaký typ zprávy jde a podle toho zjistit, jak tuto zprávu zpracovat.
+    \item Klient může dostat informace o ostatních datech, která se vážou k původnímu požadavku. (HATEOAS)
 \end{enumerate}
 
 \subsection{Stateless (bezstavový)}
-Komunikační metoda kdy server obslouží každého klienta zvlášť a nezávisle na jeho předchozích akcí. Klienti mohou dávat požadavky nezávisle na pořadí. Server si tudíž neuchovává data o klientech.
+Bezstavová komunikační metoda je taková metoda, kdy server obslouží každého klienta zvlášť a nezávisle na jeho předchozích akcích. Klienti mohou dávat požadavky nezávisle na pořadí, server si tedy neuchovává data o klientech.
 
 \subsection{Layered system}
-Styl architektury kdy klient se může připojit i k jiným zprostředkovatelům a pořád dostane odpověď od serveru. Servery taktéž se mohou dotazovat na jiné servery při zpracovávání požadavků od klienta. Tímto způsobem můžeme mít více vrstev jako je bezpečnostní vrstva, aplikační vrstva či business logika.
-Tyto vrstvy jou stále pro klienta neviditelné.
+U tohoto stylu architektury se klient může připojit i k jiným zprostředkovatelům a pořád dostane odpověď od serveru. Servery se taktéž mohou dotazovat na jiné servery při zpracovávání požadavků od klienta, tímto způsobem tedy můžeme mít systém rozdělen do více vrstev, jako je bezpečnostní vrstva, aplikační vrstva či business logika, přičemž tyto vrstvy zůstávají pro klienta skryté.
 
 \subsection{Cacheability}
-Velká výhoda je že RESTful webové služby podporují cache. Vyžaduje aby Server tyto data označil jako cacheable či non-cacheable. Při stejném dotazu klienta vícekrát za nějaký krátký čas se použijí již stáhnutá data. Například pro obrázky. Tím se docílí o hodně rychlejší odezvy.
+Velká výhoda RESTful webové služeb je to, že podporují cache. V tomto případě server označuje data jako cacheable či non-cacheable, přičemž při stejném dotazu klienta vícekrát za určitý čas se pro cachable data použijí již stáhnutá data. Dobrým příkladem využití je u obrázků, kde je server nemusí pokaždé načítat znovu a tím docílí rychlejší odezvy.
 
 \subsection{Code on demand}
-Dnes již málo používané, REST API může vrátit kód co má klient vykonat. Tím může server rozšířit klienta o funkcionalitu. Např. při validaci formuláře se ihned může zobrazit chybová hláška.
-
+Posledním ze standardů je možnost, že server může vrátit kód, který má klient vykonat, pomocí čehož může server rozšířit klienta o funkcionalitu, například při validaci formuláře se uživateli může ihned zobrazit chybová hláška. Dnes se však tento standard až tak často nevyužívá.
 
 
 \subsection{Jak funguje RESTful API} % TODO reformat this bcs its not the same as rest
