@@ -43,9 +43,6 @@ Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným 
   \label{code:xml_player}
 \end{listing}
 
-%TODO nějaký odkaz pěkný nebo tak něco na 
-Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není schéma specifikováno, všechny datové typy jou brány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{figures/type-hierarchy.png}
@@ -53,6 +50,11 @@ Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Opr
   \label{fig:xml_datatypes}
 \end{figure}
 %TODO odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif a přímo ta stránka https://www.w3.org/TR/xmlschema-2/#built-in-datatypes
+
+
+%TODO nějaký odkaz pěkný nebo tak něco na 
+Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není schéma specifikováno, všechny datové typy jou brány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
+
 
 
 \endinput
