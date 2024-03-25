@@ -12,6 +12,8 @@
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{xurl} % zalomeni dlouhych URL
 
+\usepackage{tablefootnote}
+
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
 \ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
@@ -76,9 +78,11 @@
 % Text zaverecne prace.
 \input{chapters/Introduction.tex}
 
-\input{chapters/History.tex}
-\input{chapters/GameDesign.tex}
-\input{chapters/OtherGames.tex}
+\input{chapters/theory/History.tex}
+\input{chapters/theory/GameDesign.tex}
+\input{chapters/theory/OtherGames.tex}
+
+\input{chapters/implementation/DesignAnalysis.tex}
 
 \input{chapters/Conclusion.tex}
 

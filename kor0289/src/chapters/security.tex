@@ -29,19 +29,19 @@ Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401 k
 
 
 
-\section{Json web token}
+\section{Json web token} %TODO cite or smthng https://jwt.io/introduction
 JWT je otevřená industriální standardizovaná \verb|\glossary{rfc7519}| metoda pro bezpečné přeposílání zpráv ve formátu JSON objektu mezi dvěma stranami.
 Tyto objekty mohou být zkontrolovány a může se jim důvěřovat, protože jsou digitálně podepsány pomocí tajného klíče nebo pomocí páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
 
 Nejčastěji se používá pro \textbf{autorizaci} a pro \textbf{výměnu informací}. Při \textbf{autorizaci}, když se jednou uživatel přihlásí, tak každý další požadavek bude s JWT, což dovoluje uživateli přistupovat tam, kde by bez přihlášení nemohl. Single Sign On \verb|\ref{sso} (btw všb přihlašováky)| především využívá JWT díky malé režii a jednoduchosti použití v různých doménách. JSON web tokeny jsou taktéž dobrý způsob jak bezpečně \textbf{vyměňovat informace} mezi více stranami díky digitálním podpisům.
 
 \subsection{Struktura}
-V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxxxx.yyyyyyyyyyyy.zzzzzzzzzzzzz} , kde \texttt{x} je zakódovaný header, \texttt{y} je Payload a \texttt{z} je podpis.
+V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzzz} , kde \texttt{x} je zakódovaný header, \texttt{y} je Payload a \texttt{z} je podpis.
 
 \begin{description}
-    \item[Header] typicky se skládá ze dvou částí. Typ tokenu a podepisovací algoritmus který byl použit. Jako třeba SHA256 nebo RSA.
-    \item[Payload] obsahuje data o entitě a jiná další data.
-    \item[Signature] neboli podpis se vytvoří tak že se zkombinuje header, payload a secret a zašifruje se příslušným algoritmem.
+    \item[Header] typicky se skládá ze dvou částí. Typ tokenu a podepisovací algoritmus který byl použit. Jako třeba SHA256 nebo RSA. (\ref{code:JWT_example} řádek 3)
+    \item[Payload] obsahuje data o entitě a jiná další data. (\ref{code:JWT_example} řádek 9)
+    \item[Signature] neboli podpis se vytvoří tak že se zkombinuje header, payload a secret a zašifruje se příslušným algoritmem. (\ref{code:JWT_example} řádek 15)
 \end{description}
 
 \begin{listing}[ht]
@@ -49,6 +49,7 @@ V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxxxx.yyyyyyyyyyy
     \caption{Příklad hlavičky, obsahu a podpisu v JWT} % TODO whatever nějaké cite nebo něco https://jwt.io/introduction
     \label{code:JWT_example}
 \end{listing}
+
 
 
 
