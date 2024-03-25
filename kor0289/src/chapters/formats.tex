@@ -1,8 +1,20 @@
 \chapter{Formáty využívající se v API}
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní -- JSON a XML.
 
+
+\section{Serializace a deserializace} %TODO cote https://www.baeldung.com/cs/serialization-deserialization
+Serializace a deserializace jsou důležité koncepty v programování. Umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, jako je ukládání objektů do databáze, posílání dat po síti a nebo pro účely mezipaměťi.
+
+Objekt má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje jednotlivá data objektu.
+\textbf{Serializace} je proces převádění stavu objektů do proudu bytů co mohou být kdekoliv uloženy nebo poslány. Tento proud může být poté zase rekonstruován do původního objektu. Pro serializaci si však muíme vybrat formát dat. Jako třeba JSON nebo XML. Ovšem používá se i binární reprezentace dat. Tato reprezentace se často využívá pro výkonnostní potřeby, protože jsou typicky rychlejší na zápis a čtení. Jejich nevýhoda ale je, že nejsou člověkem čitelné.
+
+\textbf{Deserializace} je opačný proces od serializace. Tedy převedení proudu bytů zpátky do objektu.
+
+Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon. Můžeto trvat nezanedbatelné množství času. Zvlášť u velkých objektů. Za zmínku stojí i fakt, že ne všechny objekty mohou být serializovány. Jako třeba sockety nebo file handlery.
+
+
 \section{JSON}
-JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascriptu, nicméně mnoho dnešních jazyků už má serializaci do JSONu zabudovanou interně. Jedná se o textový formát zápisu objektů, který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy key je klíč a value hodnota, která je pod ním uložená, obvykle může jít o číslo, textový řetězec, pole nebo i další objekt. Znaky v JSONu musí být v kódování UTF-8, ale formát podporuje i speciální znaky pokud jsou escaped, jako příklad můžeme uvést znaky \verb |\uD83D\uDE10| nebo \textit{neutral-face}. JSON je využíván primárně k výměně dat mezi webovými aplikacemi a servery, ale dá se používat i pro jednoduché databáze. Má prostá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. Jeden z jeho nedostatků je, že nemá podporu komentářů oproti XML, které tuto podporu má. \textbf{odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu plus dát emoji 😐 třeba xetex ale to se pak celé rozbije
+JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascriptu, nicméně mnoho dnešních jazyků už má serializaci do JSONu zabudovanou interně. Jedná se o textový formát zápisu objektů, který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy key je klíč a value hodnota, která je pod ním uložená, obvykle může jít o číslo, textový řetězec, pole nebo i další objekt. Znaky v JSONu musí být v kódování UTF-8, ale formát podporuje i speciální znaky pokud jsou escaped, jako příklad můžeme uvést znaky \verb |\uD83D\uDE10| nebo \textit{neutral-face}. JSON je využíván primárně k výměně dat mezi webovými aplikacemi a servery, ale dá se používat i pro jednoduché databáze. Má prostá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. Jeden z jeho nedostatků je, že nemá podporu komentářů oproti XML, které tuto podporu má. \textbf{ TODO odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu plus dát emoji 😐 třeba xetex ale to se pak celé rozbije
 
 
 \subsection{Pravidla}
@@ -26,8 +38,6 @@ Dále si můžeme povšimnout atributu \texttt{clazz} na řádku 3, který má h
 
 A nakonec zde máme na řádku 29 atribut \texttt{dead} s hodnotou \texttt{false}. Tato hodnota značí logickou hodnotu, která má datový typ boolean. V našem případě se jedná o vlastnost, která nám říká, zda je hráč mrtvý (\texttt{true}) či nikoli (\texttt{false}).
 
-\subsection{Serializace a deserializace}
-%TODO
 
 \section{XML}
 Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat, který je podobně jako JSON čitelný i člověkem. Základní stavební blok je node, atributy jsou uloženy do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Díky XML Schema definition také podporuje celou řadu datových typů a oproti JSONu podporuje i komentáře. Standardy spravuje společnost W3C. \textbf{fest fajny odkaz na w3c specifikaci do bibtex} %TODO bibtech na w3c
@@ -55,6 +65,28 @@ Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným 
 %TODO nějaký odkaz pěkný nebo tak něco na 
 Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není schéma specifikováno, všechny datové typy jou brány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
 
+
+\section{Shrnutí}
+Teď byly představeny případné technologie co bychom mohli použít jako formát pro serializaci a deserializaci. Jak tyto technologie fungují, jak vypadají a jejich výhody a nevýhody.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|c|c|c|c|}
+    \hline
+           & Čitelnost & Jednoduchost & Rychlost & Skladnost \\
+    \hline
+    JSON   & 1         & 1            & 2        & 3         \\
+    \hline
+    XML    & 2         & 3            & 4        & 4         \\
+    \hline
+    Binary & 5         & 4            & 1        & 1         \\
+    \hline
+  \end{tabular}
+  \caption{Porovnání JSON, XML a Binary }
+  \label{tab:formats_comparison}
+\end{table}
+
+\tableref{tab:formats_comparison} nám srovnává různé technologie podle našich případných požadavků. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější} \footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba něco jednoduchého a srozumitelného, přiměřeně rychlého. Tedy nejlépe z toho vyplývá JSON. XML je pro naše účely moc komplexní a většinu vlastností nevyužijeme. Binární formát je sice rychlý ale špatně se odhalují chyby a je zde horší universálnost serializeru a deserializeru mezi jazyky.
 
 
 \endinput
