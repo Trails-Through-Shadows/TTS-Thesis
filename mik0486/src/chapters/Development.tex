@@ -22,7 +22,7 @@ Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, J
 
 \subsubsection{TypeScript}
 \label{subsubsec:languages-compiled-typescript}
-TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožnuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
+TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožňuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
 
 Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}, který je součástí balíčku \textit{Node.js}.
 
@@ -154,16 +154,18 @@ Zpracování požadavku je klíčovým prvkem webových aplikací, vzhledem k ro
 
 Při vývoji je nutné si předem určit, který ze stylů zpracování bude pro projekt použit, přechod mezi jednotlivými druhy již v průběhu vývoje může být velmi zdlouhavý a finančně náročný. \cite{request_processing}
 
-% TODO: Přidat obrázek, který bude znázorňovat rozdíly mezi SSR, CSR a Hybridním vykreslováním?
-
 \subsection{Server-Side Rendering}
 \label{subsec:dev-request-processing-server-side-rendering}
 Server-Side Rendering (SSR) je často využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahuji často vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
 
 Jednou z nevýhod SSR je však vysoká náročnost na vypočetní výkon serveru. Tento problém se projevuje zejména v případě, kdy server zaznamená velké množství klientských požadavků v krátkém časovém období. Při každém požadavku dojde k novému kompletnímu vykreslení stránky, i když se obsah stránky změnil jen minimálně.
 
-% TODO: Zobrazit kroky jak to probíhá?
-\textcolor{red}{Note: Zobrazit zde kroky jak to probíhá? Od požadavku až po vykreslení stránky?}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/server-side-rendering}
+    \caption{Postup Server-Side renderingu při žádosti o stránku. \cite{rendering-diff}}
+    \label{fig:server-side-rendering}
+\end{figure}
 
 \subsection{Client-Side Rendering}
 \label{subsec:dev-request-processing-client-side-rendering}
@@ -171,8 +173,12 @@ Client-Side Rendering (CSR) je moderní způsob zpracování webových stránek,
 
 Ve srovnání s Server-Side Renderingem (SSR) je u CSR náročnější dosáhnout vysokého skóre v oblasti SEO. Důvodem je, že proces vykreslování stránky u klienta může trvat proměnlivě dlouho a existují rizika, že webcrawler, který indexuje stránku ji opustí ještě před jejím kompletním načtením. Tento problém lze řešit pomocí techniky \textit{Pre-Rendering}, kterou popisuji v následující sekci.
 
-% TODO: Zobrazit kroky jak to probíhá?
-\textcolor{red}{Note: Zobrazit zde kroky jak to probíhá? Od požadavku až po vykreslení stránky?}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/client-side-rendering}
+    \caption{Postup Client-Side renderingu při žádosti o stránku. \cite{rendering-diff}}
+    \label{fig:client-side-rendering}
+\end{figure}
 
 \subsection{Hybrid Rendering}
 \label{subsec:dev-request-processing-hybrid-rendering}

@@ -1,16 +1,38 @@
 \chapter{Teorie a analýza}
 \label{ch:theory_and_analysis}
-V této kapitole se zaměřím na teorii ohledně rozhraní ať se jedná o uživatelské nebo administrativní. \textcolor{red}{Aaa nějak to lépe napsat, píšu to pořád :D ..}
+V této kapitole se budeme věnovat teorii a analýze rozhraní, včetně jejich klíčových prvků, které jsou zásadní pro pochopení základních principů efektivního designu jak uživatelských (UI), tak i administrativních rozhraní. Dále se zaměříme na analýzu populárních deskových her, které si v současné době získaly velkou popularitu a zájem hráčů. V závěru této kapitoly se zaměříme na administrativní prvky a značky, které jsou zásadní pro správu obsahu aplikace.
 
 \section{Teorie UI/GUI}
 \label{sec:ui-gui-theory}
-\textcolor{red}{Zde popsat nějaké lehké zhrnutí UI / GUI?}
+Uživatelské rozhraní z anglického jazyka \textit{\textquote{User Interface}} (UI) a grafické uživatelské rozhraní \textit{\textquote{Graphical User Interface}} (GUI) jsou termíny používány v kontextu digitálních aplikace, kde tyto komponenty umožňují uživatelům interagovat se softwárem aplikace pomocí rozhraní. Zatímco UI zahrnuje jakoukoliv formu uživatelského rozhraní, GUI specificky zaměřuje na vizuální aspekty rozhraní jako jsou okna, ikony, tlačítka a další grafické elementy.
+
+Základem dobrého UI je jeho intuitivita, jednoduchost a přehlednost, což jednoduše znamená, že uživatel by měl být schopen pochopit jak s aplikačním rozhraním pracovat, aniž by musel procházet složitějším procesem učení.
+
+\subsection*{Klíčové prvky UI/GUI}
+\label{subsec:ui-gui-theory-key-elements}
+\begin{itemize}
+    \item \textbf{Rozložení} -- Efektivní rozložení usnadňuje uživatelskou orientací, uživatelé pak snadnější naleznou potřebné funkce nebo informace.
+    \item \textbf{Prvky ovládání} -- Tlačítka, menu, přepínače a další administrativní prvky by měly být v ideálním případě jasně označené a snadno dostupné.
+    \item \textbf{Typografie a barevnost} -- Výběr písma a jeho barevné schéma hraje významnou roli v čitelnosti a celkovém vnímání. V dnešní době se stránky hodně zaměřují na tmavá přepínatelná pozadí.
+    \item \textbf{Interaktivita} -- Při podání vstupu, uživatelé by měli dostat okamžitou zpětnou vazbu, čímž tak dostávají informace, že jejich akce byla zpracována nebo teprve bude.
+    \item \textbf{Přizpůsobivost} -- Možnost přizpůsobit si uživatelské rozhraní tak zvyšuje celkovou přívětivost, v rozhraních tak většinou nalezneme možnost změnit jazyk, barvy nebo pozice jednotlivých oken.
+\end{itemize}
+
+\subsection*{Principy dobrého UI designu}
+\label{subsec:ui-gui-theore-basic-use-case}
+\begin{itemize}
+    \item \textbf{Konzistence} -- Při provádění stejné akce, by uživatel měl pokaždé dostat stejnou odpověď.
+    \item \textbf{Jednoduchost} -- UI by mělo mít minimalistický design, který je hlavně zaměřen na důležité funkce.
+    \item \textbf{Přívětivost} -- Uživatel by měl být schopen, okamžitě pochopit rozložení UI bez nutnosti se ho učit.
+    \item \textbf{Dostupnost} -- UI by mělo být dostupné pro všechny uživatele, bez ohledu na jejich schopnosti.
+    \item \textbf{Zabezpečení} -- UI by mělo být zabezpečené a chránit uživatele před různými útoky.
+\end{itemize}
 
 \subsection{Počátek vzniku uživatelského rozhraní}
 \label{subsec:ui-gui-theory-beginning}
-Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup a výstup. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu nebo pohybem ukazatele myši.
+Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce mezi uživatelem a rozhraním prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup z klávesnice a následného výstupu umístěného na displej. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu za pomocí pohybu myši po obrazovce.
 
-Pro nás se grafická reprezentace v počítači stala již nedílnou součástí našeho života a v dnešní době se sní setkáváme již na každém kroku, ať se jedná o mobilní aplikace, počítačové aplikace nebo webové stránky.
+Pro nás se grafická reprezentace v počítači stala již nedílnou součástí našeho života a v dnešní době se sní setkáváme již na každém kroku, ať se jedná o mobilní aplikace, počítačové aplikace nebo prosté webové stránky.
 
 Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, které se mnohdy využíval na vývoj různých webových aplikace ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Význam a ukončení vývoje tohoto softwaru si dále popíšeme v kapitole~\ref{subsec:ui-gui-theory-adobe-flash-player}.
 
@@ -20,38 +42,41 @@ Problematika vývoje rozhraní se týká komplexního procesu, který zahrnuje n
 
 \begin{itemize}
     \item \textbf{Uživatelský vstup}, který reprezentuje jakým způsobem bude uživatel nebo administrátor aplikaci podávat vstup. Tedy jestli se jedná o textový vstup, vstup ovládáním myši nebo dotykovým displejem. Dle tohoto kritéria se poté volí vhodný způsob zpracování vstupu.
-    \item \textbf{Vykreslování}, které se většinou rozděluje na potřeby uživatelské a administrativní částí. Kde uživatelská se zaměřuje více na design a přívětivost pro uživatele, zatímco administrativní se zaměřuje na efektivitu a snadnou správu obsahu. Tento rozdíl můžeme jednoduše vidět na tom, že administrativní rozhraní většinou využívá plný potenciál obrazovky, zatímco uživatelské se snaží dbát na přehlednost a jednoduchost.
-    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky v obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost.
-    \item \textbf{Uživatelská zkušenost} z anglického \textit{\textquote{User Experience}} (UX) se soustředí na to, jak uživatelé vnímají a jak se cítí při používání aplikace. Tedy jak je aplikace přívětivá, snadno ovladatelná a zda splňuje očekávání uživatele.
+    \item \textbf{Vykreslování}, které se většinou rozděluje na potřeby uživatelské a administrativní částí. Kde uživatelská se zaměřuje více na design a přívětivost pro uživatele, zatímco administrativní se zaměřuje na efektivitu a snadnou správu obsahu. Tento rozdíl můžeme jednoduše vidět na tom, že administrativní rozhraní často využívá plný potenciál obrazovky, zatímco uživatelské se snaží dbát na přehlednost a jednoduchost.
+    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky v obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost. \textcolor{red}{UPRAVIT -- V rámci responsibility se často rozhraní plně rozdělují na část mobilní a počítačová. Takové rozdělení můžeme vidět v URL, kde různé aplikace v mobilním provedení jsou umístěny na subdoméně "m". -- UPRAVIT} Řešení responzivního designu dále bude pokračovat v separátním odstavci~\ref{subsec:ui-gui-theory-responsive-design}.
+    \item \textbf{Uživatelská zkušenost} z anglického jazyka \textit{\textquote{User Experience}} (UX) se soustředí na to, jak uživatelé vnímají a jak se cítí při používání aplikace. Tedy jak je aplikace přívětivá, snadno ovladatelná a zda splňuje očekávání uživatele.
     \item \textbf{Bezpečnost} je důležitým aspektem, který se zaobírá zpracováním uživatelských dat, které v mnoha případech obsahuje citlivé informace. Při nesprávném zpracování těchto dat může dojít k úniku dat nebo zneužití. Jako řešení se používají různé techniky, jako je například šifrování, ověřování uživatele nebo zabezpečení připojení.
 \end{itemize}
 
-\subsection{Adobe Flash Player}
-\label{subsec:ui-gui-theory-adobe-flash-player}
-\textcolor{red}{Zde popsat historii a význam Adobe Flash Playeru, jeho vývoj a následné ukončení vývoje.}
-
 \subsection{Responzivní design}
 \label{subsec:ui-gui-theory-responsive-design}
-Responzivní design se stal již skoro povinným standardem pro všechny webové stránky a aplikace. Tento přístup se zaměřuje na webové prvky tak, aby při jejich zobrazení na různých zařízeních s rozdílnou velikosti obrazovky nebo orientace byly pořád stejně přehledné a plně funkční. Této funkčnosti se dosahuje pomocí CSS stylů, které tuto funkcionalitu umožňují pomocí tzv. \textit{\textquote{media queries}}. Tyto dotazy umožňují nastavovat styly podle předem daných kritérii, jako jsou například šířka nebo výška okna, typ zařízení nebo jeho orientace.
+Responzivní design se stal již skoro povinným standardem pro všechny webové stránky a aplikace. Tento přístup se zaměřuje na webové prvky tak, aby při jejich zobrazení na různých zařízeních s rozdílnou velikosti obrazovky nebo orientace byly pořád stejně přehledné a plně funkční. Této funkčnosti se dosahuje pomocí CSS stylů, které tuto funkcionalitu umožňují pomocí tzv. \textit{\textquote{media queries}}. Tyto dotazy umožňují nastavovat styly podle předem daných kritérii, jako jsou například šířka okna, výška okna, typ zařízení nebo jeho orientace.
 
-Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací. Který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v následující kapitole~\ref{subsec:dev-technology-bootstrap}.
+Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací. Který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu aplikace. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v kapitole~\ref{subsec:dev-technology-bootstrap}.
 
-% Code example
 \lstinputlisting[language=CSS, caption={Příklad použití media query v css.}, label={lst:media-query-example}]{sourceCodes/MediaQueryExample.css}
 
-V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Ale obsahuje media dotaz na řádku 6, které se ptá na velikost obrazovky, kde v případě, že je šířka obrazovka menší než 600px, změní barva pozadí na světle modrou.
+V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Ale obsahuje media dotaz na řádku 6, které se ptá na velikost obrazovky, kde v případě, že je šířka obrazovka menší než 600px, změní barvu pozadí na světle modrou.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{figures/responsiveDesign}
+    \caption{Ukázka responzivního designu mezi zařízeními. \cite{responsive_design}}
+    \label{fig:responsive-design-example}
+\end{figure}
 
 \section{Analýza populárních deskových her}
 \label{sec:popular-board-games-analysis}
-Deskových her je v dnešní době na trhu velké množství, kde každým rokem se snaží noví nebo i stálí autoři proniknout ven s novými nápady nebo koncepty. Deskové hry lze rozdělit na několik herních žánru, jako jsou například hry strategické, kooperativní, party, rodinné nebo třeba karetní. Většina z těchto her se zaměřuje na její plný průběh na půdě hracího stolu, existují zde ale i hry, které do tohoto průběhu zapojují i externí zařízení, jako jsou mobilní telefony nebo laptopy. Tyhle hry se nazývají hry hybridní, kde jejich bližší definici popíšu v následující sekci.
+Deskových her je v dnešní době na trhu velké množství, kde každým rokem se snaží noví nebo i stálí autoři proniknout ven s novými nápady nebo koncepty. Deskové hry lze tak rozdělit na několik herních žánru, jako jsou například hry strategické, kooperativní, party, rodinné nebo třeba karetní. Velká většina z těchto her se zaměřuje na její plný průběh na půdě hracího stolu, existují zde ale i hry, které do tohoto průběhu zapojují i externí zařízení, jako jsou speciální zařízení, mobilní telefony nebo laptopy. Tyhle hry se nazývají hry hybridní, kde jejich bližší definici popíšu v následující sekci.
 
 \subsection*{Hybridní hry}
 \label{subsec:popular-board-games-analysis-hybrid-games}
-Hybridní hry jsou hry, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá řici, že hybridní hra je hra taková, které má jakékoliv napojení na technologii. \textcolor{red}{Zde popsat nějaké příklady hybridních her? Nebo prostě více textu.}
+Jak již bylo zmíněno o sekci výše, hybridní hry jsou hry takové, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá řici, že hybridní hra je hra taková, které má jakékoliv napojení na technologii. Mezi hry hybridní tak patří například populární hra \textit{Monopoly}, která použivá speciální bankovní zařízení používané pro správu funancí nebo hra \textit{XCOM: The Board Game}, která využívá mobilní aplikaci pro správu herního průběhu.
+\textcolor{red}{Popsat blíže jednotlivé hry? Nebo stačí takhle?}
 
 \subsection{Populární deskové hry}
 \label{subsec:popular-board-games-analysis-popular-games}
-Populárních deskových je na světě velké množství, pro tuto analýzu jsem si vybral několik her, které mi jsou nejbližší a již jsem měl možnost si je zahrát. Díky této zkušenosti můžu lépe popsat možnosti a prvky, které tyto hry obsahují. Mezi tyto hry patří například \textit{Carcassonne}, \textit{Bang!}, \textit{Codenames} nebo \textit{Gloomhaven}.
+Populárních deskových her je na světě velké množství, pro tuto analýzu jsem si vybral několik her, které mi jsou nejbližší a již jsem měl možnost si je zahrát. Díky této zkušenosti můžu lépe popsat možnosti a prvky, které tyto hry obsahují. Mezi tyto stolní hry patří například \textit{Carcassonne}, \textit{Bang!}, \textit{Codenames} nebo \textit{Gloomhaven}.
 
 \subsubsection{Carcassonne}
 \label{subsubsec:popular-board-games-analysis-carcassonne}
@@ -75,23 +100,35 @@ Každé administrativní rozhraní se skládá z několika základních prvků, 
 
 \subsection{Správa uživatelů}
 \label{subsec:admin-elements-user-management}
-aaa
+Správa uživatelů je nedílnou součástí každého sofistikovaného systému nebo aplikace, která umožňuje administrátorům ovlivňovat kdo může přistupovat a jednotlivým částem systému. Tento prvek systému tak umožňuje nejen přidávat, odstraňovat nebo měnit uživatele, ale také udělovat jejich oprávnění, role nebo měnit nastavení. Mezi časté role patří například \textit{administrátor}, \textit{editor}, \textit{moderátor} nebo výchozí \textit{uživatel}. Každá role má přidělený seznam oprávnění, které určují co může uživatel dělat a co ne. Tento přístup tak umožňuje vytvářet hierarchii uživatelů, kde administrátor má plný přístup ke všem funkcím aplikace, zatímco uživatel má pouze omezený přístup, čímž tak zvyšuje bezpečnost a efektivitu aplikace. Správa uživatelů také často obsahuje nástroje pro sledování aktivity uživatelů nebo jejich audit.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/userManagement}
+    \caption{Ukázka uložení uživatele v databázi. \cite{responsive_design}}
+    \label{fig:user-management}
+\end{figure}
 
 \subsection{Správa obsahu}
 \label{subsec:admin-elements-content-management}
-aaa
+Jako u správy uživatelů, správa obsahu z anglického jazyka \textit{\textquote{Content Management}} je dalším a hlavním pilířem administrativních rozhraní. Tento prvek tak umožňuje výše zmíněným rolím vytvářet, upravovat a odstraňovat obsah tak, že není nutné jakkoliv zasahovat do kódu aplikace nebo měnit čisté data ručně v databázi. Tento prvek je zásadní pro dynamické webové stránky, e-commerce platformy, blogy a další aplikace, které pravidelně mění svůj obsah nebo provádí jejich další vývoj.
+
+Editace obsahu v aplikacích se provádí pomocí interaktivních editorů, které jsou součástí formulářů. Takové editory se nazývají WYSIWYG z anglického \textit{\textquote{What You See Is What You Get}}, tyto editory tak umožňují uživatelům editovat obsah aniž by museli znát HTML nebo CSS. Tento způsob editace je velmi oblíbený pro svou jednoduchost a přehlednost, která umožňuje i méně zkušeným uživatelům editovat obsah bez jakýchkoliv problémů. Mezi tyto populární editory patří CKEditor\footnote[1]{\url{https://ckeditor.com/}}, TinyMC\footnote[2]{\url{https://www.tiny.cloud/}} nebo Quill\footnote[3]{\url{https://quilljs.com/}}.
 
 \subsection{Nastavení}
 \label{subsec:admin-elements-settings}
-aaa
+Sekce pro nastavení se nachází v každém administrativním rozhraní a umožňuje tak administrátorům přizpůsobovat aplikaci podle specifických potřeb a preferencí. To může zahrnovat širokou škálu možností začínající od změny barvy, jazyka, loga, až po pokročilé možnosti jako je změna způsobu zabezpečení, různé integrace třetích stran a časté upravování SEO nastavení, které zlepšuje viditelnost aplikace ve vyhledávačích.
 
 \subsection{Statistiky}
 \label{subsec:admin-elements-statistics}
-aaa
+Statistiky poskytují ucelený přehled o využití a výkonost aplikace. Kde se zaměřuje na analýzu návštěvnosti, sledování chování uživatelů nebo sledování výkonu aplikace. Tento prvek tak umožňuje administrátorům sledovat aktuální stav aplikace a provádět potřebné úpravy pro zlepšení výkonu nebo zvýšení návštěvnosti.
+Tyto statistiky se většinou zobrazují v podobě grafů, tabulek nebo zpráv, které poskytují uživatelům přehledné informace o aktuálním stavu aplikace.
+
+Jako často používané nástroje pro sledování statistik se používají Google Analytics\footnote[4]{\url{https://analytics.google.com/}}, Matomo\footnote[5]{\url{https://matomo.org/}} nebo Yandex Metrica\footnote[6]{\url{https://metrica.yandex.com/}}. Při používání těchto nástrojů třetích stran je tak nutné dbát na zabezpečení a ochranu uživatelských dat, které tyto nástroje zpracovávají.
 
 \subsection{Logování}
 \label{subsec:admin-elements-logs}
-aaa
+Systém logování je nezbytným nástrojem pro monitorování a diagnostiku problému v aplikaci. Umožňuje tak zaznaménávat události jako jsou chyby, varování, informační zprávy nebo auditní záznamy o aktivitách uživatelů. Zpětné zobrazování těch záznamu tak pomáhá uživatelům rychle identifikovat a vyřešit problém čímž zajišťují bezpečný a nepřetržitý průběh aplikace.
 
 \section{Administrativní značky}
 \label{sec:admin-tags}
@@ -99,28 +136,28 @@ Administrativními značkami se rozumí prvky HTML, které jsou specifické pro 
 
 \subsection{Menu}
 \label{subsec:admin-tags-menu}
-bbb
+Menu je zásadním navigačním prvkem v jakémkoliv rozhraní, umožňující uživatelů snadný přístup k rozdílným částem aplikace. Tento prvek se tak často nachází v horní částí aplikace nebo v její levé části a obsahuje tak odkazy na podřadné stránky. Důležitá je efektivnost navržení menu, kde se klade důraz na uživatelskou přívětivost a rychlou orientaci. Při velkém a rozsáhlém stromu menu tak v opačném případě dochází k častému zmatení uživatele, který pak často stránku opouští.
 
 \subsection{Formulář}
 \label{subsec:admin-tags-form}
-bbb
+Formuláře jsou klíčové pro interakci s uživatelem, neboť umožňují aplikaci přijímat datový vstup od uživatelů. Častým výskytem formulářů v administrativních rozhraních jsou stránky určené pro přihlášení, registraci, zadávání nebo úpravu dat. Formuláře se tak skládají z prvků jako jsou textová pole, výběrové seznamy, zaškrtávací políčka nebo obyčejné tlačítka pro provádění akce. U každého formuláře je tak důležité zabezpečení vstupu proti různým útokům, které dále budou popsány v sekci~\ref{sec:security}.
 
 \subsection{Tlačítko}
 \label{subsec:admin-tags-button}
-bbb
+Tlačítka jsou základním interaktivním prvkem, který umožňuje uživatelům provádět předem definované akce jako je například odeslání formuláře, potvrzení akce nebo přechod na jinou stránku. V ideálním případě by tak všechna tlačítka měla být navržena tak, aby byla pro uživatele snadno rozpoznatelná a měla tak jasně definovanou funkci. Tlačítka se tak často využívají v kombinaci s formuláři, tabulkami nebo odkazy v menu.
 
 \subsection{Tabulka}
 \label{subsec:admin-tags-table}
-bbb
+Tabulky jsou nezbytné pro zobrazení a přehlednou organizaci dat v strukturované formě. V administrativních rozhraních se tak tabulky využívají k zobrazení malého i velkého množství dat, například tak k zobrazení seznamu uživatelů, záznamu nebo třeba i statistikám. K tabulkám se pak vážou i často využívané prvky jako je možnost řazení, filtrování a stránkování záznamu což je nezbytné k správě velkého množství dat.
 
 \subsection{Graf}
 \label{subsec:admin-tags-chart}
-bbb
-
-\subsection{Grid}
-\label{subsec:admin-tags-grid}
-bbb
+Grafy nebo diagramy jsou významným prvkem pro vizualizaci dat, která se vyskytují většinou u komerčních administrativních rozhraní více než u rozhraní, které se čistě zaměřují na správu obsahu. Tyto grafy nám tak pomáhají lépe pochopit vztahy mezi data a čistě tak rozlišit vzory nebo trendy. Grafy se tak využívají pro zobrazení statistik, vývoje, analytiky a dalších měřitelných dat.
 
 \subsection{Modální okno}
 \label{subsec:admin-tags-modal}
-bbb
+Modální okna jsou interaktivní dialogové okna, které přitahují pozornost uživatele tak aby vykonal určitý úkon před tím, než bude moci pokračovat dále v předchozím úkonu. Tyto okna se tak často využívají pro potvrzení akce, zobrazení upozornění nebo detailního zobrazení obsahu. Jejich správné využití tak mnohem zlepšuje uživatelskou přívětivost tím, že umožní uživateli rychle reagovat bez nutnosti opustit aktuální kontext úkonu.
+
+\section{Zabezpečení}
+\label{sec:security}
+ccc
