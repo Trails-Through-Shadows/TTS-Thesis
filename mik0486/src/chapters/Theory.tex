@@ -4,18 +4,18 @@ V této kapitole se budeme věnovat teorii a analýze rozhraní, včetně jejich
 
 \section{Teorie UI/GUI}
 \label{sec:ui-gui-theory}
-Uživatelské rozhraní z anglického jazyka \textit{\textquote{User Interface}} (UI) a grafické uživatelské rozhraní \textit{\textquote{Graphical User Interface}} (GUI) jsou termíny používány v kontextu digitálních aplikace, kde tyto komponenty umožňují uživatelům interagovat se softwárem aplikace pomocí rozhraní. Zatímco UI zahrnuje jakoukoliv formu uživatelského rozhraní, GUI specificky zaměřuje na vizuální aspekty rozhraní jako jsou okna, ikony, tlačítka a další grafické elementy.
+Uživatelské rozhraní z anglického jazyka \textit{\textquote{User Interface}} (UI) a grafické uživatelské rozhraní \textit{\textquote{Graphical User Interface}} (GUI) jsou termíny používány v kontextu digitálních aplikací, kde tyto komponenty umožňují uživatelům interagovat se softwárem aplikace pomocí rozhraní. Zatímco UI zahrnuje jakoukoliv formu uživatelského rozhraní, GUI se specificky zaměřuje na vizuální aspekty rozhraní jako jsou okna, ikony, tlačítka a další grafické elementy.
 
-Základem dobrého UI je jeho intuitivita, jednoduchost a přehlednost, což jednoduše znamená, že uživatel by měl být schopen pochopit jak s aplikačním rozhraním pracovat, aniž by musel procházet složitějším procesem učení.
+Základem dobrého UI je především jeho intuitivita, jednoduchost a přehlednost, což jednoduše znamená, že by uživatel měl být schopen jednoduše pochopit jak s aplikačním rozhraním pracovat, aniž by musel procházet složitějším procesem učení.
 
 \subsection*{Klíčové prvky UI/GUI}
 \label{subsec:ui-gui-theory-key-elements}
 \begin{itemize}
     \item \textbf{Rozložení} -- Efektivní rozložení usnadňuje uživatelskou orientací, uživatelé pak snadnější naleznou potřebné funkce nebo informace.
     \item \textbf{Prvky ovládání} -- Tlačítka, menu, přepínače a další administrativní prvky by měly být v ideálním případě jasně označené a snadno dostupné.
-    \item \textbf{Typografie a barevnost} -- Výběr písma a jeho barevné schéma hraje významnou roli v čitelnosti a celkovém vnímání. V dnešní době se stránky hodně zaměřují na tmavá přepínatelná pozadí.
-    \item \textbf{Interaktivita} -- Při podání vstupu, uživatelé by měli dostat okamžitou zpětnou vazbu, čímž tak dostávají informace, že jejich akce byla zpracována nebo teprve bude.
-    \item \textbf{Přizpůsobivost} -- Možnost přizpůsobit si uživatelské rozhraní tak zvyšuje celkovou přívětivost, v rozhraních tak většinou nalezneme možnost změnit jazyk, barvy nebo pozice jednotlivých oken.
+    \item \textbf{Typografie a barevnost} -- Výběr písma a jeho barevné schéma hraje významnou roli v čitelnosti a celkovém vnímání. V dnešní době se stránky hodně zaměřují na tmavá přepínatelná pozadí často známá jako \textit{Dark Mode} a \textit{Light Mode}.
+    \item \textbf{Interaktivita} -- Při podání vstupu do aplikace by uživatelé měli dostat okamžitou zpětnou vazbu, čímž tak dostávají informace, že jejich akce byla zpracována nebo se aktuálně zpracovává. Často je tak probíhající akce vyobrazena určitým opakujícími se animacemi například tak točící se kolečko známé jako \textit{loading spinner}.
+    \item \textbf{Přizpůsobivost} -- Možnost přizpůsobit si uživatelské rozhraní tak zvyšuje celkovou přívětivost, v rozhraních tak většinou nalezneme možnost změnit jazyk, barvy nebo pozice jednotlivých oken. Tyto změny se tak většinou uchovávají pouze v uložišti prohlížeče a nejsou nijak sdílený mezi zařízeními.
 \end{itemize}
 
 \subsection*{Principy dobrého UI designu}
@@ -28,13 +28,13 @@ Základem dobrého UI je jeho intuitivita, jednoduchost a přehlednost, což jed
     \item \textbf{Zabezpečení} -- UI by mělo být zabezpečené a chránit uživatele před různými útoky.
 \end{itemize}
 
-\subsection{Počátek vzniku uživatelského rozhraní}
+\subsection{Počátek vzniku rozhraní}
 \label{subsec:ui-gui-theory-beginning}
-Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce mezi uživatelem a rozhraním prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup z klávesnice a následného výstupu umístěného na displej. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu za pomocí pohybu myši po obrazovce.
+Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce mezi uživatelem a rozhraním prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup z klávesnice a následného výstupu umístěného na displej. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti pro uživatele jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu za pomocí pohybu myši po obrazovce.
 
 Pro nás se grafická reprezentace v počítači stala již nedílnou součástí našeho života a v dnešní době se sní setkáváme již na každém kroku, ať se jedná o mobilní aplikace, počítačové aplikace nebo prosté webové stránky.
 
-Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, které se mnohdy využíval na vývoj různých webových aplikace ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Význam a ukončení vývoje tohoto softwaru si dále popíšeme v kapitole~\ref{subsec:ui-gui-theory-adobe-flash-player}.
+Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, které se mnohdy využíval na vývoj různých webových aplikace ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Bohužel tento software byl koncem roku 2020 ukončen a nahrazen modernějšími a bezpečnějšími technologiemi, které zároveň stály za jeho úpadkem. Mezi tyto technologie se tak řadí HTML5, WebGL nebo WebAssembly. \cite{adobeFlashPlayer-eol}
 
 \subsection{Problematika vývoje}
 \label{subsec:ui-gui-theory-problems}
@@ -43,7 +43,7 @@ Problematika vývoje rozhraní se týká komplexního procesu, který zahrnuje n
 \begin{itemize}
     \item \textbf{Uživatelský vstup}, který reprezentuje jakým způsobem bude uživatel nebo administrátor aplikaci podávat vstup. Tedy jestli se jedná o textový vstup, vstup ovládáním myši nebo dotykovým displejem. Dle tohoto kritéria se poté volí vhodný způsob zpracování vstupu.
     \item \textbf{Vykreslování}, které se většinou rozděluje na potřeby uživatelské a administrativní částí. Kde uživatelská se zaměřuje více na design a přívětivost pro uživatele, zatímco administrativní se zaměřuje na efektivitu a snadnou správu obsahu. Tento rozdíl můžeme jednoduše vidět na tom, že administrativní rozhraní často využívá plný potenciál obrazovky, zatímco uživatelské se snaží dbát na přehlednost a jednoduchost.
-    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky v obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost. \textcolor{red}{UPRAVIT -- V rámci responsibility se často rozhraní plně rozdělují na část mobilní a počítačová. Takové rozdělení můžeme vidět v URL, kde různé aplikace v mobilním provedení jsou umístěny na subdoméně "m". -- UPRAVIT} Řešení responzivního designu dále bude pokračovat v separátním odstavci~\ref{subsec:ui-gui-theory-responsive-design}.
+    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky v obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost. U mobilních verzí aplikací se tak často objevují separátní odkazy na nativní rozhraní, které se tak často nachází pod subdoménou s název \("\)m\("\) tedy například \textit{https://m.tts-game.fun}. Řešení responzivního designu dále bude pokračovat v separátním odstavci~\ref{subsec:ui-gui-theory-responsive-design}.
     \item \textbf{Uživatelská zkušenost} z anglického jazyka \textit{\textquote{User Experience}} (UX) se soustředí na to, jak uživatelé vnímají a jak se cítí při používání aplikace. Tedy jak je aplikace přívětivá, snadno ovladatelná a zda splňuje očekávání uživatele.
     \item \textbf{Bezpečnost} je důležitým aspektem, který se zaobírá zpracováním uživatelských dat, které v mnoha případech obsahuje citlivé informace. Při nesprávném zpracování těchto dat může dojít k úniku dat nebo zneužití. Jako řešení se používají různé techniky, jako je například šifrování, ověřování uživatele nebo zabezpečení připojení.
 \end{itemize}
@@ -72,7 +72,7 @@ Deskových her je v dnešní době na trhu velké množství, kde každým rokem
 \subsection*{Hybridní hry}
 \label{subsec:popular-board-games-analysis-hybrid-games}
 Jak již bylo zmíněno o sekci výše, hybridní hry jsou hry takové, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá řici, že hybridní hra je hra taková, které má jakékoliv napojení na technologii. Mezi hry hybridní tak patří například populární hra \textit{Monopoly}, která použivá speciální bankovní zařízení používané pro správu funancí nebo hra \textit{XCOM: The Board Game}, která využívá mobilní aplikaci pro správu herního průběhu.
-\textcolor{red}{Popsat blíže jednotlivé hry? Nebo stačí takhle?}
+\textcolor{blue}{MOZNA - Popsat blíže jednotlivé hry? Nebo stačí takhle?}
 
 \subsection{Populární deskové hry}
 \label{subsec:popular-board-games-analysis-popular-games}
@@ -80,19 +80,19 @@ Populárních deskových her je na světě velké množství, pro tuto analýzu 
 
 \subsubsection{Carcassonne}
 \label{subsubsec:popular-board-games-analysis-carcassonne}
-Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+\textcolor{red}{DOPLNIT -- Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.}
 
 \subsubsection{Bang!}
 \label{subsubsec:popular-board-games-analysis-bang}
-Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+\textcolor{red}{DOPLNIT -- Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.}
 
 \subsubsection{Codenames (Krycí jména)}
 \label{subsubsec:popular-board-games-analysis-codenames}
-Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+\textcolor{red}{DOPLNIT -- Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.}
 
 \subsubsection{Gloomhaven}
 \label{subsubsec:popular-board-games-analysis-gloomhaven}
-Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.
+\textcolor{red}{DOPLNIT -- Popsat hru jak funguje, cíl, jaké prvky obsahuje, rozšíření. Poté její online verze.}
 
 \section{Administrativní prvky}
 \label{sec:admin-elements}
@@ -160,4 +160,60 @@ Modální okna jsou interaktivní dialogové okna, které přitahují pozornost 
 
 \section{Zabezpečení}
 \label{sec:security}
-ccc
+Zabezpečení v rozhraních je dalším z mnoha důležitých aspektu neli ten nejdůležitější neboť se zde setkáváme s citlivými daty, které by při odcizení mohlo mít nemalý dopad na uživatele nebo samotnou aplikace. Zabezpečení se tak dělí na několik oblastí, kde každý z nich má své specifické praktiky a techniky, které zvyšují bezpečnost aplikace. V dnešní době existuje mnoho způsobu, jakým lze na danou aplikaci nebo uživatele útočit, mezi jedny z nejčastější patří \textit{SQL Injection}, \textit{Cross-Site Scripting} nebo \textit{Cross-Site Request Forgery}. V následujících podkapitolách se tak zaměřím na tyto jednotlivé oblasti.
+
+\subsection{Autentizace}
+\label{subsec:security-authentication}
+Autentizace je proces, kde dochází k ověřování identity uživatele při vstupu do systému. Jedná se tak o první krok, který systém provádí před tím, než uživatel může dále interagovat s aplikací. Autentizace se tak dělí na několik základních metod, jako je přístup s \textit{uživatelským jménem a heslem}, \textit{tokenem}, \textit{biometrickými údaji} nebo \textit{certifikáty}. Každá z těchto metod má své výhody a nevýhody, které se tak většinou volí dle potřeb aplikace nebo uživatele.
+
+Jako druhy ošetření autentizace se využívá praktik:
+\begin{itemize}
+    \item \textbf{Silná hesla} -- Uživatel je donucen používat heslo, které spadá do nastavené politiky administrátorem systému. Nejčastěji tak hesla musí kombinovat velká a malá písmena, čísla a speciální znaky, kde celkově heslo musí dosahovat minimálně délky 8 znaků.
+    \item \textbf{Dvoufaktorová autentizace} -- Jedná se druhou vrstvu zabezpečení, kde po obyčejném přihlášení uživatele do systému, je vyžadován druhý faktor ověření. Tento faktor může být například SMS zpráva, e-mail nebo digitální token, který uživatel musí zadat pro dokončení přihlášení.
+    \item \textbf{Omezení počtu pokusů} -- Tato prevence se zaměřuje na takzvaný útok hrubou sílou z anglického jazyka \textit{\textquote{Brute Force}}, kde se útočník pokouší proniknou za pomocí slovníku hesel, ale je zablokován po několika neúspěšných pokusech.
+\end{itemize}
+
+\subsection{Autorizace}
+\label{subsec:security-authorization}
+Autorizace se zaměřuje na rozřazení uživatelů do skupin nebo rolí, kde ověřují, zda uživatel má oprávnění provádět danou akci v systému. Nejlepším princem je tak tzv. \textit{Princip nejmenších oprávnění}, který říká, že uživatel by měl mít pouze ta oprávnění, která potřebuje pro vykonání své práce a nic víc. Často tak oprávněni uživatelé dostávají vyšší oprávnění pouze dočasně po dobu své práce a poté jsou oprávnění zpět odebrány.
+
+\subsection{Šifrování}
+\label{subsec:security-encryption}
+Šifrování je procesem konverze dat do formátu, který není čitelný bez dešifrovacího klíče. Tento proces se tak často využívá u důležitých citlivých údajů jako jsou například adresy, hesla nebo platební údaje. Šifrování se tak dělí na několik základních metod, jako je \textit{symetrické šifrování}, \textit{asymetrické šifrování} nebo \textit{hashování}. Při výběru metody šifrování je tak důležité zvolit takovou metodu, která je dostatečně bezpečná a zároveň efektivní. Pro zachování zabezpečení komunikace se tak používá webový protokol HTTPS, který šifruje data za nás.
+
+\subsection{Zabezpečení formulářů}
+\label{subsec:security-forms}
+Zabezpečení formulářů je klíčových prvkem pro ošetření vstupu dat od uživatele. Uživatel neboli útočník se v tomto případě pokouší o vložení škodlivého kódu do formuláře, který může mít za následek přeskočení přihlášovacích údaju, získání citlivých informací nebo zneužití aplikace. Pro ošetření formulářů se tak využívají techniky jako je \textit{validace}, \textit{filtraci} nebo \textit{escapování}.
+
+\subsection{Zabezpečení proti útokům}
+\label{subsec:security-attacks}
+V moderních době počítačů existuje mnoho možnosti, jak útočnicí se mohou pokoušet proniknout do aplikace. Mezi nejčastější útoky patří \textit{SQL Injection}, \textit{Cross-Site Scripting}, \textit{Cross-Site Request Forgery} nebo \textit{Session Hijacking}. Tyto útoky se tak zaměřují na různé části aplikace, kde se snaží získat citlivé informace, zneužít aplikaci nebo získat kontrolu nad uživatelem. Pro ošetření je tak nutné implementovat několik zabezpečovacích vrstev, které tak eliminují riziko útoků.
+
+\subsubsection*{SQL Injection}
+\label{subsubsec:security-attacks-sql-injection}
+SQL Injection je druh útoků, kde ůtočník vkládá neboli "injektuje" škodlivý SQL kód do vstupu formuláře, který je poté zpracováván databázovém systémem. Pokud nedojde k ošetření vstupu, útočník tak může docílit k neautorizovanému přístupu k databázi, získání citlivých informací nebo dokonce k úplnému smazání databáze.
+
+\textbf{Obrana:} Použitím parametrizovaných dotazů, kde dochází k bezpečnému vložení dat uživatele do SQL kódu. Dále je možné omezit přístupová oprávnění uživatele databáze na minimum.
+
+\subsubsection*{Cross-Site Scripting}
+\label{subsubsec:security-attacks-cross-site-scripting}
+Cross-Site scripting je dalším z druhů útoku, kde útočník podobně jako u \textit{SQL Injection} vkládá do formuláře škodlivý kód. Zde se zde ale nejedná o kód SQL ale o kód JavaScriptu. Tento kód tak může v pozadí nenápadně provádět akce, které můžou vést k odcizení cookies nebo session tokenů.
+
+\textbf{Obrana:} Sanitace všech uživatelských vstupů. Úplné odebrání HTML značek z vstupních dat.
+
+\subsubsection*{Cross-Site Request Forgery}
+\label{subsubsec:security-attacks-cross-site-request-forgery}
+Cross-Site Request Forgery je útok, pri kterém útočník využívá fakt, že daný uživatel je již autorizovaný na dané stránce. Uživatel tak po otevření odkazu je přesměrován na cílovou stránku, kde se provede nežádaná akce pod účtem uživatele.
+
+\textbf{Obrana:} Implementace CSRF tokenu v formuláři, který zajišťuje, že požadavek přichází od správného uživatele.
+
+\subsubsection*{Session hijacking}
+\label{subsubsec:security-attacks-session-hijacking}
+Session hijacking se váže na \textit{Cross-Site Scripting}, kde útočník již obdržel uživatelovu session a může tak provádět akce pod uživatelským účtem aniž by se musel sám přihlásit.
+
+\textbf{Obrana:} Použití HTTPS protokolu, který šifruje data. Omezení platnosti session tokenů, použití dvoufaktorové autentizace a nastavení správných cookie atributů.
+\newline
+
+Každý z těchto výše zmíněných útoků představuje vážnou hrozbu pro bezpečnost aplikace a její uživatele. Proto je tak nutné dbát na správné zabezpečení aplikace a v pravidelných intervalech provádět bezpečností opatření, tak aby došlo k minimalizaci rizika útoků.
+
+
