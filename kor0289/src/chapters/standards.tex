@@ -23,7 +23,7 @@ Jednotné rozhraní by mělo dodržovat následující pravidla.\
     \item Klient může dostat informace o ostatních datech, která se vážou k původnímu požadavku. (HATEOAS)
 \end{enumerate}
 
-\subsection{Stateless (bezstavový)}
+\subsection{Stateless}
 Bezstavová komunikační metoda je taková metoda, kdy server obslouží každého klienta zvlášť a nezávisle na jeho předchozích akcích. Klienti mohou dávat požadavky nezávisle na pořadí, server si tedy neuchovává data o klientech.
 
 \subsection{Layered system}
@@ -135,8 +135,9 @@ Je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměr
 \end{listing}
 
 \subsection{Datové typy}
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-je jich dost a je tu hoafo co popisovat uvidíme jak dlouhé tohle celkově bude
+je jich dost a je tu toho dost co popisovat
+%TODO
+uvidíme jak dlouhé tohle celkově bude
 
 
 \begin{listing}[ht]
@@ -153,9 +154,11 @@ je jich dost a je tu hoafo co popisovat uvidíme jak dlouhé tohle celkově bude
 \end{description}
 
 \section{Porovnání a shrnutí} %TODO předělat tohle jsou jen myšlenky co tu dát
-\textbf{předělat tohle jsou jen myšlenky co bych měl říct}
+% \textbf{předělat tohle jsou jen myšlenky co bych měl říct}
 
-Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Taktéž když budeme potřebovat protivníky nebo hrací plán tak budeme chtít vědět vše o nich a ne jen část dat. Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.
+Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Taktéž když budeme potřebovat protivníky nebo hrací plán tak budeme chtít vědět vše o nich a ne jen část dat.
+
+\textit{Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.} %TODO
 
 
 \endinput

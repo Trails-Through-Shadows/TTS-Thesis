@@ -7,7 +7,9 @@
 - Metodika a struktura práce
 
 ## 2. Teoretická část
-
+- Historie a vývoj API
+  - Vývoj API
+  - Vývoj API v herním průmyslu
 - Formáty využívající se v API
   - Json
   - XML

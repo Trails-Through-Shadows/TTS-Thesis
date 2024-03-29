@@ -1,42 +1,83 @@
 \chapter{Analýza a návrh herního systému}
 \label{chap:design_analysis}
 
-Pro rozumný vývoj herního systému modelové hry je nutné nejprve provést analýzu a návrh, proto se tato kapitola tímto tématem zabývá. První část se zaměřuje na požadavky, které by měl herní systém splňovat, a na analýzu herního systému. Druhá část se pak věnuje samotnému návrhu herního systému.
+Pro rozumný vývoj herního systému modelové hry je nutné nejprve provést analýzu a návrh, proto se tato kapitola tímto tématem zabývá. První část se zaměřuje na požadavky, které by měl herní systém splňovat, druhá část se pak věnuje samotnému návrhu herního systému.
 
 Hybridní deskové hře, která je finálním produktem této práce, bylo určeno pracovní jméno \textit{Trails Through Shadows} (zkratkou \textit{TTS}). Dále je však zmiňována především pod názvem \textit{modelová hra}.
 
-\section{Požadavky na herní systém}
+\section{Požadavky na modelovou hru}
 \label{sec:requirements}
 
-Před samotným návrhem herního systému je nutné stanovit požadavky, které by měl herní systém a hra jako taková splňovat. Tyto požadavky byly stanoveny na základě analýzy cílů, které by měla modelová hra splňovat, a na základě analýzy herního systému.
+Před samotným návrhem herního systému je nutné stanovit požadavky, které by měl herní systém a hra jako taková splňovat. Tyto požadavky byly stanoveny na základě analýzy existující řešení \chapterref{chap:game_analysis} a vlastních představ týmu a byly rozděleny do následujících kategorií.
 
-- Struktura
-    - Kooperativní
-    - Příběhová
-    - Jedinečnost postav
-        - Akce podle postavy
-        - Jiné statistiky taky jako pohyb a iniciativa
-        - Vývoj postav
-    - Velká mapa s jednotlivými lokacemi
-    - Propojení s aplikací
-        - Ale pořád zachovat deskový charakter
+\subsection*{Struktura hry}
+\label{subsec:req_structure}
 
-- Mechaniky
-    - Karty na akce, kostky na damage (souboj obecně)
-    - Příběh
-    - Inventář a předměty
-    - Efekty
+\begin{itemize}
+    \item \textbf{Kooperace} -- 
+        Hra by měla být kooperativní, tedy hráči by měli spolupracovat na dosažení cíle hry společně.
+    \item \textbf{Příběh} -- 
+        Hra by se měla držet centrálního příběhu, který hráče zaujme a bude je v průběhu hry motivovat.
+    \item \textbf{Jedinečnost postav} -- 
+        Hráči by měli být schopni vytvořit jedinečnou postavu, která se od ostatních liší nejen vzhledem, ale i herním stylem.
 
-- Komponenty
-    - Kostky
-    - Karty
-    - Figurky (hráči, nepřátelé, summoni, obstacles)
-    - Mapa
-    - Pravidla
-    - Přizpůsobení pro webovou aplikaci
+    \begin{itemize}
+        \item \textbf{Unikátní akce} -- 
+            Postavy by měly mít akce, které jsou pro ně specifické a mají velký vliv na pocit, který hráči z postavy mají.
+        \item \textbf{Jiné statistiky} -- 
+            Statistiky jsou další oblastí, ve které by se postavy měly lišit.
+        \item \textbf{Vývoj postav} -- 
+            Postavy by měly mít možnost se vyvíjet, získávat nové schopnosti a zlepšovat své statistiky, ať už získáváním zkušeností nebo pomocí předmětů.
+    \end{itemize}
 
-- Komerční aspekty
-    - Cílovka
-    - Jednoduchost výroby
-    - Nacenění hry a aplikace
-    - Rozšíření
+    \item \textbf{Rozdělení na světovou a lokální mapu} -- 
+        Herní svět bude zobrazen ve velké mapě v rámci webové aplikace, která bude obsahovat jednotlivé lokace. Ty budou mít svou vlastní mapu, která bude detailnější a bude sloužit pro souboje a interakci s prostředím.
+    \item \textbf{Propojení s aplikací} -- 
+        Hra bude propojena s webovou aplikací, která bude sloužit pro zjednodušení hraní hry a bude obsahovat informace, které by byly obtížné zobrazit ve fyzických komponentách. Je však nutné dbát na to, aby si hra zachovala svůj deskový charakter.
+\end{itemize}
+
+\subsection*{Herní mechaniky}
+\label{subsec:req_mechanics}
+
+\begin{itemize}
+    \item \textbf{Karty a kostky} -- 
+        Souboj by měl být založen na kartách, které budou hráči umožňovat provádět různé akce, a kostkách, které budou přinášet do výsledku náhodnost.
+    \item \textbf{Příběh} -- 
+        Příběh bude vyprávěn především prostřednictvím webové aplikace.
+    \item \textbf{Inventář a předměty} -- 
+        Předměty budou důležitou součástí hry díky jejich vlivu na vylepšení postavy. Inventář bude sloužit k jejich ukládání a bude omezený na typy předmětů.
+    \item \textbf{Efekty} -- 
+        Hra by měla obsahovat efekty, které mohou ovlivňovat hráčské postavy nebo nepřítele.
+\end{itemize}
+
+\subsection*{Komponenty}
+\label{subsec:req_components}
+
+\begin{itemize}
+    \item \textbf{Kostky} -- 
+        Kostky budou sloužit k určení výsledku útoků a jiných akcí, které hráči provádějí. Na stěnách kostky budou zaznamenány modifikátory ovlivňující výsledek a každý hráč bude mít svůj vlastní kostku.
+    \item \textbf{Karty} --
+        Karty budou reprezentovat akce v rámci hry a budou obsahovat strukturované informace o tom, jak se daná akce provádí a jaké má následky.
+    \item \textbf{Figurky} --
+        Postavy, nepřátelé, summoni a překážky budou reprezentovány figurkami, z důvodu omezeného rozpočtu se však bude jednat o \textit{standees}.
+    \item \textbf{Mapy lokací} --
+        Lokace se bude skládat z jednotlivých menších částí, které bude možné skládat dohromady a spojovat do většího celku. Mapa bude založena na hexagonech.
+    \item \textbf{Pravidla} --
+        Pravidla budou zapsána ve vytištěné příručce přiložené jako součást balení hry, ale budou také dostupná v elektronické podobě. Hráče provedou průběhem hry a jednotlivými mechanismy v přehledné a graficky přívětivé formě.
+    \item \textbf{Přizpůsobení pro webovou aplikaci} --
+        Webová aplikace bude neodlučitelnou součástí hry, bude vytvořena primárně pro desktopové zařízení s možností responzivního designu pro mobilní zařízení. Bude obsahovat informace o postavách, lokacích, předmětech a dalších herních prvcích, které by byly obtížné zobrazit ve fyzické podobě a bude dbáno na grafickou koherenci s fyzickými komponentami.
+\end{itemize}
+
+\subsection*{Komerční aspekty}
+\label{subsec:req_commercial}
+
+\begin{itemize}
+    \item \textbf{Cílová skupina} --
+        Hra bude určena pro hráče, kteří již mají zkušenosti s deskovými hrami podobného stylu, ale zároveň bude přístupná i pro nováčky, kteří se chtějí do světa deskových her dostat.
+    \item \textbf{Jednoduchost výroby} --
+        Hra bude navržena tak, aby byla jednoduchá na výrobu.
+    \item \textbf{Cena hry a aplikace} --
+        Cena hry bude nastavena tak, aby byla dostupná pro většinu hráčů, ale zároveň aby bylo možné z ní pokrýt náklady na výrobu a distribuci. Webová aplikace bude dostupná zdarma po zadání licenčního klíče fyzické hry.
+    \item \textbf{Rozšíření} --
+        Hra bude navržena tak, aby bylo možné v budoucnu vytvořit rozšíření, které by přidalo nové postavy, lokace a příběh.
+\end{itemize}

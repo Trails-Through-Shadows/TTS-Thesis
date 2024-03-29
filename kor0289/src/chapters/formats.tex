@@ -2,7 +2,7 @@
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní -- JSON a XML.
 
 
-\section{Serializace a deserializace} %TODO cote https://www.baeldung.com/cs/serialization-deserialization
+\subsection*{Serializace a deserializace} %TODO cote https://www.baeldung.com/cs/serialization-deserialization
 Serializace a deserializace jsou důležité koncepty v programování. Umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, jako je ukládání objektů do databáze, posílání dat po síti a nebo pro účely mezipaměťi.
 
 Objekt má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje jednotlivá data objektu.
@@ -14,7 +14,7 @@ Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon. M�
 
 
 \section{JSON}
-JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascriptu, nicméně mnoho dnešních jazyků už má serializaci do JSONu zabudovanou interně. Jedná se o textový formát zápisu objektů, který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy key je klíč a value hodnota, která je pod ním uložená, obvykle může jít o číslo, textový řetězec, pole nebo i další objekt. Znaky v JSONu musí být v kódování UTF-8, ale formát podporuje i speciální znaky pokud jsou escaped, jako příklad můžeme uvést znaky \verb |\uD83D\uDE10| nebo \textit{neutral-face}. JSON je využíván primárně k výměně dat mezi webovými aplikacemi a servery, ale dá se používat i pro jednoduché databáze. Má prostá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. Jeden z jeho nedostatků je, že nemá podporu komentářů oproti XML, které tuto podporu má. \textbf{ TODO odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu plus dát emoji 😐 třeba xetex ale to se pak celé rozbije
+JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascriptu, nicméně mnoho dnešních jazyků už má serializaci do JSONu zabudovanou interně. Jedná se o textový formát zápisu objektů, který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy key je klíč a value hodnota, která je pod ním uložená, obvykle může jít o číslo, textový řetězec, pole nebo i další objekt. Znaky v JSONu musí být v kódování UTF-8, ale formát podporuje i speciální znaky pokud jsou escaped, jako příklad můžeme uvést znaky \verb |\uD83D\uDE10| nebo \textit{neutral-face}. JSON je využíván primárně k výměně dat mezi webovými aplikacemi a servery, ale dá se používat i pro jednoduché databáze. Má prostá ale zato striktní pravidla a tudíž je jednoduché zkontrolovat jeho správnost. Jeden z jeho nedostatků je, že nemá podporu komentářů oproti XML, které tuto podporu má. %\textbf{ TODO odkaz někde na iso normu https://www.iso.org/standard/71616.html} %TODO bibtech na iso normu plus dát emoji 😐 třeba xetex ale to se pak celé rozbije
 
 
 \subsection{Pravidla}
@@ -40,7 +40,7 @@ A nakonec zde máme na řádku 29 atribut \texttt{dead} s hodnotou \texttt{false
 
 
 \section{XML}
-Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat, který je podobně jako JSON čitelný i člověkem. Základní stavební blok je node, atributy jsou uloženy do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Díky XML Schema definition také podporuje celou řadu datových typů a oproti JSONu podporuje i komentáře. Standardy spravuje společnost W3C. \textbf{fest fajny odkaz na w3c specifikaci do bibtex} %TODO bibtech na w3c
+Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat, který je podobně jako JSON čitelný i člověkem. Základní stavební blok je node, atributy jsou uloženy do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Díky XML Schema definition také podporuje celou řadu datových typů a oproti JSONu podporuje i komentáře. Standardy spravuje společnost W3C. %\textbf{fest fajny odkaz na w3c specifikaci do bibtex} %TODO bibtech na w3c
 
 
 \subsection{Pravidla}

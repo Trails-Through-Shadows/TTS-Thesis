@@ -1,6 +1,6 @@
 \chapter{Zabezpečení a autentizace}
 %TODO hoří má panenko kurva
-V této kapitole aaaaaaaa TODO si projdeme základní autentizační protokoly a standardy.
+V této kapitole si projdeme základní autentizační protokoly a standardy.
 Pro jednoduchost se zaměříme na standardy v OpenAPI ve verzi 3.0.
 Autorizaci používáme pro prevenci zneužití a kontrolu nad tím kdo jak API používá a jak často.
 
@@ -30,10 +30,13 @@ Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401 k
 
 
 \section{Json web token} %TODO cite or smthng https://jwt.io/introduction
-JWT je otevřená industriální standardizovaná \verb|\glossary{rfc7519}| metoda pro bezpečné přeposílání zpráv ve formátu JSON objektu mezi dvěma stranami.
+JWT je otevřená industriální standardizovaná % \verb|\glossary{rfc7519}| TODO
+metoda pro bezpečné přeposílání zpráv ve formátu JSON objektu mezi dvěma stranami.
 Tyto objekty mohou být zkontrolovány a může se jim důvěřovat, protože jsou digitálně podepsány pomocí tajného klíče nebo pomocí páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
 
-Nejčastěji se používá pro \textbf{autorizaci} a pro \textbf{výměnu informací}. Při \textbf{autorizaci}, když se jednou uživatel přihlásí, tak každý další požadavek bude s JWT, což dovoluje uživateli přistupovat tam, kde by bez přihlášení nemohl. Single Sign On \verb|\ref{sso} (btw všb přihlašováky)| především využívá JWT díky malé režii a jednoduchosti použití v různých doménách. JSON web tokeny jsou taktéž dobrý způsob jak bezpečně \textbf{vyměňovat informace} mezi více stranami díky digitálním podpisům.
+Nejčastěji se používá pro \textbf{autorizaci} a pro \textbf{výměnu informací}. Při \textbf{autorizaci}, když se jednou uživatel přihlásí, tak každý další požadavek bude s JWT, což dovoluje uživateli přistupovat tam, kde by bez přihlášení nemohl. Single Sign On
+%\verb|\ref{sso} (btw všb přihlašováky)| TODO
+především využívá JWT díky malé režii a jednoduchosti použití v různých doménách. JSON web tokeny jsou taktéž dobrý způsob jak bezpečně \textbf{vyměňovat informace} mezi více stranami díky digitálním podpisům.
 
 \subsection{Struktura}
 V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzzz} , kde \texttt{x} je zakódovaný header, \texttt{y} je Payload a \texttt{z} je podpis.
@@ -66,6 +69,9 @@ Oauth 2.0 je autorizační ne autentizační protokol. To znamená že je určen
 Používají se zde přístupové tokeny. Přístupový token je řetězec který reprezentuje oprávnění k přístupu k datům. I když Oauth 2.0 nemá nijak definovaný formát přístupového tokenu tak se nejčastěji využívá JWT (TODO glossary json web token). Taktéž tokeny mohou mít datum vypršení platnosti.
 
 \subsection{Role}\label{sec:Oauth_roles}
+%TODO nějaký text
+
+
 \begin{description}
     \item[Resource owner] je uživatel, co povoluje přístup aplikace k jeho účtu. Přístup aplikace je limitován rozsahem uděleného oprávnění
     \item[Client] je aplikace (chce používat uživatel) co chce přístup k uživatelskému účtu. Tu však musí nejdříve uživatel oprávnit a oprávnění musí validováno API.
@@ -91,6 +97,7 @@ Nejčastěji používaná metoda, protože je optimalizována pro stranu serveru
 \end{figure}
 
 
-\ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param (TODO query param \verb|\ref{desc:query_param}|) v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
+\ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
+v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
 
 

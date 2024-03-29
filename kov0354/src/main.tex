@@ -50,9 +50,9 @@
 \setcounter{tocdepth}{2}
 
 % Custom reference
-\newcommand{\chapterref}[1]{(Kapitola \ref{#1})}
-\newcommand{\imageref}[1]{(Obrázek \ref{#1})}
-\newcommand{\tableref}[1]{(Tabulka \ref{#1})}
+\newcommand{\chapterref}[1]{(\hyperlink{#1}{Kapitola \ref*{#1}})}
+\newcommand{\imageref}[1]{(\hyperlink{#1}{Obrázek \ref*{#1}})}
+\newcommand{\tableref}[1]{(\hyperlink{#1}{Tabulka \ref*{#1}})}
 \newcommand{\glsref}[1]{\textit{\gls{#1}}}
 \newcommand{\gameref}[1]{\textit{#1}}
 
