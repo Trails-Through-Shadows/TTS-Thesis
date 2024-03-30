@@ -2,7 +2,7 @@ body {
     background-color: lightgray;
 }
 
-/* Zmena barvy pozadi pri mensi obrazovce */
+/* Změna barvy pozadí při menší obrazovce */
 @media only screen and (max-width: 600px) {
     body {
         background-color: lightblue;
