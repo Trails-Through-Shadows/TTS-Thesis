@@ -2,7 +2,7 @@
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní -- JSON a XML.
 
 
-\subsection*{Serializace a deserializace} %TODO cote https://www.baeldung.com/cs/serialization-deserialization
+\subsection*{Serializace a deserializace} %TODO cite https://www.baeldung.com/cs/serialization-deserialization
 Serializace a deserializace jsou důležité koncepty v programování. Umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, jako je ukládání objektů do databáze, posílání dat po síti a nebo pro účely mezipaměťi.
 
 Objekt má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje jednotlivá data objektu.
@@ -21,9 +21,9 @@ JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascrip
 \textbf{Key} neboli klíč daného objektu je vždy string a reprezentuje název určitého atributu. \textbf{Value} představuje hodnotu, kterou tento atribut nabývá a může být datového typu text, číslo, logická hodnota, null, další objekt či pole. Jednotlivé atributy jsou vždy odděleny čárkou. Jako příklad je uveden JSON objekt z API modelové hry, který popisuje hráče, jeho vlastnosti a jeho rasu, reprezentovanou jako vnořený objekt.
 
 \begin{listing}[H]
-  \inputminted{json}{resources/code/standards/player.json}
-  \caption{Příklad JSON objektu}
-  \label{code:json_player}
+    \inputminted{json}{resources/code/standards/player.json}
+    \caption{Příklad JSON objektu}
+    \label{code:json_player}
 \end{listing}
 
 V tomto JSONu můžeme vidět všechno, s čím se u tohoto datového formátu můžeme setkat. Jako první atribut, tento objekt má \verb|"id":4|, kde id je klíč a 4 je číslo -- to značí, že tento objekt má svůj unikátní identifikátor 4.
@@ -48,21 +48,21 @@ Na začátku dokumentu je vždycky XML deklarace, která určuje, o jakou verzi 
 Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným \textbf{element}, které se zapisují jako počáteční (\texttt{<character>}) a ukončovací (\texttt{</character>}) tag, kde \textit{character} značí název atributu, podobně jako \textbf{key} u JSONu. Hodnota atributu se píše buď mezi počáteční a ukončovací tag, nebo přímo do tagu samotného (\texttt{<character id=4>}). Tzv. \textit{procesory} analyzují XML dokumenty a posílají dále strukturovaná data aplikaci, která se využívá. Procesory můžou být jak validující tak nevalidující, přičemž validující musí nalezenou chybu nahlásit ale pořád mohou v parsování pokračovat.
 
 \begin{listing}[H]
-  \inputminted{xml}{resources/code/standards/player.xml}
-  \caption{Příklad XML dokumentu i se schématem}
-  \label{code:xml_player}
+    \inputminted{xml}{resources/code/standards/player.xml}
+    \caption{Příklad XML dokumentu i se schématem}
+    \label{code:xml_player}
 \end{listing}
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.7\textwidth]{figures/type-hierarchy.png}
-  \caption{Hierarchie datových typů v XML schema}%\cite{british_museum_2021}}
-  \label{fig:xml_datatypes}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/type-hierarchy.png}
+    \caption{Hierarchie datových typů v XML schema}%\cite{british_museum_2021}}
+    \label{fig:xml_datatypes}
 \end{figure}
 %TODO odkaz na obrázek všech možných datových typů https://www.w3.org/TR/xmlschema-2/type-hierarchy.gif a přímo ta stránka https://www.w3.org/TR/xmlschema-2/#built-in-datatypes
 
 
-%TODO nějaký odkaz pěkný nebo tak něco na 
+%TODO nějaký odkaz pěkný nebo tak něco na xml asi idk co jsem tím tady chtěl říct
 Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element (řádek 3) či atribut (řádek 6 a 7). Když není schéma specifikováno, všechny datové typy jou brány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
 
 
@@ -70,23 +70,23 @@ Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Opr
 Teď byly představeny případné technologie co bychom mohli použít jako formát pro serializaci a deserializaci. Jak tyto technologie fungují, jak vypadají a jejich výhody a nevýhody.
 
 \begin{table}[h]
-  \centering
-  \begin{tabular}{|l|c|c|c|c|}
-    \hline
-           & Čitelnost & Jednoduchost & Rychlost & Skladnost \\
-    \hline
-    JSON   & 1         & 1            & 2        & 3         \\
-    \hline
-    XML    & 2         & 3            & 4        & 4         \\
-    \hline
-    Binary & 5         & 4            & 1        & 1         \\
-    \hline
-  \end{tabular}
-  \caption{Porovnání JSON, XML a Binary }
-  \label{tab:formats_comparison}
+    \centering
+    \begin{tabular}{|l|c|c|c|c|}
+        \hline
+               & Čitelnost & Jednoduchost & Rychlost & Skladnost \\
+        \hline
+        JSON   & 1         & 1            & 2        & 3         \\
+        \hline
+        XML    & 2         & 3            & 4        & 4         \\
+        \hline
+        Binary & 5         & 4            & 1        & 1         \\
+        \hline
+    \end{tabular}
+    \caption{Porovnání JSON, XML a Binary }
+    \label{tab:formats_comparison}
 \end{table}
 
-\tableref{tab:formats_comparison} nám srovnává různé technologie podle našich případných požadavků. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější} \footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba něco jednoduchého a srozumitelného, přiměřeně rychlého. Tedy nejlépe z toho vyplývá JSON. XML je pro naše účely moc komplexní a většinu vlastností nevyužijeme. Binární formát je sice rychlý ale špatně se odhalují chyby a je zde horší universálnost serializeru a deserializeru mezi jazyky.
+\tableref{tab:formats_comparison} nám srovnává různé technologie podle našich případných požadavků. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější} \footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba něco jednoduchého a srozumitelného, přiměřeně rychlého. Tedy nejlépe z toho vyplývá JSON. XML je pro naše účely moc komplexní a většinu vlastností nevyužijeme. Binární formát je sice rychlý ale špatně se odhalují chyby a je zde horší univerzálnost serializeru a deserializeru mezi jazyky.
 
 
 \endinput

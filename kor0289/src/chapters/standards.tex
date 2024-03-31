@@ -1,6 +1,6 @@
 \chapter{Standardy využívané pro tvorbu API}
 V této kapitole si porovnáme a představíme různé architektury, které se používají pro tvorbu \gls{api}.
-Hlavní často využívané nástroje, které si představíme, jsou REST, Webhooky a SOAP.
+Hlavní často využívané nástroje, které si představíme, jsou REST, GraphQL a SOAP.
 
 \subsection*{Úvod}
 \gls{api} je univerzální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Ve své podstatě se jedná o soubor definicí, protokolů a občas i nepsaných pravidel.
@@ -153,12 +153,28 @@ uvidíme jak dlouhé tohle celkově bude
     \item[Subscriptions] - Podpora posílání aktualizací v reálném čase. Dotaz je velice podobný jako u query (\coderef{code:gql_datatypes} řádek subsection)
 \end{description}
 
-\section{Porovnání a shrnutí} %TODO předělat tohle jsou jen myšlenky co tu dát
-% \textbf{předělat tohle jsou jen myšlenky co bych měl říct}
+\section{Shrnutí}
 
-Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože bez fyzické hry je API nevyužitelné. Taktéž když budeme potřebovat protivníky nebo hrací plán tak budeme chtít vědět vše o nich a ne jen část dat.
+Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože zde nebudou uloženy žádné citlivé údaje a bez fyzické hry je API prakticky nevyužitelné. Taktéž není třeba nijak složitě filtrovat která data chceme přijmout, jelikož ve většině případů potřebujeme celé objekty a není zde možnost pro velkou variaci struktury přijímaných objektů;
 
-\textit{Dá se předpokládat že pokud by hra byla v komerci úspěšná tak odhadujeme 1.000.000 kopií. -> 10000per sec? takže CDN a cajk asi idk.} %TODO
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        Rychlost & Jednoduchost & Variabilita & Bezpečnost & Popularita \\
+        \hline
+        REST     & 1            & 3           & 2          & 1          \\
+        SOAP     & 4            & 1           & 1          & 4          \\
+        GraphQL  & 2            & 2           & 2          & 2          \\
+        \hline
+    \end{tabular}
+    \caption{Porovnání REST API, SOAP a GrapQL}
+    \label{tab:comparison_standards}
+\end{table}
 
+Tabulka \ref{tab:comparison_standards} nám srovnává výše zmíněné architektury pro tvorbu API.
+\footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější}
+\footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas}
+Pro naše účely nejlépe vychází REST díky jeho jednoduchosti a rozšířenosti. Je rychlý a spolehlivý, určen především pro veřejná API s aplikacemi řízených zdroji. SOAP je určen pro velké firmy kde je priorita bezpečnost jako třeba v bankovnictví a taktéž má těžkou učící křivku. GraphQL je určen především pro komplexní systémy vyžadující flexibilní data.
 
 \endinput
