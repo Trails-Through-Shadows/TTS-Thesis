@@ -39,7 +39,7 @@ jobs:
 
       - name: Install java font
         run: |
-          sudo apt-get install -y fontconfig fonts-dejavu ttf-dejavu
+          sudo apt-get install -y fontconfig fonts-dejavu
 
       - name: Update apt-get
         run: |
