@@ -24,11 +24,11 @@
 
     \IfFileExists{../../mik0486/target/puml/#2.pdf}{%
         \ifnum\pdfstrcmp{\pdffilemoddate{../../mik0486/target/puml/#2.pdf}}{\pdffilemoddate{#1.puml}}<0
-            \immediate\write18{java -Djava.awt.headless=fals -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
+            \immediate\write18{java -Djava.awt.headless=false -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
             \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
         \fi
     }{%
-        \immediate\write18{java -Djava.awt.headless=fals -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
+        \immediate\write18{java -Djava.awt.headless=false -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
         \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
     }
 
