@@ -50,8 +50,6 @@ jobs:
       - name: Report software versions
         run: |
           inkscape --debug-info
-          pdflatex --version
-          biber --version
           java -version
 
       - name: Compiling LaTeX documents
