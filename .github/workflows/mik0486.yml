@@ -42,10 +42,10 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-#      - name: Install java 8 JRE with fontconfig
-#        run: |
-#          sudo apt-get install -y openjdk-8-jre-headless openjdk-17-jdk
-#          sudo apt-get install -y libfontconfig1
+      - name: Install java 8 JRE with fontconfig
+        run: |
+          sudo apt-get install -y openjdk-8-jre-headless openjdk-17-jdk
+          sudo apt-get install -y libfontconfig1
 
       - name: Install java font
         run: |
