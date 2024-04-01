@@ -25,48 +25,10 @@ jobs:
           fix: true
           globs: 'mik0486/**/*.md'
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install java 8 JRE with fontconfig
-        run: |
-          sudo apt-cache search openjdk
-          sudo apt-get install -y default-jre openjdk-8-jre
-          sudo apt-get install -y libfontconfig1
-
-      - name: Install java font
-        run: |
-          sudo apt-get install -y fontconfig fonts-dejavu
-
-      - name: Report software versions
-        run: |
-          java -version
-          which java
-          ls -al /usr/lib/jvm/java-17-openjdk/lib/
-
-      - name: AAAA
-        run: |
-          java -jar shared/libs/plantuml-1.2024.3.jar -o aaa -tsvg mik0486/src/diagrams/test.puml
-
-#  build-latex:
+#  test:
 #    runs-on: ubuntu-latest
 #    steps:
 #      - uses: actions/checkout@v3
-#
-#      - name: Update apt-get
-#        run: |
-#          sudo add-apt-repository universe
-#          sudo add-apt-repository ppa:inkscape.dev/stable
-#          sudo apt-get update
-#
-##      - name: Set up JDK 17
-##        uses: actions/setup-java@v4
-##        with:
-##          distribution: 'adopt'
-##          java-version: '17'
-##          java-package: 'jdk+fx'
 #
 #      - name: Install java 8 JRE with fontconfig
 #        run: |
@@ -78,54 +40,93 @@ jobs:
 #        run: |
 #          sudo apt-get install -y fontconfig fonts-dejavu
 #
-#      - name: Install SVG Converter
-#        run: |
-##          sudo apt-get install -y librsvg2-bin
-#          sudo apt install inkscape
-#
 #      - name: Report software versions
 #        run: |
-#          inkscape --debug-info
 #          java -version
 #          which java
+#          ls -al /usr/lib/jvm/java-17-openjdk/lib/
 #
-#      - name: Compiling LaTeX documents
-#        uses: xu-cheng/latex-action@v2
-#        with:
-#          root_file: main.tex
-#          working_directory: mik0486/src
-#          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
-#
-#      - name: Upload LaTeX documents to artifacts
-#        uses: actions/upload-artifact@v4
-#        if: success()
-#        with:
-#          name: MIK0486-Thesis
-#          path: mik0486/src/main.pdf
-#          if-no-files-found: error
-#
-#      - name: Upload LaTeX documents to server
-#        uses: appleboy/scp-action@v0.1.7
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: root
-#          key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          port: 22
-#          source: mik0486/src/main.pdf
-#          target: /srv/tts-game/TTS-Docs/static/thesis/mik0486
-#          strip_components: 2
+#      - name: AAAA
+#        run: |
+#          java -jar shared/libs/plantuml-1.2024.3.jar -o aaa -tsvg mik0486/src/diagrams/test.puml
 
-#  restart:
-#    runs-on: ubuntu-latest
-#    needs: build-latex
-#    steps:
-#      - name: Execute SSH Commands
-#        uses: appleboy/ssh-action@master
+  build-latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update apt-get
+        run: |
+          sudo add-apt-repository universe
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt-get update
+
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v4
 #        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: root
-#          key: ${{ secrets.SSH_PRIVATE_KEY }}
-#          port: 22
-#          script_stop: true
-#          script: |
-#            service tts-docs restart
+#          distribution: 'adopt'
+#          java-version: '17'
+#          java-package: 'jdk+fx'
+
+      - name: Install java 8 JRE with fontconfig
+        run: |
+          sudo apt-cache search openjdk
+          sudo apt-get install -y default-jre openjdk-8-jre
+          sudo apt-get install -y libfontconfig1
+
+      - name: Install java font
+        run: |
+          sudo apt-get install -y fontconfig fonts-dejavu
+
+      - name: Install SVG Converter
+        run: |
+#          sudo apt-get install -y librsvg2-bin
+          sudo apt install inkscape
+
+      - name: Report software versions
+        run: |
+          inkscape --debug-info
+          java -version
+          which java
+
+      - name: Compiling LaTeX documents
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex
+          working_directory: mik0486/src
+          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
+
+      - name: Upload LaTeX documents to artifacts
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: MIK0486-Thesis
+          path: mik0486/src/main.pdf
+          if-no-files-found: error
+
+      - name: Upload LaTeX documents to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: mik0486/src/main.pdf
+          target: /srv/tts-game/TTS-Docs/static/thesis/mik0486
+          strip_components: 2
+          extra_system_packages: 'inkscape openjdk-11-jre'
+
+  restart:
+    runs-on: ubuntu-latest
+    needs: build-latex
+    steps:
+      - name: Execute SSH Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            service tts-docs restart
