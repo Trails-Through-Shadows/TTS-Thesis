@@ -20,10 +20,16 @@
 
 \newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
 \newcommand{\processDiagram}[4]{%
-    \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
-    \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
+    \IfFileExists{../../mik0486/target/puml/#2.pdf}{%
+        \ifnum\pdfstrcmp{\pdffilemoddate{../../mik0486/target/puml/#2.pdf}}{\pdffilemoddate{#1.puml}}<0
+            \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
+            \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
+        \fi
+    }{%
+        \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
+        \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
+    }
 
-    % Include the generated PDF
     \begin{figure}[H]
         \centering
         \includegraphics[width=#3]{../../mik0486/target/puml/#2}
