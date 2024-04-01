@@ -95,6 +95,7 @@ jobs:
           root_file: main.tex
           working_directory: mik0486/src
           args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
+          extra_system_packages: 'inkscape openjdk-11-jre'
 
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4
@@ -114,7 +115,6 @@ jobs:
           source: mik0486/src/main.pdf
           target: /srv/tts-game/TTS-Docs/static/thesis/mik0486
           strip_components: 2
-          extra_system_packages: 'inkscape openjdk-11-jre'
 
   restart:
     runs-on: ubuntu-latest
