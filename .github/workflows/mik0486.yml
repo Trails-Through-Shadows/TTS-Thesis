@@ -2,15 +2,15 @@ name: Compile LaTeX - MIK0486
 
 on:
   push:
-    branches:
-      - master
-    paths:
-      - 'mik0486/**'
-  pull_request:
-    branches:
-      - master
-    paths:
-      - 'mik0486/**'
+#    branches:
+#      - master
+#    paths:
+#      - 'mik0486/**'
+#  pull_request:
+#    branches:
+#      - master
+#    paths:
+#      - 'mik0486/**'
   workflow_dispatch:
 
 jobs:
@@ -30,18 +30,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+      # Fake display for plantuml
+      - name: Set up Xvfb
+        run: |
+          sudo apt-get install -y xvfb
+          sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+          export DISPLAY=:99
 
       - name: Compiling LaTeX documents
-        uses: xu-cheng/latex-action@v2
+        uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           working_directory: mik0486/src
           args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
+          extra_system_packages: 'inkscape openjdk17'
+          docker_image: ghcr.io/xu-cheng/texlive-full:20240315
 
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4
