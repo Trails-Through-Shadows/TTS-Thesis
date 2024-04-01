@@ -8,6 +8,7 @@
 \usepackage{subcaption}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{tikz}
 \usepackage{color} % Required for custom colors
 \usepackage{bookmark} % Required for generating PDF bookmarks
 
@@ -16,6 +17,18 @@
 \definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \renewcommand{\lstlistingname}{Zdrojový Kód} % Set your own caption name for listings
+
+\newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
+\newcommand{\process}[4]{%
+    \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ./../mik0486/target/puml -tpdf #1.puml}
+
+    % Include the generated PDF
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=#3]{../../mik0486/target/puml/#2}
+        \caption{#4}\label{fig:figure}
+    \end{figure}
+}
 
 % define language CSS
 \lstdefinelanguage{CSS}{
