@@ -2,13 +2,13 @@ name: Compile LaTeX - MIK0486
 
 on:
   push:
-    branches:
-      - master
+#    branches:
+#      - master
     paths:
       - 'mik0486/**'
   pull_request:
-    branches:
-      - master
+#    branches:
+#      - master
     paths:
       - 'mik0486/**'
   workflow_dispatch:
@@ -35,6 +35,11 @@ jobs:
         with:
           distribution: 'oracle'
           java-version: '21'
+          java-package: 'jdk+fx'
+
+      - name: Install java font
+        run: |
+          sudo apt-get install -y fonts-dejavu
 
       - name: Update apt-get
         run: |
@@ -51,6 +56,7 @@ jobs:
         run: |
           inkscape --debug-info
           java -version
+          which java
 
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
