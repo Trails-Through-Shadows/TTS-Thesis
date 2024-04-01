@@ -32,9 +32,9 @@ jobs:
 
       - name: Update apt-get
         run: |
-          add-apt-repository universe
-          add-apt-repository ppa:inkscape.dev/stable
-          apt-get update
+          sudo add-apt-repository universe
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt-get update
 
 #      - name: Set up JDK 17
 #        uses: actions/setup-java@v4
@@ -45,22 +45,22 @@ jobs:
 
       - name: Install java 8 JRE with fontconfig
         run: |
-          apt-get install -y default-jre
-          apt-get install -y libfontconfig1
+          sudo apt-get install -y default-jre
+          sudo apt-get install -y libfontconfig1
 
       - name: Install libawt_xawt.so
         run: |
-          apt-get install -y libxrender1 libxtst6 libxi6
-          apt-get install -y libxawt.so
+          sudo apt-get install -y libxrender1 libxtst6 libxi6
+          sudo apt-get install -y libxawt.so
 
       - name: Install java font
         run: |
-          apt-get install -y fontconfig fonts-dejavu
+          sudo apt-get install -y fontconfig fonts-dejavu
 
       - name: Install SVG Converter
         run: |
-          apt-get install -y librsvg2-bin
-          apt install inkscape
+          sudo apt-get install -y librsvg2-bin
+          sudo apt install inkscape
 
       - name: Report software versions
         run: |
