@@ -11,8 +11,7 @@
 \usepackage{glossaries} % balik pro praci s odbornymi pojmy
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{xurl} % zalomeni dlouhych URL
-
-\usepackage{tablefootnote}
+\usepackage{tablefootnote} % poznámky pod tabulkou
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
@@ -59,6 +58,17 @@
 % Glossary stuff
 \makenoidxglossaries
 \loadglsentries{resources/games.tex}
+
+% PlantUML
+\newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
+\newcommand{\includeplantuml}[2][1\textwidth]{%
+    \IfFileExists{figures/diagrams/out/#2.pdf}{%
+        \immediate\write18{if [ figures/diagrams/#2.puml -nt figures/diagrams/out/#2.pdf ]; then java -jar ../../shared/libs/plantuml-1.2024.3.jar -o out -tsvg figures/diagrams/#2.puml; inkscape figures/diagrams/out/#2.svg --export-area-drawing --export-filename=figures/diagrams/out/#2.pdf; rm figures/diagrams/out/#2.svg; fi}
+    }{%
+        \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o out -tsvg figures/diagrams/#2.puml; inkscape figures/diagrams/out/#2.svg --export-area-drawing --export-filename=figures/diagrams/out/#2.pdf; rm figures/diagrams/out/#2.svg}
+    }
+    \includegraphics[width=#1]{figures/diagrams/out/#2.pdf}
+}
 
 
 % Zacatek dokumentu

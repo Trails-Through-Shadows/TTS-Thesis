@@ -8,7 +8,7 @@ Hybridní deskové hře, která je finálním produktem této práce, bylo urče
 \section{Požadavky na modelovou hru}
 \label{sec:requirements}
 
-Před samotným návrhem herního systému je nutné stanovit požadavky, které by měl herní systém a hra jako taková splňovat. Tyto požadavky byly stanoveny na základě analýzy existující řešení \chapterref{chap:game_analysis} a vlastních představ týmu a byly rozděleny do následujících kategorií.
+Před samotným návrhem herního systému je nutné stanovit požadavky, které by měl herní systém a hra jako taková splňovat. Tyto požadavky byly stanoveny na základě analýzy existujících řešení \chapterref{chap:game_analysis} a vlastních představ týmu a byly rozděleny do následujících kategorií.
 
 \subsection*{Struktura hry}
 \label{subsec:req_structure}
@@ -81,3 +81,25 @@ Před samotným návrhem herního systému je nutné stanovit požadavky, které
     \item \textbf{Rozšíření} --
         Hra bude navržena tak, aby bylo možné v budoucnu vytvořit rozšíření, které by přidalo nové postavy, lokace a příběh.
 \end{itemize}
+
+\section{Návrh herního systému}
+\label{sec:design}
+
+Na základě požadavků stanovených v předchozí sekci byl vytvořen návrh herního systému, je pro přehlednost rozdělen do několika částí. První část se zabývá herními mechanikami, druhá část se zaměřuje na komponenty hry a třetí část se věnuje propojení s webovou aplikací.
+
+\subsection*{Herní mechaniky}
+\label{subsec:design_mechanics}
+
+Mechaniky modelové hry jsou silně inspirované především výše zmíněnou deskovou hrou \glsref{gloomhaven}, ale jsou upravené tak, aby lépe vyhovovaly výše stanoveným požadavkům. 
+
+- Rozdělení na kampaně
+- Tah nepřítele
+- Tah hráče
+- Akce složené z částí (attack, skill, summon, restore, move)
+  - Budou se v kole tahat dvě, pořadí si hráči mohou vybrat
+
+\begin{figure}[H]
+    \centering
+    \includeplantuml[0.8\textwidth]{playerTurn}
+    \caption{aaa}\label{fig:aaa}
+\end{figure}
