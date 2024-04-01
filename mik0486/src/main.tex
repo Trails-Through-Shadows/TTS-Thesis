@@ -19,8 +19,8 @@
 \renewcommand{\lstlistingname}{Zdrojový Kód} % Set your own caption name for listings
 
 \newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
-\newcommand{\process}[4]{%
-    \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ./../mik0486/target/puml -tpdf #1.puml}
+\newcommand{\processDiagram}[4]{%
+    \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tpdf #1.puml}
 
     % Include the generated PDF
     \begin{figure}[H]
