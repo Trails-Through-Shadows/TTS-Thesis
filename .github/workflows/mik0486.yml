@@ -2,13 +2,13 @@ name: Compile LaTeX - MIK0486
 
 on:
   push:
-#    branches:
-#      - master
+    branches:
+      - master
     paths:
       - 'mik0486/**'
   pull_request:
-#    branches:
-#      - master
+    branches:
+      - master
     paths:
       - 'mik0486/**'
   workflow_dispatch:
@@ -30,22 +30,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'adopt'
-          java-version: '21'
-          java-package: 'jre'
-
-      - name: Install java font
-        run: |
-          sudo apt-get install -y fontconfig fonts-dejavu
-
       - name: Update apt-get
         run: |
           sudo add-apt-repository universe
           sudo add-apt-repository ppa:inkscape.dev/stable
           sudo apt-get update
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Install java
+        run: |
+          sudo apt-get install -y openjdk-17-jre
+
+      - name: Install java font
+        run: |
+          sudo apt-get install -y fontconfig fonts-dejavu
 
       - name: Install SVG Converter
         run: |
