@@ -44,7 +44,7 @@ jobs:
 
       - name: Install java
         run: |
-          sudo apt-get install -y openjdk-17-jre
+          sudo apt-get install -y openjdk-17-jdk openjdk-17-jre
 
       - name: Install fontmanager
         run: |
