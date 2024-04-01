@@ -2,11 +2,16 @@ name: Compile LaTeX - MIK0486
 
 on:
   push:
+    branches:
+      - master
     paths:
       - 'mik0486/**'
   pull_request:
+    branches:
+      - master
     paths:
       - 'mik0486/**'
+  workflow_dispatch:
 
 jobs:
   check-markdown:
