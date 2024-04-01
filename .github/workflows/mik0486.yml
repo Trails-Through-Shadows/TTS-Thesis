@@ -39,6 +39,7 @@ jobs:
         run: |
           java -version
           which java
+          ls -al /usr/lib/jvm/java-17-openjdk/lib/
 
       - name: AAAA
         run: |
