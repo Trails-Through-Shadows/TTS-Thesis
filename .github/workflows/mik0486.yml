@@ -71,23 +71,13 @@ jobs:
       - name: Install java 8 JRE with fontconfig
         run: |
           sudo apt-cache search openjdk
-          sudo apt-get install -y default-jre openjdk-8-jre
-          sudo apt-get install -y libfontconfig1
-
-      - name: Install java font
-        run: |
-          sudo apt-get install -y fontconfig fonts-dejavu
-
-      - name: Install SVG Converter
-        run: |
-#          sudo apt-get install -y librsvg2-bin
-          sudo apt install inkscape
+          sudo apt-get install -y default-jre openjdk-17-jre openjdk-17-jdk
 
       - name: Report software versions
         run: |
-          inkscape --debug-info
           java -version
           which java
+          ls -al /usr/lib/jvm/java-17-openjdk-amd64/lib/
 
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
@@ -95,7 +85,7 @@ jobs:
           root_file: main.tex
           working_directory: mik0486/src
           args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
-          extra_system_packages: 'inkscape openjdk-11-jre'
+          extra_system_packages: 'inkscape openjdk-11-jre openjdk-11-jdk'
 
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4
