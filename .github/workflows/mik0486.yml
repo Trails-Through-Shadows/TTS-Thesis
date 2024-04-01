@@ -62,6 +62,13 @@ jobs:
 #          sudo apt-cache search openjdk
 #          sudo apt-get install -y default-jre openjdk-17-jre openjdk-17-jdk
 
+      # Fake display for plantuml
+      - name: Set up Xvfb
+        run: |
+          sudo apt-get install -y xvfb
+          sudo Xvfb :99 -ac -screen 0 1024x768x8 &
+          export DISPLAY=:99
+
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v2
         with:
