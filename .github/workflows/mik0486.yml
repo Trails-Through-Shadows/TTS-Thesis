@@ -36,17 +36,16 @@ jobs:
           sudo add-apt-repository ppa:inkscape.dev/stable
           sudo apt-get update
 
-#      - name: Set up JDK 17
-#        uses: actions/setup-java@v4
-#        with:
-#          distribution: 'adopt'
-#          java-version: '17'
-#          java-package: 'jre'
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: '17'
 
-      - name: Install java 8 JRE with fontconfig
-        run: |
-          sudo apt-get install -y openjdk-8-jre-headless openjdk-17-jdk
-          sudo apt-get install -y libfontconfig1
+#      - name: Install java 8 JRE with fontconfig
+#        run: |
+#          sudo apt-get install -y openjdk-8-jre-headless openjdk-17-jdk
+#          sudo apt-get install -y libfontconfig1
 
       - name: Install java font
         run: |
