@@ -38,6 +38,11 @@
 - Teorie propojení mezi jednotlivými prvky
 - Dokumentace
 
+nvm potřebuju novou onovu tohle je k ničemu
+
+- analýza požadavků
+  - 
+
 ## 4. Závěr
 
 - Shrnutí dosažených výsledků
