@@ -1,4 +1,4 @@
-@startuml
+@startuml playerTurn
 |Systém|
 start
 
@@ -16,7 +16,6 @@ end fork
 
 |Systém|
 :Snížení počítadel efektů a summonů;
-:Halo;
 
 stop
 @enduml

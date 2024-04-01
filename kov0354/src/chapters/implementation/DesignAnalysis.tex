@@ -5,12 +5,14 @@ Pro rozumný vývoj herního systému modelové hry je nutné nejprve provést a
 
 Hybridní deskové hře, která je finálním produktem této práce, bylo určeno pracovní jméno \textit{Trails Through Shadows} (zkratkou \textit{TTS}). Dále je však zmiňována především pod názvem \textit{modelová hra}.
 
+
+
 \section{Požadavky na modelovou hru}
 \label{sec:requirements}
 
 Před samotným návrhem herního systému je nutné stanovit požadavky, které by měl herní systém a hra jako taková splňovat. Tyto požadavky byly stanoveny na základě analýzy existujících řešení \chapterref{chap:game_analysis} a vlastních představ týmu a byly rozděleny do následujících kategorií.
 
-\subsection*{Struktura hry}
+\subsection{Struktura hry}
 \label{subsec:req_structure}
 
 \begin{itemize}
@@ -36,7 +38,7 @@ Před samotným návrhem herního systému je nutné stanovit požadavky, které
         Hra bude propojena s webovou aplikací, která bude sloužit pro zjednodušení hraní hry a bude obsahovat informace, které by byly obtížné zobrazit ve fyzických komponentách. Je však nutné dbát na to, aby si hra zachovala svůj deskový charakter.
 \end{itemize}
 
-\subsection*{Herní mechaniky}
+\subsection{Herní mechaniky}
 \label{subsec:req_mechanics}
 
 \begin{itemize}
@@ -50,7 +52,7 @@ Před samotným návrhem herního systému je nutné stanovit požadavky, které
         Hra by měla obsahovat efekty, které mohou ovlivňovat hráčské postavy nebo nepřítele.
 \end{itemize}
 
-\subsection*{Komponenty}
+\subsection{Komponenty}
 \label{subsec:req_components}
 
 \begin{itemize}
@@ -68,7 +70,7 @@ Před samotným návrhem herního systému je nutné stanovit požadavky, které
         Webová aplikace bude neodlučitelnou součástí hry, bude vytvořena primárně pro desktopové zařízení s možností responzivního designu pro mobilní zařízení. Bude obsahovat informace o postavách, lokacích, předmětech a dalších herních prvcích, které by byly obtížné zobrazit ve fyzické podobě a bude dbáno na grafickou koherenci s fyzickými komponentami.
 \end{itemize}
 
-\subsection*{Komerční aspekty}
+\subsection{Komerční aspekty}
 \label{subsec:req_commercial}
 
 \begin{itemize}
@@ -82,24 +84,47 @@ Před samotným návrhem herního systému je nutné stanovit požadavky, které
         Hra bude navržena tak, aby bylo možné v budoucnu vytvořit rozšíření, které by přidalo nové postavy, lokace a příběh.
 \end{itemize}
 
+
+
 \section{Návrh herního systému}
 \label{sec:design}
 
 Na základě požadavků stanovených v předchozí sekci byl vytvořen návrh herního systému, je pro přehlednost rozdělen do několika částí. První část se zabývá herními mechanikami, druhá část se zaměřuje na komponenty hry a třetí část se věnuje propojení s webovou aplikací.
 
-\subsection*{Herní mechaniky}
+\subsection{Herní mechaniky}
 \label{subsec:design_mechanics}
 
 Mechaniky modelové hry jsou silně inspirované především výše zmíněnou deskovou hrou \glsref{gloomhaven}, ale jsou upravené tak, aby lépe vyhovovaly výše stanoveným požadavkům. 
 
-- Rozdělení na kampaně
-- Tah nepřítele
-- Tah hráče
-- Akce složené z částí (attack, skill, summon, restore, move)
-  - Budou se v kole tahat dvě, pořadí si hráči mohou vybrat
+% - Rozdělení na kampaně
+% - Tah nepřítele
+% - Tah hráče
+% - Akce složené z částí (attack, skill, summon, restore, move)
+%   - Budou se v kole tahat dvě, pořadí si hráči mohou vybrat
 
-\begin{figure}[H]
+\subsubsection*{Tahy}
+\label{subsubsec:turns}
+
+Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení je popsáno v diagramu \textbf{//TODO}, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
+
+\begin{figure}[h]
     \centering
-    \includeplantuml[0.8\textwidth]{playerTurn}
-    \caption{aaa}\label{fig:aaa}
+    \includeplantuml[scale=0.8]{playerTurn}
+    \caption{Diagram herního tahu hráče}
+    \label{diag:player_turn}
 \end{figure}
+
+Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hráčskému mnohem jednodušší. Nepřátelé mají svůj vlastní balík karet, ze kterého jim systém vybere jednu, kterou v daném kole zahrají. Jedná se o simulaci reálného karetního balíčku, takže pokud v něm karty dojdou, opět se všechny zamíchají a tahají se znova. Na hráčích pak závisí, aby vyhodnotili, jakým způsobem se nepřátelé pohnou a na koho zaútočí, ale musí se řídit instrukcemi, které od systému dostali. Jakékoli změny musí být opět propsány do systému, který se zde také stará o vyhodnocení efektů.
+
+\begin{figure}[h]
+    \centering
+    \includeplantuml[scale=0.8]{enemyTurn}
+    \caption{Diagram herního tahu nepřítele}
+    \label{diag:enemy_turn}
+\end{figure}
+
+\subsubsection*{Akce}
+\label{subsubsec:actions}
+
+\subsubsection*{Efekty}
+\label{subsubsec:effects}

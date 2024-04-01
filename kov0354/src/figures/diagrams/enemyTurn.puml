@@ -1,0 +1,20 @@
+@startuml enemyTurn
+|Systém|
+start
+
+:Vyhodnocení efektů;
+if (Prázdný balíček?) then (Ano)
+  :Zamíchání balíčku;
+else (Ne)
+endif
+:Zobrazení akce pro tento tah;
+
+|Uživatel|
+:Provedení instrukcí;
+:Propsání změn do systému;
+
+|Systém|
+:Snížení počítadel efektů a summonů;
+
+stop
+@enduml
