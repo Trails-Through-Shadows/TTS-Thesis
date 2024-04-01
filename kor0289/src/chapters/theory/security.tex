@@ -93,10 +93,9 @@ Nejčastěji používaná metoda, protože je optimalizována pro stranu serveru
 \end{figure}
 
 
-\ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
+\ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. Zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
 v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
 
 \section{Shrnutí}
-
-%kurvafixdopiče neumím to vprdeli tohlensto naprosto
+Jako styl zabezpečení se vybral API klíč a to z důvodu jeho jednoduchosti na implementaci, i když v našem případě kdy se uživatelé přihlašují, to vybízí na Oauth2. Ale z časových důvodů a z důvodu, že nám stačí dva druhy privilegií pro administátora co bude používat backoffice a poté uživatelé co budou jen chtít tuto hru hrát, jsme vybrali právě API klíč. TODO možná JWT ještě nevíme.
 

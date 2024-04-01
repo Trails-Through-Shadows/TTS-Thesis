@@ -1,0 +1,21 @@
+@startuml playerTurn
+|Systém|
+start
+
+:Vyhodnocení efektů;
+
+|Uživatel|
+:Zvolení dvou karet;
+fork
+  :Provedení akcí na kartách;
+fork again
+  :Provedení akce summonů;
+end fork
+:Propsání změn do systému;
+:Zahození zvolených karet;
+
+|Systém|
+:Snížení počítadel efektů a summonů;
+
+stop
+@enduml
