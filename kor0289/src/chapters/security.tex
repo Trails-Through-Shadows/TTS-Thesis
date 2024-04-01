@@ -1,5 +1,4 @@
 \chapter{Zabezpečení a autentizace}
-%TODO hoří má panenko kurva
 V této kapitole si projdeme základní autentizační protokoly a standardy.
 Pro jednoduchost se zaměříme na standardy v OpenAPI ve verzi 3.0.
 Autorizaci používáme pro prevenci zneužití a kontrolu nad tím kdo jak API používá a jak často.
@@ -24,9 +23,6 @@ V tomto příkladě jsme si definovali název API key \texttt{X-API-key} který 
 Můžeme mít i více API klíčů. Například pro specifikování uživatele a specifikování aplikace.
 
 Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401 který značí neoprávněný přístup. Můžeme si ho definovat takto \ref{code:api_key} řádek 11-16.
-
-
-
 
 
 \section{Json web token} %TODO cite or smthng https://jwt.io/introduction
@@ -69,7 +65,7 @@ Oauth 2.0 je autorizační ne autentizační protokol. To znamená že je určen
 Používají se zde přístupové tokeny. Přístupový token je řetězec který reprezentuje oprávnění k přístupu k datům. I když Oauth 2.0 nemá nijak definovaný formát přístupového tokenu tak se nejčastěji využívá JWT (TODO glossary json web token). Taktéž tokeny mohou mít datum vypršení platnosti.
 
 \subsection{Role}\label{sec:Oauth_roles}
-%TODO nějaký text
+V této části se zaměříme na klíčové role v procesu autentizace a autorizace v rámci OAuth 2.0 protokolu.
 
 
 \begin{description}
@@ -100,4 +96,7 @@ Nejčastěji používaná metoda, protože je optimalizována pro stranu serveru
 \ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
 v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
 
+\section{Shrnutí}
+
+%kurvafixdopiče neumím to vprdeli tohlensto naprosto
 
