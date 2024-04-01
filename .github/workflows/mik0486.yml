@@ -35,7 +35,7 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '21'
-          java-package: 'jdk+fx'
+          java-package: 'jre'
 
       - name: Install java font
         run: |
