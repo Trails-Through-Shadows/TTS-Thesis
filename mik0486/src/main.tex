@@ -21,6 +21,7 @@
 \newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
 \newcommand{\processDiagram}[4]{%
     \immediate\write18{java --version}
+    \immediate\write18{which java}
 
     \IfFileExists{../../mik0486/target/puml/#2.pdf}{%
         \ifnum\pdfstrcmp{\pdffilemoddate{../../mik0486/target/puml/#2.pdf}}{\pdffilemoddate{#1.puml}}<0
