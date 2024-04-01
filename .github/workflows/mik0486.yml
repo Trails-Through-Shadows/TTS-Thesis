@@ -25,30 +25,25 @@ jobs:
           fix: true
           globs: 'mik0486/**/*.md'
 
-#  test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Install java 8 JRE with fontconfig
-#        run: |
-#          sudo apt-cache search openjdk
-#          sudo apt-get install -y default-jre openjdk-8-jre
-#          sudo apt-get install -y libfontconfig1
-#
-#      - name: Install java font
-#        run: |
-#          sudo apt-get install -y fontconfig fonts-dejavu
-#
-#      - name: Report software versions
-#        run: |
-#          java -version
-#          which java
-#          ls -al /usr/lib/jvm/java-17-openjdk/lib/
-#
-#      - name: AAAA
-#        run: |
-#          java -jar shared/libs/plantuml-1.2024.3.jar -o aaa -tsvg mik0486/src/diagrams/test.puml
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install java 8 JRE with fontconfig
+        run: |
+          sudo apt-cache search openjdk
+          sudo apt-get install -y default-jre openjdk-17-jre openjdk-17-jdk
+
+      - name: Report software versions
+        run: |
+          java -version
+          which java
+          ls -al /usr/lib/jvm/java-17-openjdk/lib/
+
+      - name: AAAA
+        run: |
+          java -jar shared/libs/plantuml-1.2024.3.jar -o aaa -tsvg mik0486/src/diagrams/test.puml
 
   build-latex:
     runs-on: ubuntu-latest
