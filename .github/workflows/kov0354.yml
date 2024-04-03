@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - 'kov0354/**'
+  workflow_dispatch:
 
 jobs:
   check-markdown:
