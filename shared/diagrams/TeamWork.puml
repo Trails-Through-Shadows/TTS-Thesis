@@ -1,0 +1,75 @@
+@startwbs
+
+<style>
+root {
+	Alignment center
+}
+
+:depth(1) {
+	FontSize 15
+}
+</style>
+
+*:== Trails Through Shadows
+A narrative tabletop game with hybrid parts;
+
+' ---------
+**[#5d5] <b>Pavel Mikula\n    <i>MIK0486
+
+***[#9f9]:==API
+# Definice základní struktury API
+# Implementace filtrace a stránkování;
+
+***[#9f9]:==Administrační rozhraní
+# Implementace administračního rozhraní
+# Designový návrh rozhraní;
+
+***[#9f9]:==Databáze
+# Návrh schématu databáze
+# Implementace skriptů pro vytvoření a naplnění databáze;
+
+***[#9f9]:==Art
+# Tvorba obrázku pro hru pomocí AI;
+
+' ---------
+**[#d55] <b>Barbora Kovalská\n        <i>KOV0354
+***[#f99]:==API
+# Implementace validace vstupních dat
+# Implementace herní logiky;
+
+***[#f99]:==Databáze
+# Návrh schématu databáze
+# Vložení základních dat;
+
+***[#f99]:==Art
+# Tvorba obrázku pro hru pomocí AI;
+
+***[#f99]:==Game
+# Definice herního modelu;
+
+' ---------
+**[#55d] <b>Martin Korotwitschka\n         <i>KOR0289
+***[#99f]:==API
+# Implementace API method
+# Implementace lazy loadingu;
+
+***[#99f]:==Databáze
+# Návrh schématu databáze;
+
+' ---------
+**[#dd5] <b>Miroslav Osoba\n     <i>OSO0008 <<pink>>
+***[#ff9]:==Uživatelské rozhraní
+# Implementace uživatelského rozhraní
+# Designový návrh rozhraní;
+
+***[#ff9]:==Databáze
+# Návrh schématu databáze
+# Definice základního obsahu;
+
+***[#ff9]:==Art
+# Tvorba obrázku pro hru pomocí AI;
+
+***[#ff9]:==Game
+# Definice herního modelu;
+
+@endwbs
