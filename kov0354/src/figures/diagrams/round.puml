@@ -1,0 +1,29 @@
+@startuml round
+|s| Systém
+|u| Uživatel
+
+|s|
+start
+
+while (Je někdo na tahu?) is (Ano)
+    :**Odehrání tahu**;
+endwhile (Ne)
+
+if (Byly otevřeny dveře?) then (Ne)
+else (Ano)
+    :Zobrazení nové místnosti;
+    |u|
+    fork
+        :Přidání místnosti;
+    fork again
+        :Rozmístění nepřátel;
+    end fork
+
+    |s|
+    :Přidání nových nepřátel do iniciativy;
+    :Zamíchání jejich karet;
+|s|
+endif
+
+stop
+@enduml
