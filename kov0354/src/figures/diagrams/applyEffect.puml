@@ -1,0 +1,23 @@
+@startuml applyEffect
+start
+
+if (Má entita rezistenci?) then (Ano)
+    :Získání síly rezistence;
+    :Snížení síly efektu o rezistenci;
+
+    if (Je síla efektu nulová?) then (Ano)
+        :Efekt se neprojeví;
+        stop;
+    else (Ne)
+    endif
+else (Ne)
+endif
+
+if (Je efekt instantní?) then (Ano)
+    :Vyhodnocení efektu;
+else (Ne)
+    :Přidání efektu na entitu;
+endif
+
+stop
+@enduml

@@ -1,0 +1,11 @@
+@startuml name
+|s| Systém
+|u| Uživatel
+
+|s|
+start
+
+
+|s|
+stop
+@enduml

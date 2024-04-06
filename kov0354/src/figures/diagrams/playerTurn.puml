@@ -3,6 +3,7 @@
 start
 
 :Vyhodnocení efektů;
+:Uvolnění efektů;
 
 |Uživatel|
 :Zvolení dvou karet;
@@ -15,7 +16,7 @@ end fork
 :Zahození zvolených karet;
 
 |Systém|
-:Snížení počítadel efektů a summonů;
+:Snížení počítadel summonů;
 
 stop
 @enduml

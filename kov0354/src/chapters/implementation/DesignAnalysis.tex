@@ -115,9 +115,9 @@ Souboj je hlavní funkcionalitou, kterou hra nabízí. Průběh souboje je rozd�
 
 Poté následuje fáze přípravy hrací desky. Systém zobrazí počáteční místnost lokace, všechny nepřátele, překážky a dveře, které se v ní vyskytují spolu s identifikátory, které umožní hráčům tyto části jednoduše najít a sestavit tak odpovídající konfiguraci místnosti na herním stole. Když je všechno připraveno, hráči umístí své postavy na políčka určená pro hráče a s tím je příprava herního pole hotová.
 
-Druhá část přípravy je věnována samotným postavám a nepřátelům a tvorbě iniciativního žebříčku. Každý s hráčů si hodí svou kostkou na iniciativu a zaznamená výsledek do systému, který tento modifikátor automaticky přičte k základní výši iniciativy, který hráčova postava získala ze své rasy, třídy a vybavení. Za nepřátele toto provede systém automaticky. Výsledný žebříček je seřazen sestupně a hráči a nepřátelé se podle něj střídají v rámci kola. Dále se tu také provádí aplikace permanentních efektů, tedy efektů získaných ze zázemí a předmětů u postav nebo vrozené efekty u nepřátel, podle diagramu \textbf{//TODO}. Systém pak ještě zamíchá simulovaný balíček nepřátelských karet, který bude sloužit k určení jejich akcí.
+Druhá část přípravy je věnována samotným postavám a nepřátelům a tvorbě iniciativního žebříčku. Každý s hráčů si hodí svou kostkou na iniciativu a zaznamená výsledek do systému, který tento modifikátor automaticky přičte k základní výši iniciativy, který hráčova postava získala ze své rasy, třídy a vybavení. Za nepřátele toto provede systém automaticky. Výsledný žebříček je seřazen sestupně a hráči a nepřátelé se podle něj střídají v rámci kola. Dále se tu také provádí aplikace permanentních efektů, tedy efektů získaných ze zázemí a předmětů u postav nebo vrozené efekty u nepřátel, podle diagramu \ref{diag:apply_effect}. Systém pak ještě zamíchá simulovaný balíček nepřátelských karet, který bude sloužit k určení jejich akcí.
 
-Následuje fáze kol, která se provádí podle diagramu \textbf{//TODO} opakovaně ve smyčce, dokud hráči nesplní jistou předem určenou ukončovací podmínku.
+Následuje fáze kol, která se provádí podle diagramu \ref{diag:round} opakovaně ve smyčce, dokud hráči nesplní jistou předem určenou ukončovací podmínku.
 
 Po dosažení této podmínky systém vyhodnotí, jak hra skončila. Pokud se jedná o prohru, zobrazí tuto informaci hráčům a nastaví stav lokace na \texttt{failed}. Pokud ovšem hráči lokaci zdolali úspěšně, systém provede kontrolu nových lokací a předmětů v obchodech, které hráči dokončením tohoto souboje odemkli nebo naopak zablokovali. Pomocí tohoto mechanismu se zajišťuje, že hra bude mít dynamický průběh a hráči budou mít motivaci prozkoumávat nové lokace a plnit úkoly. Po této kontrole systém hráčům zahlásí co vše jejich úspěch změnil, jaké mají nové možnosti a kolik peněz a zkušeností svou výhrou získali. Na závěr systém přehraje příběh konce této lokace a navrátí hráče zpět do mapy, kde mohou pokračovat v průzkumu světa.
 
@@ -144,7 +144,7 @@ V rámci herního kola se nejprve provádí tahy hráčů a nepřátel v pořad�
     \label{diag:player_turn}
 \end{figure}
 
-Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
+Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
 
 \begin{figure}[h]
     \centering
@@ -159,10 +159,63 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
 \subsubsection*{Akce}
 \label{subsubsec:actions}
 
+TODO actions go here.
+
+\begin{figure}[h]
+    \centering
+    \includeplantuml[scale=0.7]{action}
+    \caption{Diagram akce}
+    \label{diag:action}
+\end{figure}
+
 
 \subsubsection*{Efekty}
 \label{subsubsec:effects}
 
-// aplikace efektu
-// vyhodnocení efektu
-// uvolnění efektu
+Modelová hra obsahuje několik druhů efektů, které mohou entity na herním poli ovlivnit. Tyto efekty mohou být aplikovány na postavy, nepřátele nebo summony a mohou mít různé účinky. Jejich výčet je uveden v tabulce \ref{tab:effects}.
+
+Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich je \textit{Strength}, která určuje, jak silný je efekt, což je využito s rozličnými účely u různých typů efektu. Druhou vlastností je \textit{Duration} (v tabulce označena \textit{DUR}) neboli trvanlivost, popisující délku trvání konkrétního efektu v kolech. Obě tyto vlastnosti mohou být prázdné, u síly je to proto, že pro vyhodnocení efektu není třeba žádná číselná hodnota, u trvání jde o instantní efekty. Některé z efektů mohou mít k sobě korespondující \textit{Resistance} neboli rezistenci, což je zaznačeno v tabulce v posledním sloupci \textit{RES}. Rezistence jsou efekty kopírující původní efekt, ale s opačným účinkem. Pokud původní efekt má určitou sílu, rezistence bude jeho sílu snižovat. Pokud sílu nemá, tak rezistence efekt zruší úplně.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l l l l l}
+        \toprule
+
+        \textbf{Název} & \textbf{Význam} & \textbf{Strength} & \textbf{DUR} & \textbf{RES} \\
+        \midrule
+
+        \textbf{Push} & Posune entitu v přímé čáře od zdroje & Počet polí na posunutí & Ne & Ano \\
+        \textbf{Pull} & Přitáhne entitu v přímé čáře k zdroji & Počet polí na posunutí & Ne & Ano \\
+        \textbf{Stun} & Entita nemůže provádět žádné akce & --- & Ano & Ano \\
+        \textbf{Poison} & Entita dostane zranění & Zranění & Ano & Ano \\
+        \textbf{Fire} & Entita dostane zranění & Zranění & Ano & Ano \\
+        \textbf{Bleed} & Entita dostane zranění & Zranění & Ano & Ano \\
+        \textbf{Empower} & Entita má posílené útoky & Velikost posílení & Ano & Ne \\
+        \textbf{Enfeeble} & Entita má oslabené útoky & Velikost oslabení & Ano & Ano \\
+        \textbf{Speed} & Entita má zvýšenou rychlost & Velikost zvýšení & Ano & Ne \\
+        \textbf{Slow} & Entita má sníženou rychlost & Velikost snížení & Ano & Ano \\
+        \textbf{Protection} & Entita bere snížené zranění z útoků & Velikost obrany & Ano & Ne \\
+        \textbf{Vulnerability} & Entita bere zvýšené zranění z útoků & Velikost zvýšení & Ano & Ano \\
+        \textbf{Guidance} & Entita má výhodu na hody & --- & Ano & Ne \\
+        \textbf{Confusion} & Entita má nevýhodu na hody & --- & Ano & Ano \\
+        \textbf{Heal} & Entita je okamžitě vyléčena & Počet vyléčených životů & Ne & Ne \\
+        \textbf{Regeneration} & Entita je vyléčena & Počet vyléčených životů & Ano & Ne \\
+        
+        \bottomrule
+    \end{tabular} 
+    \caption{Seznam efektů}
+    \label{tab:effects}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includeplantuml[scale=0.7]{applyEffect}
+    \caption{Diagram aplikace efektu}
+    \label{diag:apply_effect}
+\end{figure}
+
+\textbf{Aplikace efektu} se provádí podle postupu znázorněného na diagramu \ref{diag:apply_effect}. Nejprve si systém zjistí, zda má entita nějaké rezistence proti tomuto typu efektu. Pokud ano, tak je síla efektu snížena o celkovou silou rezistence a pokud je výsledek nulový, efekt je zrušen. Jinak systém zkontroluje, zda se jedná o instantní efekt a pokud ano, je vyhodnocen okamžitě. V opačném případě je uložen do seznamu efektů dané entity a bude vyhodnocen v následujícím kole.
+
+\textbf{Vyhodnocení efektu} se dělí na dva typy -- první, který hráči vyhodnocují sami, a druhý, který vyhodnocuje systém. První typ jsou efekty jako \textit{Push} nebo \textit{Pull}, které systém vyhodnotit nemůže z důvodu nedostatečných informací. Když jde například o efekt \textit{Push}, hráči dosaženou entitu posunou o počet polí, který je uveden ve vlastnosti \textit{Strength} efektu ve směru pryč od zdroje. Druhý typ efektů, jako Heal nebo Poison, jsou vyhodnoceny systémem, protože se týkají zdraví postav, což je jedna z věcí, které systém monitoruje. 
+
+\textbf{Uvolnění efektu} je oproti dvěma předchozím krokům jednoduché, protože se jedná o pouhé snížení počítadla kol a případné odstranění efektu z listu efektů dané entity, pokud jeho trvání vypršelo.
