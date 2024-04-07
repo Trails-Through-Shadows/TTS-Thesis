@@ -1,0 +1,21 @@
+@startuml restoreCards
+|s| Systém
+|u| Uživatel
+
+|u|
+start
+
+|u|
+:Výběr cíle obnovení;
+
+if (Je výběr náhodný?) then (Ano)
+    :Cíl si karty smí vybrat;
+else (Ne)
+    :Cíl si karty tahá náhodně;
+endif
+
+:Obnovení daného počtu karet;
+
+|u|
+stop
+@enduml

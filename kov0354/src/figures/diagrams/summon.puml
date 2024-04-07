@@ -1,0 +1,23 @@
+@startuml summon
+|s| Systém
+|u| Uživatel
+
+|u|
+start
+
+|u|
+:Výběr cíle;
+:Postavení summona na pozici;
+
+:Zapsání summona do systému;
+
+|s|
+:Uložení nové entity;
+:Zobrazení entity pod vyvolávačem;
+
+|u|
+:Položení karty na stůl;
+
+|u|
+stop
+@enduml

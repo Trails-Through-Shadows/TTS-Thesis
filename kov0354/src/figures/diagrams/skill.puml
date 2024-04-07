@@ -1,0 +1,18 @@
+@startuml skill
+|s| Systém
+|u| Uživatel
+
+|u|
+start
+
+|u|
+:Výběr cíle schopnosti;
+:Aplikace efektů;
+    
+:Propsání změn do systému;
+|s|
+:Uložení změn;
+
+|u|
+stop
+@enduml

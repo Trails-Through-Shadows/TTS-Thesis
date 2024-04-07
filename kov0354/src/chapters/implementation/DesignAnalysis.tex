@@ -124,7 +124,7 @@ Po dosažení této podmínky systém vyhodnotí, jak hra skončila. Pokud se je
 \subsubsection*{Kola}
 \label{subsubsec:rounds}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{round}
     \caption{Diagram kola}
@@ -137,21 +137,21 @@ V rámci herního kola se nejprve provádí tahy hráčů a nepřátel v pořad�
 \subsubsection*{Tahy}
 \label{subsubsec:turns}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{playerTurn}
     \caption{Diagram herního tahu hráče}
     \label{diag:player_turn}
 \end{figure}
 
-Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{enemyTurn}
     \caption{Diagram herního tahu nepřítele}
     \label{diag:enemy_turn}
 \end{figure}
+
+Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
 
 Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hráčskému mnohem jednodušší. Nepřátelé mají svůj vlastní balík karet, ze kterého jim systém vybere jednu, kterou v daném kole zahrají. Jedná se o simulaci reálného karetního balíčku, takže pokud v něm karty dojdou, opět se všechny zamíchají a tahají se znova. Na hráčích pak závisí, aby vyhodnotili, jakým způsobem se nepřátelé pohnou a na koho zaútočí, ale musí se řídit instrukcemi, které od systému dostali. Jakékoli změny musí být opět propsány do systému, který se zde také stará o vyhodnocení efektů.
 
@@ -159,15 +159,45 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
 \subsubsection*{Akce}
 \label{subsubsec:actions}
 
-TODO actions go here.
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
-    \includeplantuml[scale=0.7]{action}
-    \caption{Diagram akce}
-    \label{diag:action}
+    \includeplantuml[scale=0.7]{movement}
+    \caption{Diagram pohybu}
+    \label{diag:movement}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includeplantuml[scale=0.7]{attack}
+    \caption{Diagram útoku}
+    \label{diag:attack}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includeplantuml[scale=0.7]{skill}
+    \caption{Diagram schopnosti}
+    \label{diag:skill}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includeplantuml[scale=0.7]{summon}
+    \caption{Diagram summona}
+    \label{diag:summon}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includeplantuml[scale=0.7]{restoreCards}
+    \caption{Diagram obnovení karet}
+    \label{diag:restore_cards}
+\end{figure}
+
+
+V modelové hře se akce skládají z pěti částí, interně nazývanými \textit{features}. Jedná se o \textit{útok}, \textit{pohyb}, \textit{schopnost}, \textit{summon} a \textit{obnovení karet}. Vyhodnocení akce spočívá v provedení všech těchto částí dle uvážení hráče, přičemž si může vybrat nejen to, jak se k jednotlivým částem jeho postava zachová, ale také v jakém pořadí je provede.
+
+\textbf{//TODO popsat jednotlivé featury}
 
 \subsubsection*{Efekty}
 \label{subsubsec:effects}
@@ -180,10 +210,10 @@ Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich
     \centering
     \begin{tabular}{l l l l l}
         \toprule
-
+        
         \textbf{Název} & \textbf{Význam} & \textbf{Strength} & \textbf{DUR} & \textbf{RES} \\
         \midrule
-
+        
         \textbf{Push} & Posune entitu v přímé čáře od zdroje & Počet polí na posunutí & Ne & Ano \\
         \textbf{Pull} & Přitáhne entitu v přímé čáře k zdroji & Počet polí na posunutí & Ne & Ano \\
         \textbf{Stun} & Entita nemůže provádět žádné akce & --- & Ano & Ano \\
@@ -207,7 +237,7 @@ Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich
     \label{tab:effects}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{applyEffect}
     \caption{Diagram aplikace efektu}

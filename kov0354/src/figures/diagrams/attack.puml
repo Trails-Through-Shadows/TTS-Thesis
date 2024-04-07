@@ -1,0 +1,28 @@
+@startuml attack
+|s| Systém
+|u| Uživatel
+
+|u|
+start
+
+|s|
+:Zobrazení bonusového útoku;
+
+|u|
+:Výběr cíle útoku;
+
+while (Má hráč další útok?) is (Ano)
+    fork
+        :Aplikace zranění cíli;
+    fork again
+        :Aplikace efektů;
+    end fork
+endwhile (Ne)
+    
+:Propsání změn do systému;
+|s|
+:Uložení změn;
+
+|u|
+stop
+@enduml

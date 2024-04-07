@@ -1,0 +1,23 @@
+@startuml movement
+|s| Systém
+|u| Uživatel
+
+|u|
+start
+
+|s|
+:Zobrazení bonusové rychlosti;
+
+|u|
+:Posunutí postavy o počet polí dle rychlosti;
+
+if (Prošla postava přes překážku?) then (Ano)
+    :Zaznamenání do systému;
+    |s|
+    :Uložení změn;
+else (Ne)
+endif
+
+|u|
+stop
+@enduml
