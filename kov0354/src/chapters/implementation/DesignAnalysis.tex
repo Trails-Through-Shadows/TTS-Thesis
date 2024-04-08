@@ -1,6 +1,8 @@
 \chapter{Analýza a návrh herního systému}
 \label{chap:design_analysis}
 
+\textbf{\textcolor{red}{Tady končí teoretická část, děkuju za přečtení. :)}\\\textcolor{red}{Dál už nic dobrého nečeká.}}
+
 Pro rozumný vývoj herního systému modelové hry je nutné nejprve provést analýzu a návrh, proto se tato kapitola tímto tématem zabývá. První část se zaměřuje na požadavky, které by měl herní systém splňovat, druhá část se pak věnuje samotnému návrhu herního systému.
 
 Hybridní deskové hře, která je finálním produktem této práce, bylo určeno pracovní jméno \textit{Trails Through Shadows} (zkratkou \textit{TTS}). Dále je však zmiňována především pod názvem \textit{modelová hra}.
@@ -144,6 +146,8 @@ V rámci herního kola se nejprve provádí tahy hráčů a nepřátel v pořad�
     \label{diag:player_turn}
 \end{figure}
 
+Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramů popsaných v kapitole \ref{subsubsec:actions} a pokud má na stole vyložené nějaké karty vyvolaných summonů, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
+
 \begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{enemyTurn}
@@ -151,13 +155,13 @@ V rámci herního kola se nejprve provádí tahy hráčů a nepřátel v pořad�
     \label{diag:enemy_turn}
 \end{figure}
 
-Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v diagramach \textbf{//TODO} a \textbf{//TODO}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramu \textbf{//TODO} a pokud má vyvolané nějaké summony, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
-
 Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hráčskému mnohem jednodušší. Nepřátelé mají svůj vlastní balík karet, ze kterého jim systém vybere jednu, kterou v daném kole zahrají. Jedná se o simulaci reálného karetního balíčku, takže pokud v něm karty dojdou, opět se všechny zamíchají a tahají se znova. Na hráčích pak závisí, aby vyhodnotili, jakým způsobem se nepřátelé pohnou a na koho zaútočí, ale musí se řídit instrukcemi, které od systému dostali. Jakékoli změny musí být opět propsány do systému, který se zde také stará o vyhodnocení efektů.
 
 
 \subsubsection*{Akce}
 \label{subsubsec:actions}
+
+V modelové hře se akce skládají z pěti částí, interně nazývanými \textit{features} neboli \textit{prvky akce}. Jedná se o \textit{pohyb}, \textit{útok}, \textit{schopnost}, \textit{summon} a \textit{obnovení karet}. Vyhodnocení akce spočívá v provedení všech těchto prvků dle uvážení hráče, přičemž si může vybrat nejen to, jak se k jednotlivým prvkům jeho postava zachová, ale také v jakém pořadí je provede.
 
 \begin{figure}[H]
     \centering
@@ -166,12 +170,16 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
     \label{diag:movement}
 \end{figure}
 
+Na prvním diagramu \ref{diag:movement} je zobrazen průběh \textbf{pohybu}. Před samotným vyhodnocením systém hráči předá informaci o bonusové rychlosti nebo případně zpomalení jeho postavy, což je možné získat z aktivních efektů nebo vybavení postavy. Hráč tento bonus přičte k číslu, které má napsané na kartě pohybu a posune se po herním poli o odpovídající počet polí. Pohyb má tři typy -- \textit{chůze}, \textit{skok} a \textit{teleportace}. Chůze je základním typem pohybu, skok je pohyb, který umožňuje přeskočit překážku nebo nepřítele a teleportace je pohyb, který umožňuje postavě přesunout se na libovolné místo na herním poli i přes zdi, ale samozřejmě pořád v limitu polí. Pokud postava po své cestě přejde přes překážku, musí na sebe vzít její efekt a tuto skutečnost zaznamenat do systému.
+
 \begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{attack}
     \caption{Diagram útoku}
     \label{diag:attack}
 \end{figure}
+
+Průběh \textbf{útoku} znázorňuje diagram \ref{diag:attack}. Před útokem systém opět zjistí, zda má postava nějaký bonus k útoku, který může získat z aktivních efektů nebo vybavení, a v takovém případě tento bonus hráči zobrazí. Hráč si poté vybere cíl a může na něj zaútočit tolikrát, kolik určuje jeho karta útoku. Při každém zaútočení se cíli aplikuje nejen velikost zranění, ale také všechny efekty, které útok může způsobovat. Tyto efekty však nejsou hlavní součástí útoku, proto ve většině případů nejsou na této kartě zaznamenány. Veškeré zranění nebo získané efekty, které cíl utrpí, musí být zaznamenány do systému.
 
 \begin{figure}[H]
     \centering
@@ -180,12 +188,16 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
     \label{diag:skill}
 \end{figure}
 
+Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na diagramu \ref{diag:skill}. Oproti útoku je plně zaměřena pouze na efekty, musí tedy mít alespoň jeden, může se jednat například o zapálení cíle, ale také o vyléčení postavy. Po jejím zahrání musí hráč zaznamenat všechny efekty, které schopnost způsobila.
+
 \begin{figure}[H]
     \centering
     \includeplantuml[scale=0.7]{summon}
     \caption{Diagram summona}
     \label{diag:summon}
 \end{figure}
+
+\textbf{Vyvolání summona}, znázorněno na diagramu \ref{diag:summon}, je jednou z komplexnějších prvků akce, které mají hráči k dispozici, ale pořád je intuitivně pochopitelná. Uživatel opět začne vybráním cíle, tentokrát se však jedná o políčko v dosahu uvedeném na kartě, na které bude svého poskoka vyvolávat. Poté najde odpovídající figurku, umístí ji na vybrané pole a kartu, pomocí které summona vyvolal, položí na stůl před sebe. Když pak dojde na jeho tah, může pomocí této karty provést odpovídající akci i za svého summona. Na závěr nově vyvolanou entitu zaznamená do systému, který si ho uloží a zobrazí jej v žebříčku iniciativy pod jménem hráče, který ho vyvolal. Po vyvolání má hráč možnost ihned zahrát tah summona, což mu umožňuje získat výhodu v boji.
 
 \begin{figure}[H]
     \centering
@@ -194,10 +206,9 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
     \label{diag:restore_cards}
 \end{figure}
 
+Posledním prvkem akce, který hráči mohou využít, je \textbf{obnovení karet}, pomocí něhož si mohou do ruky vrátit karty, které v předchozích tazích zahodili. Jak je možné vidět na diagramu \ref{diag:restore_cards}, celý postup zde provádí pouze hráč bez asistence systému. Nejprve si vybere cíl obnovení, což může být jeho postava nebo postava jiného hráče, a poté vybere karty, které chce vrátit. Na kartě je určen počet karet, které může hráč obnovit, a také příznak náhody, podle které se vybírají karty buď náhodně, nebo si cíl může sám vybrat, které karty chce získat zpět. Tímto způsobem vybrané karty si cíl poté vrátí do ruky a může je využít v dalších tazích.
 
-V modelové hře se akce skládají z pěti částí, interně nazývanými \textit{features}. Jedná se o \textit{útok}, \textit{pohyb}, \textit{schopnost}, \textit{summon} a \textit{obnovení karet}. Vyhodnocení akce spočívá v provedení všech těchto částí dle uvážení hráče, přičemž si může vybrat nejen to, jak se k jednotlivým částem jeho postava zachová, ale také v jakém pořadí je provede.
 
-\textbf{//TODO popsat jednotlivé featury}
 
 \subsubsection*{Efekty}
 \label{subsubsec:effects}

@@ -8,7 +8,7 @@ start
 |Uživatel|
 :Zvolení dvou karet;
 fork
-  :Provedení akcí na kartách;
+  :Provedení prvků na kartách akcí;
 fork again
   :Provedení akce summonů;
 end fork
