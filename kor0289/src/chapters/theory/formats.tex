@@ -3,14 +3,15 @@ V této kapitole budou popsány především dva základní formáty dat které 
 
 
 \subsection*{Serializace a deserializace} %TODO cite https://www.baeldung.com/cs/serialization-deserialization
-Serializace a deserializace jsou důležité koncepty v programování. Umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, jako je ukládání objektů do databáze, posílání dat po síti a nebo pro účely mezipaměťi.
+Serializace a deserializace jsou důležité koncepty v programování, které umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, od ukládání objektů do databáze přes posílání dat po síti až po pro účely reprezentace mezipaměťi.
 
-Objekt má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje jednotlivá data objektu.
-\textbf{Serializace} je proces převádění stavu objektů do proudu bytů co mohou být kdekoliv uloženy nebo poslány. Tento proud může být poté zase rekonstruován do původního objektu. Pro serializaci si však muíme vybrat formát dat. Jako třeba JSON nebo XML. Ovšem používá se i binární reprezentace dat. Tato reprezentace se často využívá pro výkonnostní potřeby, protože jsou typicky rychlejší na zápis a čtení. Jejich nevýhoda ale je, že nejsou člověkem čitelné.
+Objekt, se kterým se během těchto procesů pracuje, má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje samotná data objektu.
 
-\textbf{Deserializace} je opačný proces od serializace. Tedy převedení proudu bytů zpátky do objektu.
+\textbf{Serializace} je proces převádění stavu objektů do proudu bytů, který může být kdekoliv poslán nebo uložen a později zase rekonstruován do původního objektu. Pro serializaci je třeba stanovit formát, ve kterém budou data zapsána. Příkladem je právě JSON nebo XML, ovšem používá se i binární reprezentace dat. Tato reprezentace se často využívá pro výkonnostní potřeby, protože je typicky rychlejší na zápis a čtení, nevýhodou však je snížená čitelnost běžným člověkem.
 
-Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon. Můžeto trvat nezanedbatelné množství času. Zvlášť u velkých objektů. Za zmínku stojí i fakt, že ne všechny objekty mohou být serializovány. Jako třeba sockety nebo file handlery.
+\textbf{Deserializace} je opačný proces, kdy se data z bytového proudu převedou zpět na objekt. Tento proces je důležitý pro získání dat z různých zdrojů, jako jsou soubory, databáze nebo síťové zdroje.
+
+Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon, neboť převod může trvat nezanedbatelné množství času, obzvlášť u velkých objektů. Za zmínku stojí i fakt, že ne všechny objekty mohou být serializovány, příkladem mohou být sockety nebo file handlery.
 
 
 \section{JSON}
@@ -67,7 +68,7 @@ Tento XML dokument reprezentuje stejnou strukturu jako JSON popsaný výše. Opr
 
 
 \section{Shrnutí}
-Teď byly představeny případné technologie co bychom mohli použít jako formát pro serializaci a deserializaci. Jak tyto technologie fungují, jak vypadají a jejich výhody a nevýhody.
+V předchozí části byly popsány dva základní formáty pro serializaci a deserializaci dat -- JSON a XML. Oba formáty mají své výhody a nevýhody, které je třeba zvážit při výběru vhodného formátu pro konkrétní použití.
 
 \begin{table}[h]
     \centering
@@ -86,7 +87,7 @@ Teď byly představeny případné technologie co bychom mohli použít jako for
     \label{tab:formats_comparison}
 \end{table}
 
-\tableref{tab:formats_comparison} nám srovnává různé technologie podle našich případných požadavků. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější} \footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba něco jednoduchého a srozumitelného, přiměřeně rychlého. Tedy nejlépe z toho vyplývá JSON. XML je pro naše účely moc komplexní a většinu vlastností nevyužijeme. Binární formát je sice rychlý ale špatně se odhalují chyby a je zde horší univerzálnost serializeru a deserializeru mezi jazyky.
+Tabulka \ref{tab:formats_comparison} srovnává výše zmíněné technologie podle několika kritérií, které jsou důležité pro výběr vhodného formátu pro serializaci a deserializaci dat. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení vzhledem k tomu, co bude pro naše použití nejvhodnější} \footnote[2]{Hodnocení je vedeno jako známka na škále od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba, aby byl formát jednoduchý a srozumitelný, ale pořád přiměřeně rychlý. XML je pro naše účely moc komplexní a většinou se používá pro velké a komplexní struktury dat, což není náš případ. Binární formát je sice rychlý, ale špatně se odhalují chyby a také je zdě větší problém s univerzálností serializeru a deserializeru mezi jazyky. JSON je pro nás ideální, neboť je jednoduchý, rychlý a dobře čitelný, proto bude použit pro reprezentaci přenosových dat v naší aplikaci.
 
 
 \endinput

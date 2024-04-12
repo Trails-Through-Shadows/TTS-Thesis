@@ -1,46 +1,42 @@
 \chapter{Zabezpečení a autentizace}
-V této kapitole si projdeme základní autentizační protokoly a standardy.
-Pro jednoduchost se zaměříme na standardy v OpenAPI ve verzi 3.0.
-Autorizaci používáme pro prevenci zneužití a kontrolu nad tím kdo jak API používá a jak často.
+V této kapitole si projdeme základní autentizační protokoly a standardy, pro jednoduchost se zaměříme na standardy OpenAPI ve verzi 3.0. Autorizace se v našem případě používá především pro prevenci zneužití a kontrolu nad tím, kdo API používá a jak často se k němu přistupuje.
+
 
 \section{API key}
 %odkaz na api key zdroj https://swagger.io/docs/specification/authentication/api-keys/
 % https://www.fortinet.com/resources/cyberglossary/api-key#:~:text=API%20Keys%20Definition%20and%20Meaning,a%20white%2Dlabeled%20internal%20marketplace.
-API klíč je unikátní token který umožňuje uživateli se autorizovat. Na základě tohoto klíče se přidělí oprávnění. Mohou být poslády jako query param  \texttt{GET /something?key=rea11ysecr5tApIKeY} nebo v hlavičce requestu či jako Cookie \texttt{X-KEY: rea11ysecr5tApIKeY}. API klíč by měl znát jen server a daný klient. Takováto autentizace je brána jako bezpečná pouze při použití dalších bezpečnostních prvků jako je třeba HTTPS/SSL.
+API klíč je unikátní token, který umožňuje uživateli se autorizovat, a následně dostat oprávnění, na která má nárok. Klíč může být poslán jako query param \texttt{GET /users?key=rea11ysecr5tApIKeY}, v hlavičce requestu či jako Cookie \texttt{X-KEY: rea11ysecr5tApIKeY}. API klíč by měl znát jen server a daný klient, proto je autentizace brána jako bezpečná pouze při použití dalších bezpečnostních prvků jako je třeba HTTPS/SSL.
 
 \subsection{Popis API klíče}
 \begin{listing}[ht]
     \inputminted[]{yaml}{resources/code/security/openapi-key.yml}
-    \caption{OpenAPI 3.0 definice}
+    \caption{Definice OpenAPI 3.0}
     \label{code:api_key}
 \end{listing}
 
-Nejčastější použití API klíče je hlavně pro blokování anonymních požadavků. To vyfiltruje případný škodlivý provoz na API. Dále díky jeho jednoduchosti se často používá mezi IoT zařízeními.
+Nejčastější použití API klíče je pro blokování anonymních požadavků, pomocí čehož je možné vyfiltrovat případný škodlivý provoz na API. Díky jeho jednoduchosti se také často používá mezi IoT zařízeními.
 
-V tomto příkladě jsme si definovali název API key \texttt{X-API-key} který bude v headeru (\ref{code:api_key} řádek 8). Dále s tím můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definic endpointů pokud by bylo třeba specifikovat (\ref{code:api_key} řádek 20,21). Jinak za pomocí \ref{code:api_key} řádek 11,12 aplikujeme autorizaci na všechny operace.
+V tomto příkladě je definován název API key (\texttt{X-API-key}), který bude přenesen v headeru (Výpis \ref{code:api_key}, řádek 8). Dále s ním můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definicí endpointů, pokud by bylo třeba specifikovat (Výpis \ref{code:api_key}, řádek 20, 21). Pokud potřeba není (Výpis \ref{code:api_key}, řádek 11, 12), autorizaci aplikujeme na všechny operace.
+
+API klíčů může být využito víc, například pro specifikování uživatele nebo aplikace.
+
+Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401, který značí neoprávněný přístup (Výpis \ref{code:api_key} řádek 11-16).
 
 
-Můžeme mít i více API klíčů. Například pro specifikování uživatele a specifikování aplikace.
-
-Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401 který značí neoprávněný přístup. Můžeme si ho definovat takto \ref{code:api_key} řádek 11-16.
-
-
-\section{Json web token} %TODO cite or smthng https://jwt.io/introduction
+\section{JSON Web Token} %TODO cite or smthng https://jwt.io/introduction
 JWT je otevřená industriální standardizovaná % \verb|\glossary{rfc7519}| TODO
-metoda pro bezpečné přeposílání zpráv ve formátu JSON objektu mezi dvěma stranami.
-Tyto objekty mohou být zkontrolovány a může se jim důvěřovat, protože jsou digitálně podepsány pomocí tajného klíče nebo pomocí páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
+metoda pro bezpečné přeposílání zpráv ve formátu JSON mezi dvěma stranami. Tyto objekty mohou být zkontrolovány a následně je možné ověřit jejich autenticitu, protože jsou digitálně podepsány prostřednictvím tajného klíče nebo páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
 
-Nejčastěji se používá pro \textbf{autorizaci} a pro \textbf{výměnu informací}. Při \textbf{autorizaci}, když se jednou uživatel přihlásí, tak každý další požadavek bude s JWT, což dovoluje uživateli přistupovat tam, kde by bez přihlášení nemohl. Single Sign On
-%\verb|\ref{sso} (btw všb přihlašováky)| TODO
-především využívá JWT díky malé režii a jednoduchosti použití v různých doménách. JSON web tokeny jsou taktéž dobrý způsob jak bezpečně \textbf{vyměňovat informace} mezi více stranami díky digitálním podpisům.
+Nejčastěji se používá pro \textbf{autorizaci} a pro \textbf{výměnu informací}. Při autorizaci se uživatel jednou přihlásí a každý jeho další požadavek bude s JWT, což mu dovoluje přistupovat i tam, kde by bez přihlášení nemohl. Single Sign On %\verb|\ref{sso} (btw všb přihlašováky)| TODO
+využívá JWT především díky malé režii a jednoduchosti použití v různých doménách. JSON web tokeny jsou taktéž dobrý způsob jak bezpečně \textbf{vyměňovat informace} mezi více stranami díky digitálním podpisům.
 
 \subsection{Struktura}
-V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzzz} , kde \texttt{x} je zakódovaný header, \texttt{y} je Payload a \texttt{z} je podpis.
+V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzzz}. V tomto formátu je \texttt{x} je zakódovaný header, \texttt{y} je payload a \texttt{z} je podpis.
 
 \begin{description}
-    \item[Header] typicky se skládá ze dvou částí. Typ tokenu a podepisovací algoritmus který byl použit. Jako třeba SHA256 nebo RSA. (\ref{code:JWT_example} řádek 3)
-    \item[Payload] obsahuje data o entitě a jiná další data. (\ref{code:JWT_example} řádek 9)
-    \item[Signature] neboli podpis se vytvoří tak že se zkombinuje header, payload a secret a zašifruje se příslušným algoritmem. (\ref{code:JWT_example} řádek 15)
+    \item[Header] Typicky se skládá ze dvou částí -- typ tokenu a podepisovací algoritmus který byl použit, například SHA256 nebo RSA. (Výpis \ref{code:JWT_example}, řádek 3)
+    \item[Payload] Obsahuje data o entitě a jiné informace. (Výpis \ref{code:JWT_example} řádek 9)
+    \item[Signature] Podpis se vytvoří kombinací headeru, payloadu a secretu a zašifruje se příslušným algoritmem. (Výpis \ref{code:JWT_example}, řádek 15)
 \end{description}
 
 \begin{listing}[ht]
@@ -50,29 +46,25 @@ V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzz
 \end{listing}
 
 
-
-
-
-
 \section{OAuth 2.0}
-Oauth 2.0 je autorizační framework který poskytuje limitovaný přístup k datům. Nahrazuje Oauth z roku 2012 a dnes se již považuje za standard pro online autorizaci. Poskytuje přístup a omezuje akce co může klientská aplikace provádět s daty, bez toho aby se sdílely přihlašovací údaje uživatele.
+OAuth 2.0 je autorizační framework, který poskytuje limitovaný přístup k datům. Nahrazuje OAuth z roku 2012 a dnes se již považuje za standard pro online autorizaci. Poskytuje přístup a omezuje akce, které s day může klientská aplikace provádět, bez toho, aby bylo třeba sdílet přihlašovací údaje uživatele.
 % TODO kdyžtak jak to vypadá ve švagrovi
 
 
 \subsection{Principy}
-Oauth 2.0 je autorizační ne autentizační protokol. To znamená že je určen pro získání přístupových práv ke zdrojům. Ne k ověření identity uživatele, i když ho lze i využít k ověření identity.
+Jedná se o autorizační, nikoli autentizační protokol, což znamená, že je určen pro získání přístupových práv ke zdrojům, ne k ověření identity uživatele, i když v praxi se často používá pro oba účely.
 
-Používají se zde přístupové tokeny. Přístupový token je řetězec který reprezentuje oprávnění k přístupu k datům. I když Oauth 2.0 nemá nijak definovaný formát přístupového tokenu tak se nejčastěji využívá JWT (TODO glossary json web token). Taktéž tokeny mohou mít datum vypršení platnosti.
+Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem a poskytují oprávnění k přístupu k datům. I přesto, že Oauth 2.0 nemá nijak definovaný formát přístupového tokenu, nejčastěji se využívá JWT (TODO glossary json web token). Tokeny mohou mít také datum vypršení platnosti, což znamená, že po uplynutí tohoto data je třeba získat nový token.
+
 
 \subsection{Role}\label{sec:Oauth_roles}
 V této části se zaměříme na klíčové role v procesu autentizace a autorizace v rámci OAuth 2.0 protokolu.
 
-
 \begin{description}
-    \item[Resource owner] je uživatel, co povoluje přístup aplikace k jeho účtu. Přístup aplikace je limitován rozsahem uděleného oprávnění
-    \item[Client] je aplikace (chce používat uživatel) co chce přístup k uživatelskému účtu. Tu však musí nejdříve uživatel oprávnit a oprávnění musí validováno API.
-    \item[Resource server] má uložená uživatelská data a http služby co mohou poskytovat uživatelská data autentizovaným klientům. Resource server poskytuje uživatelská data a autorizační server kontroluje identitu uživatele a poskytuje token aplikaci.
-    \item[Authorization server] je zodpovědný za ověření uživatelské identity a poskytuje autentizační token. Tento token je přijímán resource serverem
+    \item[Resource owner] je uživatel, který povoluje přístup aplikace k jeho účtu, jenž je limitován rozsahem uděleného oprávnění.
+    \item[Client] je aplikace, která žádá o přístup k uživatelskému účtu. Tu musí nejdříve uživatel oprávnit a oprávnění musí validováno API.
+    \item[Resource server] má uložená uživatelská data a HTTP služby,které mohou poskytovat uživatelská data autentizovaným klientům.
+    \item[Authorization server] je zodpovědný za ověření uživatelské identity a poskytování autentizačního tokenu. Tento token je následně přijímán resource serverem.
 \end{description}
 
 \begin{figure}[H]
@@ -82,8 +74,9 @@ V této části se zaměříme na klíčové role v procesu autentizace a autori
     \label{fig:Oauth_roles_diagram}
 \end{figure}
 
+
 \subsection{Grant type: Authorization code}
-Nejčastěji používaná metoda, protože je optimalizována pro stranu serveru. Autorizační server vrátí autorizační kód na jedno použití který je pak vyměněn za přístupový token. Podobné jako když se uživatelé přihlašují do webových aplikací s jejich Facebook nebo Google účtem.
+Jedná se o nejčastěji používanou metodu, především z důvodu optimalizace pro stranu serveru. Autorizační server zde vrací autorizační kód na jedno použití, který je pak vyměněn za přístupový token, podobně jako když se uživatelé přihlašují do webových aplikací s jejich Facebook nebo Google účtem.
 
 \begin{figure}[ht]
     \centering
@@ -93,9 +86,13 @@ Nejčastěji používaná metoda, protože je optimalizována pro stranu serveru
 \end{figure}
 
 
-\ref{fig:Oauth_auth_flow} Nejdříve je uživateli poskytnut autorizační URL. Zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
+Na obrázku \ref{fig:Oauth_auth_flow} je popsán průběh výměny autorizačního kódu. 
+
+// todo refactor this
+Nejdříve je uživateli poskytnut autorizační URL. Zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
 v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
 
+
 \section{Shrnutí}
-Jako styl zabezpečení se vybral API klíč a to z důvodu jeho jednoduchosti na implementaci, i když v našem případě kdy se uživatelé přihlašují, to vybízí na Oauth2. Ale z časových důvodů a z důvodu, že nám stačí dva druhy privilegií pro administátora co bude používat backoffice a poté uživatelé co budou jen chtít tuto hru hrát, jsme vybrali právě API klíč. TODO možná JWT ještě nevíme.
+Jako nejvhodnější styl zabezpečení pro modelovou hru se zdá být API klíč, a to z důvodu jeho jednoduchosti na implementaci, i přes to, že v případě, kdy se uživatelé přihlašují, je vhodný také OAuth2. Z časových důvodů a kvůli nízké škále uživatelských privilegií (administátor, který bude používat backoffice s přímým přístupem na databázi, a uživatelé, kteří budou hru hrát) jsme vybrali právě API klíč. // TODO možná JWT ještě nevíme.
 

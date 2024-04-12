@@ -5,14 +5,18 @@ Hlavní často využívané nástroje, které si představíme, jsou REST, Graph
 \subsection*{Úvod}
 \gls{api} je univerzální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Ve své podstatě se jedná o soubor definicí, protokolů a občas i nepsaných pravidel.
 
+
 \section{REST}
-\gls{rest}, což můžeme přeložit jako reprezentační stavový přenos, je nejčastěji používaná architektura API. Původně byl vytvořen jako vodítko, jak modelovat komunikaci po Internetu, jeho popularita však dále rostla z důvodu jednoduchosti implementace, flexibility z pohledu provádění změn, výkonnosti a přehlednosti i ve velkých projektech.
+\gls{rest}, což můžeme volně přeložit jako reprezentační stavový přenos, je nejčastěji používaná architektura API. Původně byl vytvořen jako vodítko, jak modelovat komunikaci po Internetu, jeho popularita však dále rostla z důvodu jednoduchosti implementace, flexibility z pohledu provádění změn, výkonnosti a přehlednosti i ve velkých projektech.
 
 Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě.
 
+
+\subsection{Principy RESTful API}
+
 Níže jsou popsány základní principy, které RESTful API dodržují.
 
-\subsection{Uniform interface}
+\subsubsection*{Uniform interface}
 Jedná se o klíčovou vlastnost RESTful služeb, která indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji se jedná o JSON nebo XML, ale může to být i jiný formát.
 
 Jednotné rozhraní by mělo dodržovat následující pravidla.\
@@ -23,104 +27,115 @@ Jednotné rozhraní by mělo dodržovat následující pravidla.\
     \item Klient může dostat informace o ostatních datech, která se vážou k původnímu požadavku. (HATEOAS)
 \end{enumerate}
 
-\subsection{Stateless}
+\subsubsection*{Stateless}
 Bezstavová komunikační metoda je taková metoda, kdy server obslouží každého klienta zvlášť a nezávisle na jeho předchozích akcích. Klienti mohou dávat požadavky nezávisle na pořadí, server si tedy neuchovává data o klientech.
 
-\subsection{Layered system}
+\subsubsection*{Layered system}
 U tohoto stylu architektury se klient může připojit i k jiným zprostředkovatelům a pořád dostane odpověď od serveru. Servery se taktéž mohou dotazovat na jiné servery při zpracovávání požadavků od klienta, tímto způsobem tedy můžeme mít systém rozdělen do více vrstev, jako je bezpečnostní vrstva, aplikační vrstva či business logika, přičemž tyto vrstvy zůstávají pro klienta skryté.
 
-\subsection{Cacheability}
+\subsubsection*{Cacheability}
 Velká výhoda RESTful webové služeb je to, že podporují cache. V tomto případě server označuje data jako cacheable či non-cacheable, přičemž při stejném dotazu klienta vícekrát za určitý čas se pro cachable data použijí již stáhnutá data. Dobrým příkladem využití je u obrázků, kde je server nemusí pokaždé načítat znovu a tím docílí rychlejší odezvy.
 
-\subsection{Code on demand}
+\subsubsection*{Code on demand}
 Posledním ze standardů je možnost, že server může vrátit kód, který má klient vykonat, pomocí čehož může server rozšířit klienta o funkcionalitu, například při validaci formuláře se uživateli může ihned zobrazit chybová hláška. Dnes se však tento standard až tak často nevyužívá.
 
 
-\subsection{Jak funguje RESTful API} % TODO reformat this bcs its not the same as rest
-RESTful API funguje na protokolu HTTP/S. Nejdříve klient pošle request serveru podle dokumentace konkrétní API. Server poté zkontroluje zda je klient oprávněn tuto operaci provést. Poté zpracuje požadavek a pošle odpověď s příslušným stavovým kódem.
+\subsection{Komunikace přes RESTful API} % TODO reformat this bcs its not the same as rest
+RESTful API funguje na protokolu HTTP/S. Klient nejprve pošle serveru request strukturovaný podle dokumentace konkrétní API. Server u požadavku zkontroluje, zda je klient oprávněn tuto operaci provést, a následně ho zpracuje odpovídajícím způsobem a klientovi vrátí odpověď s příslušným stavovým kódem.
 
-\subsection{Co obsahuje request na RESTful API} % TODO reformat this bcs its not the same as rest
-Požadavky na RESTful API musí obsahovat následující
-\subsubsection{URI}
-Unique resource identifier je unikátní identifikátor pro určité data. V RESTful API nejčastěji URL, které se taktéž říká endpoint. URL specifikuje cestu k daným datům.
-\subsubsection{Metoda}
-Jak již bylo předtím zmíněno, RESTful API typicky používá HTTP/S protokol. V tomto protokolu máme několik možností metod.
+\subsubsection*{Message body}
+Ať už jde o požadavek či odpověď, pokud je třeba přenášet větší množství dat, většinou jsou vložena do message body. Jedná se o čistě textovou reprezentaci dat, jejíž formát není nikde specifikován a je na programátorech samotných, jaký si zvolí. Nicméně nejčastěji se používá výše zmíněný JSON nebo XML.
+
+Například při požadavku GET pro uživatele s ID 1 server vrátí v message body JSON
+\begin{verbatim}
+	{"name": "Jožko Mrkvička", "age": 30}
+\end{verbatim}
+Tento objekt reprezentuje uživatele, který se jmenuje Jožko Mrkvička a je mu 30 let.
+
+\subsubsection*{Headers}
+V hlavičce požadavku a odpovědi se nachází dodatečné informace. Může se jednat o kódování body, datum a čas, typ obsahu v body, nebo autorizaci na straně klienta jako třeba session key.
+
+
+\subsection{Požadavky}
+Požadavky na RESTful API musí obsahovat následující.
+
+\subsubsection*{URI}
+Unique resource identifier je unikátní identifikátor pro určitá data. V kontextu RESTful API se nejčastěji jedná o URL, kterému se taktéž říká endpoint -- specifikace cesty k daným datům.
+
+\subsubsection*{Metoda}
+Jak již bylo zmíněno výše, RESTful API typicky používá HTTP/S protokol, z něhož také přebírá metody pro komunikaci, které jsou zde ve zkratce rozepsány.
 
 \begin{description}
     \item[GET] - Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
-    \item[POST] - Požadavek pro vložení kompletně nových dat. Data pro vložení se zároveň vloží do message body. Zde se s opakovaným voláním vloží zase znovu ta stejná data.
-    \item[PUT] - Požadavek pro úpravu dat. Data pro přepsání dat jsou vložena do message body. Opakované volání vrátí vždy stejný výsledek.
+    \item[POST] - Požadavek pro vložení kompletně nových dat, přenášených v message body. S opakovaným voláním se zde opět vloží zase ta stejná data.
+    \item[PUT] - Požadavek pro úpravu dat, opět vložených do message body. Opakované volání vrátí vždy stejný výsledek.
     \item[DELETE] - Požadavek pro smazání dat.
-    \item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt.
+    \item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt, ale pouze změny.
 \end{description}
 
-\subsection{Co obsahuje odpověď od serveru}
-REST principy vyžadují aby v odpovědi byli obsaženy tyto věci.
-\subsubsection{Stavové kódy}
-Stavovými kódy lehce zjistíme jak daný požadavek dopadl. Zda-li úspěšně nebo se vyskytla chyba. Proto je důležité je správně používat. Stav je trojmístné číslo a podle počátečního čísla poznáme typ odpovědi. Kód začínající 2xx značí úspěch, 4xx chybu na straně klienta, 5xx chybu na straně serveru a v neposlední řadě 3xx což označuje přesměrování URL.
+
+\subsection{Odpovědi}
+REST principy vyžadují, aby v odpovědi byly obsaženy následující prvky.
+
+\subsubsection*{Stavové kódy}
+Stavové kódy slouží k rychlé identifikaci toho, daný požadavek dopadl, zda-li bylo vyhodnocení úspěšné nebo se vyskytla chyba. Jejich struktura je pevně daná a její správné použití je základem dobře a efektivně vedené komunikace. Stav je trojmístné číslo, kde je podle počátečního zaznamenán typ odpovědi a následující dvě cifry už slouží k identifikaci jednotlivých stavů v dané kategorii. Kód začínající 2xx značí úspěch, 4xx chybu na straně klienta, 5xx chybu na straně serveru a v neposlední řadě 3xx označuje přesměrování URL.
+
 Nejčastěji využívané kódy jsou tyto:
 
 \begin{description}
     \item[200 OK] - Vše proběhlo v pořádku.
-    \item[201 Created] - vše proběhlo v pořádku při požadavku POST (data byla zapsána).
-    \item[400 Bad Request] - Server nepřijímá tyto data. Chyba na straně uživatele.
+    \item[201 Created] - Vše proběhlo v pořádku při požadavku POST (data byla zapsána).
+    \item[400 Bad Request] - Server nepřijímá tato data, chyba je na straně uživatele.
     \item[401 Unauthorized] - Klient nemá potřebná oprávnění pro vykonání této akce.
-    \item[404 Not Found] - Adresa či data na které se klient dotazuje neexistují.
+    \item[404 Not Found] - Adresa či data, na které se klient dotazuje, neexistují.
     \item[500 Internal Server Error] - Obecná chyba na straně serveru.
 \end{description}
 
-\subsubsection{Message body}
-Ať už požadavek či odpověď, mohou obsahovat další data. Nikde není specifikováno v jakém formátu budou. Toto rozhodnutí je čistě na programátorech. Ale nejčastěji se používá JSON nebo XML. Jedná se o čistě textovou reprezentaci dat.
-
-Například při požadavku GET pro uživatele s ID 1 server vrátí v message body JSON
-\begin{verbatim}
-	{"name":"Jožko Mrkvička", "age":30}
-\end{verbatim}
-Tento objekt reprezentuje uživatele který se jmenuje Jožko Mrkvička a je mu 30 let.
-
-\subsubsection{Headers}
-V hlavičkách jsou přídavné informace. Ať už kódování body, datum a čas, typ obsahu v body. Nebo na straně klienta autorizaci jako třeba session key.
 
 \subsection{Shrnutí}
-Dnes nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchý a programátor si může sám určit který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný takže je jeho učící křivka rychlá. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory ale díky podpoře cache se může optimalizovat.
+REST je dnes obecně nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchá a programátor si může sám určit, který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný, takže je jeho učící křivka rychlá. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory, což je však možné optimalizovat pomocí cache.
+
 
 \section{SOAP}
-SOAP neboli Simple Object Access Protocol je další z mnoha architektur API. Taktéž využívá aplikační vrstvu HTTP/S ale klidně může využívat jiné aplikační protokoly. Využívá pro přenos dat XML formát.
+SOAP neboli Simple Object Access Protocol je další z mnoha architektur API. Taktéž využívá primárně aplikační vrstvu HTTP/S, ale je možné ho použít i nad jinými protokoly. Je postaven na XML formátu.
 
-Mám se tady rozepsat o tom co je to XML? u JSONU jsem to taky neudělal. Možná tu i rozepíšu JSON.
 
 \subsection{Charakteristika}
-SOAP má tři základní stavební kameny které definují zprávy.
+SOAP je založen na třech základních stavebních kamenech, které definují strukturu přenášených zpráv.
+
 \begin{description}
-    \item[Envelope] Zapouzdřuje celou právu. Určuje jakou strukturu má zpráva mít a jak ji zpracovat
-    \item[Header] Obsahuje informace o zprávě. Například autentizační údaje
-    \item[Body] Samotná data. Obsahují dotazující informace a informace s odpovědí.
-    \item[(Fault message)] Může a nemusí obsahovat. Obsahuje kód chyby, actor, string a detail
+    \item[Envelope] Zapouzdřuje celou zprávu, určuje jakou strukturu má zpráva mít a jak ji zpracovat.
+    \item[Header] Obsahuje informace o zprávě jako jsou například autentizační údaje.
+    \item[Body] Samotná data, obsahují informace, které se mají přenést, ať už se jedná o dotaz nebo odpověď.
+    \item[(Fault message)] Nepovinná část, která obsahuje kód chyby, actor, string a detail.
 \end{description}
 
-Z pohledu klienta je podobné jako RESTful architektura. Klient vygeneruje požadavek ve formátu XML. Poté vygenerovaný SOAP požadavek klient pošle na SOAP server a ten následně vyvolá požadovanou aplikaci běžící na serveru. Odpověď z aplikace s požadovanými daty, parametry a hodnotami přepošle nejdříve SOAP request handleru a následně je odpověď poslána klientovi.
+Z pohledu klienta je SOAP velmi podobný RESTful architektuře. Klient vygeneruje požadavek ve formátu XML a ten pošle na SOAP server, čímž vyvolá požadovanou aplikaci běžící na něm. Odpověď serveru s požadovanými daty, parametry a hodnotami přepošle nejdříve SOAP request handleru, odkud je následně předána klientovi.
 
 \subsection{Výhody}
 \begin{description}
-    \item[Nezávislost na platformě] SOAP může běžet na jakémkoli operačním systému či síťovém protokolu. Což umožňuje komunikaci mezi různými jazyky jak na Windows tak i Linux.
-    \item[HTTP protokol] Primárně se používá HTTP protokol. To je výhoda že se nemusí upravovat firewall. I když funguje na jakémkoli ale tam by se mohlo stát že by se musela upravovat komunikační infrastruktura.
-    \item[Zabezpečení] má vlastní rozšíření Web Services security. Podporuje funkce jako x.509 certifikáty, vlastně-definované tokeny, Kerberos tickety a uživatelské ID/heslo pověření. Taktéž možnost HTTPS přidává vrstvu šifrování.
+    \item[Nezávislost na platformě] SOAP může běžet na jakémkoli operačním systému či síťovém protokolu, což umožňuje komunikaci mezi různými jazyky jak na Windows tak i Linuxu.
+    \item[HTTP protokol] Primárně se používá HTTP protokol, což přináší výhodu, neboť zde není třeba upravovat firewall, ale funguje na jakémkoli protokolu, kde je však nutné komunikační infrastrukturu upravit.
+    \item[Zabezpečení] SOAP má vlastní rozšíření Web Services Security, které podporuje bezpečnostní funkce jako x.509 certifikáty, vývojáři definované tokeny, Kerberos tickety a prověření uživatele pomocí ID a hesla. Jak již bylo zmíněno, i samotná podpora HTTP protokolu přidává vrstvu šifrování.
 \end{description}
 
 \subsection{Nevýhody}
 \begin{description}
-    \item[Rychlost] kvůli vysokému zabudovanému zabezpečení a kvůli serializaci do XML je tento protokol velice pomalý s porovnáním s ostatními
-    \item[Složitost] vzhledem k podpoře více protokolů se nemůže využít funkcí jednotlivých protokolů jako třeba u RESTful cachování a Uniform interface
+    \item[Rychlost] Kvůli vysokému zabudovanému zabezpečení a serializaci do XML je tento protokol velice pomalý v porovnání s ostatními.
+    \item[Složitost] Vzhledem k podpoře více protokolů je nemožné plně využít funkcí jednotlivých protokolů jak je tomu u RESTful, například cachování nebo Uniform interface.
 \end{description}
 
+
 \subsection{Shrnutí}
-Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští aby se optimalizovala rychlost tvořených API. To ale neznamená že se už nepoužívá. Díky jeho bezpečnosti je stále využíván bankami, E-komercí, ve zdravotnicví a všude kde je primární apel na bezpečnost.
+Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští, aby se optimalizovala rychlost tvořených API. To však neznamená, že se už nepoužívá -- díky jeho bezpečnosti je stále využíván bankami, v E-komerci, zdravotnictví a všude, kde je primární apel na bezpečnost.
+
 
 \section{GraphQL}
-GraphQL byl vyvinut Facebookem dnes již Metou. Je to open-source query language a runtime určený pro API. GraphQL poskytuje deklarativní získávání dat kdy si klient přesně určí jaká data potřebuje. Tím pádem je velice šetrný k datům a není třeba mít více endpointů pro různě rozdělená či vyplněná data. Díky tomu že GraphQL může načítat data z různých zdrojů, není závislý na konkrétní databázi či úložišti.
+GraphQL byl vyvinut Facebookem, dnes již známým pod názvem Meta. Jedná se o open-source query language a runtime určený pro API, který poskytuje deklarativní získávání dat, u kterého si klient přesně určí jaká data potřebuje. Je tedy velice šetrný k datům a snižuje nutnost mít více endpointů pro různě rozdělená či vyplněná data. Díky tomu, že GraphQL může načítat data z různých zdrojů, také není závislý na konkrétní databázi či úložišti.
+
 
 \subsection{Design}
-Je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměrného nebo nedostatečného načítání. To celkově zrychluje přenos dat. Využívá typový systém pro definici prostředků které nazýváme schéma. při každém požadavku je query zkontrolována oproti schématu a poté vykonána. Server potom vrátí data ve stejném formátu jako byla query typicky jako JSON.
+GraphQL je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměrného nebo nedostatečného načítání, což celkově zrychluje přenos dat. Pro definici prostředků využívá typový systém nazvaným schéma, proti kterému je zkontrolována query každého požadavku a až poté je vykonána. Server potom vrátí data ve stejném formátu jako zadaná query, typicky se používá JSON.
 
 \begin{listing}[ht!]
     \inputminted[]{ts}{resources/code/standards/playertype.gql}
@@ -133,6 +148,7 @@ Je postaven kolem modelu \textit{dostanu přesně to o co si řeknu} bez nadměr
     \caption{Příklad query v GraphQL}
     \label{code:gql_querry}
 \end{listing}
+
 
 \subsection{Datové typy}
 je jich dost a je tu toho dost co popisovat
@@ -147,15 +163,15 @@ uvidíme jak dlouhé tohle celkově bude
 \end{listing}
 
 \begin{description}
-    \item[Type system] - Základ typového systému je Query. Ta určuje jaké objekty mohou být získány (\coderef{code:gql_type} řádek 29). Vlastnosti ve výchozím stavu mohou nabývat hodnotu \texttt{null}. Z datový typ se může dát vykřičník abychom označili že tato hodnota nikdy nebude \texttt{null}. \textbf{dále datové typy zde}
-    \item[Queries] - Query přesně definuje jaká data klient potřebuje. Za pomocí \coderef{code:gql_querry} dostaneme téměř stejný výsledek jako \coderef{code:json_player} akorát celý JSON bude zabalený do \texttt{"characters": {}}
-    \item[Mutations] - Dovoluje pozměnění, smazání, nebo přidání dat ze strany klienta. Po provedení GraphQL vrátí upravená data. Taktéž definuje jaký tvar vrácená data budou mít. \coderef{code:gql_datatypes} řádek whatever kolik to bude.
-    \item[Subscriptions] - Podpora posílání aktualizací v reálném čase. Dotaz je velice podobný jako u query (\coderef{code:gql_datatypes} řádek subsection)
+    \item[Type system] - Základ typového systému je Query, která určuje, jaké objekty mohou být získány (Výpis \ref{code:gql_type}, řádek 29). Vlastnosti ve výchozím stavu mohou nabývat hodnotu \texttt{null}. Z datový typ se může dát vykřičník abychom označili že tato hodnota nikdy nebude \texttt{null}. \textbf{//todo dále datové typy zde}
+    \item[Queries] - Query přesně definuje, jaká data klient potřebuje. Za pomocí Výpisu \ref{code:gql_querry} dostaneme téměř stejný výsledek jako ve Výpisu \ref{code:json_player}, jen celý JSON s odpovědí bude zabalený do objektu \texttt{"characters": {}}
+    \item[Mutations] - GraphQL povoluje pozměnění, smazání nebo přidání dat ze strany klienta, přičemž po změně vrací upravená data. Taktéž je zde třeba definovat, jaký tvar budou vrácená data mít. (Výpis \ref{code:gql_datatypes}, řádek //todo)
+    \item[Subscriptions] - Podpora je také poskytnuta posílání aktualizací v reálném čase, kde je dotaz velice podobný query. (Výpis \ref{code:gql_datatypes}, řádek 17)
 \end{description}
 
-\section{Shrnutí}
 
-Porovnání dělám na základě vlastních úsudků co bude po naše účely nejlepší styl API. Nepředpokládáme nějaké velké vytížení co se dotazů na API týče. Taktéž potřebujeme něco poměrně jednoduchého a lehce pochopitelného. Zabezpečení není priorita protože zde nebudou uloženy žádné citlivé údaje a bez fyzické hry je API prakticky nevyužitelné. Taktéž není třeba nijak složitě filtrovat která data chceme přijmout, jelikož ve většině případů potřebujeme celé objekty a není zde možnost pro velkou variaci struktury přijímaných objektů;
+\section{Shrnutí}
+Porovnání bylo opět sestaveno na základě vlastních úsudků v nejlepším zájmu pro účely a ideální styl implementace API pro modelovou hru. Co se týče vytížení, tak zde nepředpokládáme velkou zátěž v míře dotazů. Je žádoucí, aby komunikace byla jednoduchá a lehce pochopitelná. Zabezpečení není prioritou, jelikož zde nebudou uloženy žádné citlivé údaje a bez fyzické hry bude API prakticky nevyužitelné. Taktéž není třeba nijak složitě filtrovat přijímaná data, jelikož ve většině případů potřebujeme celé objekty a potenciál pro velkou variaci struktury přijímaných objektů je nízký.
 
 \begin{table}[h]
     \centering
@@ -172,9 +188,6 @@ Porovnání dělám na základě vlastních úsudků co bude po naše účely ne
     \label{tab:comparison_standards}
 \end{table}
 
-Tabulka \ref{tab:comparison_standards} nám srovnává výše zmíněné architektury pro tvorbu API.
-\footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení co bude pro naše použití nejvhodnější}
-\footnote[2]{Známkování je od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas}
-Pro naše účely nejlépe vychází REST díky jeho jednoduchosti a rozšířenosti. Je rychlý a spolehlivý, určen především pro veřejná API s aplikacemi řízených zdroji. SOAP je určen pro velké firmy kde je priorita bezpečnost jako třeba v bankovnictví a taktéž má těžkou učící křivku. GraphQL je určen především pro komplexní systémy vyžadující flexibilní data.
+Tabulka \ref{tab:comparison_standards} srovnává výše zmíněné architektury pro tvorbu API. Bodování je vytvořeno se stejnými pravidly, jako tomu bylo v Tabulce \ref{tab:formats_comparison}. Pro účely modelové hry nejlépe odpovídá REST díky jeho jednoduchosti a rozšířenosti. Je rychlý a spolehlivý, využívá se především pro veřejná API s aplikacemi řízených zdroji. SOAP je určen pro velké firmy, kde je prioritizovaná bezpečnost jako a taktéž má příkrou učící křivku. GraphQL je určen především pro komplexní systémy vyžadující flexibilní data. Proto bude v rámci práce implementována komunikace přes RESTful API.
 
 \endinput
