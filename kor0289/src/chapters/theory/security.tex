@@ -23,7 +23,8 @@ API klíčů může být využito víc, například pro specifikování uživate
 Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401, který značí neoprávněný přístup (Výpis \ref{code:api_key} řádek 11-16).
 
 
-\section{JSON Web Token} %TODO cite or smthng https://jwt.io/introduction
+\section{Json Web Token} %TODO cite or smthng https://jwt.io/introduction
+\label{sec:jwt}
 JWT je otevřená industriální standardizovaná % \verb|\glossary{rfc7519}| TODO
 metoda pro bezpečné přeposílání zpráv ve formátu JSON mezi dvěma stranami. Tyto objekty mohou být zkontrolovány a následně je možné ověřit jejich autenticitu, protože jsou digitálně podepsány prostřednictvím tajného klíče nebo páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
 
@@ -86,7 +87,7 @@ Jedná se o nejčastěji používanou metodu, především z důvodu optimalizac
 \end{figure}
 
 
-Na obrázku \ref{fig:Oauth_auth_flow} je popsán průběh výměny autorizačního kódu. 
+Na obrázku \ref{fig:Oauth_auth_flow} je popsán průběh výměny autorizačního kódu.
 
 // todo refactor this
 Nejdříve je uživateli poskytnut autorizační URL. Zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 

@@ -1,0 +1,28 @@
+{
+  "data": {
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGlmaWVyIjoiWk9aT1ZBLVNLMExLQSIsInZlcnNpb24iOiJ2Mi4yLjAiLCJyZXNldF9kYXRlIjoiMjAyNC0wNC0wOSIsImlhdCI6MTcxMjkzMjE2NCwic3ViIjoiYWdlbnQtdG9rZW4ifQ.jY5ZA6nztznPPUOYFKJ_OalRiyGEvHtzhtZ0wAE14X5tWgtxZjdie5d1uhJd-jLQn3HaVhGfomYaIegrNWExeSBsarDe7yNRV4lHzc6YS_BF7FL0vVyfz78x5T83_jWzmRphFYIEYaej55dhTwu2ua35FLhFK1ZxOKoI3i8gwdv4ih9FuiQgNQlwDwDJwHqkX-c_8r6dHbmWfxeDPTF6WZn0c0o7Cad5sQ1-P1CP2T1tamkWY9duuLF8-ADCZGzbfTQHM3bPVgBCJPRnUSrj92dOY01zA5TtH0g8ZSlW2UqFEMJMN92_3MQgYM91ZqG6aKqor-i-RXf2ndHjVIr32w",
+    "agent": {
+      "accountId": "cluwrl0y70h71s60c3dib4gcb",
+      "symbol": "ZOZOVA-SK0LKA",
+      "headquarters": "X1-XR13-A1",
+      "credits": 175000,
+      "startingFaction": "COSMIC",
+      "shipCount": 0
+    },
+    "contract": {
+      "id": "cluwrl1020h73s60cfbaan6a0",
+      "factionSymbol": "COSMIC",
+      "type": "PROCUREMENT"
+      //other fields
+    },
+    "faction": {
+      "symbol": "COSMIC",
+      "name": "Cosmic Engineers",
+      "description": "The Cosmic Engineers are a group of highly advanced scientists and engineers who seek to terraform and colonize new worlds, pushing the boundaries of technology and exploration."
+      // other fields
+    },
+    "ship": {
+      // toher fields
+    }
+  }
+}

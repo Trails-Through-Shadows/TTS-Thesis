@@ -1,4 +1,4 @@
-\chapter{Standardy využívané pro tvorbu API}
+\chapter{Standardy využívané pro tvorbu API}[!ht]
 V této kapitole si porovnáme a představíme různé architektury, které se používají pro tvorbu \gls{api}.
 Hlavní často využívané nástroje, které si představíme, jsou REST, GraphQL a SOAP.
 
@@ -66,11 +66,11 @@ Unique resource identifier je unikátní identifikátor pro určitá data. V kon
 Jak již bylo zmíněno výše, RESTful API typicky používá HTTP/S protokol, z něhož také přebírá metody pro komunikaci, které jsou zde ve zkratce rozepsány.
 
 \begin{description}
-    \item[GET] - Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
-    \item[POST] - Požadavek pro vložení kompletně nových dat, přenášených v message body. S opakovaným voláním se zde opět vloží zase ta stejná data.
-    \item[PUT] - Požadavek pro úpravu dat, opět vložených do message body. Opakované volání vrátí vždy stejný výsledek.
-    \item[DELETE] - Požadavek pro smazání dat.
-    \item[PATCH] - Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt, ale pouze změny.
+    \item[GET] -- Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
+    \item[POST] -- Požadavek pro vložení kompletně nových dat, přenášených v message body. S opakovaným voláním se zde opět vloží zase ta stejná data.
+    \item[PUT] -- Požadavek pro úpravu dat, opět vložených do message body. Opakované volání vrátí vždy stejný výsledek.
+    \item[DELETE] -- Požadavek pro smazání dat.
+    \item[PATCH] -- Požadavek pro částečnou úpravu dat. Není třeba posílat celý objekt, ale pouze změny.
 \end{description}
 
 
@@ -83,12 +83,12 @@ Stavové kódy slouží k rychlé identifikaci toho, daný požadavek dopadl, zd
 Nejčastěji využívané kódy jsou tyto:
 
 \begin{description}
-    \item[200 OK] - Vše proběhlo v pořádku.
-    \item[201 Created] - Vše proběhlo v pořádku při požadavku POST (data byla zapsána).
-    \item[400 Bad Request] - Server nepřijímá tato data, chyba je na straně uživatele.
-    \item[401 Unauthorized] - Klient nemá potřebná oprávnění pro vykonání této akce.
-    \item[404 Not Found] - Adresa či data, na které se klient dotazuje, neexistují.
-    \item[500 Internal Server Error] - Obecná chyba na straně serveru.
+    \item[200 OK] -- Vše proběhlo v pořádku.
+    \item[201 Created] -- Vše proběhlo v pořádku při požadavku POST (data byla zapsána).
+    \item[400 Bad Request] -- Server nepřijímá tato data, chyba je na straně uživatele.
+    \item[401 Unauthorized] -- Klient nemá potřebná oprávnění pro vykonání této akce.
+    \item[404 Not Found] -- Adresa či data, na které se klient dotazuje, neexistují.
+    \item[500 Internal Server Error] -- Obecná chyba na straně serveru.
 \end{description}
 
 

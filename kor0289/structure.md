@@ -40,8 +40,28 @@
 
 nvm potřebuju novou onovu tohle je k ničemu
 
-- analýza požadavků
-  - 
+- analýza
+  - analýza existujících API
+  - analýza našich požadavků
+  - návrh db
+    - nějaký fancy model db nebo tak něco
+  - návrh api
+
+- implementace
+  - vodopádový model
+  - spolupráce v rtýmu a git and so on
+  - vývoj
+    - jak fungujou věci v springbootu
+    - pokud bude spring security
+    - jpa
+    - lombok
+    - jackson
+    - openapi a swagger
+    - how to lazy load
+    - how to query param
+    - testy (not implemented)
+    - 
+
 
 ## 4. Závěr
 

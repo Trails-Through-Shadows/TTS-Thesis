@@ -5,7 +5,7 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
 \usepackage{float} % lepsi umistovani obrazku (H)
-
+\usepackage{xparse} % lepsi commandy s optional params
 % minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
 \immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
@@ -45,11 +45,15 @@
 \addbibresource{resources/sauce.bib}
 
 
-% ujebáno a znárodněno % stejně to je úplně k hovnu
-\newcommand{\chapterref}[1]{(Kapitola \ref{#1})}
-\newcommand{\imageref}[1]{(Obrázek \ref{#1})}
-\newcommand{\tableref}[1]{(Tabulka \ref{#1})}
-\newcommand{\coderef}[1]{(Výpis \ref{#1})}
+% Commandy pro snadnější psaní
+\NewDocumentCommand{\chapterref}{mO{}}{(Kapitola \ref{#1}#2)}
+\NewDocumentCommand{\sectionref}{mO{}}{(Sekce \ref{#1}#2)}
+\NewDocumentCommand{\subsectionref}{mO{}}{(Podsekce \ref{#1}#2)}
+\NewDocumentCommand{\tableref}{mO{}}{(Tabulka \ref{#1}#2)}
+\NewDocumentCommand{\coderef}{mO{}}{(Výpis \ref{#1}#2)}
+\NewDocumentCommand{\figureref}{mO{}}{(Obrázek \ref{#1}#2)}
+\NewDocumentCommand{\listingref}{mO{}}{(Výpis \ref{#1}#2)}
+
 
 % Glossary stuff
 \usepackage{glossaries}

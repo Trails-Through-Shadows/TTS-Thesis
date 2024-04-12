@@ -1,0 +1,10 @@
+//Response status code : 400 Bad Request
+{
+  "error": {
+    "message": "Ship action failed. Ship is not currently in orbit at X1-HM65-H55.",
+    "code": 4236,
+    "data": {
+      "waypointSymbol": "X1-HM65-H55"
+    }
+  }
+}
