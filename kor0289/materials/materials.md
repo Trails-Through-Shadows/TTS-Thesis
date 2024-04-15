@@ -61,5 +61,3 @@ graphql
 
 - zkontroluj si pak jestli jsou všechny ty výpisy zmíněny v textu
 - máš ošklivé tabulky, radši bych to předělala na využití bookmarks a rules
-
-- hej můžeš se zmínit o jsonc

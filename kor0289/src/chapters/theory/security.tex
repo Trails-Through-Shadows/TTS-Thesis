@@ -40,7 +40,7 @@ V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzz
     \item[Signature] Podpis se vytvoří kombinací headeru, payloadu a secretu a zašifruje se příslušným algoritmem. (Výpis \ref{code:JWT_example}, řádek 15)
 \end{description}
 
-\begin{listing}[ht]
+\begin{listing}[ht!]
     \inputminted[]{json}{resources/code/security/JWT.jsonc}
     \caption{Příklad hlavičky, obsahu a podpisu v JWT} % TODO whatever nějaké cite nebo něco https://jwt.io/introduction
     \label{code:JWT_example}
@@ -61,15 +61,15 @@ Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem
 \subsection{Role}\label{sec:Oauth_roles}
 V této části se zaměříme na klíčové role v procesu autentizace a autorizace v rámci OAuth 2.0 protokolu.
 
-\begin{description}
-    \item[Resource owner] je uživatel, který povoluje přístup aplikace k jeho účtu, jenž je limitován rozsahem uděleného oprávnění.
-    \item[Client] je aplikace, která žádá o přístup k uživatelskému účtu. Tu musí nejdříve uživatel oprávnit a oprávnění musí validováno API.
-    \item[Resource server] má uložená uživatelská data a HTTP služby,které mohou poskytovat uživatelská data autentizovaným klientům.
-    \item[Authorization server] je zodpovědný za ověření uživatelské identity a poskytování autentizačního tokenu. Tento token je následně přijímán resource serverem.
-\end{description}
+\begin{itemize}
+    \item Resource owner je uživatel, který povoluje přístup aplikace k jeho účtu, jenž je limitován rozsahem uděleného oprávnění.
+    \item Client je aplikace, která žádá o přístup k uživatelskému účtu. Tu musí nejdříve uživatel oprávnit a oprávnění musí validováno API.
+    \item Resource server má uložená uživatelská data a HTTP služby,které mohou poskytovat uživatelská data autentizovaným klientům.
+    \item Authorization server je zodpovědný za ověření uživatelské identity a poskytování autentizačního tokenu. Tento token je následně přijímán resource serverem.
+\end{itemize}
 
 
-\begin{figure}[H]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=\textwidth]{figures/OAuth_abstract_flow.pdf}
     \caption{Abstraktní průběh protokolu}%\cite{https://medium.com/@greekykhs/ro-acd8cb4cc0f4#:~:text=OAuth%202.0%20defines%20four%20roles,Resource%20Server%20and%20Authorization%20Server.}} TODO 
@@ -80,7 +80,7 @@ V této části se zaměříme na klíčové role v procesu autentizace a autori
 \subsection{Grant type: Authorization code}
 Jedná se o nejčastěji používanou metodu, především z důvodu optimalizace pro stranu serveru. Autorizační server zde vrací autorizační kód na jedno použití, který je pak vyměněn za přístupový token, podobně jako když se uživatelé přihlašují do webových aplikací s jejich Facebook nebo Google účtem.
 
-\begin{figure}[ht]
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=\textwidth]{figures/Oauth auth flow.pdf}
     \caption[short]{Průběh autorizace pomocí autorizačního kódu}%TODO https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
