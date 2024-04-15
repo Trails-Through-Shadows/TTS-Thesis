@@ -1,0 +1,9 @@
+// Response
+{
+  "data": {
+    "user": {
+      "name": "John Doe",
+      "email": "johndoe@hygraph.com"
+    }
+  }
+}
