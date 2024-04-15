@@ -68,9 +68,10 @@ V této části se zaměříme na klíčové role v procesu autentizace a autori
     \item[Authorization server] je zodpovědný za ověření uživatelské identity a poskytování autentizačního tokenu. Tento token je následně přijímán resource serverem.
 \end{description}
 
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/OAuth_abstract_flow.png}
+    \includegraphics[width=\textwidth]{figures/OAuth_abstract_flow.pdf}
     \caption{Abstraktní průběh protokolu}%\cite{https://medium.com/@greekykhs/ro-acd8cb4cc0f4#:~:text=OAuth%202.0%20defines%20four%20roles,Resource%20Server%20and%20Authorization%20Server.}} TODO 
     \label{fig:Oauth_roles_diagram}
 \end{figure}
@@ -81,19 +82,17 @@ Jedná se o nejčastěji používanou metodu, především z důvodu optimalizac
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figures/OAuth_code_flow.png}
+    \includegraphics[width=\textwidth]{figures/Oauth auth flow.pdf}
     \caption[short]{Průběh autorizace pomocí autorizačního kódu}%TODO https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
     \label{fig:Oauth_auth_flow}
 \end{figure}
 
 
 Na obrázku \ref{fig:Oauth_auth_flow} je popsán průběh výměny autorizačního kódu.
-
-// todo refactor this
-Nejdříve je uživateli poskytnut autorizační URL. Zde se musí přihlásit do přihlašovací služby. Poté potvrdí či zamítnou aplikaci přístup k jejich účtu. Aplikace poté obdrží autorizační kód třeba přes query param %(TODO query param \verb|\ref{desc:query_param}|) 
-v URL. Aplikace poté požádá o přístupový token s dalšími autentizačními detaily. A nakonec aplikace dostane přístupový token \textit{případně obnovovací token} pokud autorizace je validní.
+Jedná se o dvoufázový proces.
+Nejdříve je aplikace vytvoří autorizační URL a otevře ji v prohlížeči, zde se uživatel přihlásí a tím se ověří na autorizačním serveru, takže aplikace nebude mít informace o uživatelských přihlašovacích údajích. Aplikace poté v odpovědi obdrží autorizační kód a ten je poté odeslán zpět na autorizační server, který vrátí přístupový token.
 
 
 \section{Shrnutí}
-Jako nejvhodnější styl zabezpečení pro modelovou hru se zdá být API klíč, a to z důvodu jeho jednoduchosti na implementaci, i přes to, že v případě, kdy se uživatelé přihlašují, je vhodný také OAuth2. Z časových důvodů a kvůli nízké škále uživatelských privilegií (administátor, který bude používat backoffice s přímým přístupem na databázi, a uživatelé, kteří budou hru hrát) jsme vybrali právě API klíč. // TODO možná JWT ještě nevíme.
+Jako nejvhodnější styl zabezpečení pro modelovou hru se zdá být API klíč, a to z důvodu jeho jednoduchosti na implementaci, i přes to, že v případě, kdy se uživatelé přihlašují, je vhodný také OAuth2. Z časových důvodů a kvůli nízké škále uživatelských privilegií (administátor, který bude používat backoffice s přímým přístupem na databázi, a uživatelé, kteří budou hru hrát) jsme vybrali právě API klíč.
 

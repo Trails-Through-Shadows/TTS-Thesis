@@ -50,3 +50,16 @@ graphql
 
 - technologie jako http json rest graphql a take fajne věci
   - https://dspace.cvut.cz/bitstream/handle/10467/102079/F8-BP-2022-Franklova-Olivie%20Abigail-thesis.pdf?sequence=-1&isAllowed=y
+
+
+
+
+
+
+
+  # reálné chyby
+
+- zkontroluj si pak jestli jsou všechny ty výpisy zmíněny v textu
+- máš ošklivé tabulky, radši bych to předělala na využití bookmarks a rules
+
+- hej můžeš se zmínit o jsonc

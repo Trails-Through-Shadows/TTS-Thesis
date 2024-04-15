@@ -1,0 +1,24 @@
+# Query
+  query {
+    user (id: 1) {
+      name
+      email
+    }
+  }
+
+
+# Nested Query
+  query {
+    user(id: 1) {
+      name
+      email
+      address {
+        street
+        city
+        country {
+          name
+          capital
+        }
+      }
+    }
+  }

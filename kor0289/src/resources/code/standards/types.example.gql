@@ -36,3 +36,9 @@ enum GENDER {
     FEMALE
     OTHER
   }
+
+type User {
+  email: String!
+  city: String
+  hobbies: [String]
+}

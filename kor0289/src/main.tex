@@ -6,6 +6,9 @@
 \usepackage{subfig} % makra pro "pod-obrázky" a "pod-tabulky"
 \usepackage{float} % lepsi umistovani obrazku (H)
 \usepackage{xparse} % lepsi commandy s optional params
+\usepackage{hyperref} % vkladani hypertextovych odkazu
+\usepackage{enumitem} % lepsi enumerate a descrition and so on
+
 % minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
 \immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
@@ -46,13 +49,13 @@
 
 
 % Commandy pro snadnější psaní
-\NewDocumentCommand{\chapterref}{mO{}}{(Kapitola \ref{#1}#2)}
-\NewDocumentCommand{\sectionref}{mO{}}{(Sekce \ref{#1}#2)}
-\NewDocumentCommand{\subsectionref}{mO{}}{(Podsekce \ref{#1}#2)}
-\NewDocumentCommand{\tableref}{mO{}}{(Tabulka \ref{#1}#2)}
-\NewDocumentCommand{\coderef}{mO{}}{(Výpis \ref{#1}#2)}
-\NewDocumentCommand{\figureref}{mO{}}{(Obrázek \ref{#1}#2)}
-\NewDocumentCommand{\listingref}{mO{}}{(Výpis \ref{#1}#2)}
+\NewDocumentCommand{\chapterref}{mO{}}{(\hyperlink{#1}{Kapitola \ref*{#1}#2})}
+\NewDocumentCommand{\sectionref}{mO{}}{(\hyperref[#1]{Sekce \ref*{#1}#2})}
+\NewDocumentCommand{\subsectionref}{mO{}}{(\hyperref[#1]{Podsekce \ref*{#1}#2})}
+\NewDocumentCommand{\tableref}{mO{}}{(\hyperref[#1]{Tabulka \ref*{#1}#2})}
+\NewDocumentCommand{\coderef}{mO{}}{(\hyperref[#1]{Výpis \ref*{#1}#2})}
+\NewDocumentCommand{\figureref}{mO{}}{(\hyperlink{#1}{Obrázek \ref*{#1}#2})}
+\NewDocumentCommand{\listingref}{mO{}}{(\hyperlink{#1}{Výpis \ref*{#1}#2})}
 
 
 % Glossary stuff
