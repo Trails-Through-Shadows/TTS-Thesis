@@ -1,7 +1,7 @@
 \chapter{Uživatelské rozhraní}
+Grafická uživatelská rozhraní (GUI) jsou klíčovým prvkem většiny aplikací. Jsou to první, co uživatel uvidí a co mu umožní s aplikací interagovat. Dobře navržené GUI může znamenat rozdíl mezi úspěchem a neúspěchem aplikace. Měl by být intuitivní, snadno ovladatelné a příjemné na pohled. V následující kapitola bude věnována základním principům designu GUI.
 
 \section{Stručná historie GUI}
-***Možná rozepsat?***
 Počátek grafických rozhraní se datuje do osmdesátých let minulého století, kdy firma Xerox vyvinula počítač Alto. Jednalo se o první počítač, jehož rozhraní se skládalo z oken, ikon a používalo myš k ovládání. Toto grafické rozhraní pak posloužilo jako odrazový můstek a základ dalším projektům. Jeden z nich byl například Apple Macintosh, který grafické uživatelské rozhraní popularizoval. Dále přišel operační systém Windows, který GUI posunul ještě dál mezi mainstreamové uživatele. GUI se postupem let vyvíjelo společně s novými technologiemi a nyní je neoddělitelnou součástí téměř všech počítačových systémů.
 
 \section{Zásady vývoje webového GUI}
@@ -102,7 +102,7 @@ Zabezpečení proti nesprávným vstupům z uživatelovy strany je podstatná pr
 Pokud se uživatel rozmyslí, či udělá chybu, měl by mít možnost svou akci jednoduše zrušit a vrátit se do předešlého stavu stránky.
 
 \subsubsection*{Locus of control}
-Tento fenomén by se dal volně přeložit jako těžiště řízení. Uživatelé chtějí mít pocit, že aplikaci řídí a že rozhraní reaguje na jejich akce. Takového pocitu můžeme mimo jiné dosáhnout tím, že se zeptáme na potvrzení nějaké akce, například odchod ze stránky s neuloženými daty. Tím uživateli dáme pocit větší kontroly.
+Tento fenomén by se dal volně přeložit jako těžiště řízení. Uživatelé chtějí mít pocit, že aplikaci řídí a že rozhraní reaguje na jejich akce. Takového pocitu můžeme mimo jiné dosáhnout tím, že se zeptáme na potvrzení nějaké akce, například odchodu ze stránky s neuloženými daty. Tím uživateli dáme pocit větší kontroly.
 
 \subsubsection*{Minimalizace nároků na uživatele}
 Klíčová zásada pro uživatelské rozhraní je minimalizace kognitivní zátěže. Kognitivní zátěž může snížit uživatelovu schopnost vykonávat důležité úkoly, proto je kritické, aby počítače převzaly co nejvíce úkonů na sebe. Uživateli můžeme vypomoci třeba zapamatováním si jeho přihlašovacích, či osobních údajů. aby je nemusel zadávat při každém přihlášení. Při návrhu bychom měli vždy dávat přednost rozpoznání před vzpomínáním, abychom uživatelům umožnili rychle a bez problémů dokončit své úkoly.
@@ -111,6 +111,7 @@ Klíčová zásada pro uživatelské rozhraní je minimalizace kognitivní zát�
 Jedna z nejdůležitějších vlastností moderního GUI. Responzivní design zajišťuje, že stránka bude vypadat dobře na všech zařízeních, od mobilních telefonů až po stolní počítače a to pomocí změny velikosti, schování, či přesunutí prvků na stránce. K tomu se využívají vlastnosti jazyka CSS, nejčastěji media queries, které umožňují nastavit různé styly pro různé velikosti obrazovek. Responzivní design je v dnešní době kriticky potřebný, protože většina uživatelů používá k prohlížení internetu mobilní zařízení a je důležité, aby se jim stránka zobrazila správně a byla snadno použitelná.\cite{responsive_design}
 
 \section{GUI ve vybraných hybridních hrách}
+Tato sekce se bude věnovat analýze uživatelského rozhraní několika vybraných hybridních her. Jedná se o hry, které jsou v současné době populární a mají velkou základnu hráčů. Analýza bude zahrnovat vzhled a funkce GUI, které hra poskytuje.
 
 \subsection{Na vlnách neznáma}
 Tato aplikace je vyvíjena a udržována společností Plaid Hat Games, která vydala i samotnou hru. Jde o oficiální rozšíření a hlavní způsob, jak hru hrát. Společnost později vydala i pdf, které do určité míry tuto aplikaci nahrazuje, ale hráčům poskytuje méně možností. Jedná se o webovou aplikaci, kterou je možné stáhnout a používat offline, avšak bez některých funkcionalit, jako jsou například rozšíření, či audio nahrávky.
@@ -122,10 +123,10 @@ Kompaktní vzhled aplikace napovídá, že byla primárně určena pro mobilní 
 Při spuštění hry se zobrazí výběr příběhové linky, kterou chtějí uživatelé zažít. Po vybrání se zobrazí stránka s textovým polem, do něhož hráči mohou zadat číslo záznamu, který chtějí zobrazit. Toto číslo je jim oznámeno v předešlém záznamu, či v knize lokací a závisí na jejich dosavadních rozhodnutích. Dále je na stránce možnost zobrazit, jak mají hráči připravit herní plochu, statistiky jejich lodi a karty. Na stránce je také možnost zapnutí odpočtu, pokud se hráči rozhodují moc dlouho, či náhled historie zobrazených záznamů.
 
 Aplikace slouží převážně k zobrazování výše zmíněných záznamů a k podporování imerze přehráváním ambientních zvuků a audionahrávek s narací příběhu. Mimo jiné také napomáhá s událostmi ve hře, jako například boji tím, že za pomoci uživatelových vstupů kontroluje statistiky nepřátel.
+\pagebreak
 
 \subsection{Gloomhaven Secretariat}
 Aplikace Gloomhaven Secretariat je fanouškovskou aplikací, která vychází z nyní již zrušené aplikace Gloomhaven Helper. Jedná se o jednostránkovou webovou aplikaci sestavenou v Angularu. Jedná se o open-source software, na kterém se podílí množství fanoušků Gloomhavenu a je stále ve vývoji.\cite{gloomhaven_secretariat_github}
-\pagebreak
 
 \subsubsection{UI}
 Aplikace je určena pro desktop, či jiná zařízení s velkou obrazovkou. Je sice použitelná i na mobilních zařízeních, ale jedná se pouze o zmenšenou verzi klasické stránky bez dalších úprav, což znamená, že některá tlačítka jsou příliš malá pro pohodlné používání. Obsah se také zdá být poměrné jednoduchý, avšak už není tak intuitivní, jako u předešlého příkladu. Vzhled UI, je příjemně a čistě vypadající a navíc tematicky věrný samotné hře. Navigace po základní stránce je poměrně přímočará, avšak to samé už se nedá říct o rozsáhlých menu, které se skrývají téměř pod každým tlačítkem. Ty se mohou zdát na první pohled nepřehledné a u velké části z nich je nedostatek popisků, či vysvětlení, jak vlastně jednotlivá tlačítka fungují. Uživatel si tak musí nejprve odzkoušet, co vše je možné, což může být zdlouhavé a frustrující. Zároveň bych však chtěl podotknout, že aplikace má tlačítko zpět, kterým může uživatel vrátit opravdu jakoukoliv akci, takže pokud hráč udělá nějakou chybu, je snadné ji opět napravit. Obdobně je zde i tlačítko vpřed. Stránka také potřebuje neustálé vstupy od uživatele, aby dokázala správně plnit svou funkci, ty jsou však také někdy neintuitivní a jejich zadávání často zdlouhavé a repetitivní.
@@ -134,6 +135,7 @@ Aplikace je určena pro desktop, či jiná zařízení s velkou obrazovkou. Je s
 Hned na úvodní stránce dostane uživatel možnost výběru příběhové linie, kterou chce začít a následně ho stránka vyzve k přidání postav. Dále je možnost přidat nepřátele postupně, či spustit takzvaný scénář, což je v pravidlech popsaná kombinace nepřátel, kteří se vyskytují v určité části příběhu. Při boji aplikace zobrazuje statistiky postav a nepřátel, jejich aktuální stavy a efekty a umožňuje je hráči kontrolovat a upravovat. Stránka také sama náhodně vybírá z možností nepřátelských akcí a umožňuje hráčům za monstra "táhnout karty" a tím udávat sílu a efekt těchto akcí. Další možnosti aplikace zahrnují vedení globálních statistik skupiny, jejich úspěšnosti, odemčených lokací a dalších věcí. Zároveň umožňuje ukládání a stahování dat několika započatých her najednou.
 
 Nutno říci, že aplikace je skutečně multifunkční a nabízí hráčům velké množství automatizace a ukládání dat. Tím velmi ulehčuje hru, zkracuje čas její přípravy a zároveň zabraňuje chybám, které by mohly vzniknout při ručním vedení statistik.
+\pagebreak
 
 \section{Volba technologií pro vývoj GUI}
 Zprvopočátku jsem vytvořil prototyp GUI v čistém HTML a CSS, abych věděl, jak bude samotný produkt zhruba vypadat. Poté jsem svou pozornost obrátil na výběr technologií, které budu pro vývoj GUI používat. Hlavními kandidáty byly frameworky React, Angular a Svelte.
@@ -147,6 +149,7 @@ React využívá virtuální DOM, který zajišťuje rychlejší a efektivnějš
 
 \subsubsection{Angular}
 Angular je další z vysoce populárních frameworků pro vývoj UI. Opět se jedná o open-source platformu, nyní však vyvinutou a udržovanou společností Google. Angular je založen na jazyce TypeScript a stejně jako React využívá komponentového přístupu a deklarativního programovacího paradigmatu. Jeho převážný význam spočívá ve vytváření rozsáhlých dynamických webových aplikací. Na rozdíl od Reactu se jedná o plněhodnotný framework, který používá reálný DOM. Samotný framework je robustní a bezpečný, což z něj dělá ideální volbu pro vývoj aplikací, které pracují s citlivými daty. Na druhou stranu je však poměrně složitý a náročný na výkon, což je pro menší aplikace nevhodné.\cite{what_is_angular,angular_vs_react}
+\pagebreak
 
 \subsubsection{Svelte}
 Svelte je moderní framework pro tvorbu webových aplikací. Jedná se o open-source software vyvinutý Richem Harrisem. Svelte se od ostatních frameworků liší tím, že se jeho kód při buildu převede na čistý optimalizovaný JavaScript. Tím se výsledná aplikace značně zrychlí a zároveň se sníží nároky na výkon na straně uživatele. Svelte také nabízí velmi jednoduchý a přívětivý způsob psaní kódu, který vývoj aplikace urychlí. Dokáže také pracovat s TypeScript soubory bez nutnosti jejich předešlé kompilace, což výsledný kód dělá mnohem bezpečnějším a přehlednějším.\cite{svelte_and_why_you_should_consider_it,svelte}
@@ -155,4 +158,4 @@ Svelte je moderní framework pro tvorbu webových aplikací. Jedná se o open-so
 Vzhledem k tomu, že projekt obnáší vytvořiení GUI pro hybridní stolní hru, která nebude nijak extrémně rozsáhlá, a zároveň bude potřebovat co největší rychlost a efektivitu, byl nakoinec vybrán framework Svelte. Ten nabízí všechny potřebné funkce a zároveň je velmi rychlý a efektivní. Jeho jednoduchost by také měla přispět k rychlejšímu vývoji bez dalších větších problémů.
 
 \subsection{Další technologie}
-Dále jsem se rozhodl používat CSS knihovny, které dokáží ušetřit práci s designem a responzivitou a zároveň zrychlí vývoj aplikace. Jako hlavní kandidáti se ukázaly Bootstrap a Tailwind CSS. Bootstrap je velmi populární knihovna, která nabízí spoustu předpřipravených komponent a stylů. Tailwind CSS je naopak známý svou flexibilitou a možnostmi přizpůsobení.
+Dále jsem se rozhodl používat CSS knihovny, které dokáží ušetřit práci s designem a responzivitou a zároveň zrychlí vývoj aplikace. Jako hlavní kandidáti se ukázaly Bootstrap a Tailwind CSS. Bootstrap je velmi populární knihovna, která nabízí spoustu předpřipravených komponent a stylů. Tailwind CSS je naopak známý svou flexibilitou a možnostmi přizpůsobení. Hlavně však díky svým zkušenostem s Bootstrapem jsem se rozhodl použít právě tuto knihovnu.
