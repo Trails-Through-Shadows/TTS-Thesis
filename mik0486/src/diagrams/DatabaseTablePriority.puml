@@ -1,0 +1,118 @@
+@startuml
+
+object Achievement
+object Effect
+object License
+
+object Hex {
+	+ Enemy
+	+ Obstacle
+}
+
+object Part {
+	+Hex[]
+}
+
+object Action {
+    -MovementAction(Effect)
+    -SkillAction(Effect)
+    -AttackAction(Effect)
+    -RestoreCardAction(Effect)
+    +SummonAction[]
+}
+
+object Summon {
+    +Effect[]
+    +Action
+}
+
+object Class {
+    +Action[]
+    +Effect[]
+}
+
+object Race {
+    +Action[]
+    +Effect[]
+}
+
+object Enemy {
+    +Action[]
+    +Effect[]
+}
+
+object Item {
+    +Action
+    +Effect[]
+}
+
+object Obstacle {
+    +Effect[]
+}
+
+object Location {
+    +Part[]
+}
+
+object Stories {
+    +Location
+}
+
+object SummonAction {
+    +Summon
+    +Action
+}
+
+object Campaign {
+    +Location[]
+    +Achievement[]
+}
+
+object Adventure {
+	+Achievement[]
+    +Campaign
+    +License
+}
+
+object Character {
+    +Adventure
+    +Race
+    +Class
+}
+
+Effect --> Race
+Effect --> Obstacle
+Effect --> Item
+Effect --> Enemy
+Effect --> Class
+
+Action <-d- Effect
+Action -> Enemy
+Action -> Item
+Action -> Race
+Action -l-> Class
+Action ---> SummonAction
+Action --[dashed]> Summon : late binding
+
+Summon -r-> SummonAction
+Effect --> Summon
+
+Hex <-u- Enemy
+Hex <-u- Obstacle
+Hex --> Part
+Part --> Location
+
+Character <-u- Class
+Character <-u- Race
+
+License -d-> Adventure
+
+Adventure -> Character
+Adventure <-d- Campaign
+
+Campaign <-- Achievement
+Campaign <- Location
+
+Location -r-> Stories
+
+@enduml

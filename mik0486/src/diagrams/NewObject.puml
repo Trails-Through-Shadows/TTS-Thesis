@@ -1,0 +1,87 @@
+@startuml
+'title Vložení nového objektu
+skinparam maxMessageSize 250
+skinparam SequenceLifeLineBackgroundColor #DDD
+skinparam ActorBackgroundColor #FFF
+skinparam ParticipantBackgroundColor #FCC
+hide footbox
+
+actor Uživatel as User
+participant "Webová aplikace" as WebApp
+participant "API" as API
+
+activate User
+== Požadavek na zobrazení stránky ==
+
+User -> WebApp: Kliknutí na tlačítko pro vložení nového objektu změna nebo existujícího objektu
+activate WebApp
+
+create Form
+WebApp -> Form: Vytvoření nového formuláře
+activate Form
+
+Form --> User: Vykreslení formuláře
+
+alt Editace existujícího objektu
+	WebApp -> API: Získání dat objektu
+	activate API
+
+	API --> WebApp: Data objektu
+	deactivate API
+
+	WebApp --> Form: Data objektu
+	deactivate WebApp
+
+	Form --> User: Vykreslení formuláře s daty objektu
+end
+
+group Vyplňování formuláře [smyčka]
+	User -> Form: Vložení dat do formuláře
+
+	group Validace dat [Validní data]
+		Form -> API: Ověření dat
+		activate API
+
+		API -> API: Validace dat
+		API --> Form: Data validní
+
+		Form --> User: Notifikace o správných datech
+	else Nevalidní data
+		API --> Form: Data nevalidní
+		deactivate API
+
+		Form --> User: Notifikace o chybě
+	end
+end
+
+group Odeslání dat [Úspěšné vložení]
+	User -> WebApp: Kliknutí na tlačítko pro odeslání dat
+	activate WebApp
+
+	Form -> WebApp: Získání dat z formuláře
+	destroy Form
+
+	WebApp --> User: Notifikace o průběhu odesílání
+
+	WebApp -> API: Odeslání dat
+	activate API
+
+	hnote over WebApp, API
+		Průběh validace dat, <b>vyobrazena výše
+	end hnote
+
+	API -> API: Uložení dat
+
+	API --> WebApp: Potvrzení odeslání dat
+	WebApp --> User: Notifikace o úspěšném vložení
+else Neúspěšné vložení
+	API --> WebApp: Chyba při ukládání dat
+	deactivate API
+
+	WebApp --> User: Notifikace o chybě
+end
+
+WebApp --> User: Přesměrování na seznam objektů
+deactivate WebApp
+
+@enduml

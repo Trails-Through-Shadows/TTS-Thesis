@@ -1,0 +1,40 @@
+@startuml
+'title Zobrazení stránky
+skinparam maxMessageSize 250
+skinparam SequenceLifeLineBackgroundColor #DDD
+skinparam ActorBackgroundColor #FFF
+skinparam ParticipantBackgroundColor #FCC
+hide footbox
+
+actor Uživatel as User
+participant "Webová aplikace" as WebApp
+participant "API" as API
+
+activate User
+User -> WebApp: Požadavek na zobrazení stránky
+activate WebApp
+
+group Kontrola přihlášení [Uživatel přihlášen]
+	WebApp -> WebApp: Uživatel přihlášen?
+	WebApp --> User: Zobrazení dočasné stránky
+else Uživatel nepřihlášen
+	WebApp --> User: Přesměrování na přihlašovací stránku
+
+	[x<- User: Ukončení
+end
+
+WebApp -> API: Požadavek na získání dat
+activate API
+
+group Získání dat [Úspěšné]
+	API --> WebApp: Odpověď s daty
+	WebApp --> User: Zobrazení dat přepsáním stránky
+else Chyba
+	API --> WebApp: Odpověď s chybou
+	deactivate API
+
+	WebApp --> User: Zobrazení chybové hlášky formou alertu
+	deactivate WebApp
+end
+
+@enduml

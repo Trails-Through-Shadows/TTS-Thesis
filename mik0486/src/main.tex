@@ -20,17 +20,12 @@
 
 \newenvironment{plantuml}[1]{\VerbatimOut{#1.puml}}{\endVerbatimOut}
 \newcommand{\processDiagram}[4]{%
-%    \immediate\write18{java --version}
-%    \immediate\write18{which java}
-%    \immediate\write18{ls -al /usr/lib/jvm}
-%    \immediate\write18{ls -al /usr/lib/jvm/java-17-openjdk/lib}
-
     \IfFileExists{../../mik0486/target/puml/#2.pdf}{%
         \ifnum\pdfstrcmp{\pdffilemoddate{../../mik0486/target/puml/#2.pdf}}{\pdffilemoddate{#1.puml}}<0
             \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
             \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
         \fi
-    }{%
+    } {%
         \immediate\write18{java -jar ../../shared/libs/plantuml-1.2024.3.jar -o ../../../mik0486/target/puml -tsvg #1.puml}
         \immediate\write18{inkscape ../../mik0486/target/puml/#2.svg --export-area-drawing --export-filename=../../mik0486/target/puml/#2.pdf}
     }
@@ -42,7 +37,6 @@
     \end{figure}
 }
 
-% define language CSS
 \lstdefinelanguage{CSS}{
     sensitive=true,
     keywords={color:, background-color:, margin:, padding:, font:, weight:, display:, position:, top:, left:, right:, bottom:, list:, style:, border:},
@@ -153,9 +147,10 @@
 % Kapitoly
 \input{chapters/Theory}
 \input{chapters/Development}
+\input{chapters/Implementation}
 
 % Zaver
-%\input{chapters/Conclusion}
+\input{chapters/Conclusion}
 
 % Prilohy
 \appendix
