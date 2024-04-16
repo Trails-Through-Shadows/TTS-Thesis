@@ -1,7 +1,7 @@
 \chapter{Teorie herního designu}
 \label{chap:game_design}
 
-V této kapitole jsou popsány základní pojmy herní teorie a designu, které budou sloužit jako základ pro vlastní návrh. \cite{building_blocks_of_tabletop_design_2022}
+V této kapitole jsou popsány základní pojmy herní teorie a designu, které poslouží jako základ pro vlastní návrh. \cite{building_blocks_of_tabletop_design_2022}
 
 
 %%% section: Structure %%%
@@ -11,17 +11,17 @@ V této kapitole jsou popsány základní pojmy herní teorie a designu, které 
 
 Herní struktura je základním stavebním kamenem každé hry. Jedná se o sadu pravidel, která určují, jak se hraje, co mohou hráči dělat a jakým způsobem se hra vyhrává. Typy struktur se liší podle jejich přístupu k herním systémům a mechanikám. 
 
-\subsection{Kompetetivní hry}
+\subsection{Kompetitivní hry}
 \label{subsec:structure_competitive}
 
-Kompetetivní hry tvoří velkou část trhu s deskovými hrami. V těchto hrách se hráči snaží porazit ostatní a dosáhnout vítězství. Tyto hry můžou být symetrické, kdy všichni hráči začínají se stejnou nebo alespoň podobnou silou, nebo asymetrické, kdy mají hráči různé schopnosti a cíle. Častým problémem bývá vybalancovat hru tak, aby byla zábavná pro všechny hráče, a to i přesto, že se může stát, že jeden hráč bude mít výhodu. Dále se často stává, že hra skončí remízou. V takovém případě se může o vítězi rozhodnout buď pomocí nějakých dodatečných pravidel, nebo může skončit sdíleným vítězstvím.
+Kompetitivní hry tvoří velkou část trhu s deskovými hrami. V těchto hrách se hráči snaží porazit ostatní a dosáhnout vítězství. Tyto hry můžou být symetrické, kdy všichni hráči začínají se stejnou nebo alespoň podobnou silou, nebo asymetrické, kdy mají hráči různé schopnosti a cíle. Častým problémem bývá vybalancovat hru tak, aby byla zábavná pro všechny hráče, a to i přesto, že se může stát, že jeden hráč bude mít výhodu. Dále se často stává, že hra skončí remízou. V takovém případě se může o vítězi rozhodnout buď pomocí nějakých dodatečných pravidel, nebo může skončit sdíleným vítězstvím.
 
 Příklady: \glsref{monopoly}, \glsref{carcassonne}, \glsref{chess}, \glsref{race_for_the_galaxy}
 
 \subsection{Kooperativní hry}
 \label{subsec:structure_cooperative}
 
-Naopak kooperativní hry se snaží hráče spojit proti společnému nepříteli nebo problému. Hráči spolupracují na dosažení cíle, který je obvykle nějakým způsobem předem daný. Velkou výhodou toho typu her je to, že odstraňují překážky, které by lidem bránily si tento typ her zahrát. Když jsou hráči spolu ve stejném týmu, dokáží vyrovnat jejich schopnosti a zkušenosti, což může novým hráčům pomoci se do hry dostat.
+Naopak kooperativní hry se snaží hráče spojit proti společnému nepříteli nebo problému. Hráči spolupracují na dosažení cíle, který je obvykle nějakým způsobem předem daný. Velkou výhodou tohoto typu her je to, že odstraňují překážky, které by lidem bránily si tento typ her zahrát. Když jsou hráči spolu ve stejném týmu, dokáží vyrovnat jejich schopnosti a zkušenosti, což může novým hráčům pomoci se do hry dostat.
 
 Kooperativní hry se dají dále rozdělovat podle různých kritérií. Například některé mohou hráče spojit v boji proti oponentovi ve formě umělé inteligence nebo sady algoritmů, zatímco jiné dávají týmu za úkol vyřešit hádanku a nemají žádného protivníka. Dalším kritériem může být, jestli hra má skryté informace, nebo jestli jsou všechny informace sdílené. Sdílení zdrojů, způsob komunikace a způsob, jakým se hra vyhrává, jsou dalšími faktory, které mohou kooperativní hru ovlivnit.
 
@@ -53,14 +53,14 @@ Se zavedením struktury přichází potřeba rozhodovat, kdy hráči mohou konat
 \subsection{Kolo s pevným pořadím}
 \label{subsec:turns_fixed_order}
 
-Jedná se o nejzákladnější typ struktury kola, kdy se pořadí hráčů určí jednou na začátku hry a od té doby zůstává neměnné. Obvykle se nějakým způsobem vybere první hráč a dál tahy pokračují podél stolu ve směru nebo proti směru hodinových ručiček (například v klasické karetní hře \textit{Prší}). Tento typ struktury je velmi jednoduchý a intuitivní, ale může být nevýhodný pro hry, kde je výhoda mít první tah, nebo chceme zajistit, aby všichni hráči měli stejný počet tahů. Toto se dá řešit zvýhodněním odstaních hráčů jinými způsoby, například herními bonusy (mana navíc pro druhého hráče v \glsref{hearthstone}), nebo tím, že budeme monitorovat, který hráč začínal, a poslední kolo se vždy dojede až k němu, i kdyby hra byla ukončena v průběhu kola (jako v \glsref{through_the_ages}, kde všichni dojedou celé kolo po tom, co jeden hráč zvítězí).
+Jedná se o nejzákladnější typ struktury kola, kdy se pořadí hráčů určí jednou na začátku hry a od té doby zůstává neměnné. Obvykle se nějakým způsobem vybere první hráč a dál tahy pokračují podél stolu ve směru nebo proti směru hodinových ručiček (například v klasické karetní hře \textit{Prší}). Tento typ struktury je velmi jednoduchý a intuitivní, ale může být nevýhodný pro hry, kde je výhoda mít první tah, nebo chceme-li zajistit, aby všichni hráči měli stejný počet tahů. Toto se dá řešit zvýhodněním odstaních hráčů jinými způsoby, například herními bonusy (mana navíc pro druhého hráče v \glsref{hearthstone}), nebo tím, že budeme monitorovat, který hráč začínal, a poslední kolo se vždy dojede až k němu, i kdyby hra byla ukončena v průběhu kola (jako v \glsref{through_the_ages}, kde všichni dojedou celé kolo po tom, co jeden hráč zvítězí).
 
 \subsection{Kolo s pořadím podle statistik}
 \label{subsec:turns_stat_order}
 
 Tento typ struktury kola se snaží vyrovnat výhody a nevýhody, které mohou vzniknout z pevného pořadí. Pořadí se v tomto případě mění podle nějakého skóre, které se během hry mění. Určující statistikou může být například počet bodů, které hráči mají (tokeny populace v \glsref{civilization}), nebo nějaké pevnější statistiky spojené se samotnými postavami. Tento systém se často používá v RPG hrách, kde se pořadí může měnit podle iniciativy postav (klasická iniciativa v \glsref{dnd}), nebo ve hrách, kde se pořadí mění podle toho, jak dobře nebo špatně se hráči daří (znevýhodnění nejlepších hráčů ve \glsref{power_grid}). Hra pak dokáže být dynamičtější a aktivně reagovat na změny, což přináší nové strategické možnosti a větší zapojení hráčů.
 
-\subsection{Kolo s pořadím určeném v reálném čase}
+\subsection{Kolo s pořadím určeným v reálném čase}
 \label{subsec:turns_realtime_order}
 
 Další zajímavou možností určení pořadí je nechat hráčům volnou ruku, často omezenou nějakým časovým limitem. Je pak na rychlosti samotných hráčů, jak rychle dokážou reagovat na situaci a provést svůj tah. Silnou stránkou tohoto systému je to, že hra může být mnohem rychlejší a dynamická a často s sebou přináší vyšší úroveň soutěživosti (například u hry \glsref{dobble}). Nevýhodou je to, že může být pro některé hráče stresující a může být obtížné udržet přehled o tom, co se děje. Také se designer musí více rozmyslet, jak řešit chyby hráčů a také podvádění, které v tomto zmatku bývá častější.
@@ -82,7 +82,7 @@ Posledním typem struktury kola, který si zde přiblížíme, je kolo, kde hrá
 \section{Akce}
 \label{sec:actions}
 
-Po přiblížení variant střídání hráčů během hry je vhodné zaměřit se na to, co mohou ve hře vlastně dělat. Tím se dostáváme k \textbf{akcím}, které pomáhají jednoduše a srozumitelně definovat, co mohou hráči dělat a jakým způsobem toho mohou dosáhnout. Jedná se o atomický krok v rámci hry, příkladem může být hod kostkou, pohyb figurkou, nebo zahraní karty. Akce hře dodávají dynamiku a určují celkový pocit a atmosféru, kterou hra vytváří.
+Po přiblížení variant střídání hráčů během hry je vhodné zaměřit se na to, co mohou ve hře vlastně dělat. Tím se dostáváme k \textbf{akcím}, které pomáhají jednoduše a srozumitelně definovat, co mohou hráči dělat a jakým způsobem toho mohou dosáhnout. Jedná se o atomický krok v rámci hry, příkladem může být hod kostkou, pohyb figurkou, nebo zahrání karty. Akce hře dodávají dynamiku a určují celkový pocit a atmosféru, kterou hra vytváří.
 
 \subsection{Akční body}
 \label{subsec:actions_action_points}
@@ -97,7 +97,7 @@ Jiný způsob, jak limitovat akce, je dát hráčům na výběr z omezeného mno
 \subsection{Pálení akcí}
 \label{subsec:actions_burning_actions}
 
-Některé hry místo ceny nebo omezování akcí mezi hráči používají jiný způsob limitace, a to přidání akcí na jedno použití. Takovéto akce mají často potenciál být mnohem silnější než běžné akce a jejich použití s sebou nese důležité rozhodnutí, kdy je nejlepší je použít. Spolu s pálením akcí se často používá i nějaký způsob, jak získat tyto akce zpět, ať už to je nějaký druh obnovení, nebo nějaký druh zisku, který je spojen s nějakým rizikem (například v \glsref{gloomhaven} si hráči mohou obnovit své akce pomocí jiných akcí). Něco podobného můžeme pozorovat i v \glsref{dnd}, kde jsou nějaké akce omezené pouze jednou za dlouhý nebo krátký odpočinek. Je však třeba dávat pozor, aby se hráči necítili, že musí své akce šetřit a raději je vůbec nepoužívali.
+Některé hry místo ceny nebo omezování akcí mezi hráči používají jiný způsob limitace, a to přidání akcí na jedno použití. Takovéto akce mají často potenciál být mnohem silnější než běžné akce a jejich použití s sebou nese důležité rozhodnutí, v jaký moment je nejlepší je použít. Spolu s pálením akcí se často používá i nějaký způsob, jak získat tyto akce zpět, ať už to je nějaký druh obnovení, nebo nějaký druh zisku, který je spojen s nějakým rizikem (například v \glsref{gloomhaven} si hráči mohou obnovit své akce pomocí jiných akcí). Něco podobného můžeme pozorovat i v \glsref{dnd}, kde jsou nějaké akce omezené pouze jednou za dlouhý nebo krátký odpočinek. Je však třeba dávat pozor, aby se hráči necítili, že musí své akce šetřit a raději je vůbec nepoužívali.
 
 \subsection{Příběhový výběr}
 \label{subsec:actions_story_choice}
@@ -130,7 +130,7 @@ Herní pole deskových her mnohdy představuje velký prostor, u komplexnější
 
 Nejjednodušším způsobem rozdělení je \textbf{jednodimenzionální rozdělení}, které je reprezentováno jednou cestou, kterou hráči během hry musí projít. Cesta se může dále rozštěpit na různé větve, které můžou být zkratky nebo mohou vést k různým cílům (hlavní cesta a zkratky nebo skluzavky ve hře \glsref{snakes}).
 
-Pokud nám jedna cesta nestačí, můžeme přejít na \textbf{dvoudimenzionální rozdělení}, kde se hrací plocha rozdělí na mřížku. Z pravidelných tvarů se nejčastěji používají čtverce (např. \glsref{chess}) nebo hexagony (např. \glsref{gloomhaven}), přičemž každý má své vlastní výhody a nevýhody. U čtverce musíme myslet na to, jestli umožníme diagonální pohyb, protože podle pythagorovy věty by tento pohyb měl být $\sqrt{2}$ ($1.41$) krát delší než pohyb po straně. Hexagony jsou v tomto ohledu příjemnější, neboť všech šest směrů má stejnou vzdálenost, ale zase se je těžší je reprezentovat v klasické mřížce. 2D prostor můžeme rozdělit také do nepravidelných tvarů, často reprezentující terén nebo státy (části mapy v \glsref{diplomacy}).
+Pokud nám jedna cesta nestačí, můžeme přejít na \textbf{dvoudimenzionální rozdělení}, kde se hrací plocha rozdělí na mřížku. Z pravidelných tvarů se nejčastěji používají čtverce (např. \glsref{chess}) nebo hexagony (např. \glsref{gloomhaven}), přičemž každý má své vlastní výhody a nevýhody. U čtverce musíme myslet na to, jestli umožníme diagonální pohyb, protože podle pythagorovy věty by tento pohyb měl být $\sqrt{2}$ ($1.41$) krát delší než pohyb po straně. Hexagony jsou v tomto ohledu příjemnější, neboť všech šest směrů má stejnou vzdálenost, ale zase je těžší je reprezentovat v klasické mřížce. 2D prostor můžeme rozdělit také do nepravidelných tvarů, často reprezentující terén nebo státy (části mapy v \glsref{diplomacy}).
 
 Další možností pak je \textbf{třídimenzionální rozdělení}, kdy se hrací plocha rozčlení do několika vrstev, které se mohou překrývat nebo být oddělené. Rozdělení do výšky můžeme docílit buď pomocí indikátorů úrovně nebo různých pater hracích ploch, které můžeme fyzicky postavit nad sebe.
 
@@ -162,16 +162,16 @@ Aby byl herní svět co nejvíce rozmanitý, můžeme vytvořit více map, kter�
 \section{Konec hry}
 \label{sec:end}
 
-Samotný herní systém může být sebelepší, ale pokud nemá jasně definovaný konec, může se stát, že hráči si po jejím ukončení odnesou jen zklamání. Proto je důležité, aby hra měla pečlivě vymezený \textbf{cíl} a způsob, jakým se dá dosáhnout. Závěrná sekce analýzy herního designu je tedy zaměřena na to, jaké cíle se u deskových her vyskytují.
+Samotný herní systém může být sebelepší, ale pokud nemá jasně definovaný konec, může se stát, že hráči si po jejím ukončení odnesou jen zklamání. Proto je důležité, aby hra měla pečlivě vymezený \textbf{cíl} a způsob, jakým se dá dosáhnout. Závěrečná sekce analýzy herního designu je tedy zaměřena na to, jaké cíle se u deskových her vyskytují.
 
-\subsection{Body vítězství}
+\subsection{Vítězné skóre}
 \label{subsec:end_victory_points}
 
-Většina moderních her využívá nějakou verzi systému bodu vítězství. Jedná se o velmi flexibilní mechaniku, kdy hráči během hry sbírají jednu nebo více surovin, které se po ukončení hry převedou na body a určí vítěze. Vítězné body je možné udělovat mnoha způsoby.
+Většina moderních her využívá nějakou verzi systému vítězného skóre. Jedná se o velmi flexibilní mechaniku, kdy hráči během hry sbírají jednu nebo více surovin, které se po ukončení hry převedou na body a určí vítěze. Vítězné body je možné udělovat mnoha způsoby.
 
 První z nich je získání bodů \textbf{ze stavu hry}. Hráči často mají předem určené cíle a snaží se s herním stavem manipulovat tak, aby je to co nejvíce odráželo. To, kdy se budou body počítat, může také ovlivnit ideální strategii. V některých hrách se body počítají až na konci hry (\glsref{agricola}), jinak se ale mohou počítat po intervalech (třikrát za hru v \glsref{el_grande}), po určitých akcích hráčů (hráč zahraje speciální kartu počítání bodů v \glsref{expanse}), nebo náhodně (vylosování speciální karty z balíčku v \glsref{airlines}).
 
-Jiný přístup je odměňovat hráče body \textbf{za určité akce}. Dobrým příkladem je hra \glsref{race_for_the_galaxy}, kde hráči získávají body za tažení různých karet nebo prodej produktů. Kromě toho hra obsahuje i složitější mechanismus úkolů, které jsou buď sdílené nebo si odměnu může vzít jen první hráč, který je splní. Tyto úkoly slouží mimo jiné i k nenásilnému navádění hráčů k různým strategiím, které by možná jinak nezkusili.
+Jiný přístup je odměňovat hráče body \textbf{za určité akce}. Dobrým příkladem je hra \glsref{race_for_the_galaxy}, kde hráči získávají body za použití různých karet nebo prodej produktů. Kromě toho hra obsahuje i složitější mechanismus úkolů, které jsou buď sdílené nebo si odměnu může vzít jen první hráč, který je splní. Tyto úkoly slouží mimo jiné i k nenásilnému navádění hráčů k různým strategiím, které by možná jinak nezkusili.
 
 Zajímavou dynamiku můžeme do hry přinést také tím, že umožníme vítězné body nejen získat, ale i ztratit. Pokud je možné o všechny body přijít, riskujeme, že se hráči budou soustředit spíše na to, aby shodili vedoucího hráče než aby se snažili sami vyhrát (tohle je velký problém například v karetní hře \glsref{munchkin}). Lepší bývá implementovat mix trvalých a dočasných bodů, což hráčům přidá možnost strategií, ale zároveň omezí potenciální zneužití (dobrým příkladem je \glsref{kemet}).
 
@@ -200,7 +200,7 @@ V posledních letech se stále více vývojářů stolních her snaží využít
 \subsection{Stupně integrace}
 \label{subsec:apps_app_integration}
 
-Neboť jsou podpůrné aplikace relativně novým fenoménem, po celou historii vývoje byla většina stolních her \textbf{plně fyzická} záležitost. I dodnes se tato tradice stále drží, spousta nově vyvinutých her se neopírají o žádnou podpůrnou aplikaci a všechnu administrativu nechávají čistě na hráčích. Nejde jen o samotný herní plán, figurky nebo karty a kostky, ale také o pravidla, která jsou většinou tištěná na papíře a přiložená k hře. Příkladů takovýchto her je mnoho, například \glsref{carcassonne}, \glsref{ticket_to_ride} nebo \glsref{catan}.
+Neboť jsou podpůrné aplikace relativně novým fenoménem, po celou historii vývoje byla většina stolních her \textbf{plně fyzická} záležitost. I dodnes se tato tradice stále drží, spousta nově vyvinutých her se neopírá o žádnou podpůrnou aplikaci a všechnu administrativu nechává čistě na hráčích. Nejde jen o samotný herní plán, figurky nebo karty a kostky, ale také o pravidla, která jsou většinou tištěná na papíře a přiložená ke hře. Příkladů takovýchto her je mnoho, například \glsref{carcassonne}, \glsref{ticket_to_ride} nebo \glsref{catan}.
 
 I u plně fyzických her je však občas přínosné, aby jejich pravidla nebo nějaké další podpůrné materiály byly dostupné i v digitální podobě. Důvodem může být to, že hráči nepotřebují mít všechna pravidla přístupná neustále a jejich digitalizace umožní jednodušší vyhledávání a možnost jejich postupného odhalování. V takovém případě může být vhodné vytvořit \textbf{digitální verzi pravidel}, která bude dostupná na internetu nebo jako aplikace. Tato verze může být vytvořena buď v podobě PDF souboru, jako webová stránka, nebo jako aplikace pro mobilní zařízení. Jako příklad můžeme uvést karetní hru \glsref{munchkin}, která má jednoduchý výčet pravidel obsažený v balení, ale také má oficiální webové stránky, kde mohou hráči najít hlubší vysvětlení pravidel a návody na hraní.
 
@@ -215,11 +215,11 @@ Prvním přínosem, který byl zmíněn v předchozí sekci, je možnost zjednod
 
 Propojení s aplikací může být také příjemný způsob, jak hru trochu oživit a poskytnout hráčům záživnější zážitek. Vývojáři mohou využít zvukových efektů, jako může být hudební a ambientní podkres, nebo například dynamické zvuky řevu, když se na hráče připravuje zaútočit nepřítel. Hlasové vyprávění může být také velmi přínosné, pokud se jedná o hru s příběhem, který se postupně odhaluje. Hráči pak mohou příběh zažívat spolu nezávisle na jejich čtenářských schopnostech. Na posílení herního zážitku může být také využito obrázků nebo animací. Když se desková hra musí držet pevného rozpočtu, přidání složitých herních komponent nebo detailních figurek může být nákladné, zatímco digitální obsah může být vytvořen za mnohem nižší cenu.
 
-V příběhových hrách může být problém zajistit, aby klíčové informace nebo zvraty byly odhaleny ve správném pořadí a správný čas. U příběhu tištěného na papír jako součást pravidel existuje risk, že hráči si příběh omylem přečtou dřív, než by měli, a přijdou tak o možnost překvapení. Aplikace může tuto situaci řešit tím, že bude informace odhalovat postupně a hráči se nemusí bát, že něco přeskočili nebo zjistili dříve, než to bylo zamýšleno. Takovýto příběh v kombinaci s hlasovým vyprávěním a výstižnými obrázky může být velmi poutavý a zvednout kvalitu herního zážitku.
+V příběhových hrách může být problém zajistit, aby klíčové informace nebo zvraty byly odhaleny ve správném pořadí a správný čas. U příběhu tištěného na papír jako součást pravidel existuje riziko, že hráči si příběh omylem přečtou dřív, než by měli, a přijdou tak o možnost překvapení. Aplikace může tuto situaci řešit tím, že bude informace odhalovat postupně a hráči se nemusí bát, že něco přeskočili nebo zjistili dříve, než to bylo zamýšleno. Takovýto příběh v kombinaci s hlasovým vyprávěním a výstižnými obrázky může být velmi poutavý a zvednout kvalitu herního zážitku.
 
 Deskové hry, které trvají přes několik sezení (\textit{legacy hry}, zmíněny v kapitole \ref{subsec:structure_legacy}) mohou mít problém s udržením konzistence herního stavu mezi jednotlivými sezeními. Za pomocí aplikace mohou vývojáři poskytnout hráčům praktický a pohodlný způsob, jak si rozehranou hru uložit. Tímto způsobem se hráči nemusí strachovat, že by něco zapomněli, a když se ke hře znovu vrátí, budou mít vše přichystané tak, jak minule skončili.
 
-Posledním přínosem, který aplikace může přinést, je možnost rozšíření hry. V případě fyzických rozšíření je potřeba nejen vymyslet nový materiál, ale i zajistit jeho výrobu a distribuci. Digitální rozšíření může být vytvořeno za mnohem nižší cenu a může být distribuováno přímo přes webové stránky nebo aplikaci. Vývojáři pak mají možnost pružně reagovat na zpětnou vazbu od hráčů a mohou také vytvářet obsah, který by byl jinak příliš nákladný na výrobu.
+Posledním přínosem, který aplikace může nabídnout, je možnost rozšíření hry. V případě fyzických rozšíření je potřeba nejen vymyslet nový materiál, ale i zajistit jeho výrobu a distribuci. Digitální rozšíření může být vytvořeno za mnohem nižší cenu a může být distribuováno přímo přes webové stránky nebo aplikaci. Vývojáři pak mají možnost pružně reagovat na zpětnou vazbu od hráčů a mohou také vytvářet obsah, který by byl jinak příliš nákladný na výrobu.
 
 \subsection{Překážky a problémy}
 \label{subsec:apps_app_problems}
@@ -235,7 +235,7 @@ I přes tyto problémy je však možné, že v budoucnosti bude většina deskov
 
 %%% section: Psychology %%%
 
-\section{Psychologie deskových her}
-\label{sec:psychology}
+% \section{Psychologie deskových her}
+% \label{sec:psychology}
 
-// TODO
+% // TODO

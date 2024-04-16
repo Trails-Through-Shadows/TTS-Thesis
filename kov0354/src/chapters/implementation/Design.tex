@@ -3,7 +3,7 @@
 
 Na základě požadavků stanovených v předchozí kapitole byl vytvořen návrh herního systému, který je pro přehlednost rozdělen do několika částí. První část se zabývá komponenty hry, druhá část se zaměřuje na herní mechaniky a třetí část se věnuje propojení s webovou aplikací.
 
-Hybridní deskové hře, která je finálním produktem této práce, bylo určeno pracovní jméno \textit{Trails Through Shadows} (zkratkou \textit{TTS}). Dále je však zmiňována především pod názvem \textit{modelová hra}.
+Hybridní deskové hře, která je finálním produktem této práce, bylo určeno pracovní jméno \textit{Trails Through Shadows} (zkratkou \textit{TTS}). Nadále je však zmiňována především pod názvem \textit{modelová hra}.
 
 
 \section{Schéma hry}
@@ -171,35 +171,35 @@ Druhá část přípravy je věnována samotným postavám a nepřátelům a tvo
 
 Následuje fáze kol, která se provádí podle diagramu \ref{diag:round} opakovaně ve smyčce, dokud hráči nesplní jistou předem určenou ukončovací podmínku.
 
-Po dosažení této podmínky systém vyhodnotí, jak hra skončila. Pokud se jedná o prohru, zobrazí tuto informaci hráčům a nastaví stav lokace na \texttt{failed}. Pokud ovšem hráči lokaci zdolali úspěšně, systém provede kontrolu nových lokací a předmětů v obchodech, které hráči dokončením tohoto souboje odemkli nebo naopak zablokovali. Pomocí tohoto mechanismu se zajišťuje, že hra bude mít dynamický průběh a hráči budou mít motivaci prozkoumávat nové lokace a plnit úkoly. Po této kontrole systém hráčům zahlásí co vše jejich úspěch změnil, jaké mají nové možnosti a kolik peněz a zkušeností svou výhrou získali. Na závěr systém přehraje příběh konce této lokace a navrátí hráče zpět do mapy, kde mohou pokračovat v průzkumu světa.
-
-
-\subsection{Kola}
-\label{subsec:design_rounds}
-
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includeplantuml[scale=0.7]{round}
     \caption{Diagram kola}
     \label{diag:round}
 \end{figure}
 
-V rámci herního kola se nejprve provádí tahy hráčů a nepřátel v pořadí iniciativy podle diagramů \ref{diag:player_turn} a \ref{diag:enemy_turn}. Když tahy dojdou na konec iniciativy, systém zkontroluje, zda některý z hráčů během svého kola neotevřel dveře. Pokud ano, pak je hráčům zobrazena nově odhalená místnost, jejíž desku, nepřátele, překážky a dveře si opět podle identifikátorů rozloží na herní stůl, čímž se herní plocha rozšíří. Systém následně přidá nové nepřátele do iniciativního žebříčku a zamíchá jejich karty. Pokud hráči dveře neotevřeli, systém přeskočí tuto fázi, po které již kolo končí.
+Po dosažení této podmínky systém vyhodnotí, jak hra skončila. Pokud se jedná o prohru, zobrazí tuto informaci hráčům a nastaví stav lokace na \texttt{failed}. Pokud ovšem hráči lokaci zdolali úspěšně, systém provede kontrolu nových lokací a předmětů v obchodech, které hráči dokončením tohoto souboje odemkli nebo naopak zablokovali. Pomocí tohoto mechanismu se zajišťuje, že hra bude mít dynamický průběh a hráči budou mít motivaci prozkoumávat nové lokace a plnit úkoly. Po této kontrole systém hráčům zahlásí co vše jejich úspěch změnil, jaké mají nové možnosti a kolik peněz a zkušeností svou výhrou získali. Na závěr systém přehraje příběh konce této lokace a navrátí hráče zpět do mapy, kde mohou pokračovat v průzkumu světa.
+
+
+\subsection{Kola}
+\label{subsec:design_rounds}
+
+V rámci herního kola (Diagram \ref{diag:round}) se nejprve provádí tahy hráčů a nepřátel v pořadí iniciativy podle diagramů \ref{diag:player_turn} a \ref{diag:enemy_turn}. Když tahy dojdou na konec iniciativy, systém zkontroluje, zda některý z hráčů během svého kola neotevřel dveře. Pokud ano, pak je hráčům zobrazena nově odhalená místnost, jejíž desku, nepřátele, překážky a dveře si opět podle identifikátorů rozloží na herní stůl, čímž se herní plocha rozšíří. Systém následně přidá nové nepřátele do iniciativního žebříčku a zamíchá jejich karty. Pokud hráči dveře neotevřeli, systém přeskočí tuto fázi, po které již kolo končí.
 
 
 \subsection{Tahy}
 \label{subsec:design_turns}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includeplantuml[scale=0.7]{playerTurn}
     \caption{Diagram herního tahu hráče}
     \label{diag:player_turn}
 \end{figure}
 
-Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v kapitole \ref{subsec:design_effects}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramů popsaných v kapitole \ref{subsec:design_actions} a pokud má na stole vyložené nějaké karty vyvolaných summonů, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí zahrnuté karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
+Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v kapitole \ref{subsec:design_effects}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramů popsaných v kapitole \ref{subsec:design_actions} a pokud má na stole vyložené nějaké karty vyvolaných summonů, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí vybrané karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includeplantuml[scale=0.7]{enemyTurn}
     \caption{Diagram herního tahu nepřítele}
@@ -214,45 +214,45 @@ Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hr�
 
 Jak již bylo znázorněno na schématu \ref{diag:er_action}, akce jsou strukturovány do pěti prvků, které mohou ale také nemusí být v akci využity. Vyhodnocení akce spočívá v provedení všech těchto prvků dle uvážení hráče, přičemž si může vybrat nejen to, jak se k jednotlivým prvkům jeho postava zachová, ale také v jakém pořadí je provede.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includeplantuml[scale=0.7]{movement}
+    \includeplantuml[scale=0.6]{movement}
     \caption{Diagram pohybu}
     \label{diag:movement}
 \end{figure}
 
 Na prvním diagramu \ref{diag:movement} je zobrazen průběh \textbf{pohybu}. Před samotným vyhodnocením systém hráči předá informaci o bonusové rychlosti nebo případně zpomalení jeho postavy, což je možné získat z aktivních efektů nebo vybavení postavy. Hráč tento bonus přičte k číslu, které má napsané na kartě pohybu a posune se po herním poli o odpovídající počet polí. Pohyb má tři typy -- \textit{chůze}, \textit{skok} a \textit{teleportace}. Chůze je základním typem pohybu, skok je pohyb, který umožňuje přeskočit překážku nebo nepřítele a teleportace je pohyb, který umožňuje postavě přesunout se na libovolné místo na herním poli i přes zdi, ale samozřejmě pořád v limitu polí. Pokud postava po své cestě přejde přes překážku, musí na sebe vzít její efekt a tuto skutečnost zaznamenat do systému.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includeplantuml[scale=0.7]{attack}
+    \includeplantuml[scale=0.6]{attack}
     \caption{Diagram útoku}
     \label{diag:attack}
 \end{figure}
 
 Průběh \textbf{útoku} znázorňuje diagram \ref{diag:attack}. Před útokem systém opět zjistí, zda má postava nějaký bonus k útoku, který může získat z aktivních efektů nebo vybavení, a v takovém případě tento bonus hráči zobrazí. Hráč si poté vybere cíl a může na něj zaútočit tolikrát, kolik určuje jeho karta útoku. Při každém zaútočení se cíli aplikuje nejen velikost zranění, ale také všechny efekty, které útok může způsobovat. Tyto efekty však nejsou hlavní součástí útoku, proto ve většině případů nejsou na této kartě zaznamenány. Veškeré zranění nebo získané efekty, které cíl utrpí, musí být zaznamenány do systému.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includeplantuml[scale=0.7]{skill}
+    \includeplantuml[scale=0.6]{skill}
     \caption{Diagram schopnosti}
     \label{diag:skill}
 \end{figure}
 
 Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na diagramu \ref{diag:skill}. Oproti útoku je plně zaměřena pouze na efekty, musí tedy mít alespoň jeden, může se jednat například o zapálení cíle, ale také o vyléčení postavy. Po jejím zahrání musí hráč zaznamenat všechny efekty, které schopnost způsobila.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includeplantuml[scale=0.7]{summon}
+    \includeplantuml[scale=0.6]{summon}
     \caption{Diagram summona}
     \label{diag:summon}
 \end{figure}
 
 \textbf{Vyvolání summona}, znázorněno na diagramu \ref{diag:summon}, je jednou z komplexnějších prvků akce, které mají hráči k dispozici, ale pořád je intuitivně pochopitelná. Uživatel opět začne vybráním cíle, tentokrát se však jedná o políčko v dosahu uvedeném na kartě, na které bude svého poskoka vyvolávat. Poté najde odpovídající figurku, umístí ji na vybrané pole a kartu, pomocí které summona vyvolal, položí na stůl před sebe. Když pak dojde na jeho tah, může pomocí této karty provést odpovídající akci i za svého summona. Na závěr nově vyvolanou entitu zaznamená do systému, který si ho uloží a zobrazí jej v žebříčku iniciativy pod jménem hráče, který ho vyvolal. Po vyvolání má hráč možnost ihned zahrát tah summona, což mu umožňuje získat výhodu v boji.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includeplantuml[scale=0.7]{restoreCards}
+    \includeplantuml[scale=0.6]{restoreCards}
     \caption{Diagram obnovení karet}
     \label{diag:restore_cards}
 \end{figure}
@@ -266,10 +266,11 @@ Posledním prvkem akce, který hráči mohou využít, je \textbf{obnovení kare
 
 Modelová hra obsahuje několik druhů efektů, které mohou entity na herním poli ovlivnit. Tyto efekty mohou být aplikovány na postavy, nepřátele nebo summony a mohou mít různé účinky. Jejich výčet je uveden v tabulce \ref{tab:effects}.
 
-Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich je \textit{Strength}, která určuje, jak silný je efekt, což je využito s rozličnými účely u různých typů efektu. Druhou vlastností je \textit{Duration} (v tabulce označena \textit{DUR}) neboli trvanlivost, popisující délku trvání konkrétního efektu v kolech. Obě tyto vlastnosti mohou být prázdné, u síly je to proto, že pro vyhodnocení efektu není třeba žádná číselná hodnota, u trvání jde o instantní efekty. Některé z efektů mohou mít k sobě korespondující \textit{Resistance} neboli rezistenci, což je zaznačeno v tabulce v posledním sloupci s názvem \textit{RES}. Rezistence jsou efekty kopírující původní efekt, ale s opačným účinkem -- pokud původní efekt má určitou sílu, rezistence bude jeho sílu snižovat. Pokud sílu nemá, tak rezistence efekt zruší úplně.
+Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich je \textit{Strength}, která určuje, jak silný je efekt, což je využito rozličnými způsoby u různých typů efektu. Druhou vlastností je \textit{Duration} (v tabulce označena \textit{DUR}) neboli trvanlivost, popisující délku trvání konkrétního efektu v kolech. Obě tyto vlastnosti mohou být prázdné, u síly je to proto, že pro vyhodnocení efektu není třeba žádná číselná hodnota, u trvání jde o instantní efekty. Některé z efektů mohou mít k sobě korespondující \textit{Resistance} neboli rezistenci, což je zaznačeno v tabulce v posledním sloupci s názvem \textit{RES}. Rezistence jsou efekty kopírující původní efekt, ale s opačným účinkem -- pokud původní efekt má určitou sílu, rezistence bude jeho sílu snižovat. Pokud sílu nemá, tak rezistence efekt zruší úplně.
 
-\begin{table}[H]
+\begin{table}[h]
     \centering
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{l l l l l}
         \toprule
         
@@ -294,20 +295,26 @@ Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich
         \textbf{Regeneration} & Entita je vyléčena & Počet vyléčených životů & Ano & Ne \\
         
         \bottomrule
-    \end{tabular} 
+    \end{tabular}}
     \caption{Seznam efektů}
     \label{tab:effects}
 \end{table}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includeplantuml[scale=0.7]{applyEffect}
     \caption{Diagram aplikace efektu}
     \label{diag:apply_effect}
 \end{figure}
 
-\textbf{Aplikace efektu} se provádí podle postupu znázorněného na diagramu \ref{diag:apply_effect}. Nejprve si systém zjistí, zda má entita nějaké rezistence proti tomuto typu efektu. Pokud ano, tak je síla efektu snížena o celkovou silou rezistence a pokud je výsledek nulový, efekt je zrušen. Jinak systém zkontroluje, zda se jedná o instantní efekt, a pokud ano, je vyhodnocen okamžitě. V opačném případě je uložen do seznamu efektů dané entity a bude vyhodnocen v následujícím kole.
+\textbf{Aplikace efektu} se provádí podle postupu znázorněného na diagramu \ref{diag:apply_effect}. Nejprve si systém zjistí, zda má entita nějaké rezistence proti tomuto typu efektu. Pokud ano, tak je síla efektu snížena o celkovou sílu rezistence a pokud je výsledek nulový, efekt je zrušen. Jinak systém zkontroluje, zda se jedná o instantní efekt, a pokud ano, je vyhodnocen okamžitě. V opačném případě je uložen do seznamu efektů dané entity a bude vyhodnocen v následujícím kole.
 
 \textbf{Vyhodnocení efektu} se dělí na dva typy -- první, který hráči vyhodnocují sami, a druhý, který vyhodnocuje systém. První typ jsou efekty jako \textit{Push} nebo \textit{Pull}, které systém vyhodnotit nemůže z důvodu nedostatečných informací. Když jde například o efekt \textit{Push}, hráči dosaženou entitu posunou o počet polí, který je uveden ve vlastnosti \textit{Strength} efektu ve směru pryč od zdroje. Druhý typ efektů, jako \textit{Heal} nebo \textit{Poison}, jsou vyhodnoceny systémem, protože se týkají zdraví postav, což je jedna z věcí, které systém monitoruje.
 
 \textbf{Uvolnění efektu} je oproti dvěma předchozím krokům jednoduché, protože se jedná o pouhé snížení počítadla kol a případné odstranění efektu z listu efektů dané entity, pokud jeho trvání vypršelo.
+
+
+\section{Komponenty}
+\label{sec:design_components}
+
+// TODO - popis komponent

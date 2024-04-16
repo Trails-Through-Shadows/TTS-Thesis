@@ -8,9 +8,9 @@ start
 |u|
 :Výběr cíle obnovení;
 
-if (Je výběr náhodný?) then (Ano)
+if (Je výběr náhodný?) then (Ne)
     :Cíl si karty smí vybrat;
-else (Ne)
+else (Ano)
     :Cíl si karty tahá náhodně;
 endif
 
