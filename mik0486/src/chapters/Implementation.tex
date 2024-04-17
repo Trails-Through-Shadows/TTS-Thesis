@@ -32,19 +32,26 @@ Zvolena MariaDB. Výhody nevýhody porovnání ostatních. PostgreSQL, ...
 \label{subsubsec:implementation-technologies-database-scheme}
 Diagram schéma databáze -> Diagram
 
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.96\textwidth]{../../shared/diagrams/dbScheme}
+    \caption{Kompletní schéma databáze}
+    \label{fig:db_scheme}
+\end{figure}
+
 \subsubsection*{Automatizace}
 \label{subsubsec:implementation-technologies-database-automatization}
 Popis tvorby skriptu pro naplnění databáze. Priorita plnění. -> Diagram
 
 \section{Týmová spolupráce}
 \label{sec:implementation-collaboration}
-Týmová spolupráce ve čtyřčlenném týmu studentů se stává obzvláště komplikovaná v době, kdy je projekt rozdělen do separátních části, které jsou na sebe závislé a je tak nutná vzájemná komunikace a spolupráce. Jako hlavní komponentou této práce se tak stává API, která slouží pro kompletní komunikaci v rámci projektu. V této sekci se tak zaměřím na to, jak jsme si rozdělili práci, jak jsem postupovali a následně řešili problémy, které vznikaly.
+Týmová spolupráce ve čtyřčlenném týmu studentů se stává obzvláště komplikovaná v době, kdy je projekt rozdělen do separátních části, které jsou na sebe závislé a je tak nutná vzájemná komunikace a spolupráce. Jako hlavní a nejvíce důležitou komponentou tohoto projektu se tak stává API, která slouží pro kompletní komunikaci v rámci projektu. V této sekci se tak zaměřím na to, jak jsme si rozdělili práci a jaký software jsme k tomu využili.
 
 \subsection{Rozdělení práce}
 \label{subsec:implementation-collaboration-distribution}
-Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně nebo ve spolupráci. Spolupráce je tak zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na obrázku~\ref{fig:job_distribution} také lze také jednoduše rozlišit obtížností nebo velikostní rozdíl pod částí.
+Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně nebo ve spolupráci. Spolupráce je tak zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na obrázku~\ref{fig:job_distribution} je tak navíc jasně velikostně zobrazena náročnost jednotlivých částí projektu.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{../../shared/diagrams/blocks}
     \caption{Rozložení práce v týmu}
@@ -53,15 +60,13 @@ Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadán
 
 \subsection{Verzování kódu}
 \label{subsec:implementation-collaboration-versioning}
-Efektivnost verzování kódu je důležitou součástí každé týmové spolupráce na větším projektu. Pro správu obsahu práce jsem tak využili nástroj Git pod službou GitHub, který nám umožnil efektivně sledovat změny a udržovat si tak přehled o vývoji projektu. Využití Gitu bylo zvoleno především pro jeho jednoduchost a znalost všech členů týmu, kteří s ním již měli zkušenosti v minulosti.
-
-%Pro zajištění správného vývoje byly vytvořeny dvě hlavní větve, které sloužily pro vývoj nových funkcí a opravu chyb. Větve byly následně spojovány pomocí pull requestů, které sloužily pro kontrolu a schválení změn. Tento proces byl zvolen pro zajištění kvality kódu a zamezení chybám, které by mohly vzniknout při nesprávném spojení větví.
+Efektivnost verzování kódu je důležitou součástí každé týmové spolupráce na větším projektu. Pro správu obsahu práce jsem tak využili nástroj Git pod službou GitHub\footnote{https://github.com/}, který nám umožnil efektivně sledovat změny a udržovat si tak přehled o vývoji projektu. Využití Gitu bylo zvoleno především pro jeho jednoduchost a znalost všech členů týmu, kteří s ním již měli zkušenosti v minulosti.
 
 \subsubsection*{Větve}
 \label{subsubsec:implementation-collaboration-versioning-branches}
-V moderních vývojích systému se každá část nebo project celý rozděluje do složitějšího stromu větví známého pod názvem \textit{Git Worfkflow}, jeho efektivní reprezentaci lze vidět na obrázku~\ref{fig:git_workflow}. Tento strom se dělí na 2 hlavní větve, často nazývané \textit{master} a \textit{develop}.
+V moderních vývojích systému se každá část nebo projekt celý rozděluje do složitějšího stromu větví známého pod názvem \textit{Git Worfkflow}, jeho efektivní reprezentace lze vidět na obrázku~\ref{fig:git_workflow}. Tento strom se dělí na vícero větví kde mezi ty hlavní tři větve patří \textit{live} neboli master, \textit{develop} a \textit{uat} známá jako testing branch.
 
-Větev \textit{master} slouží pro produkční verze projektu, které jsou připraveny k nasazení, zatímco větev \textit{develop} slouží pro vývoj nových funkcí. Aktualizace větví tzv. \textit{commits} jsou poté spojovány pomocí pull requestů, které slouží pro kontrolu a schválení změn. Tento proces byl zvolen pro zajištění kvality kódu a zamezení chybám, které by mohly vzniknout při nesprávném spojení větví.
+Větev \textit{master} slouží pro produkční verze projektu, které jsou již plně připraveny k nasazení, zatímco větev \textit{develop} slouží pro vývoj nových funkcí případně oprav chyb. Při každém vývoji nové funkce se pak každá tato aktualizace dostává pomocí tzv. \textit{pull requestu} do větve testovací. V této větvi pak dochází k konstantnímu testování celého systému, pokuď je následně vše v pořádku. Aktualizace se dostávají do produkční větve.
 
 Následně strom obsahuje pod větve vývojové, tyto větve se často štěpí z větve developu a slouží pro vývoj nových funkcí nebo opravu chyb. Po dokončení a úspěšném testování je tato větev spojena zpět do developu a po vydání nové verze je spojena do masteru.
 
@@ -78,7 +83,7 @@ Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}.
             \midrule
 
             \textbf{git nh} & New Hotfix & Vytvoření větve pro rychlou opravu chyb, která je již v produkci \\
-            \textbf{git mh} & Merge Hotfix & Dokončení vývoje a spojení větve zpět do masteru \\
+            \textbf{git mh} & Merge Hotfix & Dokončení opravy chyby a spojení větve zpět do masteru \\
             \textbf{git live} & Release & Publikace nové verze a spojení větve do masteru \\
             \textbf{git nb} & New Bugfix & Vytvoření větve pro opravu chyb, která je ve vývoji \\
             \textbf{git mb} & Merge Bugfix & Dokončení vývoje a spojení větve zpět do developu \\
@@ -88,13 +93,9 @@ Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}.
 
             \bottomrule
         \end{tabular}}
-    \caption{Seznam efektů}
-    \label{tab:effects}
+    \caption{Seznam zkratek pro větve v Git Workflow dle obrázku~\ref{fig:git_workflow}
+    \label{tab:git_workflow}}
 \end{table}
-
-%Informace o verzování kódu. Jak se používá Git, jak se vytvářejí větve, jak se dělají pull requesty, jak se řeší konflikty.
-%https://www.freecodecamp.org/news/how-to-use-git-best-practices-for-beginners/
-%https://stackoverflow.com/questions/19695127/git-workflow-review
 
 \begin{figure}[H]
     \centering
@@ -105,12 +106,35 @@ Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}.
 
 \subsection{Sdílení kódu}
 \label{subsec:implementation-collaboration-sharing}
+Sdílení kódu není ve vývoji softwáru novinkou, neboť kód ve větším týmu spravuje vícero programátoru. Pro náš účel jsme tak opět použili systém \textit{GitHub}\footnote{https://github.com/}, kde po založení organizace dostávají všichni členové možnost zapojit se do vývoje. Obrázek~\ref{fig:git_organization} zobrazuje reprezentaci organizace na webové stránce \textit{GitHub}\footnote{https://github.com/Trails-Through-Shadows}, v nichž jsou zobrazeny jednotlivé části projektu, jejich krátky popis a jazyk, který v dané části převládá.
+
+\subsection*{Rozdělení částí}
+\label{subsec:implementation-collaboration-sharing-parts}
+
+\begin{itemize}
+    \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se taky nachází pod odkazem: \url{https://docs.tts-game.fun/thesis/intro}
+    \item TTS-Database  -- obsahuje skripty pro vytvoření a naplnění databáze základními daty, jejichž schéma je viditelné na obrázku~\ref{fig:db_scheme} nebo pod odkazem: \url{https://db.tts-game.fun}.
+    \item TTS-API       -- obsahuje zdrojové kódy API, které slouží pro komunikaci mezi frontendem a backendem. Produkční verze běží pod odkazem: \url{https://api.tts-game.fun}
+    \item TTS-Dashboard -- obsahuje zdrojové kódy frontendu, který slouží pro zobrazení dat a správu aplikace. Produkční verze nalezena pod odkazem: \url{https://dashboard.tts-game.fun}
+    \item TTS-Frontend  -- obsahuje frontend, který slouží pro interakci s uživatelem. Produkční verze dostupná na \url{https://play.tts-game.fun}
+    \item TTS-Docs      -- obsahuje dokumentaci k projektu která je volně dostupná pod odkazem \url{https://docs.tts-game.fun/data/intro}
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{../../shared/figures/gitOrg}
+    \caption{Zobrazení organizace a jejich částí na stránce Github}
+    \label{fig:git_organization}
+\end{figure}
 
 \section{Problémy vývoje}
 \label{sec:implementation-problems}
 
 \subsection*{Hexagonální grid}
 \label{subsec:implementation-problems-hexagon}
+
+\subsection*{Časová náročnost}
+\label{subsec:implementation-problems-time}
 
 %\newpage
 %\processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram aaa}
