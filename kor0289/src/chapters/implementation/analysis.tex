@@ -19,11 +19,11 @@ Jeho dekódovaný text je zobrazen na obrázku \ref{fig:jwt_spacetraders}.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/spaceTraders/jwt.png}
-    \caption{Dekódovaný token ze hry SpaceTraders\cite[JWT decoder]{jwt_decoder}}
+    \caption{Dekódovaný token ze hry SpaceTraders \cite[]{jwt_decoder}}
     \label{fig:jwt_spacetraders}
 \end{figure}
 
-Hra nejprve vyžaduje registraci přes endpoint \texttt{/v2/register}. Ten vrátí údaje o novém agentovi spolu s autentizačním tokenem \coderef{code:space_login}[řádek 3], se kterým se uživatel bude dále ověřovat ve všech následujících požadavcích.
+Hra nejprve vyžaduje registraci přes endpoint \texttt{/v2/register}. Ten vrátí údaje o novém agentovi spolu s autentizačním tokenem \coderef{code:space_login}[, řádek 3], se kterým se uživatel bude dále ověřovat ve všech následujících požadavcích.
 
 \begin{listing}[!ht]
     \inputminted[breaklines]{json}{resources/code/spaceTraders/login.jsonc}
