@@ -41,7 +41,7 @@ Na diagramu \ref{diag:er_character} je zobrazeno schéma nejen postav, ale i př
 
 \begin{figure}[h]
     \centering
-    \includegraphics{../../shared/diagrams/er_character.pdf}
+    \includegraphics[width=\textwidth]{../../shared/diagrams/er_character.pdf}
     \caption{Schéma postav}
     \label{diag:er_character}
 \end{figure}
@@ -50,8 +50,7 @@ Na diagramu \ref{diag:er_character} je zobrazeno schéma nejen postav, ale i př
 
 Každá postava může mít také vybavení, které je k ní navázáno přes \textbf{inventář}, kde se zaznamenává, kolik kterého typu předmětu postava má. Samotné \textbf{předměty} jsou podobně jako rasy a třídy složeny z názvu, popisu a štítku, kromě toho však také obsahují informaci o jejich typu \attr{type}, který určuje, zda se jedná o zbraň, brnění nebo jiný typ předmětu.
 
-Předměty, rasy a třídy mohou být chápány jako možnosti získání určitých akcí, neboť všechny tři tabulky mají na akce vazbu. Rasa a třída může hráči poskytovat neomezené množství akcí, předmět však má vždy jen jednu akci, kterou hráč může využít, což je limitace zavedená z důvodu přehlednosti fyzických komponent, popsaných v sekci \textbf{//TODO}.
-
+Předměty, rasy a třídy mohou být chápány jako možnosti získání určitých akcí, neboť všechny tři tabulky mají na akce vazbu. Rasa a třída může hráči poskytovat neomezené množství akcí, předmět však má vždy jen jednu akci, kterou hráč může využít, což je limitace zavedená z důvodu přehlednosti fyzických komponent, popsaných v sekci \ref{subsec:design_cards}.
 
 \subsection{Lokace}
 \label{subsec:schema_location}
@@ -315,4 +314,36 @@ Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich
 \section{Komponenty}
 \label{sec:design_components}
 
-// TODO - popis komponent
+Tvorba komponent pro modelovou hru má důležité limity, které byly nastaveny v rámci analýzy požadavků. Jde především o jednoduchost výroby a dostupnost pro hráče, kteří si budou chtít hru zahrát. Pro účely hry byly vybrány komponenty, které jsou snadno dostupné a lze je vyrábět za přijatelnou cenu, ale zároveň jsou dostatečně kvalitní a podporují herní zážitek.
+
+Veškeré komponenty vytvořené z kartonu jsou identifikovány pomocí jedinečného kódu, který hráčům usnadní hledání správných prvků při sestavování herního pole. Kromě toho jsou všechny komponenty vybaveny obrázky, které hráčům pomohou pochopit, co daný prvek představuje, a také zlepší celkový vizuální dojem hry.
+
+\subsection{Herní deska}
+\label{subsec:design_board}
+
+Jak již bylo zmíněno v sekci \ref{subsec:schema_location}, celková herní mapa lokace je tvořena spojením menších částí, které se skládají dohromady a spojují zavřenými dveřmi. Ve fyzické podobě jsou tyto části reprezentovány herními deskami vytvořenými z kartonu, na kterých jsou vytištěna jednotlivá hexagonová pole. Tyto desky mají velikost okolo 20x20 cm a jsou dostatečně velké, aby na ně bylo možné umístit všechny používané herní komponenty, ale zároveň skladné, aby se pohodlně vešly do herní krabice.
+
+Dveře jsou reprezentovány jedním hexagonovým žetonem, opět vytvořeným z kartonu s odpovídajícím obrázkem, který zobrazuje, že se jedná o zavřené dveře. Když hráči dveře otevřou, systém jim zobrazí novou herní desku, kterou si podle vzoru sestaví.
+
+\subsection{Figurky}
+\label{subsec:design_figurines}
+
+Figurky jsou jedním z nejdůležitějších prvků hry, protože reprezentují postavy, nepřátele a summony, které se na herním poli pohybují. Figurky modelové hry jsou reprezentovány pomocí \textit{standees}, což jsou kartonové figurky, na kterých je vytištěný odpovídající obrázek a které se postaví na plastový stojánek. Tento způsob reprezentace byl zvolen z důvodu snadné výroby a dostupnosti pro hráče, kteří si budou chtít hru zahrát.
+
+Překážky mohou být hráčem překročeny, proto je jejich reprezentace odlišná. V tomto případě se jedná o jednoduchý kruhový kartonový token s obrázkem překážky, který se položí na herní pole.
+
+Na herním poli může v jednu chvíli stát několik typů nepřítele, v takovém případě je důležité rozlišit jednotlivé figurky od sebe. Proto jsou \textit{standees} modelové hry opatřeny také plastovým kroužkem s číslem, které hráčům umožňuje nepřátele snadno rozlišit
+
+\subsection{Karty}
+\label{subsec:design_cards}
+
+Kartami jsou reprezentovány nejen akce, ale i předměty, které hráči během hry získávají. Jsou vytištěny na pevný papír s velikostí 63x88 mm, což je standardní velikost karet pro deskové hry. Každá karta má na sobě název akce, krátký popis přibližující hráčům, co daná akce znamená, a dále jednotlivé prvky, které akce obsahuje, v přehledné a lehce pochopitelné formě. Předměty jsou rozšířeny ještě o obrázek a ikonu typu.
+
+Všechny karty jsou opět identifikovány pomocí jedinečného kódu, který hráčům usnadní hledání správných karet v balíčku. Rozlišené jsou také pomocí zabarvení, přičemž každá rasa a třída má svou barvu.
+
+\subsection{Kostky}
+\label{subsec:design_dice}
+
+Každý z hráčů má svou vlastní dvacetistěnnou kostku, která je obarvená podle barvy jeho třídy. Kostka je využívána pro určení iniciativy, ale také pro počítání modifikátorů útoku a obrany během hry.
+
+Typ kostky byl vybrán především z důvodu preference vývojového týmu, který se shodl na tom, že dvacetistěnná kostka je nejlepší volbou, neboť je v komunitě deskových her velmi oblíbená. Na jejích stěnách bude zobrazeno dvakrát každé z čísel v intervalu $<-4, 4>$ a dva symboly pro kritický úspěch a selhání (\textit{CRIT}, \textit{MISS}). Rozdělení je tedy rovnoměrné, takže hráči mají stejnou šanci na úspěšné i neúspěšné hody, což je důležité pro zachování rovnováhy hry.
