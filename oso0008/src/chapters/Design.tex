@@ -4,15 +4,51 @@ Tato kapitola se zabývá návrhem designu stolní hry a aplikace, která bude s
 \section{Požadavky na aplikaci}
 Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplikace splňovat. Tyto požadavky byly stanoveny na základě analýzy stolních her Na vlnách neznáma, Gloomhaven a Dungeons \& Dragons a na základě požadavků, které vyplynuly ze samotného návrhu hry.
 
-\subsection{Grafické rozhraní}
-Vzhled aplikace by měl odrážet tematiku hry. Ta je situovaná do temného fantaskního světa s RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, tak bylo rohodnuto, že základem designu bude černá barva, která bude doplněna o zelené a šedé prvky.
+\subsection{Vzhled}
+Vzhled aplikace by měl odrážet tematiku hry. Ta je situovaná do temného fantaskního světa s RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, tak bylo vybráno několik málo následujících barev, které se v aplikaci vyskytnou. Základem designu ovládacích prvků budou odstíny tmavě šedé, které budou doplněny o zelené prvky pro zvýraznění a indikaci interaktivních prvků. Všechny tyto barvy by měly být v kontrastu s bílou barvou, která, společně se světlými odstíny šedé, bude použita pro texty a popisky. Tímto způsobem by měl být vytvořen jednotný vzhled aplikace, který bude hráčům pomáhat se v ní lépe orientovat
 
-Zážitek ze hry bude podporován tematickými obrázky, které hráčům pomohou lépe se do hry vcítit. Obrázky budou použity na pozadí herních stránek, ikonách postav a nepřátel a na kartách, které budou hráči používat. Tyto obrázky budou vygenerovány pomocí umělé inteligence, o které se bude hovořit v kapitole %\ref{sec:AI}.
+Zážitek ze hry bude podporován tematickými obrázky, které hráčům pomohou lépe se do hry vcítit. Obrázky budou použity na pozadí herních stránek, ikonách postav a nepřátel a na kartách, které budou hráči používat. Tyto obrázky budou vygenerovány pomocí umělé inteligence, o které se bude hovořit v kapitole \ref{sec:generovani_obrazku}.
 
 Vzhled aplikace by měl být jednoduchý a přehledný. Hráči by měli mít možnost snadno se na stránce orientovat a mít přehled o všech herních prvcích.
 
-\subsection{Funkcionality}
+\subsection{Uživatelský zážitek}
+Aby měli uživatelé ze hry co nejlepší zážitek, bylo rozhodnuto, že aplikace bude mít několik základních vlastností, které by měly zlepšit uživatelský zážitek.
+
+\subsubsection*{Ovládání}
+Ideální použití aplikace počítá s tím, že ji hráči budou promítat na velký monitor, kde budou mít možnost vidět všechny herní prvky. Dále bylo podstatné, aby bylo ovládání jednoduché a intuitivní. Z těchto důvodů bude většina části aplikace, které souvisí se samotným průběhem hry bude ovládána pouze pomocí myši, aby bylo dosaženo co největšího komfortu pro hráče.
+
+\subsubsection*{Responzivita}
+Ze stejného důvodu, který je zmíněný výše, vyplývá, že aplikace by měla dobře sedět na velké monitory. Na to však nelze vždy spoléhat, jelikož někteří hráči nemají takovéto zařízení k dispozici. Proto je nutné, aby byla aplikace responzivní a byla schopná se přizpůsobit různým velikostem obrazovek a to včetně mobilních zařízení.
+
+\subsubsection*{Čtení textů}
+Jedním z požadavků je také čtečka textů. Aplikace by měla být za pomoci umělé inteligence schopná číst texty nahlas. Toto má řadu výhod, jako třeba dostupnost pro hráče, kteří mají problémy s čtením. Zároveň to může být také zajímavým prvkem, který by mohl zlepšit imerzi a tím také celkový zážitek ze hry.
+
+\subsubsection*{Perzistence dat}
+Aplikace by si měla držet aktuální data i po obnovení stránky. To znamená, že by měla být schopná ukládat data do databáze průběžně a zobrazovat je hráčům i po obnovení stránky. Tímto způsobem by měli hráči možnost pokračovat v dané části hry i v případě, že ji z jakéhokoliv důvodu nebyli schopni dokončit, či v případě, že jsou nuceni stránku obnovit.
+
+\subsection{Funkcionalita}
 Aplikace bude sloužit jako nástroj pro ukládání hráčských dat a pro správu herního světa. Hráči budou mít možnost vytvářet postavy, které budou moci upravovat a vylepšovat. Postavy budou mít možnost se účastnit dobrodružných bojových střetnutí, které budou záviset na hráči určených kampaních. Jednotlivá střetnutí budou mít vlastní mapu předtsavující hrací plochu a budou obsahovat nepřátele, kteří budou mít své vlastní schopnosti a statistiky. Všechny tyto informace budou uloženy v databázi a hráčům přístupny právě přes webové rozhraní.
 
 Následující funkcionality vyplývají z vlastního návrhu, který vzešel z analýzy některých titulů a zkušeností nabytých hraním stolních her.
+
+\subsubsection*{Přihlášení}
+Jeden z funkčních požadavků, který by měla aplikace splňovat, je možnost přihlášení. Hráči dostanou přiřazené unikátní licenční číslo a heslo, které jim umožní se do aplikace přihlásit. Přihlášení bude pro hru nutné, jelikož se tak budou ukládat data o postavách a kampaních, které hráči vytvoří. Dále by aplikace také měla umožňovat změnu hesla.
+
+\subsubsection*{Vytváření dobrodružství}
+Dobrodružstvím se rozumí kombinace postav a herního příběhu (neboli kampaně), který určuje průběh a cíl hry. Ke každému účtu bude možno vytvořit takovýchto dobrodružství několik a hráči budou schopni mezi nimi vybírat. Při jejich tvorbě budou hráči vyzváni k zadání názvu a popisu a k výběru kampaně. Ta bude pomocí API získána z databáze a bude obsahovat informace o lokacích, které mohou být ve hře navštíveny, nepřátelích, kteří se v nich mohou vyskytovat a o odměnách, které hráči mohou získat.
+
+\subsubsection*{Vytváření postav}
+Podobně jako u dobrodružství, aplikace bude povolovat vytváření hráčských postav. Ty se budou skládat ze dvou základních částí. Ty jsou rasa a povolání, jejichž výběr každé postavě udá unikátní schopnosti a statistiky. Postavy budou mít možnost se v průběhu hry vyvíjet a získávat schopnosti nové.
+
+\subsubsection*{Bojové střetnutí}
+Bojová střetnutí budou základním a hlavním prvkem hry. Bude se jednat o soubojr mezi hráči a nepřáteli, které bude probíhat na fyzické herní ploše. Konfigurace této herní plochy bude zobrazena v aplikaci a bude záviset na konkrétním dobrodružství. Aplikace bude mít v tomto případě za cíl držet v paměti aktuální stav hry, informace o postavách a nepřátelích a zobrazovat je hráčům v reálném čase. Dále bude aplikace zobrazovat informace o akcích, které mohou nepřátelé provádět a bude tímto způsobem hráčům sdělovat, jak se má hra vyvíjet.
+
+\subsubsection*{Správa předmětů}
+Aplikace by měla umožňovat hráčům dostávat odměny za splnění úkolů a za porážku nepřátel. Tyto odměny budou mimo jiné v podobě předmětů, které budou mít různé účinky a budou moci být použity v boji. Zároveň by měli mít hráči možnost tyto předměty nakupovat za herní měnu, kterou budou získávat za splnění úkolů. Hráči je budou moci přiřazovat k postavám a tím si zpřístupnit jejich účinky.
+
+\section{Využití umělé inteligence}
+Umělou inteligenci je možné v tomto projektu využít hned v několika případech. Jedním z nich je generování obrázků, které budou použity v grafickém rozhraní aplikace. Dále je možné využít umělou inteligenci pro předčítání textů. V této kapitole si popíšeme, jak by mohla být umělá inteligence využita v těchto dvou případech.
+
+\subsection{Generování obrázků}\label{sec:generovani_obrazku}
+Existuje velká řada nástrojů, které umožňují generování obrázků pomocí umělé inteligence. Většina z nich využívá neuronové sítě, které byly natrénovány na velkém množství dat. Tyto sítě jsou schopny generovat obrázky, které jsou velmi podobné těm, které byly použity při trénování. Často se jako vstupní parametry pro generování používají textové popisky, které popisují, jak by měl obrázek vypadat.
 
