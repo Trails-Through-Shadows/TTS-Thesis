@@ -34,6 +34,7 @@ jobs:
           sudo apt-get install -y xvfb
           sudo Xvfb :99 -ac -screen 0 1024x768x8 &
           export DISPLAY=:99
+          export ROAD="\\newcommand{\\ROAD}{.}"
 
       - name: Compiling LaTeX documents
         uses: xu-cheng/latex-action@v3
