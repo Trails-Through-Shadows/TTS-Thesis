@@ -67,10 +67,10 @@ Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným 
 Tento XML dokument \coderef{code:xml_player} reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element \coderef{code:xml_player}[, řádek 3] či atribut \coderef{code:xml_player}[, řádek 6 a 7]. Když není schéma specifikováno, všechny datové typy jsou považovány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
 
 
-\section{Shrnutí}
+\section{Shrnutí}\label{sec:formats:conclusion}
 V předchozí části byly popsány dva základní formáty pro serializaci a deserializaci dat -- JSON a XML. Oba formáty mají své výhody a nevýhody, které je třeba zvážit při výběru vhodného formátu pro konkrétní použití.
 
-\begin{table}[h]
+\begin{table}[ht!]
     \centering
     \begin{tabular}{|l|c|c|c|c|}
         \hline
@@ -90,20 +90,5 @@ V předchozí části byly popsány dva základní formáty pro serializaci a de
 Tabulka \ref{tab:formats_comparison} srovnává výše zmíněné technologie podle několika kritérií, které jsou důležité pro výběr vhodného formátu pro serializaci a deserializaci dat. \footnote[1]{Známkování jsem prováděl čistě podle vlastního uvážení vzhledem k tomu, co bude pro naše použití nejvhodnější} \footnote[2]{Hodnocení je vedeno jako známka na škále od 1 do 5 kdy 1 představuje souhlas a 5 nesouhlas} Pro naše účely je potřeba, aby byl formát jednoduchý a srozumitelný, ale pořád přiměřeně rychlý. XML je pro naše účely moc komplexní a většinou se používá pro velké a komplexní struktury dat, což není náš případ. Binární formát je sice rychlý, ale špatně se odhalují chyby a také je zdě větší problém s univerzálností serializeru a deserializeru mezi jazyky. JSON je pro nás ideální, neboť je jednoduchý, rychlý a dobře čitelný, proto bude použit pro reprezentaci přenosových dat v naší aplikaci.
 
 
-\begin{listing}[H]
-    \begin{minted}{java}
-    @Override
-    public List<Instruction> visitExprStat(ProjExprParser.ExprStatContext ctx) {
-        log.trace("{}Visiting \texprStat", "    ".repeat(ctx.depth()));
-        List<Instruction> instructions = new ArrayList<>(visit(ctx.expr()));
-        instructions.add(Instruction.builder().instruction(InstructionType.POP).build());
-        return instructions;
-    }
-
-    \end{minted}
-
-    \caption{caption}
-    \label{code:label}
-\end{listing}
 
 \endinput

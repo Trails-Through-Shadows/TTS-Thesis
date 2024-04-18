@@ -57,7 +57,7 @@ graphql
 
 
 
-  # reálné chyby
+## reálné chyby
 
 - zkontroluj si pak jestli jsou všechny ty výpisy zmíněny v textu
 - máš ošklivé tabulky, radši bych to předělala na využití bookmarks a rules
