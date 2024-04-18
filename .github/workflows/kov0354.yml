@@ -37,15 +37,16 @@ jobs:
           export ROAD="\\newcommand{\\ROAD}{.}"
 
       - name: Compiling LaTeX documents
+        uses: dante-ev/latex-action@v1.1.1
         env:
           ROAD: "\\newcommand{\\ROAD}{.}"
-        uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           working_directory: kov0354/src
-          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18 -jobname=main "\newcommand{\ROAD}{.}\input{main}"
+          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
           extra_system_packages: 'inkscape openjdk17'
           docker_image: ghcr.io/xu-cheng/texlive-full:20240315
+        
 
       - name: Upload LaTeX documents to artifacts
         uses: actions/upload-artifact@v4
