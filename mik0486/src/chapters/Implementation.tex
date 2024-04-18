@@ -41,7 +41,7 @@ Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\h
 \label{subsubsec:implementation-technologies-database-scheme}
 Schéma databáze bylo vytvořena placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterým se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na obrázku~\ref{fig:db_scheme}. Software DbDiagram tak nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
 
-\begin{figure}[!H]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.96\textwidth]{../../shared/diagrams/dbScheme}
     \caption{Kompletní schéma databáze}
@@ -50,7 +50,7 @@ Schéma databáze bylo vytvořena placeným softwarem DbDiagram.io\footnote{\hre
 
 \subsubsection*{Automatizace}
 \label{subsubsec:implementation-technologies-database-automatization}
-Automatizace vytváření a plnění databáze je důležitá pro kontinuální vývoj softwáru a v praxi se tak nazývá \texit{migrace}. Skripty pro vytvoření a naplnění databáze tak byly vytvořeny v skriptovacím jazyce Python\footnote{\href{https://www.python.org/}{https://www.python.org/}}. Tyto skripty tak byly vytvořeny tak, aby při jejich spuštění provedly kompletní smazání databáze, následně pak její znovu vytvoření a pozdější naplnění. Ukázka výstupu vytvořených scriptu je zobrazena v příloze~\ref{fig:databaseScriptsOutput}.
+Automatizace vytváření a plnění databáze je důležitá pro kontinuální vývoj softwáru a v praxi se tak nazývá \textit{migrace}. Skripty pro vytvoření a naplnění databáze tak byly vytvořeny v skriptovacím jazyce Python\footnote{\href{https://www.python.org/}{https://www.python.org/}}. Tyto skripty tak byly vytvořeny tak, aby při jejich spuštění provedly kompletní smazání databáze, následně pak její znovu vytvoření a pozdější naplnění. Ukázka výstupu vytvořených scriptu je zobrazena v příloze~\ref{fig:databaseScriptsOutput}.
 
 Pro vytvoření databáze byl použitý SQL soubory, který se po každé úpravě v nástroji DbDiagram.io zmíněným výše vyexportoval. Jakmile byla databáze resetována do výchozí podoby a vše proběhlo úspěšně. Došlo na řadu její plnění. Pro plnění databáze jsou data uloženy v souborech ve formátu JSON. Tyto soubory lze jednoduše exportovat z administračního rozhraní a uložit pro pozdější použití při obnově nebo plnění databáze.
 
