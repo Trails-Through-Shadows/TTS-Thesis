@@ -37,6 +37,8 @@ jobs:
           export ROAD="\\newcommand{\\ROAD}{.}"
 
       - name: Compiling LaTeX documents
+        env:
+          ROAD: "\\newcommand{\\ROAD}{.}"
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
