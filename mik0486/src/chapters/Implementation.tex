@@ -1,5 +1,6 @@
 \chapter{Implementace}
 \label{ch:implementation}
+Tato sekce obsahuje popis implementace aplikace, která byla vytvořena na základě analýzy v předchozích kapitolách. V této sekci se tak zaměřím na popis jednotlivých komponent aplikace, které byly vytvořeny a následně nasazeny do produkce. Dále se zaměřím na popis týmové spolupráce, která byla nutná pro vytvoření celého projektu a na závěr se zaměřím na popis problémů, které se v průběhu vývoje objevily.
 
 \section{Požadavky na implementaci}
 \label{sec:implementation-requirements}
@@ -22,17 +23,25 @@ Práce s API přes middleware, který zabezpečuje správné použití klíče.
 
 \subsection{Framework}
 \label{subsec:implementation-technologies-framework}
-Zvoleno Django, odkaz na analýzu frameworku.
+Jak bylo zmíněno v sekci analýze rozhraní, pro vývoj aplikace administrativního rozhraní jsem zvolil framework Django. Díky tomuto frameworku jsem tak mohl využít jeho širokou škálu již předem zakomponovaných funkcí, které mi usnadnily vývoj. Díky těmto funkcím jsem se mohl zaměřit na vývoj samotného rozhraní, které jsem tam psal v jazyce TypeScript s využitím frontendového frameworku Bootstrap.
 
-\subsection{Database}
+Framework jako samotný neobsahuje rozšířené prvky pro použití na frontendu, z toho důvodu jsem byl nucen psát si tyto komponenty sám. Pro jejich vývoj jsem tam využil jazyk TypeScriptu, kde výsledné komponenty jsou mezi stránkami sdíleny. Pro dynamické načítaní obsahu je využíváno asynchronní načítání dat pomocí AJAXu, po prvotním načtení stránky zavoláno a po jeho zpracování dojde k překreslení části stránky.
+
+Jedna z komponent, která slouží pro asynchronní získávaní dat je zobrazena v ukázce kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem který je získan v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
+
+\newpage
+\lstinputlisting[language=TypeScript, caption={Komponenta pro získání asynchronních dat.}, label={lst:data-request-component}]{sourceCodes/DataRequestComponent.ts}
+
+\newpage
+\subsection{Databáze}
 \label{subsec:implementation-technologies-database}
-Zvolena MariaDB. Výhody nevýhody porovnání ostatních. PostgreSQL\@.
+Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale o jednu s vysokou stabilitou a širokou historii použití. Databázi jsme tak pro bezpečnější použití rozdělili na dvě \textit{tts\_db} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity scripty, které budou dále popsány v sekci automatizace.
 
 \subsubsection*{Schéma}
 \label{subsubsec:implementation-technologies-database-scheme}
-Diagram schéma databáze -> Diagram
+Schéma databáze bylo vytvořena placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterým se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na obrázku~\ref{fig:db_scheme}. Software DbDiagram tak nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
 
-\begin{figure}[!h]
+\begin{figure}[!H]
     \centering
     \includegraphics[width=0.96\textwidth]{../../shared/diagrams/dbScheme}
     \caption{Kompletní schéma databáze}
@@ -41,7 +50,50 @@ Diagram schéma databáze -> Diagram
 
 \subsubsection*{Automatizace}
 \label{subsubsec:implementation-technologies-database-automatization}
-Popis tvorby skriptu pro naplnění databáze. Priorita plnění. -> Diagram
+Automatizace vytváření a plnění databáze je důležitá pro kontinuální vývoj softwáru a v praxi se tak nazývá \texit{migrace}. Skripty pro vytvoření a naplnění databáze tak byly vytvořeny v skriptovacím jazyce Python\footnote{\href{https://www.python.org/}{https://www.python.org/}}. Tyto skripty tak byly vytvořeny tak, aby při jejich spuštění provedly kompletní smazání databáze, následně pak její znovu vytvoření a pozdější naplnění. Ukázka výstupu vytvořených scriptu je zobrazena v příloze~\ref{fig:databaseScriptsOutput}.
+
+Pro vytvoření databáze byl použitý SQL soubory, který se po každé úpravě v nástroji DbDiagram.io zmíněným výše vyexportoval. Jakmile byla databáze resetována do výchozí podoby a vše proběhlo úspěšně. Došlo na řadu její plnění. Pro plnění databáze jsou data uloženy v souborech ve formátu JSON. Tyto soubory lze jednoduše exportovat z administračního rozhraní a uložit pro pozdější použití při obnově nebo plnění databáze.
+
+Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účet byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na obrázku~\ref{fig:db_table_priority}. Tento diagram tak slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
+
+Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou tak mají největší počet cest k sobě. V případě, že tabulka nemá žádnou cestu k sobě, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v tabulce~\ref{tab:db_table_priority}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{diagrams/databasePriority}
+    \caption{Schéma závislosti tabulek v databázi}
+    \label{fig:db_table_priority}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+        \begin{tabular}{l c l}
+            \toprule
+
+            \textbf{Název tabulky} & \textbf{Priorita} & \textbf{Závislost} \\
+            \midrule
+
+            \textbf{Effect} & 1 & -- \\
+            \textbf{Achievement} & 1 & -- \\
+            \textbf{Images} & 1 & -- \\
+            \textbf{Parts} & 1 & -- \\
+            \textbf{Obstacles} & 2 & Effect \\
+            \textbf{Summons} & 2 & Effect \\
+            \textbf{Enemies} & 3 & Effect, Action \\
+            \textbf{Locations} & 3 & Part \\
+            \textbf{Races} & 3 & Effect, Action \\
+            \textbf{Items} & 3 & Effect, Action \\
+            \textbf{Summons (Late Binding)} & 3 & Action \\
+            \textbf{Campaigns} & 4 & Location, Achievement \\
+            \textbf{Stories} & 4 & Location \\
+            \textbf{Adventure} & 5 & License, Campaign \\
+            \textbf{Characters} & 6 & Class, Race, Item, Adventure \\
+
+            \bottomrule
+        \end{tabular}
+    \caption{Tabulka s prioritou dle diagramu~\ref{fig:db_table_priority}
+    \label{tab:db_table_priority}}
+\end{table}
 
 \section{Týmová spolupráce}
 \label{sec:implementation-collaboration}
@@ -71,7 +123,7 @@ Větev \textit{master} slouží pro produkční verze projektu, které jsou již
 Následně strom obsahuje pod větve vývojové, tyto větve se často štěpí z větve developu a slouží pro vývoj nových funkcí nebo opravu chyb. Po dokončení a úspěšném testování je tato větev spojena zpět do developu a po vydání nové verze je spojena do masteru.
 
 \subsubsection*{Zkratky}
-Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}.
+Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o funkční příkazy softwaru Git, ale o pouhé zkratky pro přehlednější vyobrazení v schématu.
 
 \begin{table}[h]
     \centering
@@ -110,22 +162,30 @@ Sdílení kódu není ve vývoji softwáru novinkou, neboť kód ve větším t�
 
 \subsection*{Rozdělení částí}
 \label{subsec:implementation-collaboration-sharing-parts}
+Při zakládaní organizace také došlo k zakoupení domény na kterou následně byly jednotlivé produkční verze nasazeny pomocí dalšího z nástrojů GitHubu a to \textit{GitHub Actions}\footnote{\href{https://github.com/features/actions}{https://github.com/features/actions}}, tento nástroj slouží pro automatizaci testování a následného nasazení funkční verze na server. Tento systém nám tak umožnil přehledný a automatický proces spuštění aplikace v praxi.
+
+\noindent
+V rámci organizace byly vytvořeny následující části:
 
 \begin{itemize}
-    \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se taky nachází pod odkazem: \url{https://docs.tts-game.fun/thesis/intro}
+    \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se taky nachází pod odkazem  \url{https://docs.tts-game.fun/thesis/intro}.
     \item TTS-Database  -- obsahuje skripty pro vytvoření a naplnění databáze základními daty, jejichž schéma je viditelné na obrázku~\ref{fig:db_scheme} nebo pod odkazem: \url{https://db.tts-game.fun}.
-    \item TTS-API       -- obsahuje zdrojové kódy API, které slouží pro komunikaci mezi frontendem a backendem. Produkční verze běží pod odkazem: \url{https://api.tts-game.fun}
-    \item TTS-Dashboard -- obsahuje zdrojové kódy frontendu, který slouží pro zobrazení dat a správu aplikace. Produkční verze nalezena pod odkazem: \url{https://dashboard.tts-game.fun}
-    \item TTS-Frontend  -- obsahuje frontend, který slouží pro interakci s uživatelem. Produkční verze dostupná na \url{https://play.tts-game.fun}
-    \item TTS-Docs      -- obsahuje dokumentaci k projektu která je volně dostupná pod odkazem \url{https://docs.tts-game.fun/data/intro}
+    \item TTS-API       -- obsahuje zdrojové kódy API, které slouží pro komunikaci mezi frontendem a backendem. Funkční produkční verze běží pod odkazem \url{https://api.tts-game.fun}.
+    \item TTS-Dashboard -- obsahuje zdrojové kódy frontendu, který slouží pro zobrazení dat a správu aplikace. Produkční verze nalezena pod odkazem \url{https://dashboard.tts-game.fun}.
+    \item TTS-Frontend  -- obsahuje frontend, který slouží pro interakci s uživatelem. Produkční verze dostupná na \url{https://play.tts-game.fun}.
+    \item TTS-Docs      -- obsahuje dokumentaci k projektu která je volně dostupná pod odkazem \url{https://docs.tts-game.fun/data/intro}.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{../../shared/figures/gitOrg}
     \caption{Zobrazení organizace a jejich částí na stránce Github}
     \label{fig:git_organization}
 \end{figure}
+
+\subsection{Řešení problémů}
+\label{subsec:implementation-collaboration-problems}
+Pro řešení problému a chyb v softwaru, bylo pro tuto práci využito dalšího z nástrojů webu Github a to konkrétně \textit{Github Issues}\footnote{\href{https://github.com/features/issues}{https://github.com/features/issues}}, který slouží pro ukládání a monitoring problému v softwaru. Jako jednu z výhod tento nástroj přináší možnost přiřazení problému danému členovi nebo automatické vytvoření \textit{feature} větve a následného \textit{pull requestu}.
 
 \section{Problémy vývoje}
 \label{sec:implementation-problems}

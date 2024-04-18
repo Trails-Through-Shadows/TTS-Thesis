@@ -7,14 +7,10 @@
 \usepackage{float} % lepsi umistovani obrazku (H)
 \usepackage{subcaption}
 \usepackage{hyperref}
-\usepackage{listings}
+\usepackage{../../shared/additionallst} % Additional diploma thesis listings
+%\usepackage{listings}
 \usepackage{tikz}
-\usepackage{color} % Required for custom colors
 \usepackage{bookmark} % Required for generating PDF bookmarks
-
-\definecolor{darkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
 
 \renewcommand{\lstlistingname}{Zdrojový Kód} % Set your own caption name for listings
 
@@ -35,50 +31,6 @@
         \includegraphics[width=#3]{../../mik0486/target/puml/#2}
         \caption{#4}\label{fig:figure}
     \end{figure}
-}
-
-\lstdefinelanguage{CSS}{
-    sensitive=true,
-    keywords={color:, background-color:, margin:, padding:, font:, weight:, display:, position:, top:, left:, right:, bottom:, list:, style:, border:},
-    morecomment=[l]{//},
-    morecomment=[s]{/*}{*/},
-    morestring=[b]',
-    morestring=[b]",
-    alsoletter={:},
-    alsodigit={-}
-}
-
-\lstdefinelanguage{HTML}{
-    sensitive=true,
-    keywords={html,head,title,meta,script,style,link,body,h1,h2,h3,h4,h5,h6,p,div,span,a,img,ul,ol,li,table,th,tr,td,thead,tbody,tfoot,form,input,button,select,option,label,textarea},
-    morecomment=[s]{<!--}{-->}
-}
-
-\lstset{
-    basicstyle=\ttfamily\small,     % The basic style
-    keywordstyle=\color{blue},      % Keyword style
-    commentstyle=\color{darkgreen}, % Comment style
-    stringstyle=\color{mauve},      % String literal style
-    breaklines=true,                % Break long lines
-    showstringspaces=false,         % Don't show spaces in strings as special character
-    numbers=left,                   % Line numbers on the left
-    numberstyle=\tiny\color{gray},  % Style of line numbers
-    tabsize=2,                      % Set tab size
-    frame=l,                        % Left frame line
-    framesep=5pt,                   % Padding between frame and code
-    xleftmargin=\parindent,         % Indent the frame to fit paragraph layout
-    captionpos=b,                   % Position the caption at the bottom
-    aboveskip=1em,                  % Adjust the space above the listing
-    literate={á}{{\'{a}}}1 {Á}{{\'{A}}}1 {ä}{{\"{a}}}1 {Ä}{{\"{A}}}
-    1 {č}{{\v{c}}}1 {Č}{{\v{C}}}1 {ď}{{\v{d}}}1 {Ď}{{\v{D}}}
-    1 {ě}{{\v{e}}}1 {Ě}{{\v{E}}}1 {é}{{\'{e}}}1 {É}{{\'{E}}}
-    1 {í}{{\'{i}}}1 {Í}{{\'{I}}}1 {ĺ}{{\'{l}}}1 {Ĺ}{{\'{L}}}
-    1 {ľ}{{\v{l}}}1 {Ľ}{{\v{L}}}1 {ň}{{\v{n}}}1 {Ň}{{\v{N}}}
-    1 {ó}{{\'{o}}}1 {Ó}{{\'{O}}}1 {ô}{{\^{o}}}1 {Ô}{{\^{O}}}
-    1 {ř}{{\v{r}}}1 {Ř}{{\v{R}}}1 {ŕ}{{\'{r}}}1 {Ŕ}{{\'{R}}}
-    1 {š}{{\v{s}}}1 {Š}{{\v{S}}}1 {ť}{{\v{t}}}1 {Ť}{{\v{T}}}
-    1 {ú}{{\'{u}}}1 {Ú}{{\'{U}}}1 {ů}{{\r{u}}}1 {Ů}{{\r{U}}}
-    1 {ý}{{\'{y}}}1 {Ý}{{\'{Y}}}1 {ž}{{\v{z}}}1 {Ž}{{\v{Z}}}1
 }
 
 % Pozadovane vstupy pro generovani titulnich stran.
@@ -154,6 +106,7 @@
 
 % Prilohy
 \appendix
+\input{chapters/Appendix}
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]

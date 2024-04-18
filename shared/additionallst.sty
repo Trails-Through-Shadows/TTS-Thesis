@@ -1,99 +1,77 @@
 % Created by rcMarty (Martin Korotwitschka) on 2024.3.8
+% Edited by Firestone82 (Pavel Mikula) on 2024.4.18
 % Fell free to use and modify this file
 
-% \usepackage{bera}% optional: just to have a nice mono-spaced font
-\usepackage{listings}
-\usepackage{xcolor}
+\RequirePackage{listings}
+\RequirePackage{color}
 
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 
-\definecolor{background}{HTML}{EEEEEE}
-\colorlet{eclipseStrings}{green!60!black}
-\definecolor{eclipseKeywords}{RGB}{0,80,150}
-\definecolor{punct}{HTML}{808080}
-\definecolor{delim}{HTML}{101010}
-\colorlet{numb}{red!60!black}
-
-\lstdefinelanguage{json}{
-basicstyle=\normalfont\ttfamily,
-inputencoding=utf8,
-extendedchars=true,
-commentstyle=\color{eclipseStrings}, % style of comment
-stringstyle=\color{eclipseKeywords}, % style of strings
-numbers=left,
-numberstyle=\scriptsize,
-stepnumber=1,
-numbersep=8pt,
-showstringspaces=false,
-breaklines=true,
-frame=lines,
-backgroundcolor=\color{background}, %only if you like
-string=[s]{"}{"},
-%comment=[s]{:\ "}{"},
-%comment=[l]{:\ },
-comment=[l]{:\ "},
-%morecomment=[s]{:"}{"},
-morecomment=[l]{:\ [" },
-morecomment=[l]{:"},
-literate=
-{0}{{{\color{numb}0}}}{1}
-{1}{{{\color{numb}1}}}{1}
-{2}{{{\color{numb}2}}}{1}
-{3}{{{\color{numb}3}}}{1}
-{4}{{{\color{numb}4}}}{1}
-{5}{{{\color{numb}5}}}{1}
-{6}{{{\color{numb}6}}}{1}
-{7}{{{\color{numb}7}}}{1}
-{8}{{{\color{numb}8}}}{1}
-{9}{{{\color{numb}9}}}{1}
-{,}{{{\color{punct}{,}}}}{1}
-{\{}{{{\color{delim}{\{}}}}{1}
-{\}}{{{\color{delim}{\}}}}}{1}
-{[}{{{\color{delim}{[}}}}{1}
-{]}{{{\color{delim}{]}}}}{1}
-% {:}{{{\color{punct}{:}}}}1 %it is rewritten with commendtstyle
-% ascii characters
-{á}{{\'{a}}}1 {Á}{{\'{A}}}1 {ä}{{\"{a}}}1 {Ä}{{\"{A}}}1
-{č}{{\v{c}}}1 {Č}{{\v{C}}}1 {ď}{{\v{d}}}1 {Ď}{{\v{D}}}1
-{ě}{{\v{e}}}1 {Ě}{{\v{E}}}1 {é}{{\'{e}}}1 {É}{{\'{E}}}1
-{í}{{\'{i}}}1 {Í}{{\'{I}}}1 {ĺ}{{\'{l}}}1 {Ĺ}{{\'{L}}}1
-{ľ}{{\v{l}}}1 {Ľ}{{\v{L}}}1 {ň}{{\v{n}}}1 {Ň}{{\v{N}}}1
-{ó}{{\'{o}}}1 {Ó}{{\'{O}}}1 {ô}{{\^{o}}}1 {Ô}{{\^{O}}}1
-{ř}{{\v{r}}}1 {Ř}{{\v{R}}}1 {ŕ}{{\'{r}}}1 {Ŕ}{{\'{R}}}1
-{š}{{\v{s}}}1 {Š}{{\v{S}}}1 {ť}{{\v{t}}}1 {Ť}{{\v{T}}}1
-{ú}{{\'{u}}}1 {Ú}{{\'{U}}}1 {ů}{{\r{u}}}1 {Ů}{{\r{U}}}1
-{ý}{{\'{y}}}1 {Ý}{{\'{Y}}}1 {ž}{{\v{z}}}1 {Ž}{{\v{Z}}}1
+\lstdefinelanguage{CSS}{
+    sensitive=true,
+    keywords={color:, background-color:, margin:, padding:, font:, weight:, display:, position:, top:, left:, right:, bottom:, list:, style:, border:},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]',
+    morestring=[b]",
+    alsoletter={:},
+    alsodigit={-}
 }
 
+\lstdefinelanguage{HTML} {
+    sensitive=true,
+    keywords={html,head,title,meta,script,style,link,body,h1,h2,h3,h4,h5,h6,p,div,span,a,img,ul,ol,li,table,th,tr,td,thead,tbody,tfoot,form,input,button,select,option,label,textarea},
+    morecomment=[s]{<!--}{-->}
+}
 
-\definecolor{string}{rgb}{0.64,0.08,0.08}
+\lstdefinelanguage{JavaScript} {
+    sensitive=true,
+    keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morestring=[b]",
+    morestring=[b]'
+}
 
-\lstdefinelanguage{jsonalt}{
-numbers=left,
-numberstyle=\small,
-frame=single,
-rulecolor=\color{black},
-showspaces=false,
-showtabs=false,
-breaklines=true,
-postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
-breakatwhitespace=true,
-basicstyle=\ttfamily\small,
-upquote=true,
-morestring=[b]",
-stringstyle=\color{string},
-literate=
-*{0}{{{\color{numb}0}}}{1}
-{1}{{{\color{numb}1}}}{1}
-{2}{{{\color{numb}2}}}{1}
-{3}{{{\color{numb}3}}}{1}
-{4}{{{\color{numb}4}}}{1}
-{5}{{{\color{numb}5}}}{1}
-{6}{{{\color{numb}6}}}{1}
-{7}{{{\color{numb}7}}}{1}
-{8}{{{\color{numb}8}}}{1}
-{9}{{{\color{numb}9}}}{1}
-{\{}{{{\color{delim}{\{}}}}{1}
-{\}}{{{\color{delim}{\}}}}}{1}
-{[}{{{\color{delim}{[}}}}{1}
-{]}{{{\color{delim}{]}}}}{1},
+\lstdefinelanguage{TypeScript} {
+    sensitive=true,
+    keywords={typeof, new, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, export, class, public, const, constructor, private, console},
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]`,
+}
+
+\lstdefinelanguage{JSON} {
+    morestring=[b]",
+    morestring=[b]'
+}
+
+\lstset{
+    basicstyle=\ttfamily\small,     % The basic style
+    keywordstyle=\color{blue},      % Keyword style
+    commentstyle=\color{darkgreen}, % Comment style
+    stringstyle=\color{mauve},      % String literal style
+    breaklines=true,                % Break long lines
+    showstringspaces=false,         % Don't show spaces in strings as special character
+    numbers=left,                   % Line numbers on the left
+    numberstyle=\tiny\color{gray},  % Style of line numbers
+    tabsize=2,                      % Set tab size
+    frame=l,                        % Left frame line
+    framesep=5pt,                   % Padding between frame and code
+    xleftmargin=\parindent,         % Indent the frame to fit paragraph layout
+    captionpos=b,                   % Position the caption at the bottom
+    aboveskip=1em,                  % Adjust the space above the listing
+    literate={á}{{\'{a}}}1 {Á}{{\'{A}}}1 {ä}{{\"{a}}}1 {Ä}{{\"{A}}}
+    1 {č}{{\v{c}}}1 {Č}{{\v{C}}}1 {ď}{{\v{d}}}1 {Ď}{{\v{D}}}
+    1 {ě}{{\v{e}}}1 {Ě}{{\v{E}}}1 {é}{{\'{e}}}1 {É}{{\'{E}}}
+    1 {í}{{\'{i}}}1 {Í}{{\'{I}}}1 {ĺ}{{\'{l}}}1 {Ĺ}{{\'{L}}}
+    1 {ľ}{{\v{l}}}1 {Ľ}{{\v{L}}}1 {ň}{{\v{n}}}1 {Ň}{{\v{N}}}
+    1 {ó}{{\'{o}}}1 {Ó}{{\'{O}}}1 {ô}{{\^{o}}}1 {Ô}{{\^{O}}}
+    1 {ř}{{\v{r}}}1 {Ř}{{\v{R}}}1 {ŕ}{{\'{r}}}1 {Ŕ}{{\'{R}}}
+    1 {š}{{\v{s}}}1 {Š}{{\v{S}}}1 {ť}{{\v{t}}}1 {Ť}{{\v{T}}}
+    1 {ú}{{\'{u}}}1 {Ú}{{\'{U}}}1 {ů}{{\r{u}}}1 {Ů}{{\r{U}}}
+    1 {ý}{{\'{y}}}1 {Ý}{{\'{Y}}}1 {ž}{{\v{z}}}1 {Ž}{{\v{Z}}}1
 }

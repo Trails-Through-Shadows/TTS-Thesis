@@ -111,7 +111,7 @@ Adventure -> Character
 Adventure <-d- Campaign
 
 Campaign <-- Achievement
-Campaign <- Location
+Campaign <-right- Location
 
 Location -r-> Stories
 
