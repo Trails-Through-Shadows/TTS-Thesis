@@ -114,23 +114,21 @@ Seznam validací, které se provádí pro jednotlivé modely byl kromě samotné
     \item Všechny hexagony musí být propojeny.
 \end{itemize}
 
-// todo nějaký odstavec
+\begin{listing}[h]
+    \inputminted{Java}{code/Validable.java}
+    \caption{Zdrojový kód třídy Validable}
+    \label{code:validable}
+\end{listing}
 
-\lstinputlisting[%
-    language=Java,%
-    label=src:validable,%
-    caption={Zdrojový kód třídy Validable}]%
-    {code/Validable.java}
+Na výpisu \ref{code:validable} je zobrazena třída \texttt{Validable}, která je základem pro všechny modely, které potřebují validovat svá data. Třída obsahuje metodu \texttt{validate}, která je volána při vkládání nového záznamu do databáze a zajišťuje, že data splňují požadavky, které byly stanoveny v návrhu. Tato metoda interně volá protected metodu \texttt{validateInner}, která je implementována v každé třídě zvlášť a zajišťuje, že data splňují požadavky, které jsou specifické pro daný model. Zbytek této metody jen zajišťuje zaobalení a v případě zachycení chyby tyto informace předává dále.
 
-Na výpisu \ref{src:validable} je zobrazena třída \texttt{Validable}, která je základem pro všechny modely, které potřebují validovat svá data. Třída obsahuje metodu \texttt{validate}, která je volána při vkládání nového záznamu do databáze a zajišťuje, že data splňují požadavky, které byly stanoveny v návrhu. Tato metoda interně volá protected metodu \texttt{validateInner}, která je implementována v každé třídě zvlášť a zajišťuje, že data splňují požadavky, které jsou specifické pro daný model. Zbytek této metody jen zajišťuje zaobalení a v případě zachycení chyby tyto informace předává dále.
+\begin{listing}[h]
+    \inputminted{Java}{code/Part.java}
+    \caption{Zdrojový kód třídy Part}
+    \label{code:part}
+\end{listing}
 
-\lstinputlisting[%
-    language=Java,%
-    label=src:part,%
-    caption={Zdrojový kód třídy Part}]%
-    {code/Part.java}
-
-Validace dále pokračuje v samotné třídě \texttt{Part}, která je zobrazena na výpisu \ref{src:part}, ze kterého byly vybrány jen některé z kontrol, opravdová třída však obsahuje všechny kontroly zapsané ve výše uvedeném seznamu. Třída obsahuje metodu \texttt{validateInner}, která zajišťuje, že data splňují požadavky, které byly pro části lokací stanoveny. V této metodě je zajištěno, že má část validní název i štítek, minimální počet hexagonů, že obsahuje středový hexagon a že jsou všechny hexagony propojeny. V případě, že některá z těchto podmínek není splněna, je vyhozena výjimka \texttt{ValidationError}, která obsahuje informace o chybě jako obecnou chybovou hlášku, jméno objektu, jméno nevalidního pole a odmítnutou hodnotu.
+Validace dále pokračuje v samotné třídě \texttt{Part}, která je zobrazena na výpisu \ref{code:part}, ze kterého byly vybrány jen některé z kontrol, opravdová třída však obsahuje všechny kontroly zapsané ve výše uvedeném seznamu. Třída obsahuje metodu \texttt{validateInner}, která zajišťuje, že data splňují požadavky, které byly pro části lokací stanoveny. V této metodě je zajištěno, že má část validní název i štítek, minimální počet hexagonů, že obsahuje středový hexagon a že jsou všechny hexagony propojeny. V případě, že některá z těchto podmínek není splněna, je vyhozena výjimka \texttt{ValidationError}, která obsahuje informace o chybě jako obecnou chybovou hlášku, jméno objektu, jméno nevalidního pole a odmítnutou hodnotu.
 
 Za zmínku také stojí parametr třídy  \texttt{ValidationConfig}, který se předává při volání této metody a obsahuje různé informace, vůči kterým se objekt validuje. Na výpisu se tato konfigurace používá pro předání minimálního počtu hexagonů a také se předává do metody \texttt{validateChild}, která zajišťuje kontrolu vnitřních objektů, jako je název a štítek.
 

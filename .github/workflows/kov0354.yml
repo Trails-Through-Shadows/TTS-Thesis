@@ -23,6 +23,8 @@ jobs:
 
   build-latex:
     runs-on: ubuntu-latest
+    env: 
+      ROAD: "\\newcommand{\\ROAD}{.}"
     steps:
       - uses: actions/checkout@v3
 
