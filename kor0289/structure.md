@@ -51,6 +51,7 @@ nvm potřebuju novou onovu tohle je k ničemu
   - vodopádový model
   - spolupráce v rtýmu a git and so on
   - vývoj
+    - databaze
     - jak fungujou věci v springbootu
     - pokud bude spring security
     - jpa
