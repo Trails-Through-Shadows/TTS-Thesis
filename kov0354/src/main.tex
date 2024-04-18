@@ -12,6 +12,17 @@
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{xurl} % zalomeni dlouhych URL
 \usepackage{tablefootnote} % poznámky pod tabulkou
+\usepackage{listings}
+\usepackage{color}
+
+% minted things
+\immediate\write18{echo $ROAD > .ROAD.tex}
+\immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
+\input{.ROAD}
+\usepackage[outputdir=\ROAD]{minted} %
+\setminted{fontsize=\fontsize{9}{11}\selectfont, baselinestretch=1, frame=lines, framesep=8pt, linenos, breaklines}
+\renewcommand\listingscaption{Výpis}
+\renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
@@ -56,6 +67,7 @@
 \newcommand{\glsref}[1]{\textit{\gls{#1}}}
 \newcommand{\gameref}[1]{\textit{#1}}
 \newcommand{\attr}[1]{(\texttt{#1})}
+\newcommand{\devTool}[2]{\textit{#1}\footnote{\href{#2}{#2}}}
 
 % Glossary stuff
 \makenoidxglossaries
@@ -104,6 +116,7 @@
 \printbibliography[title={Literatura}, heading=bibintoc]
 
 % Přílohy
+\appendix
 \input{chapters/appendix/DatabaseSchema.tex}
 \input{chapters/appendix/GameList.tex}
 
