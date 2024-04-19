@@ -1,9 +1,22 @@
 % Create the glossary
 \newglossary[glignored]{shortcuts}{glsto}{glstr}{Seznam zmíněných zkratek}
 \newglossary[glignored]{gameslist}{glsto}{glstr}{Seznam her or smthng}
+\newglossary[glignored]{term}{glsto}{glstr}{Seznam zmíněných pojmů}
 
 % Define the style for the glossary
-\newglossarystyle{shortcuts}% style name
+\newglossarystyle{term}% style name
+{% base it on the "list" style
+    \setglossarystyle{list}%
+    \renewcommand*{\glossentry}[2]{%
+        \item[\glsentryitem{##1}%
+                    \glstarget{##1}{\glossentryname{##1}}]
+        \ifglshaslong{##1}%
+        { (\abbrtype{##1}: \glsentrylong{##1})\space}{}%
+        \glossentrydesc{##1}\glspostdescription\space ##2}%
+    \ifglshasfield{useri}{##1}{\par \href{\glsentryuseri{##1}}{Link}}{}%
+}
+
+\newglossarystyle{}% style name
 {% base it on the "list" style
     \setglossarystyle{list}%
     \renewcommand*{\glossentry}[2]{%
@@ -82,4 +95,43 @@
     description={HATEOAS princip v REST architektuře odděluje klienta od serveru způsobem, který umožňuje serveru nezávislé rozšiřování funkcionality.},
     user1={wikina},
     user2={https://www.seznam.cz},
+}
+
+% JWT
+\newglossaryentry{jwt}{
+    type=shortcuts,
+    name={JSON Web Token (JWT)},
+    text={JWT},
+    description={JWT je standard pro vytváření tokenů, které jsou založeny na JSON objektech.},
+    user1={https://jwt.io/},
+    user2={https://www.seznam.cz},
+}
+
+% sql
+\newglossaryentry{sql}{
+    type=shortcuts,
+    name={Structured Query Language (SQL)},
+    text={SQL},
+    description={SQL je speciální programovací jazyk, který je určen pro práci s relačními databázemi.},
+    user1={https://www.w3schools.com/sql/},
+    user2={https://www.seznam.cz},
+}
+
+%rdbms
+\newglossaryentry{rdbms}{
+    type=shortcuts,
+    name={Relational Database Management System (RDBMS)},
+    text={RDBMS},
+    description={RDBMS je typ systému pro správu databází. Využívá relační model pro ukládání dat.},
+    user1={https://www.w3schools.com/sql/sql_rdbms.asp},
+    user2={https://www.seznam.cz},
+}
+
+% Stoplight
+\newglossaryentry{stoplight}{
+    type=term,
+    name={Stoplight},
+    text={Stoplight},
+    description={Stoplight je nástroj pro tvorbu a správu API dokumentace.},
+    user1={https://stoplight.io/},
 }
