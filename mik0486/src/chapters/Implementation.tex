@@ -20,6 +20,7 @@ Práce s API přes middleware, který zabezpečuje správné použití klíče.
 
 \section{Volba technologií}
 \label{sec:implementation-technologies}
+V této sekci se budu věnovat výběru technologii které jsem zvolil v průběhu implmentace aplikace. Výběr technologii tak většinou vychází z analýzy uvedené v kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
 
 \subsection{Framework}
 \label{subsec:implementation-technologies-framework}
@@ -29,13 +30,35 @@ Framework jako samotný neobsahuje rozšířené prvky pro použití na frontend
 
 Jedna z komponent, která slouží pro asynchronní získávaní dat je zobrazena v ukázce kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem který je získan v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
 
-\newpage
 \lstinputlisting[language=TypeScript, caption={Komponenta pro získání asynchronních dat.}, label={lst:data-request-component}]{sourceCodes/DataRequestComponent.ts}
 
-\newpage
+\subsection{Knihovny}
+\label{subsec:implementation-technologies-libraries}
+Při vývoji aplikace jsem tak využil několik knihoven třetích stran, které mi tak usnadnily vývoj a zároveň zrychlily proces vývoje protože nebylo nutné psát vše od základu. Mezi tyto knihovny tak patří:
+
+\begin{itemize}
+    \item Font Awesome\footnote{\href{https://fontawesome.com/}{https://fontawesome.com/}} -- je knihovna ikon, která disponuje širokou škálou veřejně dostupných ikon, které jsou zdarma k použití. Ve vývoji jsem tak tyto ikony použil pro reprezentaci různých akcí, které může uživatel provést.
+    \item Bootstrap\footnote{\href{https://getbootstrap.com/}{https://getbootstrap.com/}} -- jsem použil jako frontendovou knihovnu předem napsaný stylů, díky kterým jsem tak mohl rychle vytvořit efektivní a responzivní rozhraní. Bootstrap tak nabízí širokou škálu komponent, které jsou podrobně popsány v dokumentaci.
+    \item SweetAlert2\footnote{\href{https://sweetalert2.github.io/}{https://sweetalert2.github.io/}} -- je knihovna, která umožnuje jednoduche zobrazovat nofikace a upozornění uživateli. Tato knihovna tak byla využita například pro zobrazení upozornění při chybě nebo úspěšném provedení akce.
+    \item GoJS\footnote{\href{https://gojs.net/latest/index.html}{https://gojs.net/latest/index.html}} -- obsahuje funkce pro jednoduché a efektivní vytváření grafů, které byly využity pro interaktivní zobrazení návaznosti lokací na sebe.
+    \item Animate.css\footnote{\href{https://animate.style/}{https://animate.style/}}, Hover.css\footnote{\href{https://ianlunn.github.io/Hover/}{https://ianlunn.github.io/Hover/}} -- jsou knihovny, které obsahuje před připravené animační styly, které stačí pouze aplikovat pomocí CSS tříd nebo dynamicky pomocí JavaScriptu.
+    \item Notiflix\footnote{\href{https://notiflix.github.io/}{https://notiflix.github.io/}} -- je další z knihoven pro zobrazování notifikace, v tomto projektu jsem ale pro notifikace zvolil knihovnu SweetAlert2. Z toho důvodu je tato knihovna využita pouze pro blokaci uživatelského vstupu během načítání nebo zpracování dat formou loading spinneru.
+    \item NoUISlider\footnote{\href{https://refreshless.com/nouislider/}{https://refreshless.com/nouislider/}} -- jedná se o knihovnu, které do prvků HTML přidává možnost vytvořit posuvníky, které je následně možné využit pro výběr hodnoty z rozsahu. Jeho příklad použití je v formuláři s filtrací dat.
+\end{itemize}
+
+\subsection{Jazykový procesor}
+\label{subsec:implementation-technologies-compiler}
+Výběr jazyka pro uživatelské rozhraní je důležitým aspektem v případě aplikací určených pro širokou veřejnost. V rámci této práce byl jako primární jazyk rozhraní zvolen jazyk anglický, což je nejuniverzálnější jazyk na světě. Díky čemuž je aplikace přístupná širokému spektru uživatelů bez potřeby překladu. Nicméně pro některé uživatele může být angličtina obtížná, a z toho důvodu byl implementován jazykový procesor, který umožňuje integraci více jazyků do aplikace.
+
+Pro podporu vícejazyčné funkčnosti byla v této práci využita knihovna i18next\footnote{\href{https://www.i18next.com/}{https://www.i18next.com/}}, která je jednou z nejrozšířenějších nástrojů pro lokalizaci. Tato knihovna automaticky zpracovává jazykové soubory a aplikuje odpovídající překlady v závislosti na nastavení uživatele. Tímto způsobem je pro vývojáře snadné nastavit výchozí jazyk a později přidat další překlady.
+
+\lstinputlisting[language=JavaScript, caption={Ukázka využití knihovny i18next.}, label={lst:i18next-example}]{sourceCodes/LanguageLocalization.js}
+
+Na ukázce kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna tak ale sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
+
 \subsection{Databáze}
 \label{subsec:implementation-technologies-database}
-Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale o jednu s vysokou stabilitou a širokou historii použití. Databázi jsme tak pro bezpečnější použití rozdělili na dvě \textit{tts\_db} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity scripty, které budou dále popsány v sekci automatizace.
+Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale o jednu s vysokou stabilitou a širokou historii použití. Databázi jsme tak pro bezpečnější použití rozdělili na dvě \textit{tts\_api} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity scripty, které budou dále popsány v sekci automatizace.
 
 \subsubsection*{Schéma}
 \label{subsubsec:implementation-technologies-database-scheme}
@@ -125,7 +148,7 @@ Následně strom obsahuje pod větve vývojové, tyto větve se často štěpí 
 \subsubsection*{Zkratky}
 Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o funkční příkazy softwaru Git, ale o pouhé zkratky pro přehlednější vyobrazení v schématu.
 
-\begin{table}[h]
+\begin{table}[H]
     \centering
     \resizebox{\textwidth}{!}{%
         \begin{tabular}{l l l}
@@ -196,10 +219,13 @@ Pro řešení problému a chyb v softwaru, bylo pro tuto práci využito další
 \subsection*{Časová náročnost}
 \label{subsec:implementation-problems-time}
 
-%\newpage
-%\processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram aaa}
-%
-%\newpage
-%\processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram průběhu editace nebo přidávání dat}
+\subsection*{Offset pro zobrazení partu}
+\label{subsec:implementation-problems-offset}
+
+\newpage
+\processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram aaa}
+
+\newpage
+\processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram průběhu editace nebo přidávání dat}
 
 \endinput
