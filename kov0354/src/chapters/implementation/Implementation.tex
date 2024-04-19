@@ -38,7 +38,7 @@ Jednotlivé bloky znázorňují určitou část dané sekce, přičemž velikost
     \label{fig:git_organization}
 \end{figure}
 
-Pro ucelení vývoje a zajištění efektivní spolupráce byla v rámci implementace vytvořena organizace \textit{Trails Through Shadows} na platformě \devTool{GitHub}{https://github.com}, kde byly vytvořeny repozitáře pro jednotlivé části projektu, jak je možné vidět na obrázku \ref{fig:git_organization}. Organizace byla opatřena logem, které bylo vytvořeno v rámci zadání práce a bylo použito i pro další potřeby týmu.
+Pro ucelení vývoje a zajištění efektivní spolupráce byla v rámci implementace vytvořena organizace \devTool{Trails Through Shadows}{https://github.com/Trails-Through-Shadows} na platformě \devTool{GitHub}{https://github.com}, kde byly vytvořeny repozitáře pro jednotlivé části projektu, jak je možné vidět na obrázku \ref{fig:git_organization}. Organizace byla opatřena logem, které bylo vytvořeno v rámci zadání práce a bylo použito i pro další potřeby týmu.
 
 \begin{description}
     \item [TTS-Dashboard] -- Administrativní rozhraní, sloužící ke správě hry, jednotlivých lokací, nepřátel a dalších entit. Primární použití je pro vývojáře, kteří zde mohou vytvářet a upravovat herní obsah.
@@ -87,26 +87,51 @@ Ty nejdůležitější funkcionality jsou rozebrány v následujících sekcích
 \subsubsection*{Session}
 \label{subsubsec:impl_session}
 
-\subsubsection*{Encounter}
-\label{subsubsec:impl_encounter}
+První částí, která byla implementována, byla třída \texttt{Session} spolu s nadřazenou správní třídou \texttt{SessionHandler}, která zajišťuje správu přihlašovacích relací a byla navržena tak, aby bylo možné vytvářet nové relace, ukládat do nich data a následně s nimi pracovat. Třída obsahuje metody pro vytvoření nové relace, získání relace podle identifikátoru, a případné odhlášení. Samotná třída \texttt{Session} obsahuje informace o uživateli, který je přihlášen, a také klíč relace, který se používá k její identifikaci. Tato třída se dále využívá pro kontrolu, zda má uživatel přístup na dobrodružství, se kterými se snaží pracovat.
 
 \subsubsection*{Entity}
 \label{subsubsec:impl_entity}
 
-\subsubsection*{Interaction}
-\label{subsubsec:impl_interaction}
+\begin{listing}[H]
+    \inputminted{Java}{code/EncounterEntity.java}
+    \caption{Zdrojový kód třídy Entity}
+    \label{code:entity}
+\end{listing}
+
+Pro jednoduchou reprezentaci entit (postavy, nepřátelé, překážky a summoni) byla vytvořena třída \texttt{Entity}, která tyto modely zaobaluje a umožňuje s nimi snadno pracovat. Třída obsahuje sadu dvou identifikátorů -- jeden pro identifikaci samotného objektu a druhý pro číslo skupiny, což se používá u nepřátel, se kterými je třeba pracovat v obou možnostech. Dále obsahuje informace o životě, obraně, iniciativě a také seznam efektů, které na entitu působí.
+
+Mezi metodami třídy \texttt{Entity} jsou ty zajišťující práci s efekty, zranění a léčení a vyhodnocení začátku a konce tahu. Třída je zobrazena ve výpisu \ref{code:entity}.
+
+\subsubsection*{Encounter}
+\label{subsubsec:impl_encounter}
+
+Pro samotnou správu souboje byla vytvořena třída \texttt{Encounter}, která obsahuje informace o jednotlivých hráčích, nepřátelích, iniciativním žebříčku, detailech lokace, na které souboj probíhá, požadavky pro ukončení daného souboje a mnoho dalších vlastností, popisujících momentální stav souboje. Při každém volání požadavku na jakoukoli interakci se soubojem se kontroluje, zda klíč relace předaný v hlavičce odpovídá licenčnímu klíči, což zajišťuje, aby hráči nebyli schopni manipulovat s daty, ke kterým nemají přístup.
+
+\input{figures/tables/encounterEndpoints.tex}
+
+Průběh souboje funguje podle postupu popsaného v kapitole \ref{subsubsec:impl_encounter}, jeho funkcionalita byla implementována v rámci API a je možné s ním interagovat pomocí jednotlivých endpointů, které jsou zobrazeny v tabulce \ref{tab:endpoints}, kde byly pro přehlednost vybrány pouze ty nejdůležitější. Jsou logicky rozděleny do pěti skupin, kde každá skupina obsahuje endpointy pro práci s určitou částí souboje.
+
+První skupina obsahuje metody pro práci se samotným soubojem. Vytvoření efektu přijímá jako parametry \texttt{id} dobrodružství a lokace, na kterou hráči zamířili. V systému dojde k nastavení všech proměnných souboje, včetně ukončovacích podmínek, seznamu hráčů a také je zde odhalena první startovací část mapy, která je zobrazena hráčům. Další endpointy slouží k získání informací o souboji, jeho stavu a také k jeho ukončení.
+
+Po vytvoření je třeba nejprve určit iniciativní pořadí, což je zajištěno pomocí endpointů druhé skupiny, které přijímají seznam iniciativ hráčů a následně je zpracovávají. Pro nepřátele si systém iniciativu vypočítá sám a následně je možné získat pořadí pomocí endpointu, který vrací seznam iniciativních hodnot a momentálně aktivní entitu.
+
+Další skupina se stará o práci s kolem. Otevření dveří je zajištěno pomocí endpointu, který zpracuje požadavek na otevření dveří a uloží je do seznamu. Během konce kola jsou pak všechny zaznamenané dveře otevřeny a je zjištěn nový stav mapy, který je spolu s novým stavem souboje zobrazen hráčům.
+
+Čtvrtá skupina se stará o práci s tahy entit. U začátku a konce tahu hráče systém přijímá pouze jeho \texttt{id} a podle něj pak u dané postavy provede potřebné změny. Nepřátelé začínají kolo jako skupina, proto systém provede změny pro každého nepřítele v dané skupině. V obou možnostech endpointy vrací objekt nebo seznam objektů \texttt{EntityStatusUpdate}, který obsahuje informace o změnách, kterými entita prošla, ovšem u nepřátel je přidána ještě akce, kterou nepřátelé ve svém tahu zahrají.
+
+Poslední skupina, týkající se interakce s entitami, je opět rozdělena na hráče a nepřátele. Spolu se vstupem je zde přijímán objekt Interaction, který obsahuje informace o zranění, které entita dostala, a seznam efektů, které je na ni třeba aplikovat. Pro hráče stačí předat pouze jedno \texttt{id}, u nepřátel je situace složitější, protože jsou identifikováni jak podle skupiny, ke které patří, tak jejich pořadím v dané skupině. Je tedy potřeba předat \texttt{id} skupiny a \texttt{id} nepřítele, což systém zpracuje pro odpovídající entitu. Výstupem je opět objekt \texttt{EntityStatusUpdate}.
 
 \subsection{Validace dat}
 \label{subsec:validation}
 
-Druhou velkou částí, která byla v API implementována, byla validace dat. Pro zajištění konzistence a bezpečnosti bylo nutné zkontrolovat, zda data, která jsou vkládána do databáze, splňují požadavky, které byly stanoveny v návrhu.
+Druhou nezanedbatelnou částí, která byla v API implementována, byla validace dat. Pro zajištění konzistence a bezpečnosti bylo nutné zkontrolovat, zda data, která jsou vkládána do databáze, splňují požadavky, které byly stanoveny v návrhu.
 
 Seznam validací, které se provádí pro jednotlivé modely byl kromě samotného zdrojového kódu souběžně veden ve výše zmíněné dokumentaci, aby byl tento proces transparentní. Pro ukázku je zde přiložen seznam validačních požadavků pro část lokace (interně nazvaný \texttt{Part}).
 
 \begin{itemize}
+    \setlength\itemsep{0.5mm}
     \item Název a štítek musí být platné.
-    \item Část musí mít nejméně 5 hexagonů.
-    \item Část musí mít nejvíce 50 hexagonů.
+    \item Část musí mít nejméně 5 a nejvíce 50 hexagonů.
     \item Každý hexagon musí být ověřen.
     \item Část musí mít šířku maximálně 8 hexagonů ve všech směrech.
     \item Žádné hexagony se nesmí překrývat.

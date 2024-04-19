@@ -12,8 +12,8 @@
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{xurl} % zalomeni dlouhych URL
 \usepackage{tablefootnote} % poznámky pod tabulkou
-\usepackage{listings}
-\usepackage{color}
+\usepackage{color} % barvickyy
+\usepackage{array} % schovavani sloupcu v tabulkach
 
 % minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
@@ -84,6 +84,8 @@
     \includegraphics[#1]{figures/diagrams/out/#2.pdf}
 }
 
+% Hide columns in tables
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 
 
 % Zacatek dokumentu

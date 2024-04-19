@@ -1,20 +1,20 @@
-\chapter{Standardy využívané pro tvorbu API}
+\chapter{Standardy využívané pro tvorbu API}\label{chap:standards}
 V této kapitole si porovnáme a představíme různé architektury, které se používají pro tvorbu \gls{api}.
-Hlavní často využívané nástroje, které si představíme, jsou REST, GraphQL a SOAP.
+Hlavní často využívané nástroje, které si představíme, jsou \gls{rest}, GraphQL a SOAP.
 
 \subsection*{Úvod}
 \gls{api} je univerzální komunikační rozhraní mezi aplikacemi, které můžeme použít pro více druhů koncových aplikací. Ve své podstatě se jedná o soubor definicí, protokolů a občas i nepsaných pravidel.
 
 
-\section{REST}
+\section{REST}\label{sec:rest}
 \gls{rest}, což můžeme volně přeložit jako reprezentační stavový přenos, je nejčastěji používaná architektura API. Původně byl vytvořen jako vodítko, jak modelovat komunikaci po Internetu, jeho popularita však dále rostla z důvodu jednoduchosti implementace, flexibility z pohledu provádění změn, výkonnosti a přehlednosti i ve velkých projektech.
 
-Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě.
+Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě. \cite[]{devToApiStyles}
 
 
-\subsection{Principy RESTful API}
+\subsection{Principy RESTful API}\label{sec:rest:principles}
 
-Níže jsou popsány základní principy, které RESTful API dodržují.
+Níže jsou popsány základní principy, které RESTful API dodržují.\cite{restfulApi}\cite[]{phd:restful_api}
 
 \subsubsection*{Uniform interface}
 Jedná se o klíčovou vlastnost RESTful služeb, která indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji se jedná o JSON nebo XML, ale může to být i jiný formát.
@@ -24,7 +24,7 @@ Jednotné rozhraní by mělo dodržovat následující pravidla.\
     \item Požadavky by měly identifikovat zdroje.
     \item Klient je schopen z přijatých dat provést úpravu nebo smazání dat.
     \item Klient je schopen přijmout metadata o tom, o jaký typ zprávy jde a podle toho zjistit, jak tuto zprávu zpracovat.
-    \item Klient může dostat informace o ostatních datech, která se vážou k původnímu požadavku. (HATEOAS)% TODO Hypermedia as the engine of application state
+    \item Klient může dostat informace o ostatních datech, která se vážou k původnímu požadavku. (\gls{hateoas})
 \end{itemize}
 
 \subsubsection*{Stateless}
@@ -34,7 +34,7 @@ Bezstavová komunikační metoda je taková metoda, kdy server obslouží každ�
 U tohoto stylu architektury se klient může připojit i k jiným zprostředkovatelům a pořád dostane odpověď od serveru. Servery se taktéž mohou dotazovat na jiné servery při zpracovávání požadavků od klienta, tímto způsobem tedy můžeme mít systém rozdělen do více vrstev, jako je bezpečnostní vrstva, aplikační vrstva či business logika, přičemž tyto vrstvy zůstávají pro klienta skryté.
 
 \subsubsection*{Cacheability}
-Velká výhoda RESTful webové služeb je to, že podporují cache. V tomto případě server označuje data jako cacheable či non-cacheable, přičemž při stejném dotazu klienta vícekrát za určitý čas se pro cachable data použijí již stáhnutá data. Dobrým příkladem využití je u obrázků, kde je server nemusí pokaždé načítat znovu a tím docílí rychlejší odezvy.
+Velká výhoda RESTful webových služeb je ta, že podporují cache. V tomto případě server označuje data jako cacheable či non-cacheable, přičemž při stejném dotazu klienta vícekrát za určitý čas se pro cachable data použijí již stáhnutá data. Dobrým příkladem využití je u obrázků, kde je server nemusí pokaždé načítat znovu a tím docílí rychlejší odezvy.
 
 \subsubsection*{Code on demand}
 Posledním ze standardů je možnost, že server může vrátit kód, který má klient vykonat, pomocí čehož může server rozšířit klienta o funkcionalitu, například při validaci formuláře se uživateli může ihned zobrazit chybová hláška. Dnes se však tento standard až tak často nevyužívá.
@@ -93,7 +93,7 @@ Nejčastěji využívané kódy jsou tyto:
 
 
 \subsection{Shrnutí}
-REST je dnes obecně nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchá a programátor si může sám určit, který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný, takže není náročný na naučení. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory, což je však možné optimalizovat pomocí cache.
+REST je dnes obecně nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchá a programátor si může sám určit, který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný, takže není náročný na naučení. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory, což je však možné optimalizovat pomocí cache. \cite[]{devToApiStyles}
 
 
 \section{SOAP}
