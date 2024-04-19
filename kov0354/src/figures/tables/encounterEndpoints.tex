@@ -1,0 +1,56 @@
+\begin{table}[h]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{>{\bfseries}r >{\ttfamily}l >{\ttfamily}l >{\ttfamily}H l}
+        \toprule
+        
+        Metoda & 
+        \normalfont{\textbf{Endpoint}}
+            \tablefootnote{Cesty ke všem endpointům začínají na adrese \texttt{/encounter}.} & 
+        \normalfont{\textbf{Vstup}}
+            \tablefootnote{Kromě \texttt{idLocation}, který je předán jako parametr URL, je vstup přijímán ve formátu JSON jako tělo požadavku.} & 
+        \normalfont{\textbf{Výstup}} & 
+        \textbf{Popis} \\
+        \midrule
+        
+        POST & /\{idAdventure\} & idLocation & idEncounter & Vytvoření encounteru \\
+        GET & /\{id\} & & Encounter &  Získání daného encounteru \\
+        GET & / & & List<Encounter> & Získání všech encounterů \\
+        DELETE & /\{id\} & & & Odstranění daného encounteru \\
+        GET & /\{id\}/status & & EncounterState & Získání statusu encounteru \\
+        \midrule
+
+        POST & /\{id\}/initiative & List<Initiative> & & Počáteční hod na iniciativu \\
+        GET & /\{id\}/initiative & & List<Initiative>, ActiveEntity & Získání iniciativy \\
+        \midrule
+
+        POST & /\{id\}/openDoor & Door & & Otevření dveří \\
+        POST & /\{id\}/endRound & & UnlockedParts, EncounterState & Ukončení kola \\
+        \midrule
+
+        POST & 
+            /\{id\}/turn/character/\{idCharacter\}/start 
+            & & EntityStatusUpdate & Začátek tahu hráče \\
+        POST & 
+            /\{id\}/turn/character/\{idCharacter\}/end 
+            & & EntityStatusUpdate & Konec tahu hráče \\
+        POST & 
+            /\{id\}/turn/enemy/\{idEnemy\}/start 
+            & & List<EntityStatusUpdate>, Action & Začátek tahu nepřítele \\
+        POST & 
+            /\{id\}/turn/enemy/\{idEnemy\}/end 
+            & & List<EntityStatusUpdate> & Konec tahu nepřítele \\
+        \midrule
+
+        POST & 
+            /\{id\}/interaction/character/\{idCharacter\} & 
+            Interaction & EntityStatusUpdate & Interakce s hráčem \\
+        POST & 
+            /\{id\}/interaction/enemy/\{idGroup\}/\{idEnemy\} & 
+            Interaction & EntityStatusUpdate & Interakce s nepřítelem \\
+        
+        \bottomrule
+    \end{tabular}}
+    \caption{Seznam endpointů pro práci s encounterem}
+    \label{tab:endpoints}
+\end{table}
