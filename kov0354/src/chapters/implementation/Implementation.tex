@@ -8,7 +8,7 @@ Hybridní deskové hře, která je finálním produktem této práce, bylo urče
 \section{Spolupráce}
 \label{sec:collaboration}
 
-Deskové hry, především ty hybridní, mohou být velmi komplexní a náročné na vývoj. Proto byla součástí zadání práce i spolupráce na tvorbě řešení, které bylo realizováno ve skupině čtyř studentů.
+Deskové hry, především ty hybridní, mohou být velmi komplexní a náročné na vývoj. Proto byla spolupráce specifikována přímo v samotném zadání a řešení bylo realizováno v týmu čtyř studentů.
 
 \subsection{Rozdělení práce}
 \label{subsec:job_distribution}
@@ -57,7 +57,7 @@ Pro zvýšení přehlednosti a efektivity souběžného vývoje tým využíval 
 \section{Implementace}
 \label{sec:implementation}
 
-Během vývoje vyvstalo několik problémů, které bylo nutné řešit. Hlavním z nich byla samotná implementace herního modelu, který byl základem celé hry, ale jak je možné vidět z diagramu \ref{fig:job_distribution}, šlo i o menší prvky, na kterých bylo třeba pracovat. Tato sekce se zaměřuje na poznatky a problémy, které byly řešeny v průběhu vývoje.
+Hlavním řešenou oblastí byla samotná implementace herního modelu, který byl základem celé hry, ale jak je možné vidět z diagramu \ref{fig:job_distribution}, během vývoje vznikla potřeba řešit i menší dílčí části. Tato sekce se zaměřuje na poznatky a problémy, které byly řešeny v průběhu vývoje.
 
 \subsection{Databáze}
 \label{subsec:database}
@@ -66,7 +66,7 @@ Návrh databáze byl vysvětlen v kapitole \ref{sec:design_scheme}, kde byly pop
 
 Na tvorbě návrhu se podíleli všichni členové týmu, kteří měli možnost navrhovat a upravovat schéma databáze, a také byli schopni vytvářet a upravovat data v databázi. Samotný návrh se v průběhu vývoje měnil, a to především kvůli změnám v herním modelu, které byly zjištěny až při implementaci. O případných změnách byli vždy všichni členové informováni včas a u těch s většími zásahy se vedla diskuze, zda je změna nutná a jaký bude její dopad na zbytek projektu. Pro testovací účely vznikla také vývojová databáze \textit{tts\_api\_dev}, kde byly testovány nové změny před nasazením na produkci \textit{tts\_api}.
 
-V rámci práce na projektu bylo také třeba definovat výchozí data, která dávala smysl jak z herního hlediska, tak i z hlediska testování. Tento úkol byl pověřen těm členům týmu, kteří měli největší znalost herního modelu a byli schopni vytvořit data, která byla pro testování dostačující. Pro začátek bylo tedy vytvořeno několik lokací, nepřátel a čtyři rasy a třídy, každá se svými jedinečnými akcemi a efekty, které byly dostatečné pro testování základních funkcí hry. Data se do databáze vkládala pomocí skriptů napsaných v jazyce \devTool{Python}{https://www.python.org/}, které jako vstup přijímaly soubory ve formátu \texttt{JSON} a následně je vkládaly do databáze.
+V rámci práce na projektu bylo také třeba definovat výchozí data, která dávala smysl jak z herního hlediska, tak i z hlediska testování. Tento úkol byl svěřen těm členům týmu, kteří měli největší znalost herního modelu a byli schopni vytvořit data, která byla pro testování dostačující. Pro začátek bylo tedy vytvořeno několik lokací, nepřátel a čtyři rasy a třídy, každá se svými jedinečnými akcemi a efekty, které byly dostatečné pro testování základních funkcí hry. Data se do databáze vkládala pomocí skriptů napsaných v jazyce \devTool{Python}{https://www.python.org/}, které jako vstup přijímaly soubory ve formátu \texttt{JSON} a následně je vkládaly do databáze.
 
 \subsection{Vizuál hry}
 \label{subsec:game_visuals}
@@ -82,7 +82,7 @@ Pro zvýšení přehlednosti byly obrázky rozděleny do složek podle jejich ty
 
 Hlavním bodem, který tato práce řeší, je implementace herního modelu, který je základem celé hry. Tato část byla provedena v rámci \textit{API} projektu, jak již bylo zmíněno výše, a byla napsána v jazyce \devTool{Java}{https://www.java.com/}. Pro přehlednost byla herní logika oddělena od ostatních zdrojových kódů \textit{API} do samostatné složky \texttt{algorithm}, kde byly vytvořeny třídy pro jednotlivé entity a metody pro jejich manipulaci.
 
-// todo dependencies
+%// todo dependencies
 
 Ty nejdůležitější funkcionality jsou rozebrány v následujících sekcích.
 
@@ -155,7 +155,7 @@ Na výpisu \ref{code:validable} je zobrazena třída \texttt{Validable}, která 
     \label{code:part}
 \end{listing}
 
-Validace dále pokračuje v samotné třídě \texttt{Part}, která je zobrazena na výpisu \ref{code:part}, ze kterého byly vybrány jen některé z kontrol, opravdová třída však obsahuje všechny kontroly zapsané ve výše uvedeném seznamu. Třída obsahuje metodu \texttt{validateInner}, která zajišťuje, že data splňují požadavky, které byly pro části lokací stanoveny. V této metodě je zajištěno, že má část validní název i štítek, minimální počet hexagonů, že obsahuje středový hexagon a že jsou všechny hexagony propojeny. V případě, že některá z těchto podmínek není splněna, je vyhozena výjimka \texttt{ValidationError}, která obsahuje informace o chybě jako obecnou chybovou hlášku, jméno objektu, jméno nevalidního pole a odmítnutou hodnotu.
+Validace dále pokračuje v samotné třídě \texttt{Part}, která je zobrazena na výpisu \ref{code:part}, do kterého byly vybrány jen některé z kontrol, opravdová třída však obsahuje všechny kontroly zapsané ve výše uvedeném seznamu. Třída obsahuje metodu \texttt{validateInner}, která zajišťuje, že data splňují požadavky, které byly pro části lokací stanoveny. V této metodě je zajištěno, že má část validní název i štítek, minimální počet hexagonů, že obsahuje středový hexagon a že jsou všechny hexagony propojeny. V případě, že některá z těchto podmínek není splněna, je vyhozena výjimka \texttt{ValidationError}, která obsahuje informace o chybě jako obecnou chybovou hlášku, jméno objektu, jméno nevalidního pole a odmítnutou hodnotu.
 
 Za zmínku také stojí parametr třídy  \texttt{ValidationConfig}, který se předává při volání této metody a obsahuje různé informace, vůči kterým se objekt validuje. Na výpisu se tato konfigurace používá pro předání minimálního počtu hexagonů a také se předává do metody \texttt{validateChild}, která zajišťuje kontrolu vnitřních objektů, jako je název a štítek.
 
