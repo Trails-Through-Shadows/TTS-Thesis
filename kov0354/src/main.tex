@@ -15,15 +15,6 @@
 \usepackage{color} % barvickyy
 \usepackage{array} % schovavani sloupcu v tabulkach
 
-% minted things
-\immediate\write18{echo $ROAD > .ROAD.tex}
-\immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
-\input{.ROAD}
-\usepackage[outputdir=\ROAD]{minted} %
-\setminted{fontsize=\fontsize{9}{11}\selectfont, baselinestretch=1, frame=lines, framesep=8pt, linenos, breaklines}
-\renewcommand\listingscaption{Výpis}
-\renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
-
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Barbora Kovalská}
 \ThesisSupervisor{Ing. Radoslav Fasuga, Ph.D.}
@@ -35,21 +26,40 @@
 
 \ThesisAssignmentFileName{../specification.pdf}
 
-\Acknowledgement{Ráda bych nepoděkovala svému minulému já za to, že se rozhodla na práci nepracovat.}
+\Acknowledgement{%
+Ráda bych na tomto místě poděkovala vedoucímu práce Ing. Radoslavu Fasugovi, Ph.D. za jeho cenné rady a podporu během tvorby této bakalářské práce. Dále bych chtěla poděkovat kolegům Pavlu Mikulovi, Martinu Korotwitschkovi a Miroslavu Osobovi za jejich aktivní zapojení, spolupráci a podněty v průběhu vývoje. V neposlední řadě poděkování směřuji svému příteli a rodině za jejich trpělivost a podporu během celého studia.
+}
 
-\CzechAbstract{Tato bakalářská práce se zabývá vytvořením a dokumentací herního systému pro hybridní deskovou hru.}
-\CzechKeywords{desková hra; herní design}
+\CzechAbstract{%
+Hlavním cílem této bakalářské práce je vytvoření a dokumentace herního systému pro hybridní deskovou hru, která kombinuje fyzické komponenty a virtuální prostředí. Práce se nejprve zabývá historií deskových her a studiem klíčových herních mechanik a analýzou existujících herních modelů. Hlavní část práce se pak věnuje návrhu herního systému, který je založen na principu výpravné evoluční hry. Výsledný herní systém je určen pro hybridní využití fyzických prvků a digitálního prostředí a v kombinaci s částmi ostatních členů týmu představuje plně realizovanou hru, která poskytuje hráčům bohaté a dynamické herní zážitky.
+}
+\CzechKeywords{hybridní desková hra; herní design}
 
-\EnglishAbstract{This bachelor's thesis deals with the creation and documentation of a game system for a hybrid board game.}
-\EnglishKeywords{board game; game design}
+\EnglishAbstract{%
+The main goal of this bachelor thesis is to create and document a gaming system for a hybrid board game that combines physical components and a virtual environment. The thesis begins by exploring the history of board games and studying key gaming mechanics, as well as analyzing existing gaming models. The main part of the thesis focuses on designing the gaming system, based on the concept of an narratively evolving game. The resulting gaming system is intended for hybrid use of physical elements and digital environment, and when combined with contributions from other team members, represents a fully realized game providing players with rich and dynamic gaming experiences.
+}
+\EnglishKeywords{hybrid board game; game design}
 
-\AddAcronym{TTS}{Trails Through Shadows}
-\AddAcronym{RPG}{Role Playing Game}
+\AddAcronym{API}{Application Programming Interface}
+\AddAcronym{CRUD}{Create, Read, Update, Delete}
 \AddAcronym{D\&D}{Dungeons \& Dragons}
 \AddAcronym{DM}{Dungeon Master}
 \AddAcronym{FAQ}{Frequently Asked Questions}
+\AddAcronym{RPG}{Role Playing Game}
+\AddAcronym{TTS}{Trails Through Shadows}
 
 \addbibresource{resources/sauce.bib}
+
+
+
+% Minted things
+\immediate\write18{echo $ROAD > .ROAD.tex}
+\immediate\write18{echo $ROAD "nejhorší hack by žožka"}
+\input{.ROAD}
+\usepackage[outputdir=\ROAD]{minted} %
+\setminted{fontsize=\fontsize{9}{11}\selectfont, baselinestretch=1, frame=lines, framesep=8pt, linenos, breaklines}
+\renewcommand\listingscaption{Výpis}
+\renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
 % Command ať nemusím psát celý Dungeons & Dragons;
 \newcommand{\dnd}{\textit{D\&D}}
@@ -58,12 +68,12 @@
 \newcolumntype{d}[1]{D{,}{,}{#1}}
 
 % Uprava hloubky obsahu - pozdeji smazat !
-\setcounter{tocdepth}{2}
+% \setcounter{tocdepth}{2}
 
 % Custom reference
-\newcommand{\chapterref}[1]{(\hyperlink{#1}{Kapitola \ref*{#1}})}
-\newcommand{\imageref}[1]{(\hyperlink{#1}{Obrázek \ref*{#1}})}
-\newcommand{\tableref}[1]{(\hyperlink{#1}{Tabulka \ref*{#1}})}
+\newcommand{\chapterref}[1]{(\hyperref[#1]{Kapitola \ref{#1}})}
+\newcommand{\imageref}[1]{(\hyperref[#1]{Obrázek \ref*{#1}})}
+\newcommand{\tableref}[1]{(\hyperref[#1]{Tabulka \ref*{#1}})}
 \newcommand{\glsref}[1]{\textit{\gls{#1}}}
 \newcommand{\gameref}[1]{\textit{#1}}
 \newcommand{\attr}[1]{(\texttt{#1})}
@@ -100,6 +110,11 @@
 
 % Seznam tabulek
 \listoftables
+\clearpage
+
+% Seznam výpisů zdrojového kódu
+\addcontentsline{toc}{chapter}{Seznam výpisů zdrojového kódu}
+\listoflistings
 \clearpage
 
 % Text
