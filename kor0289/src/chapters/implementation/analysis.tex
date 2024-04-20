@@ -94,9 +94,9 @@ Dále je důležité vyhradit si nefunkční požadavky. Jejich vznik je stejný
 Pro ukládání dat existuje mnoho různých databázových systémů, ať už relační nebo dokumentové. v této kapitole budou probrány možnosti výběru databáze pro hru.
 
 \subsection{SQL database}\label{sec:data_storage:relational_db}
-Relační databáze, jindy nazývané \gls{sql} databáze, jsou databáze, které využívají strukturovaných dotazů (\gls{sql}) pro manipulaci dat. Data jsou reprezentována tabulkami, které mají předdefinovány relace mezi ostatními tabulkami. Je to nejčastěji používaný styl databáze. Nejlépe se hodí pro strukturovaná data. Jedny z nejpoužívanějších relačních databází jsou \textbf{MySQL}, \textbf{PostgreSQL} a \textbf{SQLite}.
+Relační databáze, jindy nazývané \gls{sql} databáze, jsou databáze, které využívají strukturovaných dotazů (\gls{sql}) pro manipulaci dat. Data jsou reprezentována tabulkami, které mají předdefinovány relace mezi ostatními tabulkami. Je to nejčastěji používaný styl databáze. Nejlépe se hodí pro strukturovaná data. Jedny z nejpoužívanějších relačních databází jsou \textbf{MySQL}, \textbf{PostgreSQL} a \textbf{SQLite}.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
 
-Při použití \gls{rdbms} chráníme svá data před ztrátou a díky ACID vlastnostem máme jistotu o konzistenci dat. Nyní níže budou popsány jednotlivé vlastnosti ACID.\label{sec:data_storage:relational_db:ACID}
+Při použití \gls{rdbms} chráníme svá data před ztrátou a díky ACID vlastnostem máme jistotu o konzistenci dat. Nyní níže budou popsány jednotlivé vlastnosti ACID.\label{sec:data_storage:relational_db:ACID}\cite{acidvsbase}
 
 \textbf{Atomičnost} zajišťuje, že se všemi transakcemi je zacházeno jako s jedním celkem. Jediné dvě možnosti jak transakce může dopadnout je buď celá úspěšně a nebo celá neúspěšně. Když se transakce skládá z více částí, majoritní část se provede tak provedené operace v transakci se vrátí do původní podoby.
 
@@ -109,7 +109,7 @@ Díky \textbf{konzistenci} budou do databáze vložena pouze validní data. Poku
 Mezi hlavní nevýhody relačních databází je nízká flexibilita neboli neefektivnost pracovat s nestrukturovanými daty, takže se nedají dobře použít na Internet of Things aplikace. S neflexibilitou se pojí špatný návrh pro komplexní datové struktury. Taky relační databáze se nemohou škálovat do šířky, neboli zátěž se nemůže rozložit na více serverů.
 
 \subsection{noSQL database}\label{sec:data_storage:document_db}
-Dokumentové databáze umožňují ukládání a zpracovávání nestrukturovaných dat (hudba, fotografie, atd.), což umožňuje vývojářům mít větší flexibilitu nad daty, což je jedna z největších výhod dokumentových databází. Taktéž se mohou škálovat do šířky, takže zpracování velkého množství dat není obtížné. Mají taktéž velkou toleranci proti chybám. S velkou tolerancí chyb se pojí limitované ACID vlastnosti, kdy místo ACID využívají BASE vlastnosti, které jsou popsány níže. Tyto databáze nemají unifikovaný dotazovací jazyk jako relační databáze a mohou mít problém s komplexními dotazy. Nejčastěji používané dokumentové databáze jsou \textbf{MongoDB} a \textbf{CouchDB}.
+Dokumentové databáze umožňují ukládání a zpracovávání nestrukturovaných dat (hudba, fotografie, atd.), což umožňuje vývojářům mít větší flexibilitu nad daty, což je jedna z největších výhod dokumentových databází. Taktéž se mohou škálovat do šířky, takže zpracování velkého množství dat není obtížné. Mají taktéž velkou toleranci proti chybám. S velkou tolerancí chyb se pojí limitované ACID vlastnosti, kdy místo ACID využívají BASE vlastnosti, které jsou popsány níže. Tyto databáze nemají unifikovaný dotazovací jazyk jako relační databáze a mohou mít problém s komplexními dotazy. Nejčastěji používané dokumentové databáze jsou \textbf{MongoDB} a \textbf{CouchDB}.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
 
 \textbf{BASE}\label{sec:data_storage:base} je zkratka pro \textbf{Basically Available}, což znamená že databáze bude dostupná pro uživatele za všech okolností. neboli uživatel nemusí čekat než jiný uživatel dokončí svou transakci. \textbf{Soft state} znamená, že data se mohou nacházet v temporálním stavu když běží více transakcí zároveň a můžou se změnit i po dokončení transakce. Data přejdou do finálního stavu až když jsou všechny transakce dokončeny. S tím se pojí \textbf{Eventually consistent}, kdy data se dostanou do konzistentního stavu po všech souběžných aktualizacích. V tento moment všechny aplikace vidí stejná data.\cite{acidvsbase}
 
@@ -137,18 +137,36 @@ V tabulce \ref{tab:sql_vs_nosql} máme přehledně porovnány vlastnosti SQL a n
 Nyní si představíme nejznámější SQL databáze.
 
 \subsection{MySQL}\label{sec:data_storage:mysql}
-MySQL je jedna z nejpoužívanějších databází. Má velkou podporu a je open-source, funguje velmi dobře s většinou knihoven a frameworků. Skvěle se hodí na menší až střední projekty. Obsahuje komplexní sadu funkcionalit jako jsou triggery, procedury, pohledy a podpora transakcí. Ve větších projektech může mít problémy s výkonem  a s komplexními dotazy.
+MySQL je jedna z nejpoužívanějších databází. Má velkou podporu a je open-source, funguje velmi dobře s většinou knihoven a frameworků. Skvěle se hodí na menší až střední projekty. Obsahuje komplexní sadu funkcionalit jako jsou triggery, procedury, pohledy a podpora transakcí. Ve větších projektech může mít problémy s výkonem  a s komplexními dotazy.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
 
 
 \subsection{PostgreSQL}\label{sec:data_storage:postgresql}
-Tato databáze je objektově relační což je podobné jako relační jen data jsou ukládány v objektech místo tabulek jako je tomu například u MySQL. Přednosti PostgreSQL jsou pokročilé indexování, vlastní datové typy , komplexní dotazy a cizí klíče, a dovoluje volat procedury napsané v jiném jazyce než SQL. Nicméně je náročnější na výkon, některé vlastnosti mohou být náročné na nakonfigurování a může být pomalejší při čtení dat.
+Tato databáze je objektově relační což je podobné jako relační jen data jsou ukládány v objektech místo tabulek jako je tomu například u MySQL. Přednosti PostgreSQL jsou pokročilé indexování, vlastní datové typy , komplexní dotazy a cizí klíče, a dovoluje volat procedury napsané v jiném jazyce než SQL. Nicméně je náročnější na výkon, některé vlastnosti mohou být náročné na nakonfigurování a může být pomalejší při čtení dat.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
 
 \subsection{Výběr databáze}
 Nakonec jsme vybrali primárně díky doporučení našeho vedoucího práce MariaDB, což je založeno na MySQL. MariaDB je osamocená větev původních vývojářů, po tom co MySQL bylo získáno společností Oracle. Je rychlejší, podporuje \textit{neviditelné sloupce} a má propracovanější views.
 
+\section{Technologie pro tvorbu API}\label{sec:api_technologies}
+v této kapitole bude probráno jaké frameworky a technologie jsou dostupné pro tvorbu API. Níže je výčet těch nejznámějších a nejpoužívanějších s ohledem na požadavky a zkušenosti týmu.
+
+\subsection{Spring Boot}\label{sec:api_technologies:spring}
+\begin{wrapfigure}{r}{0.3\textwidth} % TODO idk jestli tu dávat obrázky
+    \centering
+    \includegraphics[width=0.2\textwidth]{figures/logos/springboot.png}
+    \caption{Logo Spring Bootu, zdroj: } %%TODO kdyžtak to dát do cite \url{https://www.pngaaa.com/detail/2459546}
+    \label{fig:spring}
+\end{wrapfigure}
+Založen originálně na Spring technologii ale snaží se udělat originální Spring framework více uživatelsky přívětivý. Spring boot obsahuje v sobě vše, co je třeba, bez velkého konfigurování knihoven. Je určen i pro velké aplikace ve velkých společnostech jako je Netflix. Kromě programovacího jazyku Java podporuje i Kotlin a Groovy. Má velkou podporu komunity a skvělou dokumentaci. Ovšem může být náročnější na hardware a binární soubory jsou větší kvůli velkému množství knihoven.
+
+\subsection{ASP.NET Core}\label{sec:api_technologies:asp}
+Uzavřený framework od Microsoftu, který je určen pro webové aplikace. Jedná se o alternativu ke Springu u Javy ovšem pro jazyk C\#. Je zde navíc lepší podpora asynchronních operací a je zde \gls{linq}. Oproti Springbootu má i vlastní ekosystém nástrojů jako je třeba microsoft Azure nebo MSSql databáze. ASP.NET Core i Spring boot jsou velmi solidní frameworky i pro velké firmy a vyloženě záleží na preferenci programovacího jazyka.
+
+\subsection{Django REST}\label{sec:api_technologies:django}
+Založeno na Django frameworku a jeho pohledech založených na třídách \textit{class-based views}. Celkově se jedná o velice bezpečný framework určený pro programovací jazyk Python, s rychlou učící křivkou a s obsáhlou dokumentací. Ovšem u větších projektů je méně přehledný než výše zmíněné frameworky.
+
+\subsection{Fast API}\label{sec:api_technologies:fast}
+Jakožto alternativu k Djangu zde máme Fast API, kde je plně podporováno asynchronní programování a je přímo určeno pro vývoj RESTful API. Je taktéž pro Python, je velmi rychlý jak na naučení tak i framework jako takový a je plně otypovaný oproti Djangu. Má dobrou dokumentaci a mezi vývojáři je čím dál populárnější. Ovšem má horší validaci vstupních dat.
 
 
-\cite{guidetochoosingdatabase}\cite{howtochoosedatabase} %%TODO tohle někde pastnout tam kde se to bude hodit
-
-
-\
+\subsection{Výběr frameworku}\label{sec:api_technologies:summary}
+Pro účely RESTful API byl výběr očividný, Fast API které je navrhnuto pro rychlou tvorbu RESTful API a pro vývojáře velice příjemným otypováním. Je taktéž jeden z nejrychlejších Python frameworků v některých věcech na úrovní například Spring bootu.\cite{benchmarks} Taktéž Python je jeden z jednodušších jazyků a všichni členové týmu už s ním mají zkušenosti. Ovšem později se na doporučení přešlo na Spring boot díky jeho jednoduššímu \gls{orm} a větší přehlednosti.
