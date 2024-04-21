@@ -22,13 +22,13 @@ Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, J
 \label{subsubsec:languages-compiled-typescript}
 TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožňuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
 
-Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}, který je součástí balíčku \textit{Node.js}.
+Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}\footnote{\href{https://www.typescriptlang.org/}{https://www.typescriptlang.org/}}, který je součástí balíčku \textit{Node.js}\footnote{\href{https://nodejs.org/}{https://nodejs.org/}}
 
 \subsubsection{Less}
 \label{subsubsec:languages-compiled-less}
-Less je dalším z kompilovaných jazyků, které se zaměřují na zlepšení a obohacení jazyka \textit{CSS}. Tento jazyk byl vytvořen v roce 2009 autorem Alexis Sellier a jako TypeScript je jeho cílem poskytnout dodatečné funkce pro pohodlnější a efektivnější psaní kaskádových stylů. Jako hlavní výhody můžeme uvést možnost definovat proměnné, funkce nebo vnořování selectoru.
+Less je dalším z kompilovaných jazyků, které se zaměřují na zlepšení a obohacení jazyka CSS. Tento jazyk byl vytvořen v roce 2009 autorem Alexis Sellier a jako TypeScript je jeho cílem poskytnout dodatečné funkce pro pohodlnější a efektivnější psaní kaskádových stylů. Jako hlavní výhody můžeme uvést možnost definovat proměnné, funkce nebo vnořování selectoru.
 
-Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako jsou \textit{Less.js} nebo \textit{Node.js}.
+Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako jsou \textit{Less.js}\footnote{\href{http://lesscss.org/}{http://lesscss.org/}} nebo \textit{Node.js}.
 
 \subsection{Interpretované Jazyky}
 \label{subsec:languages-interpreted}
@@ -72,7 +72,7 @@ Markdown je oproti HTML jednodušší z důvodu, že jeho cílem je pouhé form�
 \label{sec:dev-framework}
 Framework, v jiných slovech struktura nebo kostra, představuje v informatice a softwarovém inženýrství abstraktní koncept poskytující základní stavební kameny pro aplikace s širokým spektrem funkcí. Cílem frameworků je usnadnit vývoj aplikací tím, že nabízejí předem definovanou strukturu, kterou lze dále rozšiřovat o vlastní kódy a funkcionality. Tímto způsobem umožňují frameworky vývojářům rychleji a efektivněji vytvářet aplikace, což přináší zvýšení produktivity, snížení nákladů na vývoj a hlavně standardizaci kódu mezi vývojáři.
 
-Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikace. Máme zde druhy frameworku určených na vývoj webů, her, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
+Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikaci. Máme zde druhy frameworku určených na vývoj webů, her, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
 
 \subsection*{Rozdíl mezi Frameworkem a Knihovnou}
 Framework a knihovna jsou dvě často zaměňované koncepce, avšak existují zásadní rozdíly mezi nimi. Knihovna je soubor funkcí nebo tříd, které lze využít při vytváření aplikace. Zajišťuje určitou funkcionalitu, ale vývojář nese odpovědnost za řízení toku aplikace a volání funkcí knihovny.
@@ -89,7 +89,7 @@ Naopak framework poskytuje kompletní strukturu aplikace, kde vývojář impleme
 \subsection*{Model-View-Template vs. Model-View-Controller}
 Model-View-Template dále jen jako MVT a Model-View-Controller dále jen jako MVC jsou návrhové vzory, které se široce využívají v softwarovém vývoji webových aplikací. Tyto vzory rozdělují průběh aplikaci do tří propojených částí, kde každá část má svou specifickou roli a odpovědnost. Díky této struktuře je možné izolovat různé části aplikace a tím zvyšovat modularitu, znovu použitelnost a udržitelnost kódu.
 
-V případě MVT je aplikace rozdělena na tři části: \textit{Model}, \textit{View} a \textit{Template}. Model zde reprezentuje datovou strukturu, většinou tedy namapované objekty získané z databáze, případně z jiného zdroje. View (zobrazení) je zodpovědné za přijímání uživatelských požadavků a zobrazování odpovědi od serveru zpět uživateli, v rámci této komunikace reprezentuje určitý most mezi modelem a šablonou. Jako poslední je zde template (šablona), která v tomto případě přijatá data zpracovává do výsledného HTML kódu pomocí speciálních značek určující předem daný formát stránky. Výsledný HTML kód je následně odeslán zpět uživateli.
+V případě MVT je aplikace rozdělena na tři části: \textit{Model}, \textit{View} a \textit{Template}. Model zde reprezentuje datovou strukturu, většinou tedy namapované objekty získané z databáze nebo případně z jiného zdroje. View (zobrazení) je zodpovědné za přijímání uživatelských požadavků a zobrazování odpovědi od serveru zpět uživateli, v rámci této komunikace reprezentuje určitý most mezi modelem a šablonou. Jako poslední je zde template (šablona), která v tomto případě přijatá data zpracovává do výsledného HTML kódu pomocí speciálních značek určující předem daný formát stránky. Výsledný HTML kód je následně odeslán zpět uživateli.
 
 Na druhé straně MVC, který je často používán ve zbytku frameworku se oproti MVT liší pouze lehce. Model zde stále reprezentuje datovou strukturu, ale View je naopak zodpovědný o pouhé vykreslování dat uživateli. Novým prvkem je zde Controller, který se zaobírá zbylou interakcí uživatele s aplikací, tedy přijímání požadavků, zpracování dat a následné odeslání zpět uživateli. \cite{mvc_mvt_difference}
 
@@ -108,7 +108,7 @@ Framework Django přistupuje k architektuře webových aplikací pomocí návrho
 
 V oblasti vývoje uživatelského rozhraní Django nabízí šablonovací jazyk (DTL), který umožňuje vytvářet dynamická a daty řízená uživatelská rozhraní. To je zvláště užitečné pro aplikace, které kladou důraz na optimalizaci pro vyhledávače (SEO) a vyžadují komplexní logiku na straně serveru. DTL umožňuje vývojářům vytvářet stránky s dynamickým obsahem, který je generován ještě před odesláním HTML kódu ze serveru.
 
-V situacích, kde je potřeba dosáhnout interaktivity uživatele s rozhraním, je možné rozšířit Django o JavaScriptové knihovny nebo volit jiný framework specializovaný na frontendový vývoj. To umožňuje vysoce flexibilní přístup k vytváření moderních a interaktivních webových aplikací. \cite{about_django}.
+V situacích, kde je potřeba dosáhnout interaktivity uživatele s rozhraním, je možné rozšířit Django o JavaScriptové knihovny nebo volit jiný framework specializovaný na frontendový vývoj. To umožňuje vysoce flexibilní přístup k vytváření moderních a interaktivních webových aplikací~\cite{about_django}.
 
 \subsection{React}
 \label{subsec:dev-framework-react}
@@ -162,7 +162,7 @@ Pro můj projekt jsem nakonec zvolil \textbf{Django}. Tento framework jsem zvoli
 
 \section{Zpracování požadavku}
 \label{sec:dev-request-processing}
-Zpracování požadavku je klíčovým prvkem webových aplikací, vzhledem k rozsáhlým rozdílům u frameworku je nutné si blíže představit jak takové zpracování probíhá. V rámci tohoto procesu se setkáváme s dvěma typy zpracování \textit{Server-Side} a \textit{Client-Side}. Jako třetí druh zpracování se dá považovat i \textit{Hybridní} neboli \textit{Pre-Rendering}, který kombinuje oba přístupy.
+Zpracování požadavku patří do důležitých prvků webových aplikací, vzhledem k rozsáhlým rozdílům u frameworku je nutné si blíže představit jak takové zpracování probíhá. V rámci tohoto procesu se setkáváme s dvěma typy zpracování \textit{Server-Side} a \textit{Client-Side}. Jako třetí druh zpracování se dá považovat i \textit{Hybridní} neboli \textit{Pre-Rendering}, který kombinuje oba přístupy.
 
 Při vývoji je nutné si předem určit, který ze stylů zpracování bude pro projekt použit, přechod mezi jednotlivými druhy již v průběhu vývoje může být velmi zdlouhavý a finančně náročný. \cite{request_processing}
 
@@ -194,11 +194,11 @@ Ve srovnání s Server-Side Renderingem (SSR) je u CSR náročnější dosáhnou
 
 \subsection{Hybrid Rendering}
 \label{subsec:dev-request-processing-hybrid-rendering}
-Hybrid Rendering, také známy jako Pre-Rendering, představuje moderní přístup k zpracování webových stránek, který se pokouší o skloubení výhod Server-Side a Client-Sider renderingu. Tento přístup jednoduše umožnuje vývojářům vytvářet takhzvané \("\)skeleton\("\) stránky, které jsou odeslány klientovi ihned po přijetí požadavku. Po následném načtení stránky klientem, dochází k dynamickému vykreslení obsahu, kde dojde k nahrazení pouze daných části webu, které obsahovaly dynamický obsah.
+Hybrid Rendering, také známy jako Pre-Rendering, představuje moderní přístup k zpracování webových stránek, který se pokouší o skloubení výhod Server-Side a Client-Sider renderingu. Tento přístup jednoduše umožnuje vývojářům vytvářet takzvané \textquote{skeleton} stránky, které jsou odeslány klientovi ihned po přijetí požadavku. Po následném načtení stránky klientem, dochází k dynamickému vykreslení obsahu, kde dojde k nahrazení pouze daných části webu, které obsahovaly dynamický obsah.
 
 \section{Technologie}
 \label{sec:dev-technology}
-V nynější sekci se zaměřím na popis bližší popis technologii, které lze využívat během vývoj nebo přímo v rámci daného frameworku. Mezi tyto technologie spadá široké spektrum nástrojů, knihoven, jazyký a dalších prvků, které jsou volně dostupné na internetu a mají za cíl usnadnit vývoj a zvýšit efektivitu vývojáře.
+V nynější sekci se zaměřím na bližší popis technologii, které lze využívat během vývoj nebo přímo v rámci daného frameworku. Mezi tyto technologie spadá široké spektrum nástrojů, knihoven, jazyký a dalších prvků, které jsou volně dostupné na internetu a mají za cíl usnadnit vývoj a zvýšit efektivitu vývojáře.
 
 \subsection{Šablonování}
 \label{subsec:dev-technology-templating}
@@ -206,6 +206,7 @@ V nynější sekci se zaměřím na popis bližší popis technologii, které lz
 
 Jako systém umožňuje definovat strukturu a vzhled webových stránek pomocí šablon, které se na sebe mohou vázat nebo se rozšiřovat. Každá z těchto šablon obsahuje statický HTML kód spolu s vloženými proměnnými, filtry a řídícími strukturami. Finální šablony se poté před odesláním klientovi zpracují na serveru, a výsledný HTML kód je odeslán klientovi.
 
+\noindent
 Mezi hlavní výhody používání šablon patří:
 \begin{enumerate}
     \item \textbf{Oddělení Prezentace a Logiky:} Šablonovací systém oddělením prezentace dat a logiky zpracování umožňuje vývojářům a designérům efektivně spolupracovat.

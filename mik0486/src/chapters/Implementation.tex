@@ -12,7 +12,7 @@ Během vývoje se tyto požadavky průběžně měnili proto je celkem obtížn�
 \label{subsec:implementation-requirements-functional}
 
 \begin{description}
-    \item \textbf{Přihlášení} -- Jelikož se jedná o aplikaci administrační, vstup do aplikace je možný pouze pro přihlášené uživatele. Z funkčního hlediska je v rámci projektu využita pouhá role \textit{Administrátora}, z toho důvodu tak není nutné rozlišovat mezi různými uživatelskými rolí.
+    \item \textbf{Přihlášení} -- Jelikož se jedná o aplikaci administrační, vstup do aplikace je možný pouze pro přihlášené uživatele. Z funkčního hlediska je v rámci projektu využita pouhá role \textit{Administrátora}, z toho důvodu tak není nutné rozlišovat mezi různými uživatelskými rolemi.
     \item \textbf{Správa obsahu} -- Hlavním účelem tohoto rozhraní je správa obsahu hry, bez možnosti formulářové editace obsahu jsou administrátoři vymezeni na surovou správu dat pomocí editace záznamů v databázi nebo změnou výchozích dat v souborech. Z tohoto důvodu je tak nutné zajistit plnou možnost správy obsahu hry stylem \textit{CRUD}.
     \item \textbf{Filtrace a vyhledávání} -- Pro přehlednou správu dat jednotlivých tabulek je důležité umožnit administrátorům rychlé a efektivní prvky filtrování.
     \item \textbf{Vykreslování} -- Určité části projektu obsahují grafické prvky, které je pro lepší pochopí nutné graficky zpracovat a vykreslit na obrazovku. Pro tento účel bude využit HTML prvek \textit{canvas}, který umožňuje grafické vykreslování.
@@ -22,13 +22,13 @@ Během vývoje se tyto požadavky průběžně měnili proto je celkem obtížn�
 
 \section{Komponenty aplikace}
 \label{sec:implementation-components}
-V případě implementace administračního rozhraní nelze pouze implementovat frontend aplikace, ale je nutné implementovat i backend, který tak zajišťuje zpracování dat a jejich následné zaslání do třetí komponenty a to API\@.
+V případě implementace administračního rozhraní nelze pouze implementovat frontend aplikace, ale je nutné implementovat i backend, který tak zajišťuje zpracování dat a jejich následná komunikace pomocí API.\@.
 
 V níže uvedených sekcích se blíže zaměřím na implementaci jednotlivých komponent.
 
 \subsection{Frontend}
 \label{subsec:implementation-frontend}
-Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a to z důvodu usnadnění designových potřeb a možnosti se tak plně věnovat další části aplikace. Výsledek hledání byl úspěšný a nalezená šablona bylo kompatibilní s frameworkem Django. Přesněji se jedná o šablonu od autora \textit{Themesberg}\footnote{\href{https://themesberg.com/}{https://themesberg.com/}}, konkrétně šablona administračního rozhraní \textit{Volt}\footnote{\href{https://themesberg.com/product/django/volt-admin-dashboard-template}{https://themesberg.com/product/django/volt-admin-dashboard-template}}.
+Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a to z důvodu usnadnění designových potřeb a možnosti se tak plně věnovat další části aplikace. Výsledek hledání byl úspěšný a nalezená šablona byla kompatibilní s frameworkem Django. Přesněji se jedná o šablonu od autora \textit{Themesberg}\footnote{\href{https://themesberg.com/}{https://themesberg.com/}}, konkrétně šablona administračního rozhraní \textit{Volt}\footnote{\href{https://themesberg.com/product/django/volt-admin-dashboard-template}{https://themesberg.com/product/django/volt-admin-dashboard-template}}.
 
 Po úspěšné instalaci bylo dalším krokem rozvržení navigace, která se nachází na levé straně stránky. Jednotlivé odkazy poté následně směřují na pod stránky kde lze vidět obsah jednotlivých tabulek kde se nachází možnost filtrovat, hledat nebo provádět zbytek CRUD operací.
 
@@ -38,15 +38,15 @@ Průběh otevření každé ze stránek navigace je možné vidět na diagramu~\
 
 \subsection{Backend}
 \label{subsec:implementation-backend}
-Backend aplikace byl vytvořen pod frameworkem django stejně jako část frontendu. Backend aplikace tak zajištuje zpracování dat podle žádosti uživatele. K získání dotazu dochází pomocí URL adresy, která je v aplikace zpracována pomocí \textit{view} komponenty pod následnou routing adresou. Po vyřízení požadavku jsou data zpět odeslány uživateli, který je následně upozorněn na úspěšné provedení akce.
+Backend aplikace byl vytvořen pod frameworkem Django stejně jako část frontendu. Backend aplikace tak zajištuje zpracování dat podle žádosti uživatele. K získání dotazu dochází pomocí URL adresy, která je v aplikace zpracována pomocí \textit{view} komponenty pod následnou routing adresou. Po vyřízení požadavku jsou data zpět odeslány uživateli, který je následně upozorněn na úspěšné provedení akce.
 
-Níže zobrazeny diagram~\ref{fig:NewObject} zobrazuje průběh vytvoření nebo editace objektu tato funkcionalita je nejdůležitějším prvkem celé aplikace, protože umožňuje definovat herní obsah. Po odeslání formuláře dochází ke kontaktování API, která následně požadavek zpracuje a odešle zpět odpověď, která je následně zobrazena uživateli.
+Níže zobrazeny diagram~\ref{fig:NewObject} zobrazuje průběh vytvoření nebo editace objektu, kde tato funkcionalita reprezentuje nejdůležitější prvek celé aplikace z důvodu, že umožňuje definovat herní obsah. Po odeslání formuláře dochází ke kontaktování API, která následně požadavek zpracuje a odešle zpět odpověď, která je následně zobrazena uživateli.
 
 \processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram reprezentující průběh vytvoření nebo editace objektu.}
 
 \subsection{API}
 \label{subsec:implementation-api}
-Přestože API je součástí práce kolegy, pro usnadnění a zabezpečení jsem použil vlastní lokální API, které zpracovává dotazy a v případě že je nutné získat data odešle požadovaný dotaz směrem na veřejné API pod url adresou \textit{https://api.ttsapi.dev/}. Díky tomoto mezikroku je tak možné zabezpečit identitu API klíče, který tak zůstává skrytý pod lokální API spravované jazykem Python. V opačném případě by tento klíč byl odesílán s každým dotazem, čímž by se tak stal zachytitelný pro útočníky.
+Přestože API je součástí práce kolegy, pro usnadnění a zabezpečení jsem použil vlastní lokální API, které zpracovává dotazy a v případě, že je nutné získat data odešle požadovaný dotaz směrem na veřejné API pod url adresou \textit{https://api.ttsapi.dev/}. Díky zmíněnému mezikroku je tak možné zabezpečit identitu API klíče, který tak zůstává skrytý pod lokálním API spravovaným jazykem Python. V opačném případě by tento klíč byl odesílán s každým dotazem, čímž by se tak stal zachytitelný pro útočníky.
 
 V našem případě jsme použili pro autorizace obyčejný token, které je uložen v nastavení API. Nejedná se o nejbezpečnější použití ale z pohledu této práce je dostatečně bezpečné. Schéma komunikace při použití prostřední API je možné vidět na obrázku~\ref{fig:api_communication}.
 
@@ -75,7 +75,7 @@ Jedna z komponent, která slouží pro asynchronní získávaní dat je zobrazen
 \label{subsec:implementation-technologies-libraries}
 Při vývoji aplikace jsem tak využil několik knihoven třetích stran, které mi tak usnadnily vývoj a zároveň zrychlily proces vývoje protože nebylo nutné psát vše od základu. Mezi tyto knihovny tak patří:
 
-\begin{itemize}
+\begin{description}
     \item Font Awesome\footnote{\href{https://fontawesome.com/}{https://fontawesome.com/}} -- je knihovna ikon, která disponuje širokou škálou veřejně dostupných ikon, které jsou zdarma k použití. Ve vývoji jsem tak tyto ikony použil pro reprezentaci různých akcí, které může uživatel provést.
     \item Bootstrap\footnote{\href{https://getbootstrap.com/}{https://getbootstrap.com/}} -- jsem použil jako frontendovou knihovnu předem napsaný stylů, díky kterým jsem tak mohl rychle vytvořit efektivní a responzivní rozhraní. Bootstrap tak nabízí širokou škálu komponent, které jsou podrobně popsány v dokumentaci.
     \item SweetAlert2\footnote{\href{https://sweetalert2.github.io/}{https://sweetalert2.github.io/}} -- je knihovna, která umožnuje jednoduche zobrazovat nofikace a upozornění uživateli. Tato knihovna tak byla využita například pro zobrazení upozornění při chybě nebo úspěšném provedení akce.
@@ -83,7 +83,7 @@ Při vývoji aplikace jsem tak využil několik knihoven třetích stran, které
     \item Animate.css\footnote{\href{https://animate.style/}{https://animate.style/}}, Hover.css\footnote{\href{https://ianlunn.github.io/Hover/}{https://ianlunn.github.io/Hover/}} -- jsou knihovny, které obsahuje před připravené animační styly, které stačí pouze aplikovat pomocí CSS tříd nebo dynamicky pomocí JavaScriptu.
     \item Notiflix\footnote{\href{https://notiflix.github.io/}{https://notiflix.github.io/}} -- je další z knihoven pro zobrazování notifikace, v tomto projektu jsem ale pro notifikace zvolil knihovnu SweetAlert2. Z toho důvodu je tato knihovna využita pouze pro blokaci uživatelského vstupu během načítání nebo zpracování dat formou loading spinneru.
     \item NoUISlider\footnote{\href{https://refreshless.com/nouislider/}{https://refreshless.com/nouislider/}} -- jedná se o knihovnu, které do prvků HTML přidává možnost vytvořit posuvníky, které je následně možné využit pro výběr hodnoty z rozsahu. Jeho příklad použití je v formuláři s filtrací dat.
-\end{itemize}
+\end{description}
 
 \subsection{Jazykový procesor}
 \label{subsec:implementation-technologies-compiler}
