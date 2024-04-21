@@ -58,33 +58,6 @@
 
 \input{chapters/Design.tex}
 
-
-%example of minted in action
-
-\begin{listing}[H]
-    \begin{minted}[fontsize=\footnotesize]{Java}
-        public class ConstrExample {
-            private int age;
-            private String name;
-
-            ConstrExample(int age, String name) {
-                this.age = age;
-                this.name = name;
-            }
-        }
-    \end{minted}
-    \caption{Příklad kódu vygenerovaného pomocí \texttt{@AllArgsConstructor}}
-    \label{code:lombok:constructor}
-\end{listing}
-%example of minted from file
-\begin{listing}[H]
-    %\inputminted[]{Java}{resources/code/impl/CharacterController.java}
-    \caption{Kontrolér pro entitu \textit{Character}}
-    \label{code:characterController}
-\end{listing}
-
-
-
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
 
