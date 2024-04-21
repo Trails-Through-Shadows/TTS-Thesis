@@ -4,19 +4,58 @@ Tato sekce obsahuje popis implementace aplikace, která byla vytvořena na zákl
 
 \section{Požadavky na implementaci}
 \label{sec:implementation-requirements}
+Požadavků na implementaci ze strany administrativního rozhraní není mnoho, přesto ale existují. V této sekci se tak pokusím popsat veškeré požadavky, které byly kladeny na implementaci aplikace během jejího návrhu a vývoje.
+
+Během vývoje se tyto požadavky průběžně měnili proto je celkem obtížné vždy předem definovat úplný seznam požadavků.
+
+\subsection*{Funkční požadavky}
+\label{subsec:implementation-requirements-functional}
+
+\begin{description}
+    \item \textbf{Přihlášení} -- Jelikož se jedná o aplikaci administrační, vstup do aplikace je možný pouze pro přihlášené uživatele. Z funkčního hlediska je v rámci projektu využita pouhá role \textit{Administrátora}, z toho důvodu tak není nutné rozlišovat mezi různými uživatelskými rolí.
+    \item \textbf{Správa obsahu} -- Hlavním účelem tohoto rozhraní je správa obsahu hry, bez možnosti formulářové editace obsahu jsou administrátoři vymezeni na surovou správu dat pomocí editace záznamů v databázi nebo změnou výchozích dat v souborech. Z tohoto důvodu je tak nutné zajistit plnou možnost správy obsahu hry stylem \textit{CRUD}.
+    \item \textbf{Filtrace a vyhledávání} -- Pro přehlednou správu dat jednotlivých tabulek je důležité umožnit administrátorům rychlé a efektivní prvky filtrování.
+    \item \textbf{Vykreslování} -- Určité části projektu obsahují grafické prvky, které je pro lepší pochopí nutné graficky zpracovat a vykreslit na obrazovku. Pro tento účel bude využit HTML prvek \textit{canvas}, který umožňuje grafické vykreslování.
+    \item \textbf{Validace} -- Při vkládání obsahu do databáze pomocí API, je nutné klást důraz na správné formátování všech dat před odesláním do API\@.
+    \item \textbf{Export} -- Pro úspěšné zálohování dat je nutné umožnit export všech dat do souboru, který bude následně kompatibilní s automatickým importem do databáze.
+\end{description}
 
 \section{Komponenty aplikace}
 \label{sec:implementation-components}
+V případě implementace administračního rozhraní nelze pouze implementovat frontend aplikace, ale je nutné implementovat i backend, který tak zajišťuje zpracování dat a jejich následné zaslání do třetí komponenty a to API\@.
+
+V níže uvedených sekcích se blíže zaměřím na implementaci jednotlivých komponent.
 
 \subsection{Frontend}
 \label{subsec:implementation-frontend}
+Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a to z důvodu usnadnění designových potřeb a možnosti se tak plně věnovat další části aplikace. Výsledek hledání byl úspěšný a nalezená šablona bylo kompatibilní s frameworkem Django. Přesněji se jedná o šablonu od autora \textit{Themesberg}\footnote{\href{https://themesberg.com/}{https://themesberg.com/}}, konkrétně šablona administračního rozhraní \textit{Volt}\footnote{\href{https://themesberg.com/product/django/volt-admin-dashboard-template}{https://themesberg.com/product/django/volt-admin-dashboard-template}}.
+
+Po úspěšné instalaci bylo dalším krokem rozvržení navigace, která se nachází na levé straně stránky. Jednotlivé odkazy poté následně směřují na pod stránky kde lze vidět obsah jednotlivých tabulek kde se nachází možnost filtrovat, hledat nebo provádět zbytek CRUD operací.
+
+Průběh otevření každé ze stránek navigace je možné vidět na diagramu~\ref{fig:OpenPage}, kde prvně dochází k ověření přihlášení uživatele, následnému zobrazení dočasného obsahu stránky, který je v pozdější době asynchronně doplněn obsahem z API\@.
+
+\processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram zobrazující otevření stránky.}
 
 \subsection{Backend}
 \label{subsec:implementation-backend}
+Backend aplikace byl vytvořen pod frameworkem django stejně jako část frontendu. Backend aplikace tak zajištuje zpracování dat podle žádosti uživatele. K získání dotazu dochází pomocí URL adresy, která je v aplikace zpracována pomocí \textit{view} komponenty pod následnou routing adresou. Po vyřízení požadavku jsou data zpět odeslány uživateli, který je následně upozorněn na úspěšné provedení akce.
+
+Níže zobrazeny diagram~\ref{fig:NewObject} zobrazuje průběh vytvoření nebo editace objektu tato funkcionalita je nejdůležitějším prvkem celé aplikace, protože umožňuje definovat herní obsah. Po odeslání formuláře dochází ke kontaktování API, která následně požadavek zpracuje a odešle zpět odpověď, která je následně zobrazena uživateli.
+
+\processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram reprezentující průběh vytvoření nebo editace objektu.}
 
 \subsection{API}
 \label{subsec:implementation-api}
-Práce s API přes middleware, který zabezpečuje správné použití klíče.
+Přestože API je součástí práce kolegy, pro usnadnění a zabezpečení jsem použil vlastní lokální API, které zpracovává dotazy a v případě že je nutné získat data odešle požadovaný dotaz směrem na veřejné API pod url adresou \textit{https://api.ttsapi.dev/}. Díky tomoto mezikroku je tak možné zabezpečit identitu API klíče, který tak zůstává skrytý pod lokální API spravované jazykem Python. V opačném případě by tento klíč byl odesílán s každým dotazem, čímž by se tak stal zachytitelný pro útočníky.
+
+V našem případě jsme použili pro autorizace obyčejný token, které je uložen v nastavení API. Nejedná se o nejbezpečnější použití ale z pohledu této práce je dostatečně bezpečné. Schéma komunikace při použití prostřední API je možné vidět na obrázku~\ref{fig:api_communication}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{diagrams/API_Communication}
+    \caption{Schéma komunikace mezi jednotlivými komponentami}
+    \label{fig:api_communication}
+\end{figure}
 
 \section{Volba technologií}
 \label{sec:implementation-technologies}
@@ -210,22 +249,47 @@ V rámci organizace byly vytvořeny následující části:
 \label{subsec:implementation-collaboration-problems}
 Pro řešení problému a chyb v softwaru, bylo pro tuto práci využito dalšího z nástrojů webu Github a to konkrétně \textit{Github Issues}\footnote{\href{https://github.com/features/issues}{https://github.com/features/issues}}, který slouží pro ukládání a monitoring problému v softwaru. Jako jednu z výhod tento nástroj přináší možnost přiřazení problému danému členovi nebo automatické vytvoření \textit{feature} větve a následného \textit{pull requestu}.
 
+\newpage
 \section{Problémy vývoje}
 \label{sec:implementation-problems}
+Během vývoje aplikace se vyskytlo mnoho menší a větších problémů, které bylo nutné řešit a následně eliminovat. V této sekci práce se tak zaměřím na ty větší problémy, které přinesly největší výzvu z celé práce.
 
 \subsection*{Hexagonální grid}
 \label{subsec:implementation-problems-hexagon}
+Během implementace bylo nutné vykreslit hexagonální mapu, která slouží jako základ pro reprezentaci lokace, například jeskyně z angličtiny \textit{dungeon}. Tato mapa tak reprezentuje bojové pole, kde se odehrává herní děj, a je tedy nezbytné správně zaznamenat polohu každého objektu na mapě do databáze, včetně umístění každého hexagonu na plánku.
+
+Při používání hexagonálního rozložení bylo nezbytné načítat z databáze veškeré hexagony, jeho sousedy a vazby které obsahuje s dalšími objekty. Po několika pokusech s klasickými souřadnicemi ve formátu \textit{(x, y)} nám bylo doporučeno přejít na souřadnicový systém osový, známý jako \textit{axial coordinates}, který je reprezentován formátem \textit{(q, r, s)}. Tento systém je často používán právě v hexagonálních hrách, protože usnadňuje výpočet vzdálenosti mezi hexagony a identifikaci jejich sousedů pomocí třetí osy.
+
+Pro ověření správnosti souřadnic je možné sečíst všechny koordináty souřadnice hexagonu, které by měly dát výsledek 0. Tento výpočet je zobrazen v rovnici~\ref{eq:axial-coordinates-verification}.
+\begin{equation}
+    q + r + s = 0\label{eq:axial-coordinates-verification}
+\end{equation}
+
+Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obrázku vedle rovnice~\ref{eq:hexagon-neighbors}. V případě použít normálního souřadnicového systému by bylo zapotřebí vytvořit složitý algoritmus pro výpočet sousedů, zatímco v případě osových součadnic stačí ke každému koordinátu přičíst nebo odečíst 1. Výpočet sousedů je tak zobrazen v rovnici~\ref{eq:hexagon-neighbors}. \cite{hexagon_grid}
+
+\begin{equation}
+    \vcenter{\hbox{\includegraphics[width=6cm,height=6cm]{diagrams/hexagonNeighbors}}}
+    \qquad\qquad
+    \begin{aligned}
+        \text{Vrchní Levý} & : (q, r - 1, s + 1) \\
+        \text{Vrchní Pravý} & : (q + 1, r - 1, s) \\
+        \text{Levý} & : (q - 1, r, s + 1) \\
+        \text{Pravý} & : (q + 1, r, s - 1) \\
+        \text{Dolní Levý} & : (q - 1, r + 1, s) \\
+        \text{Dolní Pravý} & : (q, r + 1, s - 1)
+    \end{aligned}\label{eq:hexagon-neighbors}
+\end{equation}
 
 \subsection*{Časová náročnost}
 \label{subsec:implementation-problems-time}
+Dalším z problému který byl zaviněn špatným návrhem byla časová náročnost aplikace. Vzhledem k tomu, že návrh projektu byl proveden bez zohlednění časové náročnosti, pro dokončení práce tak bylo zapotřebí vynechat několik funkcí. Mezi příklad funkcí, které byly vynechány patří implementace \textit{summons} a \textit{achievements}, které byly původně plánovány jako součást hry.
 
-\subsection*{Offset pro zobrazení partu}
-\label{subsec:implementation-problems-offset}
+K této funkcionalitě bychom se v budoucnu rádi vrátili a implementaci dokončili.
 
-\newpage
-\processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram aaa}
+\subsection*{Chyba volby frameworku}
+\label{subsec:implementation-problems-framework}
+Během vývoje rozhraní se postupně nabalovaly problémy, které vybraný framework obsahoval. Volba frameworku totiž nebyla dostatečně promyšlená a nebyl zohledněn fakt, že i administrativní rozhraní obsahuje část uživatelskou. Z tohoto důvodu by bylo vhodné zvolit jiný framework, který se více zaobírá části uživatelskou tedy frontend.
 
-\newpage
-\processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram průběhu editace nebo přidávání dat}
+V raných fázích vývoje byl zvolen framework Django, který byl jako jeden z mála znalostí během studia. Později v konečném semestru studia, přišlo učení frameworku React, který se okamžitě projevil jako lepší varianta pro psaní administrativního rozhraní. Bohužel vzhledem k časové náročnosti a nedostatku zkušeností s frameworkem React, bylo rozhodnuto zůstat u frameworku Django. Jedná se tady o chybu, která by mohla v případě pokračování vývoje způsobit problémy.
 
 \endinput

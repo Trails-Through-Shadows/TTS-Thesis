@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="-279.8076211353316 -279.8076211353316 559.6152422706632 559.6152422706632"
+   class="neighbors"
+   style="max-width: 16.875rem;"
+   version="1.1"
+   id="svg24"
+   sodipodi:docname="hexagonNeighbors.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs24">
+    <linearGradient
+       id="linearGradient26"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop26" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop27" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient26"
+       id="linearGradient27"
+       x1="1.9088572"
+       y1="-7.2721446"
+       x2="11.98439"
+       y2="-7.2721446"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview24"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.4527839"
+     inkscape:cx="269.48261"
+     inkscape:cy="279.80762"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="703"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g23" />
+  <g
+     transform="rotate(-30)"
+     fill="white"
+     stroke="black"
+     id="g24">
+    <g
+       class="grid"
+       id="g23">
+      <g
+         transform="translate(-150,-87)"
+         id="g4">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon1"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g3"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text1"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+          <text
+             transform="rotate(30)"
+             class="r-coord"
+             id="text2"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="70.033325"
+             y="9.9807625">0</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text3"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">+1</text>
+        </g>
+      </g>
+      <g
+         transform="translate(-150,87)"
+         id="g7">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon4"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g6"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text4"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+          <text
+             transform="rotate(30)"
+             class="r-coord"
+             id="text5"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="50.033321"
+             y="9.9807625">+1</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text6"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">0</text>
+        </g>
+      </g>
+      <g
+         transform="translate(0,-173)"
+         id="g10">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon7"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g9"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text7"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">0</text>
+          <text
+             transform="rotate(30,-48.641016,107.03332)"
+             class="r-coord"
+             id="text8"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text9"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">+1</text>
+        </g>
+      </g>
+      <g
+         transform="translate(0,0)"
+         id="g13">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon10"
+           style="stroke:#000000;stroke-opacity:1;fill:#c9f3be;fill-opacity:1" />
+        <g
+           id="g12"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30)"
+             class="q-coord"
+             id="text10"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="-24"
+             y="-41.961525">q</text>
+          <text
+             transform="rotate(30)"
+             class="r-coord"
+             id="text11"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="70.033318"
+             y="9.9807625">r</text>
+          <text
+             transform="rotate(30)"
+             class="s-coord"
+             id="text12"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="-24.033321"
+             y="61.980762">s</text>
+        </g>
+      </g>
+      <g
+         transform="translate(0,173)"
+         id="g16">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon13"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g15"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text13"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">0</text>
+          <text
+             transform="rotate(30)"
+             class="r-coord"
+             id="text14"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="50.033321"
+             y="9.9807625">+1</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text15"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+        </g>
+      </g>
+      <g
+         transform="translate(150,-87)"
+         id="g19">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon16"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g18"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text16"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">+1</text>
+          <text
+             transform="rotate(30,-48.641016,107.03332)"
+             class="r-coord"
+             id="text17"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text18"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">0</text>
+        </g>
+      </g>
+      <g
+         transform="translate(150,87)"
+         id="g22">
+        <polygon
+           points="100,0 50,-87 -50,-87 -100,-0 -50,87 50,87"
+           id="polygon19"
+           style="fill:#f2f2f2;fill-opacity:1" />
+        <g
+           id="g21"
+           transform="translate(-17.320509,-10)">
+          <text
+             transform="rotate(30,93.30127,-35)"
+             class="q-coord"
+             id="text19"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">+1</text>
+          <text
+             transform="rotate(30)"
+             class="r-coord"
+             id="text20"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+             x="70.033325"
+             y="9.9807625">0</text>
+          <text
+             transform="rotate(30,-100.64102,-87.033321)"
+             class="s-coord"
+             id="text21"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1">-1</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
