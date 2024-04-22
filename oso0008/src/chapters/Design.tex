@@ -2,37 +2,37 @@
 Tato kapitola se zabývá návrhem designu stolní hry a aplikace, která bude sloužit jako její součást. Jsou zde popsány požadavky na aplikaci, návrh grafického rozhraní a návrh herních prvků.
 
 \section{Požadavky na aplikaci}
-Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplikace splňovat. Tyto požadavky byly stanoveny na základě analýzy stolních her Na vlnách neznáma, Gloomhaven a Dungeons \& Dragons a na základě požadavků, které vyplynuly ze samotného návrhu hry.
+Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplikace splňovat. Tyto požadavky byly stanoveny na základě analýzy stolních her Na vlnách neznáma, Gloomhaven a Dungeons \& Dragons a na základě požadavků, které vyplynuly z návrhu hry.
 
 \subsection{Vzhled}
-Vzhled aplikace by měl odrážet tematiku hry. Ta je situovaná do temného fantaskního světa s RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, tak bylo vybráno několik málo následujících barev, které se v aplikaci vyskytnou. Základem designu ovládacích prvků budou odstíny tmavě šedé, které budou doplněny o zelené prvky pro zvýraznění a indikaci interaktivních prvků. Všechny tyto barvy by měly být v kontrastu s bílou barvou, která, společně se světlými odstíny šedé, bude použita pro texty a popisky. Tímto způsobem by měl být vytvořen jednotný vzhled aplikace, který bude hráčům pomáhat se v ní lépe orientovat
+Vzhled aplikace by měl odrážet tématiku hry. Ta je situovaná do temného fantaskního světa s RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, tak bylo vybráno několik málo následujících barev, které se v aplikaci vyskytnou. Základem designu ovládacích prvků budou odstíny tmavě šedé, které budou doplněny o zelené prvky pro zvýraznění a indikaci interaktivních prvků. Všechny tyto barvy budou v kontrastu s bílou barvou, která, společně se světlými odstíny šedé, bude použita pro texty a popisky. Tímto způsobem bude vytvořen jednotný vzhled aplikace, který pomůže hráčům se v ní lépe orientovat
 
 Zážitek ze hry bude podporován tematickými obrázky, které hráčům pomohou lépe se do hry vcítit. Obrázky budou použity na pozadí herních stránek, ikonách postav a nepřátel a na kartách, které budou hráči používat. Tyto obrázky budou vygenerovány pomocí umělé inteligence, o které se bude hovořit v kapitole \ref{sec:generovani_obrazku}.
 
 Vzhled aplikace by měl být jednoduchý a přehledný. Hráči by měli mít možnost snadno se na stránce orientovat a mít přehled o všech herních prvcích.
 
 \subsection{Uživatelský zážitek}
-Aby měli uživatelé ze hry co nejlepší zážitek, bylo rozhodnuto, že aplikace bude mít několik základních vlastností, které by měly zlepšit uživatelský zážitek.
+Aby měli uživatelé ze hry co nejlepší zážitek, bylo rozhodnuto, že aplikace bude mít několik základních vlastností, které zlepší uživatelský zážitek.
 
 \subsubsection*{Ovládání}
-Ideální použití aplikace počítá s tím, že ji hráči budou promítat na velký monitor, kde budou mít možnost vidět všechny herní prvky. Dále bylo podstatné, aby bylo ovládání jednoduché a intuitivní. Z těchto důvodů bude většina části aplikace, které souvisí se samotným průběhem hry bude ovládána pouze pomocí myši, aby bylo dosaženo co největšího komfortu pro hráče.
+Ideální použití aplikace počítá s tím, že ji hráči budou promítat na velký monitor, kde budou mít možnost vidět všechny herní prvky. Dále je podstatné, aby bylo ovládání jednoduché a intuitivní. Z těchto důvodů bude většina části aplikace, které souvisí se samotným průběhem hry ovladatelná pouze pomocí myši, aby bylo dosaženo co největšího komfortu pro hráče.
 
 \subsubsection*{Responzivita}
-Ze stejného důvodu, který je zmíněný výše, vyplývá, že aplikace by měla dobře sedět na velké monitory. Na to však nelze vždy spoléhat, jelikož někteří hráči nemají takovéto zařízení k dispozici. Proto je nutné, aby byla aplikace responzivní a byla schopná se přizpůsobit různým velikostem obrazovek, a to včetně mobilních zařízení.
+Ze stejného důvodu, který je zmíněný výše, vyplývá, že aplikace by měla dobře sedět na velké monitory. Na to však nelze vždy spoléhat, jelikož někteří hráči nemají takovéto zařízení k dispozici. Proto je nutné, aby byla aplikace responzivní a byla schopna se přizpůsobit různým velikostem obrazovek, a to včetně mobilních zařízení.
 
 \subsubsection*{Čtení textů}
-Jedním z požadavků je také čtečka textů. Aplikace by měla být za pomoci umělé inteligence schopná číst texty nahlas. Toto má řadu výhod, jako třeba dostupnost pro hráče, kteří mají problémy s čtením. Zároveň to může být také zajímavým prvkem, který by mohl zlepšit imerzi a tím také celkový zážitek ze hry.
+Jedním z požadavků je také čtečka textů. Aplikace by měla být za pomoci umělé inteligence schopna číst texty nahlas. Toto má řadu výhod, jako třeba dostupnost pro hráče, kteří mají problémy se čtením. Zároveň to může být také zajímavým prvkem, který by mohl zlepšit imerzi a tím také celkový zážitek ze hry.
 
 \subsubsection*{Perzistence dat}
-Aplikace by si měla držet aktuální data i po obnovení stránky. To znamená, že by měla být schopná ukládat data do databáze průběžně a zobrazovat je hráčům i po obnovení stránky. Tímto způsobem by měli hráči možnost pokračovat v dané části hry i v případě, že ji z jakéhokoliv důvodu nebyli schopni dokončit, či v případě, že jsou nuceni stránku obnovit.
+Aplikace si udrží aktuální data i po obnovení stránky. To znamená, že bude schopna ukládat data do databáze průběžně a zobrazovat je hráčům i po obnovení stránky. Tímto způsobem budou mít hráči možnost pokračovat v dané části hry i v případě, že ji z jakéhokoliv důvodu nebyli schopni dokončit, či v případě, že jsou nuceni stránku obnovit.
 
 \subsection{Funkcionalita}
-Aplikace bude sloužit jako nástroj pro ukládání hráčských dat a pro správu herního světa. Hráči budou mít možnost vytvářet postavy, které budou moci upravovat a vylepšovat. Postavy budou mít možnost se účastnit dobrodružných bojových střetnutí, které budou záviset na hráči určených kampaních. Jednotlivá střetnutí budou mít vlastní mapu představující hrací plochu a budou obsahovat nepřátele, kteří budou mít své vlastní schopnosti a statistiky. Všechny tyto informace budou uloženy v databázi a hráčům přístupny právě přes webové rozhraní.
+Aplikace bude sloužit jako nástroj pro ukládání hráčských dat a pro správu herního světa. Hráči budou mít možnost vytvářet postavy, které budou moci upravovat a vylepšovat. Postavy se budou moci účastnit dobrodružných bojových střetnutí, které budou záviset na hráči určených kampaních. Jednotlivá střetnutí budou mít vlastní mapu představující hrací plochu a budou obsahovat nepřátele, kteří budou mít své vlastní schopnosti a statistiky. Všechny tyto informace budou uloženy v databázi a hráčům přístupny právě přes webové rozhraní.
 
 Následující funkcionality vyplývají z vlastního návrhu, který vzešel z analýzy některých titulů a zkušeností nabytých hraním stolních her:
 
 \subsubsection*{Přihlášení}
-Jeden z funkčních požadavků, který by měla aplikace splňovat, je možnost přihlášení. Hráči dostanou přiřazené unikátní licenční číslo a heslo, které jim umožní se do aplikace přihlásit. Přihlášení bude pro hru nutné, jelikož se tak budou ukládat data o postavách a kampaních, které hráči vytvoří. Dále by aplikace také měla umožňovat změnu hesla.
+Jeden z funkčních požadavků, která bude aplikace splňovat, je možnost přihlášení. Hráči dostanou přiřazené unikátní licenční číslo a heslo, které jim umožní se do aplikace přihlásit. Přihlášení bude pro hru nutné, jelikož se tak budou ukládat data o postavách a kampaních, které hráči vytvoří.
 
 \subsubsection*{Vytváření dobrodružství}
 Dobrodružstvím se rozumí kombinace postav a herního příběhu (neboli kampaně), který určuje průběh a cíl hry. Ke každému účtu bude možno vytvořit takovýchto dobrodružství několik a hráči budou schopni mezi nimi vybírat. Při jejich tvorbě budou hráči vyzváni k zadání názvu a popisu a k výběru kampaně. Ta bude pomocí API získána z databáze a bude obsahovat informace o lokacích, které mohou být ve hře navštíveny, nepřátelích, kteří se v nich mohou vyskytovat a o odměnách, které hráči mohou získat.
@@ -41,27 +41,25 @@ Dobrodružstvím se rozumí kombinace postav a herního příběhu (neboli kampa
 Podobně jako u dobrodružství, aplikace bude povolovat vytváření hráčských postav. Ty se budou skládat ze dvou základních částí. Ty jsou rasa a povolání, jejichž výběr každé postavě udá unikátní schopnosti a statistiky. Postavy budou mít možnost se v průběhu hry vyvíjet a získávat schopnosti nové.
 
 \subsubsection*{Bojové střetnutí}
-Bojová střetnutí budou základním a hlavním prvkem hry. Bude se jednat o souboj mezi hráči a nepřáteli, které bude probíhat na fyzické herní ploše. Konfigurace této herní plochy bude zobrazena v aplikaci a bude záviset na konkrétním dobrodružství. Aplikace bude mít v tomto případě za cíl držet v paměti aktuální stav hry, informace o postavách a nepřátelích a zobrazovat je hráčům v reálném čase. Dále bude aplikace zobrazovat informace o akcích, které mohou nepřátelé provádět a bude tímto způsobem hráčům sdělovat, jak se má hra vyvíjet.
-\pagebreak
+Bojová střetnutí budou základním a hlavním prvkem hry. Bude se jednat o souboj mezi hráči a nepřáteli, který bude probíhat na fyzické herní ploše. Konfigurace této herní plochy bude zobrazena v aplikaci a bude záviset na konkrétním dobrodružství. Aplikace bude mít v tomto případě za cíl držet v paměti aktuální stav hry, informace o postavách a nepřátelích a zobrazovat je hráčům v reálném čase. Dále bude aplikace zobrazovat informace o akcích, které mohou nepřátelé provádět a bude tímto způsobem hráčům sdělovat, jak se má hra vyvíjet.
 
 \subsubsection*{Správa předmětů}
-Aplikace by měla umožňovat hráčům dostávat odměny za splnění úkolů a za porážku nepřátel. Tyto odměny budou mimo jiné v podobě předmětů, které budou mít různé účinky a budou moci být použity v boji. Zároveň by měli mít hráči možnost tyto předměty nakupovat za herní měnu, kterou budou získávat za splnění úkolů. Hráči je budou moci přiřazovat k postavám a tím si zpřístupnit jejich účinky.
+Tato funkcionalita byla nakonec odsunut pro budoucí rozšíření hry. Aplikace bude umožňovat hráčům dostávat odměny za splnění úkolů a za porážku nepřátel. Tyto odměny budou mimo jiné v podobě předmětů s různými účinky, které budou moci být použity v boji. Zároveň budou mít hráči možnost tyto předměty nakupovat za herní měnu, kterou budou taktéž získávat za splnění úkolů. Hráči je budou moci přiřazovat k postavám a tím si zpřístupnit jejich účinky.
 
 \section{Využití umělé inteligence}
 Umělou inteligenci je možné v tomto projektu využít hned v několika případech. Jedním z nich je generování obrázků, které budou použity v grafickém rozhraní aplikace. Dále je možné využít umělou inteligenci pro předčítání textů. V této kapitole si popíšeme, jak by mohla být umělá inteligence využita v těchto dvou případech.
 
 \subsection{Generování obrázků}\label{sec:generovani_obrazku}
-Existuje velká řada nástrojů, které umožňují generování obrázků pomocí umělé inteligence. Většina z nich využívá neuronové sítě, které byly natrénovány na velkém množství dat. Tyto sítě jsou pak schopny generovat obrázky na základě těch. které byly pro trénování použity. Využití takovýchto nástrojů většinou obnáší jakousi sadu slov, jakožto vstupní parametr (těmto slovům se běžně říká prompty), na základě které je obrázek vygenerován. V našem případě by mohlo jít například o popis vzhledu nepřátel, které by hráči mohli potkat v průběhu hry.
+Existuje velká řada nástrojů, které umožňují generování obrázků pomocí umělé inteligence. Většina z nich využívá neuronové sítě, které byly natrénovány na velkém množství dat. Tyto sítě jsou pak schopny generovat obrázky na základě těch, které byly pro trénování použity. Využití takovýchto nástrojů většinou obnáší jakousi sadu slov, jakožto vstupní parametr (těmto slovům se běžně říká prompty), na základě které je obrázek vygenerován. V našem případě půjde například o popis vzhledu nepřátel, které by hráči mohli potkat v průběhu hry.
 
-Při výběru technologie, která by byla pro tento účel použita, bylo vyzkoušeno několik nástrojů. Mezi ně patří například lokálně nainstalovaný model Stable Diffusion\cite{stability_ai}. Jedná se o open-source model, kterému lze nahrát jednu z mnoha volně dostupných datových sad a upravit tak styl výsledných obrázků. Tento nástroj se však ukázal jako nepoužitelný, kvůli jeho náročnosti na lokální stroj a kvůli jeho nekonzistentním výsledkům. Dále byl vyzkoušen nástroj Midjourney\cite*{midjourney}, kterému se bude věnovat následující sekce.
+Při výběru technologie, která bude pro tento účel použita, bylo vyzkoušeno několik nástrojů. Mezi ně patří například lokálně nainstalovaný model Stable Diffusion\cite{stability_ai}. Jedná se o open-source model, kterému lze nahrát jednu z mnoha volně dostupných datových sad a upravit tak styl výsledných obrázků. Tento nástroj se však ukázal jako nepoužitelný, kvůli jeho náročnosti na lokální stroj a kvůli jeho nekonzistentním výsledkům. Dále byl vyzkoušen nástroj Midjourney\cite*{midjourney}, kterému se bude věnovat následující sekce.
 
 Obě tyto technologie využívají difuzní modely. Jsou to generativní modely, což znamená, že jsou použity ke generování podobných dat, na kterých byly trénovány. Jsou učeny tak, že ničí trénovací data pomocí postupného přidávání gaussovského šumu a následně se snaží tato data rekonstruovat pomocí inverzního procesu. Při generování nových dat si model nejprve pomocí náhodně zvoleného čísla vytvoří náhodný šum a následně ho pomocí inverzního procesu převede na obrázek.
-\pagebreak
 
 \subsubsection*{Midjourney}
 Tento model je dostupný online a jeho využívání je v současné době podmíněno předplatným. Byl však schopen generovat obrázky, které byly velmi kvalitní a téměř  dokonale odpovídaly našim požadavkům. Díky tomu byl tento nástroj vybrán pro použití v našem projektu.
 
-Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu 'imagine' je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
+Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu 'imagine' je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na obrázku \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
 
 \begin{figure}[H]
     \centering
@@ -85,3 +83,26 @@ Mimo promptů lze modelu předat i parametry, které dále alterují výstup. Ty
 Pro tento účel by bylo možné využít některý z text-to-speach nástrojů, jejichž zdrojové kódy jsou dostupné online. Tyto nástroje jsou schopny přečíst text, který je jim zadán a pomocí algoritmů a neuronových sítí generovat věrnou napodobeninu lidského hlasu. Výhodou těchto nástrojů je, že jsou schopny přečíst texty v mnoha jazycích a že jsou schopny generovat hlas, který zní velmi přirozeně.
 
 Z časových důvodů bylo rozhodnuto, že tato funkcionalita nebude do aplikace implementována, avšak by mohla být v budoucnu přidána jako rozšíření.
+
+\section{Návrh fyzických komponent}
+Návrh této stolní hry počítá s několika fyzickými komponentami, které budou mít hráči k dispozici. Mezi tyto komponenty patří herní plocha, figurky postav a nepřátel, karty s předměty a karty s hráčskými akcemi.
+
+\subsection{Herní plocha}
+Herní plocha pro každou z lokací bude tvořena z dílů, které bude možno skládat k sobě. Propojovat je budou speciální dílky, které budou představovat dveře mezi jednotlivými místnostmi. Díly budou mít na sobě vyobrazeny hexagonová pole, které budou reprezentovat možnosti, kam hráč bude moci v průběhu hry pohnout svou postavu. Na těchto políčkách budou umístěny figurky postav a nepřátel a také tokeny pastí a překážek.
+
+Samotná plocha bude vytištěna na speciální papír, který bude přilepen na materiál vyrobený z lisovaného papíru. Tento způsob se běžně v herním průmyslu používá. Potisk desky bude vygenerován pomocí umělé inteligence a vytištěn ve vysokém rozlišení. Mezi další materiály, které byly zvažovány, patří například plastové desky, které by byly odolnější a mohly by být použity i jako magnetické. Tyto desky by však byly mnohem dražší a jejich výroba by byla náročnější, proto byly pro tento projekt zavrženy. Bylo by však možné tuto možnost použít například pro prémiové vydání hry.
+
+\subsection{Figurky}
+Zatímco rozhodnutí o herní ploše bylo poměrně jednoduché, rozhodnutí o figurkách bylo mnohem složitější. Figurky by měly být dostatečně odlišné, aby hráči neměli problém je od sebe rozeznat. Bylo zvažováno několik možností výroby figur, od 2D tisku na karton, přes 3D tisk, až po vstřikování plastů. Každá z těchto možností má své výhody a nevýhody o kterých budou pojednávat následující sekce.
+
+\subsubsection*{3D tisk}
+3D tisk by umožnil vytvořit figurky, které by byly téměř identické s těmi, které byly vygenerovány pomocí umělé inteligence. Existuje několik variant tisku. FDM tisk by byl nejlevnější, avšak nejméně kvalitní. SLA tisk by byl naopak dostatečně kvalitní, avšak mnohem dražší. Další nevýhodou 3D tisku je jeho časová náročnost. Zároveň je nutné mít k dispozici 3D model, který by byl pro tisk použit. Z důvodu nedostupnosti nástrojů, které by dokázaly správně a kvalitně převést 2D obrázek na 3D objekt, by bylo nutné tento model vytvořit ručně. Tento způsob by byl tedy velmi náročný na čas a bylo by třeba zajistit, aby byl model dostatečně kvalitní pro samotný tisk.
+
+\subsubsection*{Vstřikování plastů}
+Vstřikování plastů je technologie, která je za použití forem schopná vytvořit velké množství identických plastových dílů ve velmi krátkém čase. V závislosti na kvalitě formy a typu zvoleného materiálu mohou být výsledné produkty velice detailní a odolné. Tato technologie by byla ideální pro výrobu figur, avšak je velmi nákladná a náročná na výrobu forem.
+
+\subsubsection*{2D tisk}
+Figurky by byly vytištěny na karton a následně vystřiženy. Tento způsob by byl nejlevnější a nejrychlejší, ale nejméně kvalitní. Figurky by byly náchylné k poškození a mohly by být snadno poničeny.
+
+\subsubsection*{Zvolené řešení}
+Z důvodu časové náročnosti a nákladů bylo rozhodnuto, ve prospěch 2D tisku. Figurky budou opatřeny plastovým stojánkem. Jedno z předešlých řešení by však mohlo být použito pro prémiové vydání hry.
