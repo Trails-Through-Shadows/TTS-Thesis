@@ -4,9 +4,12 @@ on:
   push:
     paths:
       - 'kor0289/**'
+      - 'shared/**'
   pull_request:
     paths:
       - 'kor0289/**'
+      - 'shared/**'
+  workflow_dispatch:
 
 jobs:
   check-markdown:
