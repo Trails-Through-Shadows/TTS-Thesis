@@ -6,11 +6,13 @@ on:
       - master
     paths:
       - 'mik0486/**'
+      - 'shared/**'
   pull_request:
     branches:
       - master
     paths:
       - 'mik0486/**'
+      - 'shared/**'
   workflow_dispatch:
 
 jobs:

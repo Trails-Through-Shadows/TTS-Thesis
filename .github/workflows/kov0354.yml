@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - 'kov0354/**'
+      - 'shared/**'
   pull_request:
     paths:
       - 'kov0354/**'
+      - 'shared/**'
   workflow_dispatch:
 
 jobs:
