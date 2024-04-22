@@ -33,11 +33,11 @@
 \ThesisAssignmentFileName{../specification.pdf}
 
 % Pokud nechceme nikomu dekovat makro zapoznámkujeme.
-\Acknowledgement{Rád bych na tomto místě poděkoval všem, kteří mi s prací pomohli, protože bez nich by tato práce nevznikla.}
-\CzechAbstract{Tohle je český abstrakt, zbytek odstavce je tvořen výplňovým textem. Naší si rozmachu potřebami s posílat v poskytnout ty má plot. Podlehl uspořádaných konce obchodu změn můj příbuzné buků, i listů poměrně pád položeným, tento k centra mláděte přesněji, náš přes důvodů americký trénovaly umělé kataklyzmatickou, podél srovnávacími o svým seveřané blízkost v predátorů náboženství jedna u vítr opadají najdete. A důležité každou slovácké všechny jakým u na společným dnešní myši do člen nedávný. Zjistí hází vymíráním výborná.}
-\CzechKeywords{API; REST; RESTful; výpravná hra; Java; Springboot;}
+\Acknowledgement{Jako první bych chtěl poděkoat všem členům týmu za aktivní spolupráci a zkušenosti na tomto projektu. Také bych chtěl poděkovat vedoucímu práce Ing. Radoslavu Fasugovi, Ph.D. za jeho vedení a rady. Dále svojí rodině a přátelům, bez kterých by bylo moje studium obtížné.}
+\CzechAbstract{}
+\CzechKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Databáze; výpravná hra; vývoj hry; Java; Spring Boot; }
 \EnglishAbstract{This is English abstract. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aenean placerat. Vivamus ac leo pretium faucibus. Duis risus. Fusce consectetuer risus a nunc. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Aliquam erat volutpat. Donec vitae arcu. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vestibulum fermentum tortor id mi. Etiam bibendum elit eget erat. Pellentesque pretium lectus id turpis. Nulla quis diam.}
-\EnglishKeywords{API; REST; RESTful; adventure game; Java; Springboot;}
+\EnglishKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Database; adventure game; game development; Java; Spring Boot;}
 
 %bib resource
 \addbibresource{resources/sauce.bib}
@@ -62,6 +62,7 @@
 
 % Zacatek dokumentu
 \begin{document}
+\pagenumbering{roman}
 % Nechame vysazet titulni strany.
 \MakeTitlePages
 \listoflistings
@@ -72,6 +73,7 @@
 \clearpage
 
 % A nasleduje text zaverecne prace.
+\pagenumbering{arabic}
 \input{chapters/theory/introduction}
 \input{chapters/theory/history}
 \input{chapters/theory/formats}
@@ -86,6 +88,7 @@
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
+
 
 % Seznam zkratek
 \printnoidxglossary[type=shortcuts]%, style=shortcuts]
