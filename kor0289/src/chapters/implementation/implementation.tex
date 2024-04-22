@@ -14,7 +14,7 @@ Tyto knihovny jsou základní stavební kámen jak pro samotné koncové body ta
 
 \begin{figure}[ht!]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/impl/API Implementation - JPA.pdf}
+    \includegraphics[width=0.5\textwidth]{figures/impl/API Implementation - JPA.pdf}
     \caption{Struktura Spring Boot Data JPA aplikace}
     \label{fig:JPA}
 \end{figure}
@@ -138,6 +138,13 @@ Tato funkce za pomocí \texttt{Hibernate.initilize()} nejdříve nainicializuje 
 
 \subsection{Koncové body}\label{sec:impl:endpoints}
 Hlavním výstupem této práce je seznam koncových bodů jak pro administrativní část tak pro hraní hry. Jednotlivé přístupové body jsou rozděleny do tzv. kontrolérů. Jako příklad zde je kontrolér pro entitu \textit{Enemy} \coderef{code:characterController}. 
+
+% \begin{figure}[H] %TODO graf endpointu
+%     \centering
+%     \includegraphics[width=0.7\textwidth]{figure}
+%     \caption{caption}
+%     \label{fig:label}
+% \end{figure}
 
 Anotací \texttt{@RestController} určíme že tato třída bude obsahovat koncové body. Dále pomocí anotace \texttt{@RequestMapping} určíme cestu pod kterou budou všechny koncové body v této třídě dostupné. A naposledy pomocí jednotlivých mapping anotací (\texttt{@GetMapping, @PutMapping @PostMapping @DeleteMapping}) určujeme na jakou HTTP metodu má funkce reagovat. 
 
