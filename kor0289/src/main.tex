@@ -9,6 +9,7 @@
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{enumitem} % lepsi enumerate a descrition and so on
 \usepackage{wrapfig} % obrazky obtekané textem
+\usepackage{latexsym} % symboly
 % minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
 \immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
@@ -18,7 +19,7 @@
 \renewcommand\listingscaption{Výpis}
 \renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{1}
 
 % dark theme enable
 %\usepackage{xcolor} \pagecolor[rgb]{0,0,0} \color[rgb]{1,1,1}
@@ -38,25 +39,19 @@
 \EnglishAbstract{This is English abstract. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce tellus odio, dapibus id fermentum quis, suscipit id erat. Aenean placerat. Vivamus ac leo pretium faucibus. Duis risus. Fusce consectetuer risus a nunc. Duis ante orci, molestie vitae vehicula venenatis, tincidunt ac pede. Aliquam erat volutpat. Donec vitae arcu. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna. Curabitur ligula sapien, pulvinar a vestibulum quis, facilisis vel sapien. Vestibulum fermentum tortor id mi. Etiam bibendum elit eget erat. Pellentesque pretium lectus id turpis. Nulla quis diam.}
 \EnglishKeywords{API; REST; RESTful; adventure game; Java; Springboot;}
 
-% acronymy idk co s nima
-\AddAcronym{TTS}{Trails through shadows}
-\AddAcronym{API}{Application Interface}
-\AddAcronym{REST}{REpresentational State Transfer}
-\AddAcronym{SOAP}{simple object access protocol}
-
 %bib resource
 \addbibresource{resources/sauce.bib}
 \addbibresource{resources/impl.bib}
 
 
 % Commandy pro snadnější psaní
-\NewDocumentCommand{\chapterref}{mO{}}{(\hyperlink{#1}{Kapitola \ref*{#1}#2})}
+\NewDocumentCommand{\chapterref}{mO{}}{(\hyperref[#1]{Kapitola \ref*{#1}#2})}
 \NewDocumentCommand{\sectionref}{mO{}}{(\hyperref[#1]{Sekce \ref*{#1}#2})}
 \NewDocumentCommand{\subsectionref}{mO{}}{(\hyperref[#1]{Podsekce \ref*{#1}#2})}
 \NewDocumentCommand{\tableref}{mO{}}{(\hyperref[#1]{Tabulka \ref*{#1}#2})}
 \NewDocumentCommand{\coderef}{mO{}}{(\hyperref[#1]{Výpis \ref*{#1}#2})}
-\NewDocumentCommand{\figureref}{mO{}}{(\hyperlink{#1}{Obrázek \ref*{#1}#2})}
-\NewDocumentCommand{\listingref}{mO{}}{(\hyperlink{#1}{Výpis \ref*{#1}#2})}
+\NewDocumentCommand{\figureref}{mO{}}{(\hyperref[#1]{Obrázek \ref*{#1}#2})}
+\NewDocumentCommand{\listingref}{mO{}}{(\hyperref[#1]{Výpis \ref*{#1}#2})}
 
 
 % Glossary stuff
@@ -99,6 +94,6 @@
 % Přílohy
 \appendix
 \input{chapters/appendix/implProblems}
-
+\input{chapters/appendix/designappendix}
 
 \end{document}
