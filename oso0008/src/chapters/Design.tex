@@ -57,9 +57,9 @@ Při výběru technologie, která bude pro tento účel použita, bylo vyzkouše
 Obě tyto technologie využívají difuzní modely. Jsou to generativní modely, což znamená, že jsou použity ke generování podobných dat, na kterých byly trénovány. Jsou učeny tak, že ničí trénovací data pomocí postupného přidávání gaussovského šumu a následně se snaží tato data rekonstruovat pomocí inverzního procesu. Při generování nových dat si model nejprve pomocí náhodně zvoleného čísla vytvoří náhodný šum a následně ho pomocí inverzního procesu převede na obrázek.
 
 \subsubsection*{Midjourney}
-Tento model je dostupný online a jeho využívání je v současné době podmíněno předplatným. Byl však schopen generovat obrázky, které byly velmi kvalitní a téměř  dokonale odpovídaly našim požadavkům. Díky tomu byl tento nástroj vybrán pro použití v našem projektu.
+Tento model je dostupný online a jeho využívání je v současné době podmíněno předplatným. Byl však schopen generovat obrázky, které byly velmi kvalitní a téměř dokonale odpovídaly našim požadavkům. Díky tomu byl tento nástroj vybrán pro použití v našem projektu.
 
-Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu 'imagine' je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na obrázku \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
+Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu \textit{/imagine} je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na obrázku \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
 
 \begin{figure}[H]
     \centering
@@ -70,7 +70,7 @@ Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce 
 
 Tento proces je však také možné obrátit. Modelu je možné poslat obrázek ve formě odkazu. Ten je následně zanalyzován a na základě něj je vygenerován několik textových popisů, které by měly daný vstup vystihnout. Tento způsob je velmi užitečný v případech, kdy chce uživatel použít pouze určité části, či kvality daného obrázku jako předlohu pro generování dalších. Midjourney je také schopno přímo ze vstupních obrázků vygenerovat obrázky nové. V tomto případě však bere model v potaz celý obrázek, což může být v některých případech nežádoucí.
 
-Mimo promptů lze modelu předat i parametry, které dále alterují výstup. Ty se označují dvěma pomlčkami před samotným parametrem. Velmi užitečným se jeví být parametr 'no' pro negativní prompty. To jsou takové prompty, které modelu říkají, co by obrázek neměl obsahovat. Dále lze však využít parametry jako 'style', který mění styl obrázku, či 'cref', díky kterému lze do výsledku přidat konkrétní postavu v různých kompozicích. Tímto způsobem je možné přesněji specifikovat a ovlivnit požadovaný výstup. Celý vstupní řádek je možné vidět na obrázku \ref{fig:mj_prompts_params}.
+Mimo promptů lze modelu předat i parametry, které dále alterují výstup. Ty se označují dvěma pomlčkami před samotným parametrem. Velmi užitečným se jeví být parametr \textit{{-}{-}no} pro negativní prompty. To jsou takové prompty, které modelu říkají, co by obrázek neměl obsahovat. Dále lze však využít parametry jako \textit{{-}{-}style}, který mění styl obrázku, či \textit{{-}{-}cref}, díky kterému lze do výsledku přidat konkrétní postavu v různých kompozicích. Tímto způsobem je možné přesněji specifikovat a ovlivnit požadovaný výstup. Celý vstupní řádek je možné vidět na obrázku \ref{fig:mj_prompts_params}.
 
 \begin{figure}[H]
     \centering
@@ -85,7 +85,7 @@ Pro tento účel by bylo možné využít některý z text-to-speach nástrojů,
 Z časových důvodů bylo rozhodnuto, že tato funkcionalita nebude do aplikace implementována, avšak by mohla být v budoucnu přidána jako rozšíření.
 
 \section{Návrh fyzických komponent}
-Návrh této stolní hry počítá s několika fyzickými komponentami, které budou mít hráči k dispozici. Mezi tyto komponenty patří herní plocha, figurky postav a nepřátel, karty s hráčskými akcemi a karty s předměty.
+Návrh této stolní hry počítá s několika fyzickými komponentami, které budou mít hráči k dispozici. Mezi tyto komponenty patří herní plocha, figurky postav a nepřátel, karty s hráčskými akcemi, karty s předměty a upravená dvacetistěnná kostka.
 
 \subsection{Herní plocha}
 Herní plocha pro každou z lokací bude tvořena z dílů, které bude možno skládat k sobě. Propojovat je budou speciální dílky, které budou představovat dveře mezi jednotlivými místnostmi. Díly budou mít na sobě vyobrazeny hexagonová pole, které budou reprezentovat možnosti, kam hráč bude moci v průběhu hry pohnout svou postavu. Na těchto políčkách budou umístěny figurky postav a nepřátel a také tokeny pastí a překážek.
@@ -98,6 +98,8 @@ Zatímco rozhodnutí o herní ploše bylo poměrně jednoduché, rozhodnutí o f
 \subsubsection*{3D tisk}
 3D tisk by umožnil vytvořit figurky, které by byly téměř identické s těmi, které byly vygenerovány pomocí umělé inteligence. Existuje několik variant tisku. FDM tisk by byl nejlevnější, avšak nejméně kvalitní. SLA tisk by byl naopak dostatečně kvalitní, avšak mnohem dražší. Další nevýhodou 3D tisku je jeho časová náročnost. Zároveň je nutné mít k dispozici 3D model, který by byl pro tisk použit. Z důvodu nedostupnosti nástrojů, které by dokázaly správně a kvalitně převést 2D obrázek na 3D objekt, by bylo nutné tento model vytvořit ručně. Tento způsob by byl tedy velmi náročný na čas a bylo by třeba zajistit, aby byl model dostatečně kvalitní pro samotný tisk.
 
+V omezené míře jsme však tento způsob použili pro vytvoření prototypu hracího plánu. Ty byly vytvořeny pomocí FDM tisku a jelikož se jednalo pouze o zkušební verzi, byly dostatečně kvalitní pro účely testování. Pro finální verzi to však nebylo dostatečné.
+
 \subsubsection*{Vstřikování plastů}
 Vstřikování plastů je technologie, která je za použití forem schopná vytvořit velké množství identických plastových dílů ve velmi krátkém čase. V závislosti na kvalitě formy a typu zvoleného materiálu mohou být výsledné produkty velice detailní a odolné. Tato technologie by byla ideální pro výrobu figur, avšak je velmi nákladná a náročná na výrobu forem.
 
@@ -107,7 +109,7 @@ Figurky by byly vytištěny na karton a následně vystřiženy. Tento způsob b
 \subsubsection*{Zvolené řešení}
 Z důvodu časové náročnosti a nákladů bylo rozhodnuto, ve prospěch 2D tisku. Figurky budou opatřeny plastovým stojánkem pro stabilitu a zároveň budou použity různé barvy pro rozlišení hráčů a nepřátel. Jedno z předešlých řešení by však mohlo být použito pro prémiové vydání hry.
 
-\section{Volba technologií pro vývoj GUI}
+\section{Volba technologií pro vývoj aplikace}
 Zprvopočátku jsem vytvořil prototyp GUI v čistém HTML a CSS, abych věděl, jak bude samotný produkt zhruba vypadat. Poté jsem svou pozornost obrátil na výběr technologií, které budu pro vývoj GUI používat. Hlavními kandidáty byly frameworky React, Angular a Svelte.
 
 \subsection{Frameworky}
@@ -127,11 +129,29 @@ Svelte je moderní framework pro tvorbu webových aplikací. Jedná se o open-so
 \subsubsection*{Srovnání}
 Vzhledem k tomu, že projekt obnáší vytvoření GUI pro hybridní stolní hru, která nebude nijak extrémně rozsáhlá, a zároveň bude potřebovat co největší rychlost a efektivitu, jsem nakonec zvolil framework Svelte. Ten nabízí všechny potřebné funkce a zároveň je velmi rychlý a efektivní. Jeho jednoduchost by také měla přispět k rychlejšímu vývoji bez dalších větších problémů.
 
-\subsection{Další technologie}
+\subsection{Knihovny UI}
 Dále jsem se rozhodl používat CSS a JS knihovny, které dokáží ušetřit práci s designem a responzivitou a tím zrychlit vývoj aplikace.
 
 \subsubsection*{Bootstrap}
+Bootstrap je jeden z nejpopulárnějších nástrojů pro vytváření responzivních webových stránek. Je to open-source nástroj, který byl původně vyvinut pro sociální platformu Twitter (nyní známou jako X). Nabízí spoustu předpřipravených komponent, které velmi usnadní vývoj a zároveň zlepší vzhled aplikace. Mimo to dává vývojáři možnost využít využít některé z tříd, které dokáží nastylovat téměř jakýkoliv HRML element, kterému jsou přiřazeny. Bootstrap je také velmi dobře zdokumentovaný a má velkou komunitu, takže je poměrně snadné najít řešení k případným problémům.\cite{bootstrap,what_is_bootstrap}
+
 \subsubsection*{Tailwind CSS}
-\subsubsection*{Sveltestrap}
+Tailwind CSS je další nástroj pro tvorbu responzivních webových stránek. Na rozdíl od Bootstrapu je však známý svou flexibilitou a možnostmi přizpůsobení. Je založen na konceptu utility-first, což znamená, že primárním cílem tohoto nástroje je užitek, s čím se váže jednoduchost. Vývojáři mohou využít jednotlivé třídy, jenž Tailwind CSS nabízí. Každá z nich přidá pouze jeden určitý styl k elementu a dodává tak vývojáři možnost je mezi sebou kombinovat dle libosti. Tímto způsobem je možné vytvořit téměř jakýkoliv design, který si vývojář přeje. Opět se jedná o velmi dobře zdokumentovaný nástroj s také poměrně velkou komunitou.\cite{tailwind_css}
+
 \subsubsection*{Svelte Material UI}
-Jako hlavní kandidáti se ukázaly Bootstrap a Tailwind CSS. Bootstrap je velmi populární knihovna, která nabízí spoustu předpřipravených komponent a stylů. Tailwind CSS je naopak známý svou flexibilitou a možnostmi přizpůsobení. Hlavně však díky svým zkušenostem s Bootstrapem jsem se rozhodl použít právě tuto knihovnu.
+Jako jediný ze zde zmíněných, není tento nástroj agnostický a je určen pouze pro framework Svelte. Svelte Material UI je knihovna komponentů, které jsou inspirovány vzhledem Material Design od společnosti Google. Tato knihovna je velmi užitečná pro vývojáře, kteří chtějí vytvořit aplikaci, která bude mít moderní a čistý design. Díky faktu, že je určena přímo pro Svelte je její použítí opravdu jednoduché. Nevýhodou je, že není zdaleka tak rozsáhlá jako předešlé možnosti.\cite{svelte_material_ui}
+
+\subsubsection*{Srovnání}
+Po zvážení všech možností jsem se rozhodl pro knihovnu Bootstrap. Svelte Material UI přináší příliš ostrý a strohý vzhled, který by pro tuto aplikaci nebyl vhodný. Bootstrap jsem nakonec vybral z převážně preferenčních důvodů. Jsem s ním dobře obeznámený a vím, jak s ním pracovat. Zároveň jsem si jist, že mi poskytne všechny potřebné komponenty a nástroje, které budu pro vývoj aplikace potřebovat.
+
+\subsection{Další knihovny}
+Pro vývoj jsem se rozhodl použít několik dalších knihoven, které přidávají různé předpřipravené komponenty a funkce. Toto mi umožnilo využít již existující řešení a já se tak mohl zaměřit na samotný vývoj aplikace.
+
+\subsubsection*{Notiflix}
+Notiflix je knihovna, která umožňuje vytvářet přehledné notifikace a jednoduché načítací animace. Toto není to jediné co tato knihovna nabízí, ale pro tento projekt byly využity pouzy tyto funkcionality. Notiflix je velmi jednoduchý a přívětivý nástroj, který je velmi snadno použitelný a zároveň nabízí spoustu možností pro úpravu vzhledu.\cite{notiflix}
+
+\subsubsection*{Simplebar}
+Tato knihovna přidá pouze jednoduchý scrollbar, který je mnohem přívětivější než ten, který používá většina prohlížečů. Tento scrollbar je mnohem menší a diskretnější, což zlepšuje celkový vzhled aplikace. Simplebar je také velmi jednoduchý na použití a není třeba žádného složitého nastavení.\cite{simplebar}
+
+\subsection{Použité jazyky}
+Hlavními jazyky pro vývoj webových aplikací jsou HTML, CSS a JavaScript. Pro tento projekt jsem se rozhodl použít TypeScript, což je nadmnožina JavaScriptu, která přidává statické typování a další funkce, které zvyšují bezpečnost a přehlednost kódu. TypeScript je velmi populární mezi vývojáři a Svelte framework ho plně podporuje.
