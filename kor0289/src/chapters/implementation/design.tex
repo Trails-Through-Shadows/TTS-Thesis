@@ -1,12 +1,12 @@
 \chapter{Návrh}\label{chap:design}
-Tato kapitola se bude zabývat návrhem sestavy technologií které se budou využívat pro realizaci API.
+Tato kapitola se bude zabývat návrhem sestavy technologií, které se budou využívat pro realizaci \gls{api}.
 
 \section{Model vývoje}\label{sec:development_model}
-Jako model vývoje byl použit typický vodopádový model \figureref{fig:waterfall}. Není to realistický model ale je základem pro většinu ostatních modelů a je velice jednoduchý. Používá se primárně v situacích kdy definice projektu je jasná a je jasný cíl, kdy je dost času pro vývoj a je málo místa pro chyby.
+Jako model vývoje byl použit klasický vodopádový model \figureref{fig:waterfall}, který sice v praxi není úplně realistický, ale je dobrým základem pro popis vývojového procesu modelové hry. Používá se primárně v situacích, kdy je definice projektu jasná a je zřejmý i cíl, kdy je dost času pro vývoj a kdy je možné všechny fáze vývoje pečlivě naplánovat, aby se minimalizovaly chyby.
 
-Vlastnosti tohoto modelu jsou \textbf{sekvenční přístup}, neboli dokud není hotová první část tak se nepřechází na další. Další z vlastností je \textbf{řízena dokumentací}, neboli během ostatních fází se nemusí přemýšlet jak co má fungovat a stačí to jen napsat. \textbf{Kontrola kvality} je při tomto modelu důležitá, neboť chyby které by se mohli vyskytnout v prvnotních fázích vývoje se mohou nepříjemně projevit a vývoj zkomplikovat. s tím se pojí i \textbf{přísné plánování}
+První vlastností tohoto modelu je \textbf{sekvenční přístup}, neboť nemožnost pracovat na další části vývoje, dokud přechozí není plně dokončena. Další z vlastností je \textbf{řízení dokumentací}, kdy se všechny fáze vývoje musí pečlivě dokumentovat, aby se minimalizoval čas strávený zpětnou analýzou provedených kroků. \textbf{Kontrola kvality} je při tomto modelu důležitá, neboť chyby, které by se mohly vyskytnout v prvotních fázích vývoje, se mohou nepříjemně projevit a vývoj zkomplikovat. S tím se pojí i \textbf{přísné plánování}, kdy je nutné všechny fáze vývoje pečlivě naplánovat a zvážit možná rizika, která by mohla vzniknout.
 
-Tímto modelem jsme se snažili řídit ale i přes dobré rozmyšlení si návrhů se muselo v průběhu pár drobností upravovat. 
+Tímto modelem jsme se snažili řídit, ale i přes důkladné promyšlení použitých návrhů se muselo v průběhu pár drobností upravovat. 
 
 \begin{figure}[!ht]
     \centering
@@ -14,28 +14,29 @@ Tímto modelem jsme se snažili řídit ale i přes dobré rozmyšlení si návr
     \caption{Vodopádový model vývoje}\label{fig:waterfall}
 \end{figure}
 
-Ve fázi \textbf{požadavků} probíhali nápady jak samotná hra bude fungovat, jaké mechaniky použijeme a jak by šli implementovat. V této fázi vystačí pouze dokument s nápady a požadavky. Taktéž si všichni ujasnili a shodli se jaké herní mechaniky budou použity a za jakých okolností. 
+Ve fázi \textbf{požadavků} byly vzneseny nápady, jak samotná hra bude fungovat, jaké mechaniky použijeme a jakým způsobem by je bylo možné implementovat, přičemž nám vystačil pouze dokument s nápady a požadavky. Taktéž si zde všichni ujasnili, jaké herní mechaniky budou použity a za jakých okolností. 
 
-Ve druhé fázi \textbf{návrhu} se navrhují upřesňující diagramy, návrh architektury a návrhy UI. V našem případě byly přesněji rozvrženy jednotlivé mechaniky a co se od nich očekává. Zároveň spoustu návrhu za nás řeší vybraný framework pro tvorbu API a fakt že se bude jednat o RESTful API. 
+Ve druhé fázi \textbf{návrhu} probíhala tvorba upřesňujících diagramů, návrhu architektury a uživatelského rozhraní. V našem případě byly přesněji rozvrženy jednotlivé mechaniky a bylo blíže popsáno, co se od nich očekává. Zároveň byly aplikovány návrhové vzory, které byly vhodné pro daný problém, především ty týkající se RESTful API.
 
-Fáze \textbf{vývoje} zahrnuje implementaci návrhů a vytvoření funkčního programu. V této fázi se taktéž využívají unit testy zda jednotlivé komponenty jsou funkční. 
+Fáze \textbf{vývoje} zahrnuje implementaci návrhů a vytvoření funkčního programu. V této fázi se taktéž využívají unit testy, které ověřují funkčnost jednotlivých částí programu. 
 
-A poslední fáze \textbf{testování} a \textbf{údržba} se stará o to aby program byl bez chyb a vše fungovalo jak má jakožto celek. Po tom co byl projekt otestován a vše je funkční tak jde do produkčního prostředí a už se pouze udržuje což zahrnuje opravování drobných chyb které nebyly odhaleny v testování.
+Poslední fáze, \textbf{testování} a \textbf{údržba}, se starají o to, aby program byl bez chyb a aby jednotlivé programy fungovaly jako celek. Po tom, co byl projekt otestován a vše je funkční, jde do produkčního prostředí a už se pouze udržuje, což zahrnuje opravování drobných chyb, které nebyly odhaleny během testování.
 
 \section{Spolupráce}\label{sec:collaboration}
-Jak už několikrát bylo naznačeno, tato práce se vytvářela v týmu a každý měl na starosti jinou hlavní komponentu.
+Jak už několikrát bylo naznačeno, tato práce byla vytvářena v týmu, kde měl každý člen na starosti jinou hlavní komponentu.
 \begin{itemize}[itemsep=0pt,parsep=0pt]
     \item \textbf{Herní systém} -- Barbora Kovalská
     \item \textbf{Backoffice} -- Pavel Mikula
-    \item \textbf{Frontend} -- Mirek Osoba
+    \item \textbf{Frontend} -- Miroslav Osoba
     \item \textbf{API} -- Martin Korotwitschka
 \end{itemize}
 
-Ovšem některé komponenty se musely přidat protože byly potřeba pro samotné zprovoznění hry jakožto celku, takže zvlášť na nich pracovalo více členů týmu. V ranních fázích vývoje bylo taktéž běžné že více členů více či méně se podílelo i na ostatních úkonech. 
+V průběhu bylo třeba přidat i jiné komponenty, protože bez nich by nebylo zprovoznění hry jakožto celku možné, takže zvlášť na nich pracovalo více členů týmu. V raných fázích vývoje bylo taktéž běžné, že se jednotliví členové více podíleli i na ostatních úkonech. 
 
-Komunikace probíhala zvlášť v prvotních fázích vývoje za pomocí nástroje Github Issues a později, když už kostra projektu byla funkční, tak stačila interní komunikace.  
+Komunikace v prvotních fázích vývoje probíhala především za pomocí nástroje Github Issues. Později, když už byla kostra projektu funkční, stačila interní komunikace.
+
 \subsection{Rozdělení práce}\label{sec:collaboration:job_distribution}
-Jak lze vidět na \figureref{fig:job_distribution} tak každý člen týmu měl na starosti svou část projektu. Toto rozdělení vycházelo především ze zadání prací. 
+Jak lze vidět na Obrázku \ref{fig:job_distribution}, každý člen týmu nesl zodpovědnost za svou část projektu. Toto rozdělení vycházelo především ze zadání prací. 
 
 \begin{figure}[h]
     \centering
@@ -44,15 +45,16 @@ Jak lze vidět na \figureref{fig:job_distribution} tak každý člen týmu měl 
     \label{fig:job_distribution}
 \end{figure}
 
-Pro přehlednost a pro verzování kódu byla vytvořena organizace na Githubu \figureref{fig:gitOrg}, kde se vytvořili samostatné repozitáře pro každou část celého projektu. Taktéž se zde vedly \textit{Issues} které zvlášť v prvotních fázích ulehčovali vývoj a komunikaci. 
+Pro přehlednost a verzování kódu byla vytvořena organizace na platformě GitHub \figureref{fig:gitOrg}, kde se vytvořily samostatné repozitáře pro každou část projektu. Taktéž se zde vedly \textit{Issues}, které zvlášť v prvotních fázích ulehčovaly vývoj a komunikaci.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{../../shared/figures/gitOrg.png}
-    \caption{Organizace \textit{Trails Through Shadows} na Githubu}
+    \caption{Organizace \textit{Trails Through Shadows} na platformě GitHub}
     \label{fig:gitOrg}
 \end{figure}
 
+% TODO BARCE START HERE
 
 Verzovací systém byl zvlášť potřeba v případě API, na kterém pracovali primárně dva členové týmu. Tím pádem bylo využíváno tzv. větví pro iimplementování rozličných funkcionalit. Ovšem když ještě nebyla kostra API tak takovéto rozdělování na větve není tak účinné a často se museli řešit konflikty. 
 
