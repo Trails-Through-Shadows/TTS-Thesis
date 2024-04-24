@@ -54,50 +54,42 @@ Pro přehlednost a verzování kódu byla vytvořena organizace na platformě Gi
     \label{fig:gitOrg}
 \end{figure}
 
-% TODO BARCE START HERE
+Verzovací systém byl potřeba obzvlášť v případě API, na kterém pracovali primárně dva členové týmu. K ulehčení spolupráce zde bylo využito tzv. větví pro implementaci rozličných funkcionalit. Dokud nebyla kostra API hotová, nebylo takovéto rozdělování účinné a často se tak musely řešit konflikty.
 
-Verzovací systém byl zvlášť potřeba v případě API, na kterém pracovali primárně dva členové týmu. Tím pádem bylo využíváno tzv. větví pro iimplementování rozličných funkcionalit. Ovšem když ještě nebyla kostra API tak takovéto rozdělování na větve není tak účinné a často se museli řešit konflikty. 
-
-Poté co byla vytvořena kostra API se začali řádně využívat větvě a jejich pravidla. Jako hlavní větev byla zvolena \textit{master} na které byla vždy poslední stabilní verze, která byla taktéž nasazena na server. Další větev byla \textit{development} na které byly většinou funkční ale neotestované funkcionality. Ostatní větve se už v pozdější fázi vývoje nevyužívaly protože každý v API měl kompletně jinou část tím pádem jich nebylo třeba.
-Výše popsané strategii dělání větví a následné jejich sloučení se říká \textit{Gitflow}.
+Poté, co byla vytvořena kostra API, se začaly řádně využívat větve a jejich pravidla. Jako hlavní větev byla zvolena \textit{master}, na které byla vždy poslední stabilní verze, která byla nasazena na server. Další větev byla \textit{development}, na které se uchovávaly většinou funkční ale neotestované funkcionality. Ostatní větve se už v pozdější fázi vývoje nevyužívaly, protože každý vývojář pracující na tomto projektu měl svou vlastní složku, ve které pracoval, čímž bylo zabráněno konfliktům. Výše popsané strategii dělání větví a jejich následnému sloučení se říká \textit{Gitflow}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/impl/git-flow.png}
-    \caption{příklad Gitflow workflow}
+    \caption{Příklad \textit{Gitflow} workflow}
     \label{fig:gitflow}
 \end{figure}
 
+U repozitáře TTS-Thesis, kde byly uchovány texty všech našich prací, jsme používali Trunk-Based vývoj, kde se všechny akce se provádějí na hlavní větvi. Tento styl fungoval hlavně díky tomu, že každý měl svou vlastní složku, jejíž funkčnost nebyla na těch ostatních vůbec závislá. Díky tomu jsme mohli mít instantní nasazení vytvořeného PDF z \LaTeX ~souborů na webovou stránku.
 
-
-Ovšem například u repozitáře TTS-Thesis kde byly všechny naše práce jsme používali Trunk-Based Vývoj, neboli všechny akce se prováděli na hlavní větvi. Tento styl fungoval hlavně díky tomu že každý měl svou vlastní složku a není zde kód který by měl fungovat. Díky tomu jsme mohli mít instatntní nasazení vytvořeného PDF z \LaTeX ~souborů.
 
 \section{Databáze}\label{sec:database}
-Návrh probíhal jako první od vytvoření návrhu databáze. Na návrhu se podíleli všichni členové týmu \figureref{fig:job_distribution} jelikož bylo nutné aby všichni členové věděli co a jak bude v databázi strukturované. Návrh probíhal za pomocí placeného nástroje \textit{dbdiagram.io} kde se mohli všichni podílet i online na návrhu v jeden časový moment. Tento nástroj taktéž podporuje export do řady SQL dialektů, mimo jiné i do MySQL který jsme použili protože databáze MariaDB má stejnou syntaxi jako MySQL \sectionref{sec:data_storage}. 
+Návrh celého projektu byl započat vytvořením návrhu databáze. Na návrhu se podíleli všichni členové týmu \figureref{fig:job_distribution}, jelikož bylo nutné, aby všichni členové věděli, co a jak bude v databázi strukturované. Návrh probíhal za pomocí placeného nástroje \textit{dbdiagram.io}, kde se  všichni mohli podílet i online na tvorbě schématu v jeden časový moment. Tento nástroj taktéž podporuje export do řady SQL dialektů, mimo jiné i do MySQL, který jsme použili, protože databáze MariaDB používá stejnou syntaxi \sectionref{sec:data_storage}.
 
-V kompletním ER diagramu databáze \figureref{fig:dix:database_schema} lze vidět jednotlivé rozdělení tabulek dle barvy do jednotlivých logických celků \figureref{fig:database_schema:block}[, zjedodušené blokové schéma] . Každá tabulka má v prvním sloupci zda se jedná o klíč či ne, v druhém název atributu a v třetím jeho datový typ. Z jednotlivých řádků může být vidět závislost na ostatních tabulkách.
+V kompletním ER diagramu databáze \figureref{fig:dix:database_schema} lze vidět jednotlivé rozdělení tabulek dle barvy do jednotlivých logických celků \figureref{fig:database_schema:block}[, zjedodušené blokové schéma]. Každá tabulka má v prvním sloupci zaznamenáno, zda se jedná o klíč, v druhém název atributu a ve třetím jeho datový typ. Z jednotlivých řádků je vidět závislost na ostatních tabulkách.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{../../shared/diagrams/er_macro.pdf}
-    \caption{Zjednodušená databázové schéma podle logických celků}
+    \caption{Zjednodušené databázové schéma podle logických celků}
     \label{fig:database_schema:block}
 \end{figure}
 
-Jako první je žlutá sekce která pojednává o \textbf{Akcích}. Základem je tabulka Action, která poté specifikuje o jakou akci se jedná, zda o \textit{útok, pohyb, dovednost, obnovení karet} nebo o \textit{přivolání poskoka}. Akce samozřejmě může mít i více specifikací o jakou kartu se jedná, poté skoro každý typ akce může mít nějaký přídavný efekt.
+Na prvním místě je žlutá sekce, která pojednává o \textbf{Akcích}. Základem je tabulka Action, která specifikuje, o jakou akci se jedná, zda o \textit{útok, pohyb, dovednost, obnovení karet} nebo o \textit{přivolání poskoka}. Akce samozřejmě může mít i více typů, a skoro každý typ akce může mít nějaký přídavný efekt.
 
-Šedá sekce \textbf{Efekt} přidává spoustu modifikací ať už jakékoli postavě jako například rezistenci na otrávení, nebo přidá modifikaci k útoku jako třeba \textit{krvácení}.
+Šedá sekce \textbf{Efekt} přidává spoustu modifikací, ať už jakékoli postavě jako například \textit{rezistenci na otrávení}, nebo modifikaci k útoku jako třeba \textit{krvácení}.
 
-Zelená sekce se stará o \textbf{Postavu hráče}. Jako hlavní tabulka je zde \textit{Character} která má vazbu na definici o jakou postavu se bude jednat neboli tabulky \textit{Třída} a \textit{Rasa} a podle nich dostane své \textit{Akce}. Hráč má i inventář ve kterém může mít jednotlivé předměty které mu přidávají ať už statické bonusy tak jednorázové v boji.
+Zelená sekce se stará o \textbf{Postavu hráče}. Jako hlavní tabulka je zde \textit{Character}, která má vazbu na definici, o jakou postavu se bude jednat, neboli tabulky \textit{Třída} a \textit{Rasa}, podle kterých postava dostane své \textit{Akce}. Hráč má i inventář, ve kterém může mít jednotlivé předměty, které mu přidávají ať už statické bonusy nebo jednorázové výhody v boji.
 
-Béžová sekce \textbf{Předmět} má na starosti \textit{předměty} a v jakých obchodech se nacházejí. Předměty jak již bylo zmíněno výše přidávají hráči bonusy.
+Béžová sekce \textbf{Předmět} má na starosti \textit{Předměty} a jejich vazby na obchody, ve kterých se nacházejí. Předměty, jak již bylo zmíněno výše, přidávají hráči bonusy.
 
-\textbf{Protivník a Překážka} jsou v řervené sekci a specifikují protivníka nebo překážku v lokaci, ve které se bude bojovat. Jsou spojeny stejnou barvou protože tyto dvě entity jsou si velice podobné, jen jedna je statická a druhá dynamická.
+\textbf{Protivník a Překážka} jsou v červené sekci a specifikují protivníka nebo překážku v lokaci, ve které se bude bojovat. Jsou spojeny stejnou barvou, protože tyto dvě entity jsou si velice podobné, rozdíl je jen v tom, že jedna je dynamická a druhá statická.
 
-Sekce \textbf{Lokace}, která je oranžová, specifikuje lokaci na které bude probíhat bojová interakce. Základem je tabulka \textit{Location} která má relace na vstupní a výstupní hexagony, na protivníky a překážky , dveře a na části lokace ze kterých se tato lokace skládá. 
+Sekce \textbf{Lokace}, která je oranžová, specifikuje lokaci, na které bude probíhat bojová interakce. Základem je tabulka \textit{Location} která má relace na vstupní a výstupní hexagony, na protivníky a překážky, dveře a na části, ze kterých se tato lokace skládá. 
 
-A jako poslední sekce \textbf{Kampaň a Dobrodružství}, ikdyž jsou každá jinou barvou (Kampaň modrá a Dobrodružství fialová) tak spolu úzce souvisí. \textit{Kampaň} má příběh k dané lokaci, seznam \textit{dobrodružství} a seznam po jakých lokacích lze jít. \textit{Dobrodružství} má seznam hráčů kteří se účastní a  seznam dostupných lokací
-
-
-
-
+Jako poslední sekce je \textbf{Kampaň a Dobrodružství}, které spolu úzce souvisí, i přes to, že jsou zapsány jinou barvou (Kampaň modrá a Dobrodružství fialová). \textit{Kampaň} má příběh k dané lokaci, seznam \textit{dobrodružství} a seznam lokací, které jsou v rámci ní propojené. \textit{Dobrodružství} má seznam hráčů, kteří se účastní a seznam dostupných lokací.
