@@ -7,7 +7,7 @@ Na základě požadavků stanovených v předchozí kapitole byl vytvořen návr
 \section{Schéma hry}
 \label{sec:design_scheme}
 
-Na návrhu databáze pracoval celý tým vyvíjející modelovou hru, jak je popsáno v kapitole \ref{subsec:database}, její rozvržení je však skvělým nástrojem pro popsání návrhu herních modelů, proto bude detailně rozebráno v následující sekci.
+Na návrhu databáze pracoval celý tým vyvíjející modelovou hru, jak je popsáno v kapitole \ref{subsec:database}, její rozvržení je však skvělým nástrojem pro popsání návrhu herních modelů, proto bude detailně rozebráno v následující kapitole.
 
 \begin{figure}[h]
     \centering
@@ -16,13 +16,13 @@ Na návrhu databáze pracoval celý tým vyvíjející modelovou hru, jak je pop
     \label{diag:er_macro}
 \end{figure}
 
-Na schématu \ref{diag:er_macro} je orientačně zobrazen makro pohled na schéma databáze, které je pro přehlednost rozděleno do několika barevně rozlišených částí, neboť celková databáze zahrnuje 45 tabulek. Každá z těchto částí je následně podrobněji popsána v následujících podsekcích.
+Na schématu \ref{diag:er_macro} je orientačně zobrazen makro pohled na schéma databáze, které je pro přehlednost rozděleno do několika barevně rozlišených částí, neboť celková databáze zahrnuje 45 tabulek. Každá z těchto částí je následně podrobněji popsána v následujících kapitolách.
 
 
 \subsection{Akce}
 \label{subsec:schema_actions}
 
-Popis celkového rozvržení herních komponent začíná schématem \ref{diag:er_action}, které definuje strukturu \textbf{akcí} \attr{Action}, jejichž mechanická funkcionalita je dále rozepsána v sekci \ref{subsec:design_actions}. Každá akce má svůj název \attr{title} a popis \attr{description}, který hráči pomůže pochopit, co daná akce přibližně znamená, bez nutnosti hlubšího studia samotné karty. Dále je v akci uchována informace o jejím zahození \attr{discard}, která určuje, v jakém případě a na jak dlouho musí hráč po odehrání danou kartu zahodit. Každá akce má také požadovanou úroveň \attr{levelReq}, která umožňuje tvorbu akcí, které hráči mohou odemykat spolu s postupem příběhem.
+Popis celkového rozvržení herních komponent začíná schématem \ref{diag:er_action}, které definuje strukturu \textbf{akcí} \attr{Action}, jejichž mechanická funkcionalita je dále rozepsána v kapitole \ref{subsec:design_actions}. Každá akce má svůj název \attr{title} a popis \attr{description}, který hráči pomůže pochopit, co daná akce přibližně znamená, bez nutnosti hlubšího studia samotné karty. Dále je v akci uchována informace o jejím zahození \attr{discard}, která určuje, v jakém případě a na jak dlouho musí hráč po odehrání danou kartu zahodit. Každá akce má také požadovanou úroveň \attr{levelReq}, která umožňuje tvorbu akcí, které hráči mohou odemykat spolu s postupem příběhem.
 
 \begin{figure}[h]
     \centering
@@ -31,13 +31,13 @@ Popis celkového rozvržení herních komponent začíná schématem \ref{diag:e
     \label{diag:er_action}
 \end{figure}
 
-V modelové hře se akce skládají z pěti částí, interně nazývanými \textit{features} neboli \textit{prvky akce}. Jedná se o \textit{pohyb}, \textit{útok}, \textit{schopnost}, \textit{summon} a \textit{obnovení karet}. Každý z prvků je nepovinný a může být v akci využit maximálně jednou s výjimkou summonů, kterých může jedna akce vyvolat libovolný počet. Samotní summoni poté také mají svou vlastní akci, kterou ve svém kole konají. Průběh jednotlivých prvků je popsán v sekci \ref{subsec:design_actions}.
+V modelové hře se akce skládají z pěti částí, interně nazývanými \textit{features} neboli \textit{prvky akce}. Jedná se o \textit{pohyb}, \textit{útok}, \textit{schopnost}, \textit{summon} a \textit{obnovení karet}. Každý z prvků je nepovinný a může být v akci využit maximálně jednou s výjimkou summonů, kterých může jedna akce vyvolat libovolný počet. Samotní summoni poté také mají svou vlastní akci, kterou ve svém kole konají. Průběh jednotlivých prvků je popsán v kapitole \ref{subsec:design_actions}.
 
 
 \subsection{Postavy}
 \label{subsec:schema_character}
 
-Na diagramu \ref{diag:er_character} je zobrazeno schéma nejen postav, ale i předmětů, neboť jsou k sobě úzce vázány. 
+Na obrázku \ref{diag:er_character} je zobrazeno schéma nejen postav, ale i předmětů, neboť jsou k sobě úzce vázány. 
 
 \begin{figure}[h]
     \centering
@@ -50,12 +50,12 @@ Na diagramu \ref{diag:er_character} je zobrazeno schéma nejen postav, ale i př
 
 Každá postava může mít také vybavení, které je k ní navázáno přes \textbf{inventář}, kde se zaznamenává, kolik kterého typu předmětu postava má. Samotné \textbf{předměty} jsou podobně jako rasy a třídy složeny z názvu, popisu a štítku, kromě toho však také obsahují informaci o jejich typu \attr{type}, který určuje, zda se jedná o zbraň, brnění nebo jiný typ předmětu.
 
-Předměty, rasy a třídy mohou být chápány jako možnosti získání určitých akcí, neboť všechny tři tabulky mají na akce vazbu. Rasa a třída může hráči poskytovat neomezené množství akcí, předmět však má vždy jen jednu akci, kterou hráč může využít, což je limitace zavedená z důvodu přehlednosti fyzických komponent, popsaných v sekci \ref{subsec:design_cards}.
+Předměty, rasy a třídy mohou být chápány jako možnosti získání určitých akcí, neboť všechny tři tabulky mají na akce vazbu. Rasa a třída může hráči poskytovat neomezené množství akcí, předmět však má vždy jen jednu akci, kterou hráč může využít, což je limitace zavedená z důvodu přehlednosti fyzických komponent, popsaných v kapitole \ref{subsec:design_cards}.
 
 \subsection{Lokace}
 \label{subsec:schema_location}
 
-Schéma lokací, zobrazeno na diagramu \ref{diag:er_location}, je díky velkému množství složených primárních klíčů složené z mnoha vazeb, i přes jejich četnost však není nijak zvlášť komplikované.
+Schéma lokací, zobrazeno na obrázku \ref{diag:er_location}, je díky velkému množství složených primárních klíčů složené z mnoha vazeb, i přes jejich četnost však není nijak zvlášť komplikované.
 
 \begin{figure}[h]
     \centering
@@ -68,12 +68,12 @@ Schéma lokací, zobrazeno na diagramu \ref{diag:er_location}, je díky velkému
 
 Každá lokace se skládá z několika \textbf{částí} mapy \attr{Part}, které mohou být na stole různě otočené, proto je jejich rotace \attr{rotation} také zaznamenaná. Části mají opět nejen jméno ale i štítek, který má tentokrát ještě další funkcionalitu, neboť představuje identifikátor, který umožňuje hráčům snadno najít odpovídající části mapy mezi ostatními herními komponentami. Herní pole je dále rozděleno na \textbf{hexagony}, u kterých bylo rozhodnuto o použití tzv. kubického souřadného systému, který polím ve 2D prostoru přiřadí 3D souřadnice (\texttt{q}, \texttt{r}, \texttt{s}), což usnadňuje výpočty pro herní mechaniky, které se týkají pohybu a vzdáleností mezi jednotlivými políčky.
 
-Jak jde vidět z diagramu, lokace jsou spolu s ostatními tabulkami vázány spoustou vazeb, které umožňují hlubší specifikaci propojení. Jedná se například o reprezentaci dveří spojující části herní desky v rámci lokace \attr{LocationDoor}, počáteční políčka lokace, kde se na začátku souboje umisťují postavy hráčů \attr{LocationStart}, nebo propojení s kampaní, v rámci které jsou na sebe lokace dynamicky navázány ve světové mapě \attr{LocationPath}. Speciálním případem vazební tabulky je pak obchod \attr{Market}, který pro danou lokaci určuje nabízené předměty, jejich množství a ceny.
+Jak jde vidět z obrázku, lokace jsou spolu s ostatními tabulkami vázány spoustou vazeb, které umožňují hlubší specifikaci propojení. Jedná se například o reprezentaci dveří spojující části herní desky v rámci lokace \attr{LocationDoor}, počáteční políčka lokace, kde se na začátku souboje umisťují postavy hráčů \attr{LocationStart}, nebo propojení s kampaní, v rámci které jsou na sebe lokace dynamicky navázány ve světové mapě \attr{LocationPath}. Speciálním případem vazební tabulky je pak obchod \attr{Market}, který pro danou lokaci určuje nabízené předměty, jejich množství a ceny.
 
 \subsubsection*{Nepřátelé a překážky}
 \label{subsubsec:schema_enemy_obstacle}
 
-Lokace jsou zaplněny nepřáteli \attr{Enemy} a překážkami \attr{Obstacle}, jak je možné vyčíst z diagramu \ref{diag:er_enemy_obstacle}. Obě dvě entity opět obsahují informace o názvu, popisu a štítku pro vyhledávání obrázků a také mají vazbu na hexagon neboli políčko určité lokace, na kterém se vyskytují (\texttt{HexEnemy} a \texttt{HexObstacle}), dále se však mírně liší.
+Lokace jsou zaplněny nepřáteli \attr{Enemy} a překážkami \attr{Obstacle}, jak je možné vyčíst z obrázku \ref{diag:er_enemy_obstacle}. Obě dvě entity opět obsahují informace o názvu, popisu a štítku pro vyhledávání obrázků a také mají vazbu na hexagon neboli políčko určité lokace, na kterém se vyskytují (\texttt{HexEnemy} a \texttt{HexObstacle}), dále se však mírně liší.
 
 \begin{figure}[h]
     \centering
@@ -90,7 +90,7 @@ Lokace jsou zaplněny nepřáteli \attr{Enemy} a překážkami \attr{Obstacle}, 
 \subsection{Kampaň}
 \label{subsec:schema_campaign}
 
-Kampaň slouží k reprezentaci celého příběhu, kterým si hráči budou v rámci modelové hry procházet. Její schéma je vyobrazeno na diagramu \ref{diag:er_campaign}.
+Kampaň slouží k reprezentaci celého příběhu, kterým si hráči budou v rámci modelové hry procházet. Její schéma je vyobrazeno na obrázku \ref{diag:er_campaign}.
 
 \begin{figure}[h]
     \centering
@@ -107,7 +107,7 @@ Za zmínku také stojí herní \textbf{úspěchy} \attr{Achievement}, které jso
 \subsubsection*{Dobrodružství}
 \label{subsubsec:schema_adventure}
 
-Rozehranou kampaň, ve které již hráči dělají příběhový postup, reprezentuje tzv. \textbf{dobrodružství} \attr{Adventure}, které je zobrazeno na diagramu \ref{diag:er_adventure}.
+Rozehranou kampaň, ve které již hráči dělají příběhový postup, reprezentuje tzv. \textbf{dobrodružství} \attr{Adventure}, které je zobrazeno na obrázku \ref{diag:er_adventure}.
 
 \begin{figure}[h]
     \centering
@@ -126,7 +126,7 @@ Jak již bylo řečeno výše, dobrodružství se může účastnit několik pos
 \subsection{Efekty}
 \label{subsec:schema_effect}
 
-Posledním prvkem, který je nutné zmínit, jsou \textbf{efekty} \attr{Effect}, popsány na diagramu \ref{diag:er_effect}. Neboť prolínají celou strukturu hry, nebyly zapsány do jednotlivých grafů výše, ale všechny jejich vazby byly zahrnuty v tomto diagramu. 
+Posledním prvkem, který je nutné zmínit, jsou \textbf{efekty} \attr{Effect}, popsány na obrázku \ref{diag:er_effect}. Neboť prolínají celou strukturu hry, nebyly zapsány do jednotlivých grafů výše, ale všechny jejich vazby byly zahrnuty v tomto obrázku. 
 
 \begin{figure}[h]
     \centering
@@ -135,7 +135,7 @@ Posledním prvkem, který je nutné zmínit, jsou \textbf{efekty} \attr{Effect},
     \label{diag:er_effect}
 \end{figure}
 
-Hlavní charakteristikou efektu je typ \attr{type}, jejichž mechanická implementace je popsána v sekci \ref{subsec:design_effects}. Je zde také možnost hráčům předložit popis efektu \attr{description}, který jim pomůže pochopit, co daný efekt znamená. Dále se zaznamenává síla a trvání efektu a také cíl, na který efekt míří.
+Hlavní charakteristikou efektu je typ \attr{type}, jejichž mechanická implementace je popsána v kapitole \ref{subsec:design_effects}. Je zde také možnost hráčům předložit popis efektu \attr{description}, který jim pomůže pochopit, co daný efekt znamená. Dále se zaznamenává síla a trvání efektu a také cíl, na který efekt míří.
 
 Efekty mohou být aplikovány na překážky, nepřátele, třídy a rasy, předměty a většinu prvků akce -- pohyb, útok, schopnost a summon. U rasy a třídy je navíc přidán atribut minimální úrovně \attr{levelReq}, který umožňuje postavám odemykat nové pasivní efekty s rostoucí úrovní.
 
@@ -149,7 +149,7 @@ Mechaniky modelové hry jsou silně inspirované především výše zmíněnou 
 \subsection{Souboj}
 \label{subsec:design_encounter}
 
-Souboj je hlavní funkcionalitou, kterou hra nabízí. Průběh souboje je rozdělen do několika fází, které jsou znázorněny na diagramu \ref{diag:encounter}. Ještě před samotným hraním si systém zaznačí, že lokace už byla navštívena (\texttt{visited}), pokud již nemá nastavený jiný stav, který je důležitější (jako například \texttt{completed} nebo \texttt{failed}). Následně hráčům zobrazí příběh, který je s touto lokací spojený.
+Souboj je hlavní funkcionalitou, kterou hra nabízí. Průběh souboje je rozdělen do několika fází, které jsou znázorněny na obrázku \ref{diag:encounter}. Ještě před samotným hraním si systém zaznačí, že lokace už byla navštívena (\texttt{visited}), pokud již nemá nastavený jiný stav, který je důležitější (jako například \texttt{completed} nebo \texttt{failed}). Následně hráčům zobrazí příběh, který je s touto lokací spojený.
 
 Poté následuje fáze přípravy hrací desky. Systém zobrazí počáteční místnost lokace, všechny nepřátele, překážky a dveře, které se v ní vyskytují spolu s identifikátory, které umožní hráčům tyto části jednoduše najít a sestavit tak odpovídající konfiguraci místnosti na herním stole. Když je všechno připraveno, hráči umístí své postavy na políčka určená pro hráče a s tím je příprava herního pole hotová.
 
@@ -162,9 +162,9 @@ Poté následuje fáze přípravy hrací desky. Systém zobrazí počáteční m
 \end{figure}
 \newpage
 
-Druhá část přípravy je věnována samotným postavám a nepřátelům a tvorbě iniciativního žebříčku. Každý z hráčů si hodí svou kostkou na iniciativu a zaznamená výsledek do systému, který tento modifikátor automaticky přičte k základní výši iniciativy, který hráčova postava získala ze své rasy, třídy a vybavení. Za nepřátele toto provede systém automaticky. Výsledný žebříček je seřazen sestupně a hráči a nepřátelé se podle něj střídají v rámci kola. Dále se tu také provádí aplikace permanentních efektů, tedy efektů získaných ze zázemí a předmětů u postav nebo vrozené efekty u nepřátel, podle diagramu \ref{diag:apply_effect}. Systém pak ještě zamíchá simulovaný balíček nepřátelských karet, který bude sloužit k určení jejich akcí.
+Druhá část přípravy je věnována samotným postavám a nepřátelům a tvorbě iniciativního žebříčku. Každý z hráčů si hodí svou kostkou na iniciativu a zaznamená výsledek do systému, který tento modifikátor automaticky přičte k základní výši iniciativy, který hráčova postava získala ze své rasy, třídy a vybavení. Za nepřátele toto provede systém automaticky. Výsledný žebříček je seřazen sestupně a hráči a nepřátelé se podle něj střídají v rámci kola. Dále se tu také provádí aplikace permanentních efektů, tedy efektů získaných ze zázemí a předmětů u postav nebo vrozené efekty u nepřátel, podle obrázku \ref{diag:apply_effect}. Systém pak ještě zamíchá simulovaný balíček nepřátelských karet, který bude sloužit k určení jejich akcí.
 
-Následuje fáze kol, která se provádí podle diagramu \ref{diag:round} opakovaně ve smyčce, dokud hráči nesplní jistou předem určenou ukončovací podmínku.
+Následuje fáze kol, která se provádí podle obrázku \ref{diag:round} opakovaně ve smyčce, dokud hráči nesplní jistou předem určenou ukončovací podmínku.
 
 \begin{figure}[h]
     \centering
@@ -179,7 +179,7 @@ Po dosažení této podmínky systém vyhodnotí, jak hra skončila. Pokud se je
 \subsection{Kola}
 \label{subsec:design_rounds}
 
-V rámci herního kola (Diagram \ref{diag:round}) se nejprve provádí tahy hráčů a nepřátel v pořadí iniciativy podle diagramů \ref{diag:player_turn} a \ref{diag:enemy_turn}. Když tahy dojdou na konec iniciativy, systém zkontroluje, zda některý z hráčů během svého kola neotevřel dveře. Pokud ano, pak je hráčům zobrazena nově odhalená místnost, jejíž desku, nepřátele, překážky a dveře si opět podle identifikátorů rozloží na herní stůl, čímž se herní plocha rozšíří. Systém následně přidá nové nepřátele do iniciativního žebříčku a zamíchá jejich karty. Pokud hráči dveře neotevřeli, systém přeskočí tuto fázi, po které již kolo končí.
+V rámci herního kola (Obrázek \ref{diag:round}) se nejprve provádí tahy hráčů a nepřátel v pořadí iniciativy podle obrázků \ref{diag:player_turn} a \ref{diag:enemy_turn}. Když tahy dojdou na konec iniciativy, systém zkontroluje, zda některý z hráčů během svého kola neotevřel dveře. Pokud ano, pak je hráčům zobrazena nově odhalená místnost, jejíž desku, nepřátele, překážky a dveře si opět podle identifikátorů rozloží na herní stůl, čímž se herní plocha rozšíří. Systém následně přidá nové nepřátele do iniciativního žebříčku a zamíchá jejich karty. Pokud hráči dveře neotevřeli, systém přeskočí tuto fázi, po které již kolo končí.
 
 
 \subsection{Tahy}
@@ -192,7 +192,7 @@ V rámci herního kola (Diagram \ref{diag:round}) se nejprve provádí tahy hrá
     \label{diag:player_turn}
 \end{figure}
 
-Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v kapitole \ref{subsec:design_effects}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramů popsaných v kapitole \ref{subsec:design_actions} a pokud má na stole vyložené nějaké karty vyvolaných summonů, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí vybrané karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
+Tah hráče je vyobrazen na obrázku \ref{diag:player_turn}. Během začátku a konce se systém věnuje efektům, jejichž vyhodnocení a uvolnění je popsáno v kapitole \ref{subsec:design_effects}, a také summonům, což uvolňuje čas, který by jinak musel být stráven jejich monitorováním. Samotný hráč má nejprve za úkol vybrat si dvě karty, které v tomto kole bude chtít zahrát. Následně akce na kartách vyhodnotí podle diagramů popsaných v kapitole \ref{subsec:design_actions} a pokud má na stole vyložené nějaké karty vyvolaných summonů, zahraje také jejich akce. Veškeré akce může vykonat v libovolném pořadí, což mu dává možnost plánovat své tahy tak, aby byly co nejefektivnější. Pokud během vykonávání akcí dojde k změně stavu jakékoliv entity na herní desce, hráč tyto změny zaznamená a pokračuje v dalších akcích. Po vykonání všech akcí hráč zahodí vybrané karty podle jejich zahazovacího pravidla, čímž své kolo ukončí.
 
 \begin{figure}[h]
     \centering
@@ -201,7 +201,7 @@ Tah hráče je vyobrazen na diagramu \ref{diag:player_turn}. Během začátku a 
     \label{diag:enemy_turn}
 \end{figure}
 
-Tah nepřítele znázorněn na diagramu \ref{diag:enemy_turn} je oproti tomu hráčskému mnohem jednodušší. Nepřátelé mají svůj vlastní balík karet, ze kterého jim systém vybere jednu, kterou v daném kole zahrají. Jedná se o simulaci reálného karetního balíčku, takže pokud v něm karty dojdou, opět se všechny zamíchají a tahají se znova. Na hráčích pak závisí, aby vyhodnotili, jakým způsobem se nepřátelé pohnou a na koho zaútočí, ale musí se řídit instrukcemi, které od systému dostali. Jakékoli změny musí být opět propsány do systému, který se zde také stará o vyhodnocení efektů.
+Tah nepřítele znázorněn na obrázku \ref{diag:enemy_turn} je oproti tomu hráčskému mnohem jednodušší. Nepřátelé mají svůj vlastní balík karet, ze kterého jim systém vybere jednu, kterou v daném kole zahrají. Jedná se o simulaci reálného karetního balíčku, takže pokud v něm karty dojdou, opět se všechny zamíchají a tahají se znova. Na hráčích pak závisí, aby vyhodnotili, jakým způsobem se nepřátelé pohnou a na koho zaútočí, ale musí se řídit instrukcemi, které od systému dostali. Jakékoli změny musí být opět propsány do systému, který se zde také stará o vyhodnocení efektů.
 
 
 \subsection{Akce}
@@ -216,7 +216,7 @@ Jak již bylo znázorněno na schématu \ref{diag:er_action}, akce jsou struktur
     \label{diag:movement}
 \end{figure}
 
-Na prvním diagramu \ref{diag:movement} je zobrazen průběh \textbf{pohybu}. Před samotným vyhodnocením systém hráči předá informaci o bonusové rychlosti nebo případně zpomalení jeho postavy, což je možné získat z aktivních efektů nebo vybavení postavy. Hráč tento bonus přičte k číslu, které má napsané na kartě pohybu a posune se po herním poli o odpovídající počet polí. Pohyb má tři typy -- \textit{chůze}, \textit{skok} a \textit{teleportace}. Chůze je základním typem pohybu, skok je pohyb, který umožňuje přeskočit překážku nebo nepřítele a teleportace je pohyb, který umožňuje postavě přesunout se na libovolné místo na herním poli i přes zdi, ale samozřejmě pořád v limitu polí. Pokud postava po své cestě přejde přes překážku, musí na sebe vzít její efekt a tuto skutečnost zaznamenat do systému.
+Na prvním obrázku \ref{diag:movement} je zobrazen průběh \textbf{pohybu}. Před samotným vyhodnocením systém hráči předá informaci o bonusové rychlosti nebo případně zpomalení jeho postavy, což je možné získat z aktivních efektů nebo vybavení postavy. Hráč tento bonus přičte k číslu, které má napsané na kartě pohybu a posune se po herním poli o odpovídající počet polí. Pohyb má tři typy -- \textit{chůze}, \textit{skok} a \textit{teleportace}. Chůze je základním typem pohybu, skok je pohyb, který umožňuje přeskočit překážku nebo nepřítele a teleportace je pohyb, který umožňuje postavě přesunout se na libovolné místo na herním poli i přes zdi, ale samozřejmě pořád v limitu polí. Pokud postava po své cestě přejde přes překážku, musí na sebe vzít její efekt a tuto skutečnost zaznamenat do systému.
 
 \begin{figure}[h]
     \centering
@@ -225,7 +225,7 @@ Na prvním diagramu \ref{diag:movement} je zobrazen průběh \textbf{pohybu}. P�
     \label{diag:attack}
 \end{figure}
 
-Průběh \textbf{útoku} znázorňuje diagram \ref{diag:attack}. Před útokem systém opět zjistí, zda má postava nějaký bonus k útoku, který může získat z aktivních efektů nebo vybavení, a v takovém případě tento bonus hráči zobrazí. Hráč si poté vybere cíl a může na něj zaútočit tolikrát, kolik určuje jeho karta útoku. Při každém zaútočení se cíli aplikuje nejen velikost zranění, ale také všechny efekty, pokud útok nějaké má. Veškeré zranění nebo získané efekty, které cíl utrpí, musí být zaznamenány do systému.
+Průběh \textbf{útoku} znázorňuje obrázek \ref{diag:attack}. Před útokem systém opět zjistí, zda má postava nějaký bonus k útoku, který může získat z aktivních efektů nebo vybavení, a v takovém případě tento bonus hráči zobrazí. Hráč si poté vybere cíl a může na něj zaútočit tolikrát, kolik určuje jeho karta útoku. Při každém zaútočení se cíli aplikuje nejen velikost zranění, ale také všechny efekty, pokud útok nějaké má. Veškeré zranění nebo získané efekty, které cíl utrpí, musí být zaznamenány do systému.
 
 \begin{figure}[h]
     \centering
@@ -234,7 +234,7 @@ Průběh \textbf{útoku} znázorňuje diagram \ref{diag:attack}. Před útokem s
     \label{diag:skill}
 \end{figure}
 
-Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na diagramu \ref{diag:skill}. Oproti útoku je plně zaměřena pouze na efekty, musí tedy mít alespoň jeden, může se jednat například o zapálení cíle, ale také o vyléčení postavy. Po jejím zahrání musí hráč zaznamenat všechny efekty, které schopnost způsobila.
+Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na obrázku \ref{diag:skill}. Oproti útoku je plně zaměřena pouze na efekty, musí tedy mít alespoň jeden, může se jednat například o zapálení cíle, ale také o vyléčení postavy. Po jejím zahrání musí hráč zaznamenat všechny efekty, které schopnost způsobila.
 
 \begin{figure}[h]
     \centering
@@ -243,7 +243,7 @@ Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na di
     \label{diag:summon}
 \end{figure}
 
-\textbf{Vyvolání summona}, znázorněno na diagramu \ref{diag:summon}, je jednou z komplexnějších prvků akce, které mají hráči k dispozici, ale pořád je intuitivně pochopitelný. Uživatel opět začne vybráním cíle, tentokrát se však jedná o políčko v dosahu uvedeném na kartě, na které bude svého poskoka vyvolávat. Poté najde odpovídající figurku, umístí ji na vybrané pole a kartu, pomocí které summona vyvolal, položí na stůl před sebe. Když pak dojde na jeho tah, může pomocí této karty provést odpovídající akci i za svého summona. Na závěr nově vyvolanou entitu zaznamená do systému, který si ho uloží a zobrazí jej v žebříčku iniciativy pod jménem hráče, který ho vyvolal. Po vyvolání má hráč možnost ihned zahrát tah summona, což mu umožňuje získat výhodu v boji.
+\textbf{Vyvolání summona}, znázorněno na obrázku \ref{diag:summon}, je jednou z komplexnějších prvků akce, které mají hráči k dispozici, ale pořád je intuitivně pochopitelný. Uživatel opět začne vybráním cíle, tentokrát se však jedná o políčko v dosahu uvedeném na kartě, na které bude svého poskoka vyvolávat. Poté najde odpovídající figurku, umístí ji na vybrané pole a kartu, pomocí které summona vyvolal, položí na stůl před sebe. Když pak dojde na jeho tah, může pomocí této karty provést odpovídající akci i za svého summona. Na závěr nově vyvolanou entitu zaznamená do systému, který si ho uloží a zobrazí jej v žebříčku iniciativy pod jménem hráče, který ho vyvolal. Po vyvolání má hráč možnost ihned zahrát tah summona, což mu umožňuje získat výhodu v boji.
 
 \begin{figure}[h]
     \centering
@@ -252,7 +252,7 @@ Zjednodušenou verzí útoku je \textbf{schopnost}, která je znázorněna na di
     \label{diag:restore_cards}
 \end{figure}
 
-Posledním prvkem akce, který hráči mohou využít, je \textbf{obnovení karet}, pomocí něhož si mohou do ruky vrátit karty, které v předchozích tazích zahodili. Jak je možné vidět na diagramu \ref{diag:restore_cards}, celý postup zde provádí pouze hráč bez asistence systému. Nejprve si vybere cíl obnovení, což může být jeho postava nebo postava jiného hráče, a poté vybere karty, které chce vrátit. Na kartě je určen počet karet, které může hráč obnovit, a také příznak náhody, podle které se vybírají karty buď náhodně, nebo si cíl může sám vybrat, které karty chce získat zpět. Tímto způsobem vybrané karty si cíl poté vrátí do ruky a může je využít v dalších tazích.
+Posledním prvkem akce, který hráči mohou využít, je \textbf{obnovení karet}, pomocí něhož si mohou do ruky vrátit karty, které v předchozích tazích zahodili. Jak je možné vidět na obrázku \ref{diag:restore_cards}, celý postup zde provádí pouze hráč bez asistence systému. Nejprve si vybere cíl obnovení, což může být jeho postava nebo postava jiného hráče, a poté vybere karty, které chce vrátit. Na kartě je určen počet karet, které může hráč obnovit, a také příznak náhody, podle které se vybírají karty buď náhodně, nebo si cíl může sám vybrat, které karty chce získat zpět. Tímto způsobem vybrané karty si cíl poté vrátí do ruky a může je využít v dalších tazích.
 
 
 
@@ -302,7 +302,7 @@ Každý efekt má dvě základní vlastnosti, které ho popisují. První z nich
     \label{tab:effects}
 \end{table}
 
-\textbf{Aplikace efektu} se provádí podle postupu znázorněného na diagramu \ref{diag:apply_effect}. Nejprve si systém zjistí, zda má entita nějaké rezistence proti tomuto typu efektu. Pokud ano, tak je síla efektu snížena o celkovou sílu rezistence a pokud je výsledek nulový, efekt je zrušen. Jinak systém zkontroluje, zda se jedná o instantní efekt, a pokud ano, je vyhodnocen okamžitě. V opačném případě je uložen do seznamu efektů dané entity a bude vyhodnocen v následujícím kole.
+\textbf{Aplikace efektu} se provádí podle postupu znázorněného na obrázku \ref{diag:apply_effect}. Nejprve si systém zjistí, zda má entita nějaké rezistence proti tomuto typu efektu. Pokud ano, tak je síla efektu snížena o celkovou sílu rezistence a pokud je výsledek nulový, efekt je zrušen. Jinak systém zkontroluje, zda se jedná o instantní efekt, a pokud ano, je vyhodnocen okamžitě. V opačném případě je uložen do seznamu efektů dané entity a bude vyhodnocen v následujícím kole.
 
 \textbf{Vyhodnocení efektu} se dělí na dva typy -- první, který hráči vyhodnocují sami, a druhý, který vyhodnocuje systém. První typ jsou efekty jako \textit{Push} nebo \textit{Pull}, které systém vyhodnotit nemůže z důvodu nedostatečných informací. Když jde například o efekt \textit{Push}, hráči dosaženou entitu posunou o počet polí, který je uveden ve vlastnosti \textit{Strength} efektu ve směru pryč od zdroje. Druhý typ efektů, jako \textit{Heal} nebo \textit{Poison}, jsou vyhodnoceny systémem, protože se týkají zdraví postav, což je jedna z věcí, které systém monitoruje.
 
@@ -319,7 +319,7 @@ Veškeré komponenty vytvořené z kartonu jsou identifikovány pomocí jedineč
 \subsection{Herní deska}
 \label{subsec:design_board}
 
-Jak již bylo zmíněno v sekci \ref{subsec:schema_location}, celková herní mapa lokace je tvořena spojením menších částí, které se skládají dohromady a spojují zavřenými dveřmi. Ve fyzické podobě jsou tyto části reprezentovány herními deskami vytvořenými z kartonu, na kterých jsou vytištěna jednotlivá hexagonová pole různých tvarů. Tyto desky mají velikost okolo 20x20 cm a jsou dostatečně velké, aby na ně bylo možné umístit všechny používané herní komponenty, ale zároveň skladné, aby se pohodlně vešly do herní krabice.
+Jak již bylo zmíněno v kapitole \ref{subsec:schema_location}, celková herní mapa lokace je tvořena spojením menších částí, které se skládají dohromady a spojují zavřenými dveřmi. Ve fyzické podobě jsou tyto části reprezentovány herními deskami vytvořenými z kartonu, na kterých jsou vytištěna jednotlivá hexagonová pole různých tvarů. Tyto desky mají velikost okolo 20x20 cm a jsou dostatečně velké, aby na ně bylo možné umístit všechny používané herní komponenty, ale zároveň skladné, aby se pohodlně vešly do herní krabice.
 
 Dveře jsou reprezentovány jedním hexagonovým žetonem, opět vytvořeným z kartonu s odpovídajícím obrázkem, který zobrazuje, že se jedná o zavřené dveře. Když hráči dveře otevřou, systém jim zobrazí novou herní desku, kterou si podle vzoru sestaví.
 
