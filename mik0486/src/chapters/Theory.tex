@@ -4,7 +4,7 @@ V této kapitole se budeme věnovat teorii a analýze rozhraní, včetně jejich
 
 \section{Teorie UI/GUI}
 \label{sec:ui-gui-theory}
-Uživatelské rozhraní z anglického jazyka \textit{\textquote{User Interface}} (UI) a grafické uživatelské rozhraní \textit{\textquote{Graphical User Interface}} (GUI) jsou termíny používány v kontextu digitálních aplikací, kde tyto prvky umožňují uživatelům interagovat se softwárem aplikace pomocí rozhraní. Zatímco UI zahrnuje jakoukoliv formu uživatelského rozhraní, GUI se specificky zaměřuje na vizuální aspekty rozhraní jako jsou okna, ikony, tlačítka a další grafické elementy.
+Uživatelské rozhraní z anglického jazyka \textit{\textquote{User Interface}} (UI) a grafické uživatelské rozhraní \textit{\textquote{Graphical User Interface}} (GUI) jsou termíny používány v kontextu digitálních aplikací, kde tyto prvky umožňují uživatelům interagovat se softwarem aplikace pomocí rozhraní. Zatímco UI zahrnuje jakoukoliv formu uživatelského rozhraní, GUI se specificky zaměřuje na vizuální aspekty rozhraní jako jsou okna, ikony, tlačítka a další grafické elementy.
 
 Základem dobrého UI je především jeho intuitivita, jednoduchost a přehlednost, což jednoduše znamená, že by uživatel měl být schopen jednoduše pochopit jak s aplikačním rozhraním pracovat, aniž by musel procházet složitějším procesem učení.
 
@@ -32,33 +32,33 @@ Základem dobrého UI je především jeho intuitivita, jednoduchost a přehledn
 
 \subsection{Počátek vzniku rozhraní}
 \label{subsec:ui-gui-theory-beginning}
-Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce mezi uživatelem a rozhraním prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup z klávesnice a následného výstupu umístěného na displej. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafické rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti pro uživatele jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu za pomocí pohybu myši po obrazovce.
+Vznik rozhraní lze vysledovat až k raným počátkům počítačů, kde se interakce mezi uživatelem a rozhraním prováděla pomocí děrných štítků a přepínačů. Postupem času s vývojem technologií vzniklo rozhraní terminálové z anglického jazyka \textit{\textquote{Command Line Interface}} (CLI), které obsahovalo základní textový vstup z klávesnice a následného výstupu umístěného na displej. Toto rozhraní se tak stalo standardem pro každý novodobý počítač a používá se do dnešních let. Zlomovým momentem se poté stal příchod grafického rozhraní z angl. \textit{\textquote{Graphical User Interface}} (GUI), které znamenalo revoluci v přístupu k interakci uživatele s počítačem. Tato evoluce přinesla nové možnosti pro uživatele, jak přímo komunikovat s počítačem díky grafickým prvkům jako jsou okna, ikony, menu za pomocí pohybu myši po obrazovce.
 
 Pro nás se grafická reprezentace v počítači stala již nedílnou součástí našeho života a v dnešní době se sní setkáváme již na každém kroku, ať se jedná o mobilní aplikace, počítačové aplikace nebo prosté webové stránky.
 
-Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, které se mnohdy využíval na vývoj různých webových aplikace ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Bohužel tento software byl koncem roku 2020 ukončen a nahrazen modernějšími a bezpečnějšími technologiemi, které zároveň stály za jeho úpadkem. Mezi tyto technologie se tak řadí HTML5, WebGL nebo WebAssembly. \cite{adobeFlashPlayer-eol}
+Pro vývoj webových aplikací se většinou používají technologie spojené pomocí jazyku JavaScript. V minulých letech, zde ale existoval software se jménem \textit{Adobe Flash Player}, který umožňoval vytvářet interaktivní multimediální obsah, který se mnohdy využíval na vývoj různých webových aplikací ať se jednalo o různé hry, prezentace nebo třeba aplikaci fotogalerie. Bohužel tento software byl koncem roku 2020 ukončen a nahrazen modernějšími a bezpečnějšími technologiemi, které zároveň stály za jeho úpadkem. Mezi tyto technologie se tak řadí HTML5, WebGL nebo WebAssembly. \cite{adobeFlashPlayer-eol}
 
 \subsection{Problematika vývoje}
 \label{subsec:ui-gui-theory-problems}
-Problematika vývoje rozhraní se týká komplexního procesu, který zahrnuje několik oblastí, nad kterými je potřeba se předem zamyslet a následně je implementovat. Většinou při zanedbaní správné implementace těchto sekcí, lze v budoucnu rychle dosáhnout problémům, kde jejich řešení může mít výrazný vliv na funkčnost aplikace. Mezi tyto oblasti spadá například:
+Problematika vývoje rozhraní se týká komplexního procesu, který zahrnuje několik oblastí, nad kterými je potřeba se předem zamyslet a následně je implementovat. Většinou při zanedbaní správné implementace těchto sekcí, lze v budoucnu rychle dosáhnout problémů, kde jejich řešení může mít výrazný vliv na funkčnost aplikace. Mezi tyto oblasti spadá například:
 
 \begin{description}
-    \item \textbf{Uživatelský vstup}, který reprezentuje jakým způsobem bude uživatel nebo administrátor aplikaci podávat vstup. Tedy jestli se jedná o textový vstup, vstup ovládáním myši nebo dotykovým displejem. Dle tohoto kritéria se poté volí vhodný způsob zpracování vstupu.
+    \item \textbf{Uživatelský vstup}, který reprezentuje, jakým způsobem bude uživatel nebo administrátor aplikaci podávat vstup. Tedy jestli se jedná o textový vstup, vstup ovládáním myši nebo dotykovým displejem. Dle tohoto kritéria se poté volí vhodný způsob zpracování vstupu.
     \item \textbf{Vykreslování}, které se většinou rozděluje na potřeby uživatelské a administrativní částí. Kde uživatelská se zaměřuje více na design a přívětivost pro uživatele, zatímco administrativní se zaměřuje na efektivitu a snadnou správu obsahu. Tento rozdíl můžeme jednoduše vidět na tom, že administrativní rozhraní často využívá plný potenciál obrazovky, zatímco uživatelské se snaží dbát na přehlednost a jednoduchost.
-    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky na obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost. U mobilních verzí aplikací se tak často objevují separátní odkazy na nativní rozhraní, které se tak často nachází pod subdoménou s název \textquote{m} tedy například \textit{https://m.tts-game.fun}\footnote{Nejedná se o funkční odkaz ale pohou referenci.}. Řešení responzivního designu dále bude pokračovat v separátním odstavci~\ref{subsec:ui-gui-theory-responsive-design}.
+    \item \textbf{Responzivní design} určuje, jak se jednotlivé prvky na obrazovce zachovají při změně velikosti okna nebo zařízení. Aplikace by v ideálním případě po změně velikosti neměla ztratit na přehlednosti nebo jakkoliv poškodit uživatelskou zkušenost. U mobilních verzí aplikací se tak často objevují separátní odkazy na nativní rozhraní, které se tak často nachází pod subdoménou s název \textquote{m} tedy například \textit{https://m.tts-game.fun}\footnote{Nejedná se o funkční odkaz ale pouhou referenci.}. Řešení responzivního designu dále bude pokračovat v separátním odstavci~\ref{subsec:ui-gui-theory-responsive-design}.
     \item \textbf{Uživatelská zkušenost} z anglického jazyka \textit{\textquote{User Experience}} (UX) se soustředí na to, jak uživatelé vnímají a jak se cítí při používání aplikace. Tedy jak je aplikace přívětivá, snadno ovladatelná a zda splňuje očekávání uživatele.
-    \item \textbf{Bezpečnost} je důležitým aspektem, který se zaobírá zpracováním uživatelských dat, které v mnoha případech obsahují citlivé informace. Při nesprávném zpracování těchto dat může dojít k úniku dat nebo zneužití. Jako řešení se používají různé techniky, jako je například šifrování, ověřování uživatele nebo zabezpečení připojení.
+    \item \textbf{Bezpečnost} je důležitým aspektem, který se zaobírá zpracováním uživatelských dat, které v mnoha případech obsahují citlivé informace. Při nesprávném zpracování těchto dat může dojít k úniku dat nebo jejich zneužití. Jako řešení se používají různé techniky, jako je například šifrování, ověřování uživatele nebo zabezpečení připojení.
 \end{description}
 
 \subsection{Responzivní design}
 \label{subsec:ui-gui-theory-responsive-design}
 Responzivní design se stal již skoro povinným standardem pro všechny webové stránky a aplikace. Tento přístup se zaměřuje na webové prvky tak, aby při jejich zobrazení na různých zařízeních s rozdílnou velikosti obrazovky nebo orientace byly pořád stejně přehledné a plně funkční. Této funkčnosti se dosahuje pomocí kaskádových stylů (CSS), které tuto funkcionalitu umožňují pomocí tzv. \textit{\textquote{media queries}}. Tyto dotazy umožňují nastavovat styly podle předem daných kritérii, jako například šířka okna, výška okna, typ zařízení nebo jeho orientace.
 
-Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací. Který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu aplikace. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v kapitole~\ref{subsec:dev-technology-bootstrap}.
+Jedním z průkopníků responzivního designu se stal \textit{Bootstrap}, open-source framework pro vývoj front-end webových aplikací, který nabízí soubor knihoven a předem vytvořených šablon stylů, díky kterým je možné za použití pár elementů dosáhnout rychlého a plně responzivního designu aplikace. Tento framework je v současné době jedním z nejpoužívanějších z důvodu jeho lehkého nasazení, široké podpory a velké kompatibility. Využití potenciálu tohoto frameworku si blíže popíšeme v kapitole~\ref{subsec:dev-technology-bootstrap}.
 
 \lstinputlisting[language=CSS, caption={Příklad použití media query v css.}, label={lst:media-query-example}]{sourceCodes/MediaQueryExample.css}
 
-V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Ale obsahuje media dotaz na řádku 6, které se ptá na velikost obrazovky, kde v případě, že je šířka obrazovka menší než 600px, změní barvu pozadí na světle modrou.
+Ve stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, že se jedná o základní CSS kód, který nastavuje barvu pozadí stránky na světle šedou. Obsahuje ale také média dotaz na řádku 6, který se ptá na velikost obrazovky, kde v případě, že je šířka obrazovky menší než 600px, změní barvu pozadí na světle modrou.
 
 \begin{figure}[H]
     \centering
@@ -69,37 +69,37 @@ V stručném vysvětlení kódu~\ref{lst:media-query-example} můžeme vidět, �
 
 \section{Analýza populárních deskových her}
 \label{sec:popular-board-games-analysis}
-Deskových her je v dnešní době na trhu velké množství, kde každým rokem se snaží noví nebo i stálí autoři proniknout ven s novými nápady nebo koncepty. Deskové hry lze tak rozdělit na několik herních žánru, jako jsou například hry strategické, kooperativní, party, rodinné nebo třeba karetní. Velká většina z těchto her se zaměřuje na její plný průběh na půdě hracího stolu, existují zde ale i hry, které do tohoto průběhu zapojují i externí zařízení, jako jsou speciální zařízení, mobilní telefony nebo laptopy. Tyhle hry se nazývají hry hybridní, kde jejich bližší definici popíšu v následující sekci.
+Deskových her je v dnešní době na trhu velké množství, kdy se každým novým rokem se snaží noví nebo i stálí autoři proniknout ven s novými nápady nebo koncepty. Deskové hry tak lze rozdělit na několik herních žánrů, jako jsou například hry strategické, kooperativní, party, rodinné nebo třeba karetní. Velká většina z těchto her se zaměřuje na její plný průběh na půdě hracího stolu, existují zde ale i hry, které do tohoto průběhu zapojují i externí zařízení, jako jsou speciální zařízení, mobilní telefony nebo laptopy. Tyhle hry se nazývají hry hybridní, kde jejich bližší definici popíšu v následující sekci.
 
 \subsection*{Hybridní hry}
 \label{subsec:popular-board-games-analysis-hybrid-games}
-Jak již bylo zmíněno o sekci výše, hybridní hry jsou hry takové, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá řici, že hybridní hra je hra taková, které má jakékoliv napojení na technologii. Mezi hry hybridní tak patří například populární hra \textit{Monopoly}, která použivá speciální bankovní zařízení používané pro správu financí nebo hra \textit{XCOM: The Board Game}, která využívá mobilní aplikaci pro správu herního průběhu.
+Jak již bylo zmíněno o sekci výše, hybridní hry jsou hry takové, které kombinují jednotlivé funkční prvky z her fyzických nebo digitálních. Jednoduše se tak dá říci, že hybridní hra je hra taková, která má jakékoliv napojení na technologii. Mezi hry hybridní tak patří například populární hra \textit{Monopoly}, která používá speciální bankovní zařízení používané pro správu financí nebo hra \textit{XCOM: The Board Game}, která využívá mobilní aplikaci pro správu herního průběhu.
 
 \subsection{Populární deskové hry}
 \label{subsec:popular-board-games-analysis-popular-games}
-Populárních deskových her je na světě velké množství, pro tuto analýzu jsem si vybral několik her, které mi jsou nejbližší a již jsem měl možnost si je zahrát. Díky této zkušenosti můžu lépe popsat možnosti a prvky, které tyto hry obsahují. Mezi tyto stolní hry patří například \textit{Carcassonne}, \textit{Bang!}, \textit{Codenames} nebo \textit{Gloomhaven}. Bohužel během analýzy se mi nepodařilo nalézt žádnou z her, která by měla k dispozici veřejné administrativní rozhraní. Z logického pohledu je totiž administrativní rozhraní limitováno pouze pro administrátory dané hry. V následujících podkapitolách se tak pokusím zaměřit především na hry, které obsahují alespoň jejich online verze nebo příslušné nástroje pro rozšíření herního zážitku.
+Populárních deskových her je na světě velké množství, Z toho důvodu jsem pro tuto analýzu pouze hry, které mi jsou nejbližší a již jsem měl možnost si je zahrát. Díky této zkušenosti můžu lépe popsat možnosti a prvky, které tyto hry obsahují. Mezi tyto stolní hry patří například \textit{Carcassonne}, \textit{Bang!}, \textit{Codenames} nebo \textit{Gloomhaven}. Bohužel během analýzy se mi nepodařilo nalézt žádnou z her, která by měla k dispozici veřejné administrativní rozhraní. Z logického pohledu je totiž administrativní rozhraní limitováno pouze pro administrátory dané hry. V následujících podkapitolách se tak pokusím zaměřit především na hry, které obsahují alespoň jejich online verze nebo příslušné nástroje pro rozšíření herního zážitku.
 
 \subsubsection{Carcassonne}
 \label{subsubsec:popular-board-games-analysis-carcassonne}
-Carcassonne je desková stolní hra, vydaná v roce 2000 autorem \textit{Klaus-Jürgen Wrede}. Hra je založena na jednoduchém principu losování a skládání herního pole, které se skládá z dlaždic obsahující různé herní prvky. Hra je určena pro 2 až 5 hráčů kde reálný počet hráčů závisí na velikosti skupinek hráčů nebo počtu rozšíření. Hra je velmi oblíbená převážně pro svůj jednoduchý herní styl, který je tak zábavný pro všechny věkové kategorie.
+Carcassonne je desková stolní hra, vydaná v roce 2000 autorem \textit{Klaus-Jürgen Wrede}. Hra je založena na jednoduchém principu losování a skládání herního pole, které se skládá z dlaždic obsahujících různé herní prvky. Hra je určena pro 2 až 5 hráčů, kde reálný počet hráčů závisí na velikosti skupinek hráčů nebo počtu rozšíření. Hra je velmi oblíbená převážně pro svůj jednoduchý herní styl, který je tak zábavný pro všechny věkové kategorie.
 
 \subsubsection*{Rozšíření}
 \label{subsubsec:popular-board-games-analysis-carcassonne-expansions}
-Carcassonne jako základní hra sama o sobě disponuje obstojnou délkou hraní okolo 45 minut až hodiny a půl. Existuje zde ale mnoho rozšíření které se rozdělují na obyčejné a mini a tento herní čas dokáží hravě prodloužit. Mezi nejznámější rozšíření patří například \textit{Carcassonne: Hostince a katedrály} nebo \textit{Carcassonne: Kupci a stavitelé}. Každé z rozšíření se tak pohybuje kolem 330 kč, kde základní hra stojí kolem 600 kč.
+Carcassonne jako základní hra sama o sobě disponuje obstojnou délkou hraní okolo 45 minut až hodiny a půl. Existuje zde ale mnoho rozšíření které se rozdělují na obyčejné a mini a tento herní čas dokáží hravě prodloužit. Mezi nejznámější rozšíření patří například \textit{Carcassonne: Hostince a katedrály} nebo \textit{Carcassonne: Kupci a stavitelé}. Každé z rozšíření se tak pohybuje kolem 330 Kč, kde základní hra stojí kolem 600 Kč.
 
 \subsubsection*{Online verze}
 Hra se stala rychle populární a tak se brzy objevila i její online varianta ať se jedná o hru ve webovém prohlížeči, mobilní aplikaci nebo na herní platformě \textit{Steam}\footnote{Steam je herní platforma vyvinutá společností Valve, která slouží pro distribuci digitálních her, software a dalších služeb.}. Online verze hry tak umožňuje hráčům hrát s ostatními hráči po celém světě, kde tak mezi sebou hráči můžou soupeřit v turnajích nebo v žebříčcích.
 
 \subsubsection{Bang!}
 \label{subsubsec:popular-board-games-analysis-bang}
-Bang je karetní hra, vydaná v roce 2002 autorem \textit{Emiliano Sciarra}. Hra je založena do tématiky westernového světa, kde hráči hrají za postavy z divokého západu jako je šerif, zástupce šerifa, bandité nebo odpadlíci. Hra je tak určena pro 4 až 7 hráčů a jejím cílem je tak vždy splnit cíl dané role. Hráč si tak vždy na začátku vylosuje 2 postavy a příslušnou roli. Poté si vybere jednu z postav a hra začíná. Hra je tak velmi populární z důvodu nenáročného herního stylu na okolní hráče.
+Bang je karetní hra, vydaná v roce 2002 autorem \textit{Emiliano Sciarra}. Hra je založena do tématiky westernového světa, kde hráči hrají postavy z divokého západu jako je šerif, zástupce šerifa, bandité nebo odpadlíci. Hra je tak určena pro 4 až 7 hráčů a jejím cílem je tak vždy splnit cíl dané role. Hráč si tak vždy na začátku vylosuje 2 postavy a příslušnou roli. Poté si vybere jednu z postav a hra začíná. Hra je tak velmi populární z důvodu nenáročného herního stylu na okolní hráče.
 
 \subsubsection*{Rozšíření}
 \label{subsubsec:popular-board-games-analysis-bang-expansions}
-Bang! tak jako Carcassonne obsahuje několik možných rozšíření které do hry dodávají nové prvky a postavy. Její nejznámější rozšíření tak jsou například \textit{Bang! Zlatá horečka} nebo \textit{Bang! Velká vlaková loupež} a další. Opět hra obsahuje i několik ninirozšíření, které do hry dodávají pouze nové postavy nebo karty, oproti velkým rozšířením, které do hry dodávají herní předměty. Každé z rozšíření se tak pohybuje kolem 350 kč a základní verze hry stojí 400 kč.
+Bang! tak jako Carcassonne obsahuje několik možných rozšíření, které do hry dodávají nové prvky a postavy. Její nejznámější rozšíření tak jsou například \textit{Bang! Zlatá horečka} nebo \textit{Bang! Velká vlaková loupež} a další. Hra opět obsahuje několik minirozšíření, které do hry dodávají pouze nové postavy nebo karty, oproti velkým rozšířením, které do hry dodávají herní předměty. Každé z rozšíření se tak pohybuje kolem 350 Kč a základní verze hry stojí 400 Kč.
 
 \subsubsection*{Online verze}
-Jak je u hry Carcassonne tak i zde je možné hrát kompletně online. Hra Bang! se tak více zaměřuje na svoji kompetitivní stránku, kde tak hráči často hrajou protí sebe na body. Čím více bodů hráč má tím lepší protívníky následně proti sobě získává. Hra tak obsahuje i herní mód, kde hráči mohou hrát proti počítači, kde tak mohou trénovat své dovednosti nebo se připravit na online hraní. Při navštívení komunitní stránky tak hráč může po registraci nebo přihlášení vyhledat volnou místnost kde bude automaticky přiřazen.
+Stejně, jako hru Carcassone, lze i tuto hru hrát kompletně online. Hra Bang! se tak více zaměřuje na svoji kompetitivní stránku, kde tak hráči často hrají proti sebe na body. Čím více bodů hráč má, tím lepší protivníky následně proti sobě získává. Hra tak obsahuje i herní mód, kde hráči mohou hrát proti počítači, kde tak mohou trénovat své dovednosti nebo se připravit na online hraní. Při navštívení komunitní stránky tak hráč může po registraci nebo přihlášení vyhledat volnou místnost kde bude automaticky přiřazen.
 
 \subsubsection{Codenames (Krycí jména)}
 \label{subsubsec:popular-board-games-analysis-codenames}
@@ -107,7 +107,7 @@ Krycí jména z anglické verze \textit{Codenames} se dá považovat za karetní
 
 \subsubsection*{Online verze}
 \label{subsubsec:popular-board-games-analysis-codenames-online}
-Oproti hře \textit{Bang!} a \textit{Carcassonne} hra Codenames má svoji originální online verzi dostupnou pod odkazem\footnote{https://codenames.game/} vytvořenou přímo autorem hry stolní. Tato verze hry oproti ostatním nedisponuje žádným kompetetivním žebříčkem ale reprezentuje se jako online možnost zahrát si tuto hru s přáteli přes internet. Po otevření stránky hra nabízí možnost založit místnost kde lze pomocí speciální odkazu pozvat do hry další hráče. Následně se hráči mohou rozřadit do teamu a následně začít hrát.
+Oproti hře \textit{Bang!} a \textit{Carcassonne} hra Codenames má svoji originální online verzi dostupnou pod odkazem\footnote{https://codenames.game/} vytvořenou přímo autorem hry stolní. Tato verze hry oproti ostatním nedisponuje žádným kompetetivním žebříčkem, ale reprezentuje se jako online možnost zahrát si tuto hru s přáteli přes internet. Po otevření stránky hra nabízí možnost založit místnost, kde lze pomocí speciální odkazu pozvat do hry další hráče. Následně se hráči mohou rozřadit do týmů a následně začít hrát.
 
 \subsubsection{Gloomhaven}
 \label{subsubsec:popular-board-games-analysis-gloomhaven}
@@ -117,21 +117,21 @@ Hra se tak pyšní i svou velikosti herní krabice, která obsahuje více než 3
 
 \subsubsection*{Podpůrné nástroje}
 \label{subsubsec:popular-board-games-analysis-gloomhaven-support-tools}
-Kvůli celkové velikosti a ceny hry samotné jenž se pohybuje okolo 3000 kč, se tak vytvořila komunita, která se pokusila vytvořit několik podpůrných aplikací pro zlepšení a zjednodušení herního průběhu. Jednotlivé nástroje si trošku popíšeme v následujících podkapitolách.
+Kvůli celkové velikosti a ceně hry samotné, jenž se pohybuje okolo 3000 kč, se tak vytvořila komunita, která se pokusila vytvořit několik podpůrných aplikací pro zlepšení a zjednodušení herního průběhu. Jednotlivé nástroje si trošku popíšeme v následujících podkapitolách.
 
 \begin{description}
-    \item \textbf{Gloomhaven Helper}\footnote{\href{https://en.esotericsoftware.com/gloomhaven-helper}{https://en.esotericsoftware.com/gloomhaven-helper}} je nativní aplikace která podporuje kompletní přesun dění ze stolu na obrazovku. Díky čemuž tak hráči nemusí pořád přepočítávat životy, počty nepřátel nebo tahat útokové karty. \footnote{Aplikace již není dostupná z licenčních důvodu autora hry.}
+    \item \textbf{Gloomhaven Helper}\footnote{\href{https://en.esotericsoftware.com/gloomhaven-helper}{https://en.esotericsoftware.com/gloomhaven-helper}} je nativní aplikace, která podporuje kompletní přesun dění ze stolu na obrazovku. Díky čemuž tak hráči nemusí pořád přepočítávat životy, počty nepřátel nebo tahat útokové karty. \footnote{Aplikace již není dostupná z licenčních důvodu autora hry.}
     \item \textbf{Gloomhaven Full Stack V2}\footnote{\href{https://gloomhaven.smigiel.us/v2/}{https://gloomhaven.smigiel.us/v2/}} je pouze webová alternativa zrušeného gloomhaven helperu, která podobným způsobem dovoluje uživatelům zaznamenávat plný průběh dění ve webovém prostředí.
     \item \textbf{Gloomhaven Storyline}\footnote{\href{https://gloomhaven-storyline.com/}{https://gloomhaven-storyline.com/}} je další z možných aplikací, která se zaměřuje na zjednodušení herního průběhu. Aplikace tak obsahuje kompletní přehled o herním světě, postavách a úkolech.
 \end{description}
 
 \section{Administrativní prvky}
 \label{sec:admin-elements}
-Každé administrativní rozhraní se skládá z několika základních prvků, které umožňuje uživatelům s administrativními oprávněním provádět specifické úkony nebo měnit kompletní nastavení aplikace. Mezi takové prvky patří například správa uživatelů, obsahu, nastavení, zobrazení statistik nebo přehled logů. V následujících podkapitolách se blíže zaměřím na tyto jednotlivé prvky.
+Každé administrativní rozhraní se skládá z několika základních prvků, které umožňují uživatelům s administrativním oprávněním provádět specifické úkony nebo měnit kompletní nastavení aplikace. Mezi takové prvky patří například správa uživatelů, obsahu, nastavení, zobrazení statistik nebo přehled logů. V následujících podkapitolách se blíže zaměřím na tyto jednotlivé prvky.
 
 \subsection{Správa uživatelů}
 \label{subsec:admin-elements-user-management}
-Správa uživatelů je nedílnou součástí každého sofistikovaného systému nebo aplikace, která umožňuje administrátorům ovlivňovat kdo může přistupovat k jednotlivým částem systému. Tento prvek systému tak umožňuje nejen přidávat, odstraňovat nebo měnit uživatele, ale také udělovat jejich oprávnění, role nebo měnit nastavení. Mezi časté role patří například \textit{administrátor}, \textit{editor}, \textit{moderátor} nebo výchozí \textit{uživatel}. Každá role má přidělený seznam oprávnění, které určují co může uživatel dělat a co ne.
+Správa uživatelů je nedílnou součástí každého sofistikovaného systému nebo aplikace, která umožňuje administrátorům ovlivňovat, kdo může přistupovat k jednotlivým částem systému. Tento prvek systému tak umožňuje nejen přidávat, odstraňovat nebo měnit uživatele, ale také udělovat jejich oprávnění, role nebo měnit nastavení. Mezi časté role patří například \textit{administrátor}, \textit{editor}, \textit{moderátor} nebo výchozí \textit{uživatel}. Každá role má přidělený seznam oprávnění, které určují co může uživatel dělat a co ne.
 
 Tento přístup tak umožňuje vytvářet hierarchii uživatelů, kde administrátor má plný přístup ke všem funkcím aplikace, zatímco uživatel má pouze omezený přístup, čímž tak zvyšuje bezpečnost a efektivitu aplikace. Správa uživatelů také často obsahuje nástroje pro sledování aktivity uživatelů nebo jejich záznam provedených akcí. Na obrázku~\ref{fig:user-management} můžeme vidět ukázku uložení uživatele v databázi.
 
@@ -144,7 +144,7 @@ Tento přístup tak umožňuje vytvářet hierarchii uživatelů, kde administr�
 
 \subsection{Správa obsahu}
 \label{subsec:admin-elements-content-management}
-Jako u správy uživatelů, správa obsahu z anglického jazyka \textit{\textquote{Content Management}} je dalším a hlavním pilířem administrativních rozhraní. Tento prvek tak umožňuje výše zmíněným rolím vytvářet, upravovat a odstraňovat obsah tak, že není nutné jakkoliv zasahovat do kódu aplikace nebo měnit čisté data ručně v databázi. Tento prvek je zásadní pro dynamické webové stránky, e-commerce platformy, blogy a další aplikace, které pravidelně mění svůj obsah nebo provádí jejich další vývoj.
+Jako u správy uživatelů, správa obsahu z anglického jazyka \textit{\textquote{Content Management}} je dalším a hlavním pilířem administrativních rozhraní. Tento prvek tak umožňuje výše zmíněným rolím vytvářet, upravovat a odstraňovat obsah tak, že není nutné jakkoliv zasahovat do kódu aplikace nebo měnit čistá data ručně v databázi. Tento prvek je zásadní pro dynamické webové stránky, e-commerce platformy, blogy a další aplikace, které pravidelně mění svůj obsah nebo provádí jejich další vývoj.
 
 Textová editace obsahu v aplikacích se provádí pomocí interaktivních editorů, které jsou součástí formulářů. Takové editory se nazývají WYSIWYG z anglického \textit{\textquote{What You See Is What You Get}}, tyto editory tak umožňují uživatelům editovat obsah aniž by museli znát HTML nebo CSS. Tento způsob editace je velmi oblíbený pro svou jednoduchost a přehlednost, která umožňuje i méně zkušeným uživatelům editovat obsah bez jakýchkoliv problémů. Mezi tyto populární editory patří CKEditor\footnote[1]{\url{https://ckeditor.com/}}, TinyMC\footnote[2]{\url{https://www.tiny.cloud/}} nebo Quill\footnote[3]{\url{https://quilljs.com/}}.
 
@@ -161,7 +161,7 @@ Jako často používané nástroje pro sledování statistik se používají Goo
 
 \subsection{Záznam akcí}
 \label{subsec:admin-elements-logs}
-Systém zaznamenávání často známá jako \textit{Audit Log} je nezbytným nástrojem pro monitorování a diagnostiku problému v aplikaci. Umožňuje tak zaznaménávat události jako jsou chyby, varování, informační zprávy nebo auditní záznamy o aktivitách uživatelů. Zpětné zobrazování těch záznamu tak pomáhá administrátorům rychle identifikovat a vyřešit problém dříve než dojde k jejich zvěřejnění nebo zneužití. Čímž zajišťují bezpečný a nepřetržitý průběh aplikace.
+Systém zaznamenávání často známá jako \textit{Audit Log} je nezbytným nástrojem pro monitorování a diagnostiku problému v aplikaci. Umožňuje tak zaznaménávat události jako jsou chyby, varování, informační zprávy nebo auditní záznamy o aktivitách uživatelů. Zpětné zobrazování těch záznamů tak pomáhá administrátorům rychle identifikovat a vyřešit problém dříve než dojde k jejich zvěřejnění nebo zneužití. Čímž zajišťují bezpečný a nepřetržitý průběh aplikace.
 
 \section{Administrativní značky}
 \label{sec:admin-tags}
@@ -169,11 +169,11 @@ Administrativními značkami se rozumí prvky HTML, které jsou specifické pro 
 
 \subsection*{Menu}
 \label{subsec:admin-tags-menu}
-Menu je zásadním navigačním prvkem v jakémkoliv rozhraní, umožňující uživatelů snadný přístup k rozdílným částem aplikace. Tento prvek se tak často nachází v horní částí aplikace nebo v její levé části a obsahuje tak odkazy na podřadné stránky. Důležitá je efektivnost navržení menu, kde se klade důraz na uživatelskou přívětivost a rychlou orientaci. Při velkém a rozsáhlém stromu menu tak v opačném případě dochází k častému zmatení uživatele, který pak často stránku opouští.
+Menu je zásadním navigačním prvkem v jakémkoliv rozhraní, umožňující uživatelům snadný přístup k rozdílným částem aplikace. Tento prvek se tak často nachází v horní částí aplikace nebo v její levé části a obsahuje tak odkazy na podřadné stránky. Důležitá je efektivnost navržení menu, kde se klade důraz na uživatelskou přívětivost a rychlou orientaci. Při velkém a rozsáhlém stromu menu tak v opačném případě dochází k častému zmatení uživatele, který pak často stránku opouští.
 
 \subsection*{Formulář}
 \label{subsec:admin-tags-form}
-Formuláře jsou klíčové pro interakci s uživatelem, neboť umožňují aplikaci přijímat datový vstup od uživatelů. Častým výskytem formulářů v administrativních rozhraních jsou stránky určené pro přihlášení, registraci, zadávání nebo úpravu dat. Formuláře se tak skládají z prvků jako jsou textová pole, výběrové seznamy, zaškrtávací políčka nebo obyčejné tlačítka pro provádění akce. U každého formuláře je tak důležité zabezpečení vstupu proti různým útokům, které dále budou popsány v sekci~\ref{sec:security}.
+Formuláře jsou klíčové pro interakci s uživatelem, neboť umožňují aplikaci přijímat datový vstup od uživatelů. Častým výskytem formulářů v administrativních rozhraních jsou stránky určené pro přihlášení, registraci, zadávání nebo úpravu dat. Formuláře se tak skládají z prvků jako jsou textová pole, výběrové seznamy, zaškrtávací políčka nebo obyčejná tlačítka pro provádění akce. U každého formuláře je tak důležité zabezpečení vstupu proti různým útokům, které dále budou popsány v sekci~\ref{sec:security}.
 
 \subsection*{Tlačítko}
 \label{subsec:admin-tags-button}
@@ -181,7 +181,7 @@ Tlačítka jsou základním interaktivním prvkem, který umožňuje uživatelů
 
 \subsection*{Tabulka}
 \label{subsec:admin-tags-table}
-Tabulky jsou nezbytné pro zobrazení a přehlednou organizaci dat v strukturované formě. V administrativních rozhraních se tak tabulky využívají k zobrazení malého i velkého množství dat, například tak k zobrazení seznamu uživatelů, záznamu nebo třeba i statistikám. K tabulkám se pak vážou i často využívané prvky jako je možnost řazení, filtrování a stránkování záznamu což se stává nutností v případě správy velkého množství dat.
+Tabulky jsou nezbytné pro zobrazení a přehlednou organizaci dat ve strukturované formě. V administrativních rozhraních se tak tabulky využívají k zobrazení malého i velkého množství dat, například k zobrazení seznamu uživatelů, záznamu nebo třeba i statistikám. K tabulkám se pak vážou i často využívané prvky, jako je možnost řazení, filtrování a stránkování záznamu což se stává nutností v případě správy velkého množství dat.
 
 \subsection*{Graf}
 \label{subsec:admin-tags-chart}
@@ -189,11 +189,11 @@ Grafy nebo diagramy jsou významným prvkem pro vizualizaci dat, která se vysky
 
 \subsection*{Modální okno}
 \label{subsec:admin-tags-modal}
-Modální okna jsou interaktivní dialogové okna, které přitahují pozornost uživatele tak aby vykonal určitý úkon před tím, než bude moci pokračovat dále v předchozím úkonu. Tyto okna se tak často využívají pro potvrzení akce, zobrazení upozornění nebo detailního zobrazení obsahu. Jejich správné využití tak výrazně zlepšuje uživatelskou přívětivost tím, že umožní uživateli rychle reagovat bez nutnosti opustit aktuální kontext úkonu.
+Modální okna jsou interaktivní dialogová okna, která přitahují pozornost uživatele tak, aby vykonal určitý úkon před tím, než bude moci pokračovat dále v předchozím úkonu. Tyto okna se tak často využívají pro potvrzení akce, zobrazení upozornění nebo detailního zobrazení obsahu. Jejich správné využití tak výrazně zlepšuje uživatelskou přívětivost tím, že umožní uživateli rychle reagovat bez nutnosti opustit aktuální kontext úkonu.
 
 \section{Zabezpečení}
 \label{sec:security}
-Zabezpečení v rozhraních je dalším z mnoha důležitých aspektu neli ten nejdůležitější neboť se zde setkáváme s citlivými daty, které by při odcizení mohly mít nemalý dopad na uživatele nebo samotnou aplikaci. Zabezpečení se tak dělí na několik oblastí, kde každý z nich má své specifické praktiky a techniky, které zvyšují bezpečnost aplikace. V dnešní době existuje mnoho způsobu, jakým lze na danou aplikaci nebo uživatele útočit, mezi jedny z nejčastější patří \textit{SQL Injection}, \textit{Cross-Site Scripting} (XSS) nebo \textit{Cross-Site Request Forgery} (CSRF). V následujících podkapitolách se tak zaměřím na tyto jednotlivé oblasti.
+Zabezpečení v rozhraních je dalším z mnoha důležitých aspektů neli ten nejdůležitější neboť se zde setkáváme s citlivými daty, které by při odcizení mohly mít nemalý dopad na uživatele nebo samotnou aplikaci. Zabezpečení se tak dělí na několik oblastí, kde každé z nich má své specifické praktiky a techniky, které zvyšují bezpečnost aplikace. V dnešní době existuje mnoho způsobu, jakým lze na danou aplikaci nebo uživatele útočit, mezi jedny z nejčastější patří \textit{SQL Injection}, \textit{Cross-Site Scripting} (XSS) nebo \textit{Cross-Site Request Forgery} (CSRF). V následujících podkapitolách se tak zaměřím na tyto jednotlivé oblasti.
 
 \subsection{Autentizace}
 \label{subsec:security-authentication}
@@ -204,12 +204,12 @@ Jako druhy ošetření autentizace se využívá praktik:
 \begin{itemize}
     \item \textbf{Silná hesla} -- Uživatel je donucen používat heslo, které spadá do nastavené politiky administrátorem systému. Nejčastěji tak hesla musí kombinovat velká a malá písmena, čísla a speciální znaky, kde celkově heslo musí dosahovat minimálně délky 8 znaků.
     \item \textbf{Dvoufaktorová autentizace} -- Jedná se druhou vrstvu zabezpečení, kde po obyčejném přihlášení uživatele do systému, je vyžadován druhý faktor ověření. Tento faktor může být například SMS zpráva, e-mail nebo digitální token, který uživatel musí zadat pro dokončení přihlášení.
-    \item \textbf{Omezení počtu pokusů} -- Tato prevence se zaměřuje na takzvaný útok hrubou sílou z anglického jazyka \textit{\textquote{Brute Force}}, kde se útočník pokouší proniknou za pomocí slovníku hesel, ale je zablokován po několika neúspěšných pokusech.
+    \item \textbf{Omezení počtu pokusů} -- Tato prevence se zaměřuje na takzvaný útok hrubou silou z anglického jazyka \textit{\textquote{Brute Force}}, kde se útočník pokouší proniknou za pomocí slovníku hesel, ale je zablokován po několika neúspěšných pokusech.
 \end{itemize}
 
 \subsection{Autorizace}
 \label{subsec:security-authorization}
-Autorizace se zaměřuje na rozřazení uživatelů do skupin nebo rolí, kde ověřují, zda uživatel má oprávnění provádět danou akci v systému. Nejlepším princem je tak tzv. \textit{Princip nejmenších oprávnění}, který říká, že uživatel by měl mít pouze ta oprávnění, která potřebuje pro vykonání své práce a nic víc. Často tak oprávněni uživatelé dostávají vyšší oprávnění pouze dočasně po dobu své práce a poté jsou oprávnění zpět odebrány.
+Autorizace se zaměřuje na rozřazení uživatelů do skupin nebo rolí, kde ověřují, zda uživatel má oprávnění provádět danou akci v systému. Nejlepším principem je tak tzv. \textit{Princip nejmenších oprávnění}, který říká, že uživatel by měl mít pouze ta oprávnění, která potřebuje pro vykonání své práce a nic víc. Často tak oprávněni uživatelé dostávají vyšší oprávnění pouze dočasně po dobu své práce a poté jsou oprávnění zpět odebrána.
 
 \subsection{Šifrování}
 \label{subsec:security-encryption}
@@ -217,7 +217,7 @@ Autorizace se zaměřuje na rozřazení uživatelů do skupin nebo rolí, kde ov
 
 \subsection{Zabezpečení formulářů}
 \label{subsec:security-forms}
-Zabezpečení formulářů je klíčových prvkem pro ošetření vstupu dat od uživatele. Uživatel neboli útočník se v tomto případě pokouší o vložení škodlivého kódu do formuláře, který může mít za následek přeskočení přihlašovacích údaju, získání citlivých informací nebo zneužití aplikace. Pro ošetření formulářů se tak využívají techniky jako je \textit{validace}, \textit{filtraci} a \textit{escapování}.
+Zabezpečení formulářů je klíčových prvkem pro ošetření vstupu dat od uživatele. Uživatel neboli útočník se v tomto případě pokouší o vložení škodlivého kódu do formuláře, který může mít za následek přeskočení přihlašovacích údajů, získání citlivých informací nebo zneužití aplikace. Pro ošetření formulářů se tak využívají techniky jako je \textit{validace}, \textit{filtraci} a \textit{escapování}.
 
 \subsection{Zabezpečení proti útokům}
 \label{subsec:security-attacks}
@@ -231,7 +231,7 @@ SQL Injection je druh útoků, kde ůtočník vkládá neboli \textquote{injektu
 
 \subsubsection*{Cross-Site Scripting}
 \label{subsubsec:security-attacks-cross-site-scripting}
-Cross-Site scripting je dalším z druhů útoku, kde útočník podobně jako u \textit{SQL Injection} vkládá do formuláře škodlivý kód. Zde se zde ale nejedná o kód SQL ale o kód JavaScriptu. Tento kód tak může v pozadí nenápadně provádět akce, které můžou vést k odcizení cookies nebo session tokenů.
+Cross-Site scripting je dalším z druhů útoku, kde útočník podobně jako u \textit{SQL Injection} vkládá do formuláře škodlivý kód. Zde se ale nejedná o kód SQL ale o kód JavaScriptu. Tento kód tak může v pozadí nenápadně provádět akce, které můžou vést k odcizení cookies nebo session tokenů.
 
 \textbf{Obrana:} Sanitace všech uživatelských vstupů. Úplné odebrání HTML značek z vstupních dat.
 

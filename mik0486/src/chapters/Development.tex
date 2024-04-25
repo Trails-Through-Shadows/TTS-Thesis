@@ -1,6 +1,6 @@
 \chapter{Použité technologie}
 \label{ch:technology}
-V této kapitole se budu věnovat popisu technologii, které jsem použil při vývoji rozhraní nebo jsem mezi nimi uvažoval. V první části se zaměřím na programovací jazyky, které jsou hlavní kamenem pro volbu správného frameworku. Od použití frameworku se již odvíjí další technologie spadající do kategorie frontendu a backendu. Jako poslední budu popisovat technologie, které se užívají v běžném vývoji webových aplikací.
+V této kapitole se budu věnovat popisu technologií, které jsem použil při vývoji rozhraní nebo jsem mezi nimi uvažoval. V první části se zaměřím na programovací jazyky, které jsou hlavní kamenem pro volbu správného frameworku. Od použití frameworku se již odvíjí další technologie spadající do kategorie frontendu a backendu. Jako poslední budu popisovat technologie, které se užívají v běžném vývoji webových aplikací.
 
 \section{Programovací Jazyky}
 \label{sec:languages}
@@ -20,7 +20,7 @@ Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, J
 
 \subsubsection{TypeScript}
 \label{subsubsec:languages-compiled-typescript}
-TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé bych uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožňuje programátorům definovat typy proměnných, parametrů funkci a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohli vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
+TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé byl uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožňuje programátorům definovat typy proměnných, parametrů funkcí a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohly vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
 
 Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}\footnote{\href{https://www.typescriptlang.org/}{https://www.typescriptlang.org/}}, který je součástí balíčku \textit{Node.js}\footnote{\href{https://nodejs.org/}{https://nodejs.org/}}
 
@@ -32,7 +32,7 @@ Pro využití Less je nutné jej přeložit do kódu CSS, což je možné prové
 
 \subsection{Interpretované Jazyky}
 \label{subsec:languages-interpreted}
-Interpretované jazyky jsou oproti jazykům kompilovaným zpracovávaný za běhu programu bez předchozí kompilace do kódu strojového. Díky tomuto způsobu dochází k vyšší flexibilitě vývoje, protože úpravy kódu lze provádět v reálném čase a není nutné opakovaně kompilovat kód před každým spuštěním. Mezi hlavní výhody interpretovaných jazyků patří:
+Interpretované jazyky jsou oproti jazykům kompilovaným zpracovávany za běhu programu bez předchozí kompilace do kódu strojového. Díky tomuto způsobu dochází k vyšší flexibilitě vývoje, protože úpravy kódu lze provádět v reálném čase a není nutné opakovaně kompilovat kód před každým spuštěním. Mezi hlavní výhody interpretovaných jazyků patří:
 
 \begin{itemize}
     \item \textbf{Flexibilita:} Úpravy kódu lze provádět v reálném čase bez nutnosti opakované kompilace.
@@ -49,11 +49,11 @@ JavaScript je vysokoúrovňový interpretovaný skriptovací jazyk určený pro 
 
 \subsubsection{Python}
 \label{subsubsec:languages-interpreted-python}
-Python tak na druhou stranu slouží jako vysokoúrovňový interpretovaný programovací jazyk, který byl vytvořen v roce 1991 Guido van Rossumem. Python je známý svou jednoduchostí, čitelností a efektivitou, což z něj činí oblíbenou volbu pro vývojáře. Volba Pythonu je často spojena s rychlým development nebo pro vytvoření scriptů, které se konkrétně zaměřují na automatizaci úloh nebo zpracování dat. Python se tak dá jednoduše spouštět na různých platformách a operačních systémech, což z něj činí univerzální jazyk pro vývoj aplikací.
+Python tak na druhou stranu slouží jako vysokoúrovňový interpretovaný programovací jazyk, který byl vytvořen v roce 1991 Guido van Rossumem. Python je známý svou jednoduchostí, čitelností a efektivitou, což z něj činí oblíbenou volbu pro vývojáře. Volba Pythonu je často spojena s rychlým developmentem nebo pro vytvoření scriptů, které se konkrétně zaměřují na automatizaci úloh nebo zpracování dat. Python se tak dá jednoduše spouštět na různých platformách a operačních systémech, což z něj činí univerzální jazyk pro vývoj aplikací.
 
 \subsection{Značkovací Jazyky}
 \label{subsec:languages-markup}
-Značkovací jazyky se velmi liší od jazyku kompilovaných nebo interpretovaných a to z důvodu toho, že slouží pro anotaci dokumentu způsobem, kde dochází k syntaktickému odlišení textu od značek kódu. Pomocí značek tak definují strukturu dokumentu, formátování textu, vkládání komponent jako jsou odkazy, obrázky a další. Z tohoto důvodu tak nejsou primárně určeny pro popis algoritmů nebo pro výpočetní účely, ale slouží jako prostředek pro prezentaci dat. Mezi hlavní výhody značkovacích jazyků tak patří:
+Značkovací jazyky se velmi liší od jazyků kompilovaných nebo interpretovaných a to z důvodu toho, že slouží pro anotaci dokumentu způsobem, kde dochází k syntaktickému odlišení textu od značek kódu. Pomocí značek tak definují strukturu dokumentu, formátování textu, vkládání komponent jako jsou odkazy, obrázky a další. Z tohoto důvodu tak nejsou primárně určeny pro popis algoritmů nebo pro výpočetní účely, ale slouží jako prostředek pro prezentaci dat. Mezi hlavní výhody značkovacích jazyků tak patří:
 
 \begin{itemize}
     \item \textbf{Struktura:} Značkovací jazyky umožňují definovat strukturu dokumentu pomocí značek, což zvyšuje jeho čitelnost a srozumitelnost.
@@ -62,7 +62,7 @@ Značkovací jazyky se velmi liší od jazyku kompilovaných nebo interpretovan�
 
 \subsubsection{HTML}
 \label{subsubsec:languages-markup-html}
-HTML neboli \textit{Hyper Text Markup Language} je značkovací jazyk určený pro tvorbu strukturovanch webových stránek. Za jeho vývojem stojí Tim Berners-Lee, který jej uvedl v roce 1993 jako součast prvního webového prohlížeče. HTML se tak stal základním stavebním prvkem všech webových stránek a je podporován všemi moderními prohlíči. Jeho syntaxe je založena na značkách, které definují jeho strukturu, jako příklad značek můžeme uvést blíže přiblížené značky z kapitoly~\ref{sec:admin-tags}.
+HTML neboli \textit{Hyper Text Markup Language} je značkovací jazyk určený pro tvorbu strukturovanch webových stránek. Za jeho vývojem stojí Tim Berners-Lee, který jej uvedl v roce 1993 jako součast prvního webového prohlížeče. HTML se tak stal základním stavebním prvkem všech webových stránek a je podporován všemi moderními prohlížeči. Jeho syntaxe je založena na značkách, které definují jeho strukturu, jako příklad značek můžeme uvést blíže přiblížené značky z kapitoly~\ref{sec:admin-tags}.
 
 \subsubsection{Markdown}
 \label{subsubsec:languages-markup-markdown}
@@ -140,7 +140,7 @@ Vue.js je navržen ohledem na progresivitu, což znamená, že ho lze snadno a p
 
 \subsection{Svelte}
 \label{subsec:dev-framework-svelte}
-Svelte je jedním z inovativních JavaScriptových frameworků, který se zaměřuje na efektivní kompilací v ranné fázi build procesu, což přináší nový pohled na vývoj uživatelské rozhraní. Zatímco tradiční frameworky provadějí většinu práce na straně klienta nebo serveru za běhu, Svelte přesouvá tuto činnost do fáze komiplace, čímž mnohonásobně zlepšuje výkon a optimalizuje výslednou velikost kódu.
+Svelte je jedním z inovativních JavaScriptových frameworků, který se zaměřuje na efektivní kompilací v ranné fázi build procesu, což přináší nový pohled na vývoj uživatelského rozhraní. Zatímco tradiční frameworky provadějí většinu práce na straně klienta nebo serveru za běhu, Svelte přesouvá tuto činnost do fáze komiplace, čímž mnohonásobně zlepšuje výkon a optimalizuje výslednou velikost kódu.
 
 Klíčovým konceptem Svelte je štěpení kódu do komponent, které jsou více než pouze části uživatelské rozhraní. Tyto komponenty obsahuje více než prezentační logiku, definují také jak se má komponent chovat a jaké akce má provádět pod určitými podmínkami. Tento přístup tak umožnuje jednoduše eliminovat zbytečný nebo duplicitní kód ve fázi kompilace, jako dělají například \textit{C++ kompilátory}.
 
@@ -148,7 +148,7 @@ Pro plné využití tohoto frameworku, je nutné jeho rozšíření o backendovo
 
 \subsection{Shrnutí a Srovnání}
 \label{subsec:dev-framework-comparison}
-Srovnání frameworku zmíněných výše dosahuje celkového závěru, že každý z ních má své výhody a nevýhody. Pomocí každého frameworku nebo jejich kombinací lze vytvořit moderní a efektivní webové aplikace, které by splňovaly mnoho požadavků ze strany efektivního vývoje, výkonu a bezpečnosti.
+Srovnání frameworku zmíněných výše dosahuje celkového závěru, že každý z nich má své výhody a nevýhody. Pomocí každého frameworku nebo jejich kombinací lze vytvořit moderní a efektivní webové aplikace, které by splňovaly mnoho požadavků ze strany efektivního vývoje, výkonu a bezpečnosti.
 Každý z frameworků používá jiný jazyk, ať to je buď Python, JavaScript nebo PHP, což může být klíčové pro jeho výběr vzhledem k projektu. Dalším faktorem je dokumentace, komunita a dostupnost nástrojů, které mohou zajistit rychlý vývoj a řešení problémů.
 
 Pro můj projekt jsem nakonec zvolil \textbf{Django}. Tento framework jsem zvolil z důvodu, že jsem s ním již v minulosti pracoval a mám tedy určité znalosti a schopnosti pracovat pod jazykem Python. Pokud se podíváme na srovnání frameworku, Django není moc populárním v oblasti frontendu, ale díky jeho šablonovacímu systému a možností rozšíření o JavaScriptové knihovny lze tyto nedostatky vykompenzovat.
@@ -162,13 +162,13 @@ Pro můj projekt jsem nakonec zvolil \textbf{Django}. Tento framework jsem zvoli
 
 \section{Zpracování požadavku}
 \label{sec:dev-request-processing}
-Zpracování požadavku patří do důležitých prvků webových aplikací, vzhledem k rozsáhlým rozdílům u frameworku je nutné si blíže představit jak takové zpracování probíhá. V rámci tohoto procesu se setkáváme s dvěma typy zpracování \textit{Server-Side} a \textit{Client-Side}. Jako třetí druh zpracování se dá považovat i \textit{Hybridní} neboli \textit{Pre-Rendering}, který kombinuje oba přístupy.
+Zpracování požadavku patří do důležitých prvků webových aplikací, vzhledem k rozsáhlým rozdílům u frameworku je nutné si blíže představit, jak takové zpracování probíhá. V rámci tohoto procesu se setkáváme s dvěma typy zpracování \textit{Server-Side} a \textit{Client-Side}. Jako třetí druh zpracování se dá považovat i \textit{Hybridní} neboli \textit{Pre-Rendering}, který kombinuje oba přístupy.
 
 Při vývoji je nutné si předem určit, který ze stylů zpracování bude pro projekt použit, přechod mezi jednotlivými druhy již v průběhu vývoje může být velmi zdlouhavý a finančně náročný. \cite{request_processing}
 
 \subsection{Server-Side Rendering}
 \label{subsec:dev-request-processing-server-side-rendering}
-Server-Side Rendering (SSR) je často využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahuji často vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
+Server-Side Rendering (SSR) je často využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahují často vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
 
 Jednou z nevýhod SSR je však vysoká náročnost na vypočetní výkon serveru. Tento problém se projevuje zejména v případě, kdy server zaznamená velké množství klientských požadavků v krátkém časovém období. Při každém požadavku dojde k novému kompletnímu vykreslení stránky, i když se obsah stránky změnil jen minimálně.
 
@@ -198,20 +198,20 @@ Hybrid Rendering, také známy jako Pre-Rendering, představuje moderní příst
 
 \section{Technologie}
 \label{sec:dev-technology}
-V nynější sekci se zaměřím na bližší popis technologii, které lze využívat během vývoj nebo přímo v rámci daného frameworku. Mezi tyto technologie spadá široké spektrum nástrojů, knihoven, jazyký a dalších prvků, které jsou volně dostupné na internetu a mají za cíl usnadnit vývoj a zvýšit efektivitu vývojáře.
+V nynější sekci se zaměřím na bližší popis technologii, které lze využívat během vývoje nebo přímo v rámci daného frameworku. Mezi tyto technologie spadá široké spektrum nástrojů, knihoven, jazyků a dalších prvků, které jsou volně dostupné na internetu a mají za cíl usnadnit vývoj a zvýšit efektivitu vývojáře.
 
 \subsection{Šablonování}
 \label{subsec:dev-technology-templating}
-Šablonování je klíčovou technologií v rámci vývoje webových aplikací, která slouží k oddělení prezentace dat od logiky jejich zpracování. Tento přístup umožňuje vývojářům a designérům efektivně spolupracovat na vytváření jak statických tak dynamických uživatelských rozhraní, zatímco zvyšuje modularitu, udržitelnost a bezpečnost kódu. Šablonování se většinou využívalo jako externí knihovna, ale s příchodem moderních frameworků jako je Django, React nebo Angular, se stalo nedílnou součástí těchto frameworků.
+Šablonování je klíčovou technologií v rámci vývoje webových aplikací, která slouží k oddělení prezentace dat od logiky jejich zpracování. Tento přístup umožňuje vývojářům a designérům efektivně spolupracovat na vytváření jak statických, tak dynamických uživatelských rozhraní, zatímco zvyšuje modularitu, udržitelnost a bezpečnost kódu. Šablonování se většinou využívalo jako externí knihovna, ale s příchodem moderních frameworků jako je Django, React nebo Angular, se stalo nedílnou součástí těchto frameworků.
 
 Jako systém umožňuje definovat strukturu a vzhled webových stránek pomocí šablon, které se na sebe mohou vázat nebo se rozšiřovat. Každá z těchto šablon obsahuje statický HTML kód spolu s vloženými proměnnými, filtry a řídícími strukturami. Finální šablony se poté před odesláním klientovi zpracují na serveru, a výsledný HTML kód je odeslán klientovi.
 
 \noindent
 Mezi hlavní výhody používání šablon patří:
 \begin{enumerate}
-    \item \textbf{Oddělení Prezentace a Logiky:} Šablonovací systém oddělením prezentace dat a logiky zpracování umožňuje vývojářům a designérům efektivně spolupracovat.
-    \item \textbf{Univerzální Použitelnost:} Šablony lze použít pro vytváření jak statických tak dynamických uživatelských rozhraní, což zvyšuje modularitu a znovupoužitelnost kódu.
-    \item \textbf{Podpora Dynamických Dat:} Díky použití proměnných a filtrů umožňuje šablonovací systém dynamicky zobrazovat data na stránkách. To je klíčové pro vytváření interaktivních a daty řízených uživatelských rozhraní.
+    \item \textbf{Oddělení prezentace a logiky:} Šablonovací systém oddělením prezentace dat a logiky zpracování umožňuje vývojářům a designérům efektivně spolupracovat.
+    \item \textbf{Univerzální použitelnost:} Šablony lze použít pro vytváření jak statických tak dynamických uživatelských rozhraní, což zvyšuje modularitu a znovupoužitelnost kódu.
+    \item \textbf{Podpora dynamických dat:} Díky použití proměnných a filtrů umožňuje šablonovací systém dynamicky zobrazovat data na stránkách. To je klíčové pro vytváření interaktivních a daty řízených uživatelských rozhraní.
     \item \textbf{Zabezpečení:} Systém frameworku obsahuje mechanismy pro prevenci útoků jako Cross-Site Scripting (XSS), Form tampering, SQL injection a další. Tato zabezpečení jsou automaticky aplikována na šablony, což zvyšuje bezpečnost aplikace.
 \end{enumerate}
 
@@ -219,7 +219,7 @@ Celkově lze konstatovat, že technologie šablonování přispívá k efektivn�
 
 \lstinputlisting[language=HTML, caption={Příklad použití templatu v Djangu.}, label={lst:django-template-example}]{sourceCodes/DjangoTemplateExample.html}
 
-Na výše uvedeném zdrojovém kódu lze vidět několik \textit{block} značek, které rozdělují šablonu na jednotlivé části. Tyto bloky lze pak následně později implementovat v jiných šablonách kde se daná šablona rozšiřuje. Na řádku 19. tak můžeme vidět, že sekce \textit{content} bude později implementována.
+Na výše uvedeném zdrojovém kódu lze vidět několik \textit{block} značek, které rozdělují šablonu na jednotlivé části. Tyto bloky lze pak následně později implementovat v jiných šablonách, kde se daná šablona rozšiřuje. Na řádku 19. tak můžeme vidět, že sekce \textit{content} bude později implementována.
 
 \subsection{Boostrap}
 \label{subsec:dev-technology-bootstrap}
