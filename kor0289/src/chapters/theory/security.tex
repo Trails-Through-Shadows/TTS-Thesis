@@ -3,28 +3,25 @@ V této kapitole si projdeme základní autentizační protokoly a standardy, pr
 
 
 \section{API key}
-%odkaz na api key zdroj https://swagger.io/docs/specification/authentication/api-keys/
-% https://www.fortinet.com/resources/cyberglossary/api-key#:~:text=API%20Keys%20Definition%20and%20Meaning,a%20white%2Dlabeled%20internal%20marketplace.
-API klíč je unikátní token, který umožňuje uživateli se autorizovat, a následně dostat oprávnění, na která má nárok. Klíč může být poslán jako query param \texttt{GET /users?key=rea11ysecr5tApIKeY}, v hlavičce requestu či jako Cookie \texttt{X-KEY: rea11ysecr5tApIKeY}. API klíč by měl znát jen server a daný klient, proto je autentizace brána jako bezpečná pouze při použití dalších bezpečnostních prvků jako je třeba HTTPS/SSL.
+API klíč je unikátní token, který umožňuje uživateli se autorizovat, a následně dostat oprávnění, na která má nárok. Klíč může být poslán jako query param \texttt{GET /users?key=rea11ysecr5tApIKeY}, v hlavičce requestu či jako Cookie \texttt{X-KEY: rea11ysecr5tApIKeY}. API klíč by měl znát jen server a daný klient, proto je autentizace brána jako bezpečná pouze při použití dalších bezpečnostních prvků jako je třeba HTTPS/SSL. \cite{swaggerApiKeys} \cite{fortinetApiKeys}
 
 \subsection{Popis API klíče}
 \begin{listing}[ht]
     \inputminted[]{yaml}{resources/code/security/openapi-key.yml}
-    \caption{Definice OpenAPI 3.0}
+    \caption{Definice OpenAPI 3.0 \cite{swaggerApiKeys}}
     \label{code:api_key}
 \end{listing}
 
 Nejčastější použití API klíče je pro blokování anonymních požadavků, pomocí čehož je možné vyfiltrovat případný škodlivý provoz na API. Díky jeho jednoduchosti se také často používá mezi IoT zařízeními.
 
-V tomto příkladě je definován název API key (\texttt{X-API-key}), který bude přenesen v headeru (Výpis \ref{code:api_key}, řádek 8). Dále s ním můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definicí endpointů, pokud by bylo třeba specifikovat (Výpis \ref{code:api_key}, řádek 20, 21). Pokud potřeba není (Výpis \ref{code:api_key}, řádek 11, 12), autorizaci aplikujeme na všechny operace.
+V tomto příkladě je definován název API key (\texttt{X-API-key}), který bude přenesen v headeru (Výpis \ref{code:api_key}, řádek 8). Dále s ním můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definicí endpointů, pokud by bylo třeba specifikovat (Výpis \ref{code:api_key}, řádek 20, 21). Pokud potřeba není (Výpis \ref{code:api_key}, řádek 11, 12), autorizaci aplikujeme na všechny operace. 
 
 API klíčů může být využito víc, například pro specifikování uživatele nebo aplikace.
 
 Při nevalidním nebo chybějícím klíči můžeme vrátit chybový kód 401, který značí neoprávněný přístup (Výpis \ref{code:api_key} řádek 11-16).
 
 
-\section{Json Web Token} %TODO cite or smthng https://jwt.io/introduction
-\label{sec:jwt}
+\section{Json Web Token}\label{sec:jwt} %TODO cite or smthng https://jwt.io/introduction
 JWT je otevřená industriální standardizovaná % \verb|\glossary{rfc7519}| TODO
 metoda pro bezpečné přeposílání zpráv ve formátu JSON mezi dvěma stranami. Tyto objekty mohou být zkontrolovány a následně je možné ověřit jejich autenticitu, protože jsou digitálně podepsány prostřednictvím tajného klíče nebo páru veřejného a privátního klíče za pomocí RSA nebo ECDSA algoritmu.
 
@@ -55,7 +52,7 @@ OAuth 2.0 je autorizační framework, který poskytuje limitovaný přístup k d
 \subsection{Principy}
 Jedná se o autorizační, nikoli autentizační protokol, což znamená, že je určen pro získání přístupových práv ke zdrojům, ne k ověření identity uživatele, i když v praxi se často používá pro oba účely.
 
-Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem a poskytují oprávnění k přístupu k datům. I přesto, že Oauth 2.0 nemá nijak definovaný formát přístupového tokenu, nejčastěji se využívá JWT (TODO glossary json web token). Tokeny mohou mít také datum vypršení platnosti, což znamená, že po uplynutí tohoto data je třeba získat nový token.
+Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem a poskytují oprávnění k přístupu k datům. I přesto, že Oauth 2.0 nemá nijak definovaný formát přístupového tokenu, nejčastěji se využívá JWT (TODO glossary json web token). Tokeny mohou mít také datum vypršení platnosti, což znamená, že po uplynutí tohoto data je třeba získat nový token. 
 
 
 \subsection{Role}\label{sec:Oauth_roles}
@@ -72,7 +69,7 @@ V této části se zaměříme na klíčové role v procesu autentizace a autori
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=\textwidth]{figures/OAuth_abstract_flow.pdf}
-    \caption{Abstraktní průběh protokolu}%\cite{https://medium.com/@greekykhs/ro-acd8cb4cc0f4#:~:text=OAuth%202.0%20defines%20four%20roles,Resource%20Server%20and%20Authorization%20Server.}} TODO 
+    \caption{Abstraktní průběh protokolu Oauth \cite{oauthRoles} }
     \label{fig:Oauth_roles_diagram}
 \end{figure}
 

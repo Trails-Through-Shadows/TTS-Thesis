@@ -9,12 +9,12 @@ Hlavní často využívané nástroje, které si představíme, jsou \gls{rest},
 \section{REST}\label{sec:rest}
 \gls{rest}, což můžeme volně přeložit jako reprezentační stavový přenos, je nejčastěji používaná architektura API. Původně byl vytvořen jako vodítko, jak modelovat komunikaci po Internetu, jeho popularita však dále rostla z důvodu jednoduchosti implementace, flexibility z pohledu provádění změn, výkonnosti a přehlednosti i ve velkých projektech.
 
-Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem RESTful API většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě. \cite[]{devToApiStyles}
+Webové služby, které pro své API využívají architekturu REST, jsou nazývány RESTful webové služby. Pojem \gls{restful api} většinou označují RESTful web API. Nicméně tyto dva pojmy se mohou zaměňovat nezávisle na sobě. \cite[]{devToApiStyles}
 
 
-\subsection{Principy RESTful API}\label{sec:rest:principles}
+\subsection{Principy \gls{restful api}}\label{sec:rest:principles}
 
-Níže jsou popsány základní principy, které RESTful API dodržují.\cite{restfulApi}\cite[]{phd:restful_api}
+Níže jsou popsány základní principy, které \gls{restful api} dodržují.\cite{restfulApi}\cite[]{phd:restful_api}
 
 \subsubsection*{Uniform interface}
 Jedná se o klíčovou vlastnost RESTful služeb, která indikuje, že server předává a přijímá data v určitém specificky strukturovaném formátu. Nejčastěji se jedná o JSON nebo XML, ale může to být i jiný formát.
@@ -40,8 +40,8 @@ Velká výhoda RESTful webových služeb je ta, že podporují cache. V tomto p�
 Posledním ze standardů je možnost, že server může vrátit kód, který má klient vykonat, pomocí čehož může server rozšířit klienta o funkcionalitu, například při validaci formuláře se uživateli může ihned zobrazit chybová hláška. Dnes se však tento standard až tak často nevyužívá.
 
 
-\subsection{Komunikace přes RESTful API} % TODO reformat this bcs its not the same as rest
-RESTful API funguje na protokolu HTTP/S. Klient nejprve pošle serveru request strukturovaný podle dokumentace konkrétní API. Server u požadavku zkontroluje, zda je klient oprávněn tuto operaci provést, a následně ho zpracuje odpovídajícím způsobem a klientovi vrátí odpověď s příslušným stavovým kódem.
+\subsection{Komunikace přes \gls{restful api}} % TODO reformat this bcs its not the same as rest
+\gls{restful api} funguje na protokolu HTTP/S. Klient nejprve pošle serveru požadavek strukturovaný podle dokumentace konkrétní API. Server u požadavku zkontroluje, zda je klient oprávněn tuto operaci provést, a následně ho zpracuje odpovídajícím způsobem a klientovi vrátí odpověď s příslušným stavovým kódem.
 
 \subsubsection*{Message body}
 Ať už jde o požadavek či odpověď, pokud je třeba přenášet větší množství dat, většinou jsou vložena do message body. Jedná se o čistě textovou reprezentaci dat, jejíž formát není nikde specifikován a je na programátorech samotných, jaký si zvolí. Nicméně nejčastěji se používá výše zmíněný JSON nebo XML.
@@ -57,13 +57,13 @@ V hlavičce požadavku a odpovědi se nachází dodatečné informace. Může se
 
 
 \subsection{Požadavky}
-Požadavky na RESTful API musí obsahovat následující.
+Požadavky na \gls{restful api} musí obsahovat následující.
 
 \subsubsection*{URI}
-Unique resource identifier je unikátní identifikátor pro určitá data. V kontextu RESTful API se nejčastěji jedná o URL, kterému se taktéž říká endpoint -- specifikace cesty k daným datům.
+Unique resource identifier je unikátní identifikátor pro určitá data. V kontextu \gls{restful api} se nejčastěji jedná o URL, kterému se taktéž říká endpoint -- specifikace cesty k daným datům.
 
 \subsubsection*{Metoda}
-Jak již bylo zmíněno výše, RESTful API typicky používá HTTP/S protokol, z něhož také přebírá metody pro komunikaci, které jsou zde ve zkratce rozepsány.
+Jak již bylo zmíněno výše, \gls{restful api} typicky používá HTTP/S protokol, z něhož také přebírá metody pro komunikaci, které jsou zde ve zkratce rozepsány.
 
 \begin{itemize}
     \item GET -- Požadavek pro získání dat na základě parametrů v URL. Opakované volání vrátí vždy stejný výsledek.
@@ -93,7 +93,7 @@ Nejčastěji využívané kódy jsou tyto:
 
 
 \subsection{Shrnutí}
-REST je dnes obecně nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchá a programátor si může sám určit, který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný, takže není náročný na naučení. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory, což je však možné optimalizovat pomocí cache. \cite[]{devToApiStyles}
+REST je dnes obecně nejpoužívanější architektura pro API. Je velice flexibilní, jednoduchá a programátor si může sám určit, který formát pro přenos dat bude používat. Je také velice intuitivní a samopopisný, takže není náročný na naučení. Nicméně kvůli textové podobě přenosu dat může být pomalejší než architektury používající binární soubory, což je však možné optimalizovat pomocí cache. \cite[]{devToApiStyles} \cite{phd:restful_api}\cite{restfulApi}
 
 
 \section{SOAP}
@@ -101,7 +101,7 @@ SOAP neboli Simple Object Access Protocol je další z mnoha architektur API. Ta
 
 
 \subsection{Charakteristika}
-SOAP je založen na třech základních stavebních kamenech, které definují strukturu přenášených zpráv.
+SOAP je založen na třech základních stavebních kamenech, které definují strukturu přenášených zpráv. \cite{soap}\cite{enwiki:1192016676}
 
 \begin{itemize}
     \item Envelope -- Zapouzdřuje celou zprávu, určuje jakou strukturu má zpráva mít a jak ji zpracovat.
@@ -128,7 +128,7 @@ Soap je velice \textbf{zabezpečený} -- má vlastní rozšíření Web Services
 
 
 \subsection{Shrnutí}
-Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští, aby se optimalizovala rychlost tvořených API. To však neznamená, že se už nepoužívá -- díky jeho bezpečnosti je stále využíván bankami, v E-komerci, zdravotnictví a všude, kde je primární apel na bezpečnost.
+Vzhledem k masivnosti a rychlosti tohoto protokolu se od něj upouští, aby se optimalizovala rychlost tvořených API. To však neznamená, že se už nepoužívá -- díky jeho bezpečnosti je stále využíván bankami, v E-komerci, zdravotnictví a všude, kde je primární apel na bezpečnost. \cite{soap}\cite{enwiki:1192016676}
 
 
 \section{GraphQL}
@@ -136,7 +136,7 @@ GraphQL byl vyvinut Facebookem, dnes již známým pod názvem Meta. Jedná se o
 
 
 \subsection{Design}
-GraphQL je postaven na principu vrácení pouze těch dat, o které si klient řekne, bez nadměrného nebo nedostatečného načítání, což celkově zrychluje přenos dat. Pro definici prostředků využívá typový systém nazvaným schéma, proti kterému je zkontrolována query každého požadavku a až poté je vykonána. Server potom vrátí data ve stejném formátu jako zadaná query, typicky se používá JSON. Níže jsou popsány nejdůležitější stavební kameny GraphQL.
+GraphQL je postaven na principu vrácení pouze těch dat, o které si klient řekne, bez nadměrného nebo nedostatečného načítání, což celkově zrychluje přenos dat. Pro definici prostředků využívá typový systém nazvaným schéma, proti kterému je zkontrolována query každého požadavku a až poté je vykonána. Server potom vrátí data ve stejném formátu jako zadaná query, typicky se používá JSON. Níže jsou popsány nejdůležitější stavební kameny GraphQL. \cite{enwiki:1219709983} \cite{graphqlOfficial}
 
 \begin{listing}[ht!]
     \inputminted[]{ts}{resources/code/standards/playertype.gql}
@@ -165,7 +165,7 @@ GraphQL je postaven na principu vrácení pouze těch dat, o které si klient ř
 \end{itemize}
 
 \subsection{Systém datových typů}\label{sec:graphql:datatypes}
-GraphQL definuje několik druhů datových typů, které mohou být ve schématu.
+GraphQL definuje několik druhů datových typů, které mohou být ve schématu. \cite{graphqlDataTypes}
 
 \textbf{Scalar type} jsou základní datové typy jako \texttt{Int}, \texttt{Float}, \texttt{String}, \texttt{Boolean} a \texttt{ID}. Tyto datové typy jsou automaticky serializovány a deserializovány do příslušných datových typů programovacího jazyka.
 \texttt{Int} -- znaménkové celé třiceti-dvou bitové číslo.
@@ -185,7 +185,7 @@ Většina typů které se definují v GraphQL jsou \textbf{Object types} Tyto ty
 Vykřičníkem se označuje, že objekt musí mít pokaždé hodnotu neboli \textbf{Non-Null} \coderef{code:gql_datatypes}[ řádek 41]. Hranatými závorkami můžeme označit pole objektů neboli \textbf{List}. \coderef{code:gql_datatypes}[ řádek 43].
 
 \subsection{Query}\label{sec:graphql:query}
-Queries jsou základní přístupové body pro data v GraphQL. Zde si klient urči, jaké data a vlastnosti chce získat. Oproti REST API, kde se většinou a bez filtrování vrací předem určená struktura.
+Queries jsou základní přístupové body pro data v GraphQL. Zde si klient urči, jaké data a vlastnosti chce získat. Oproti REST API, kde se většinou a bez filtrování vrací předem určená struktura. \cite{enwiki:1219709983} \cite{graphqlQueries}
 
 GraphQL server poskytuje prostředí (\textit{GraphQL playground}), kde se klient může podívat na schéma, všechny dostupné datové typy a požadavky které si taktéž může vyzkoušet. To se hodí pro testovací účely když ještě není hotov frontend nebo když si chce klient ověřit zda generované požadavky vrací očekávané výsledky.
 
@@ -207,17 +207,18 @@ Můžeme samozřejmě mít zanořené požadavky jako jsou v příkladu \coderef
 \end{listing}
 
 \subsection{Mutations}\label{sec:graphql:mutations}
-Mutations jsou přístupové body, které umožnují úpravu dat, neboli právu, vkládání nových dat a mazání dat. Stuktura mutací je stejná jako od požadavků. \coderef{code:gql_datatypes}[, řádek 10] definuje vytvářecí mutaci \texttt{createUser}. U aktualizačního požadavku musíme navíc specifikovat ID objektu který chceme upravovat. A naposledy u mazání dat potřebujeme pouze identifikaci objektu.
+Mutations jsou přístupové body, které umožnují úpravu dat, neboli právu, vkládání nových dat a mazání dat. Stuktura mutací je stejná jako od požadavků. \coderef{code:gql_datatypes}[, řádek 10] definuje vytvářecí mutaci \texttt{createUser}. U aktualizačního požadavku musíme navíc specifikovat ID objektu který chceme upravovat. A naposledy u mazání dat potřebujeme pouze identifikaci objektu. \cite{graphqlMutations}
 
 Všechny tyto operace by měly vracet právě zmodifikovaný objekt. Tento požadavek není povinný ale pro vývojáře to je velké zjednodušení práce a například nemusí se znovu dotazovat aby se přesvědčili že úprava proběhla úspěšně nebo po vytvoření objektu se nemusí znovu dotazovat aby získali právě vytvořený či upravený objekt.
 
-Taktéž je dobrý návrh aby upravovací operace měli jako vstupní parametr objekt místo jednotlivých vlastností objektu.
+Taktéž je dobrý návrh aby upravovací operace měli jako vstupní parametr objekt místo jednotlivých vlastností objektu.\cite{graphqlMutations}
 
 
 \subsection{Subscriptions}\label{sec:graphql:subscriptions}
-Do teď probírané požadavky a mutace probíhali formou request-response a poté bylo spojení přerušeno, což není ideální pro komunikaci v reálném čase. Pro aplikace reálném čase potřebujeme použít web socket protokol, který společně s GraphQL subsriptions nám umožní navázat komunikaci jen jednou a poté použít publish-subsribe model, ketrý nám umožnuje zasílat data jen při změně dat bez nutnosti opakovaného dotazování.
+Do teď probírané požadavky a mutace probíhali formou request-response a poté bylo spojení přerušeno, což není ideální pro komunikaci v reálném čase. Pro aplikace reálném čase potřebujeme použít web socket protokol, který společně s GraphQL subsriptions nám umožní navázat komunikaci jen jednou a poté použít publish-subsribe model, ketrý nám umožnuje zasílat data jen při změně dat bez nutnosti opakovaného dotazování. 
 
 Subscription vypadá stejně jako mutace nebo query a platí pro něj stejná pravidla. Je zde pouze jeden rozdíl a to ten, že místo klíčových slov \texttt{mutation} nebo \texttt{query} použijeme klíčové slovo \texttt{subscription}.
+\cite{graphqlSubscriptions}
 
 
 \section{Shrnutí}
@@ -238,6 +239,6 @@ Porovnání bylo opět sestaveno na základě vlastních úsudků v nejlepším 
     \label{tab:comparison_standards}
 \end{table}
 
-Tabulka \ref{tab:comparison_standards} srovnává výše zmíněné architektury pro tvorbu API. Bodování je vytvořeno se stejnými pravidly, jako tomu bylo v Tabulce \ref{tab:formats_comparison}. Pro účely modelové hry nejlépe odpovídá REST díky jeho jednoduchosti a rozšířenosti. Je rychlý a spolehlivý, využívá se především pro veřejná API s aplikacemi, které se zaměřují na práci se zdroji. SOAP je určen pro velké firmy, kde je prioritizovaná bezpečnost a taktéž je náročný na naučení. GraphQL je určen především pro systémy vyžadující flexibilní data. Proto bude v rámci práce implementována komunikace přes RESTful API\@.
+Tabulka \ref{tab:comparison_standards} srovnává výše zmíněné architektury pro tvorbu API. Bodování je vytvořeno se stejnými pravidly, jako tomu bylo v Tabulce \ref{tab:formats_comparison}. Pro účely modelové hry nejlépe odpovídá REST díky jeho jednoduchosti a rozšířenosti. Je rychlý a spolehlivý, využívá se především pro veřejná API s aplikacemi, které se zaměřují na práci se zdroji. SOAP je určen pro velké firmy, kde je prioritizovaná bezpečnost a taktéž je náročný na naučení. GraphQL je určen především pro systémy vyžadující flexibilní data. Proto bude v rámci práce implementována komunikace přes \gls{restful api}\@.
 
 \endinput

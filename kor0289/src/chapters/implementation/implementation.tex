@@ -39,7 +39,7 @@ Jedna z konkrétních implementací JPA je Hibernate. Za pomocí výše zmíněn
 Neboli Java Database Connectivity je API pro přístup k databázi. Poskytuje metody pro dotazování se na na databázi pomocí \gls{sql} a umožňuje zpracovávat výsledky dotazů.
 
 \begin{listing}[ht!]
-    \inputminted[]{Java}{resources/code/impl/EnemyDTO.java}
+    \inputminted[breaklines]{Java}{resources/code/impl/EnemyDTO.java}
     \caption{Příklad entity v JPA}
     \label{code:jpa_entity}
 \end{listing}
@@ -110,21 +110,22 @@ Za zmínku také stojí anotace \texttt{@Builder}, která vygeneruje interní t�
 Tato knihovna slouží pro serializaci objektů do formátu JSON \chapterref{sec:formats:json} a naopak. S její pomocí bylo možné specifikovat, jak se budou jednotlivé objekty či atributy serializovat, například zde lze nastavit ignorování některých atributů nebo úplně vlastní serializace.
 
 \subsubsection*{Swagger}\label{sec:impl:swagger}
-Swagger je open-source dokumentační nástroj pro RESTful API zahnutý přímo v knihovně Spring Boot, který umožňuje vývoj API skrz celý jeho životní cyklus od návrhu přes dokumentaci a testování po nasazení. Využívá specifikaci OpenAPI, pomocí které dokáže generovat dokumentaci, interakci, testy a další.\cite{swagger:about} Tohoto nástroje jsme hojně využívali zvlášť pro interakci s koncovými body pro testování.
+Swagger je open-source dokumentační nástroj pro \gls{restful api} zahnutý přímo v knihovně Spring Boot, který umožňuje vývoj API skrz celý jeho životní cyklus od návrhu přes dokumentaci a testování po nasazení. Využívá specifikaci OpenAPI, pomocí které dokáže generovat dokumentaci, interakci, testy a další.\cite{swagger:about} Tohoto nástroje jsme hojně využívali zvlášť pro interakci s koncovými body pro testování.
 
 Ve Spring Bootu je jeho použití velmi jednoduché, stačí zaznamenat závislosti do \texttt{pom.xml} a přidat Springdoc Swagger konfiguraci do hlavního konfiguračního souboru.
 
-\subsection{Serializace}\label{sec:impl:serialization}
-\sectionref{sec:formats:deserialization} 
+\subsection{Serializace}\label{sec:impl:serialization} 
 % todo oprav si tu vetu pls wtf is this
-V rámci vývoje byla vytvořena vlastní třída pro serializaci relačních objektů pomocí vlastní třídy 
-%\coderef{code:lazyFieldsSerializer} TODO
-na serializování mapovaných objektů. Upravená metoda \texttt{serialize} zde zkontroluje, zda je serializovaný objekt instancí proxy a pokud ano, zda je objekt nainicializován. To za nás řeší metoda \texttt{Hibernate.isInitialized}. 
-%\coderef{code:lazyFieldsSerializer}[, řádek 56]. TODO
+% V rámci vývoje byla vytvořena vlastní třída pro serializaci relačních objektů pomocí vlastní třídy 
+% %\coderef{code:lazyFieldsSerializer} TODO odkaz v přiložených souborech jaký to je soubor JEBAT THIS SHIT
+% na serializování mapovaných objektů. 
+Pro serializaci \sectionref{sec:formats:deserialization} relačních objektů byla vytvořena třída \texttt{LazyFieldsSerializer}, která se stará o serializaci objektů, které jsou označeny jako \texttt{lazy}.
+Upravená metoda \texttt{serialize} zde zkontroluje, zda je serializovaný objekt instancí proxy a pokud ano, zda je objekt nainicializován. To za nás řeší metoda \texttt{Hibernate.isInitialized}. 
+%\coderef{code:lazyFieldsSerializer}[, řádek 56]. TODO to stejné jako výše
 Pokud je tedy objekt nainicializován, serializuje se a dále na se jeho atributech opět volá metoda \texttt{serialize}. Pokud není nainicializován a nejedná se o kolekci, tak se serializuje pouze jeho id aniž by se objekt nainicializoval celý.
-%\coderef{code:lazyFieldsSerializer}[, řádek 60]. TODO
+%\coderef{code:lazyFieldsSerializer}[, řádek 60]. TODO to stejné jako výše
 Pokud se jedná o kolekci, musí se jednat o \texttt{M:N} tabulku a serializují se tedy všechny atributy kromě relací. 
-%\coderef{code:lazyFieldsSerializer}[, funkce \texttt{writeFieldsWithoutLazy() }]. TODO
+%\coderef{code:lazyFieldsSerializer}[, funkce \texttt{writeFieldsWithoutLazy() }]. TODO to stejné jako výše 
 
 
 \subsection{Lazy load}\label{sec:impl:lazyload}
@@ -134,20 +135,22 @@ Tato funkce za pomocí \texttt{Hibernate.initialize()} nejdříve nainicializuje
 
 
 \subsection{Koncové body}\label{sec:impl:endpoints}
-Hlavním výstupem této práce je seznam koncových bodů, které je možné použít pro administrativní část i hraní hry. Jednotlivé přístupové body jsou rozděleny do tzv. kontrolérů. Jako příklad zde je kontrolér pro entitu \textit{Character} \coderef{code:characterController}. 
+Hlavním výstupem této práce je seznam koncových bodů \figureref{fig:action:endpoint} , které je možné použít pro administrativní část i hraní hry. Jednotlivé přístupové body jsou rozděleny do tzv. kontrolérů. Jako příklad zde je kontrolér pro entitu \textit{Character} \coderef{code:characterController}. 
 
-% \begin{figure}[H] %TODO graf endpointu
-%     \centering
-%     \includegraphics[width=0.7\textwidth]{figure}
-%     \caption{caption}
-%     \label{fig:label}
-% \end{figure}
+Níže \figureref{fig:endpoint:general} je zobrazen obecný diagram komponent koncového bodu. Třída \texttt{Controller} zde představuje komponentu poskytující koncové body klientům. Po příchozím požadavku ho přeposílá třídě \texttt{Service}, která se stará o jeho vyhodnocení. Při kladném výsledku data předá zpět třídě \texttt{Controller}, která je výsledek pošle klientovi. Pokud je výsledek záporný, je zachycena výjimka a klientovi je vracena přímo.
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/impl/API Implementation - endpoint.pdf}
+    \caption{Obecný diagram koncového bodu}
+    \label{fig:endpoint:general}
+\end{figure}
 
 Anotací \texttt{@RestController} určíme, že tato třída bude obsahovat koncové body. Dále pomocí anotace \texttt{@RequestMapping} zadáme cestu, pod kterou budou všechny koncové body v této třídě dostupné. A na závěr pomocí jednotlivých mapping anotací (\texttt{@GetMapping, @PutMapping @PostMapping @DeleteMapping}) určujeme, na jakou HTTP metodu má funkce reagovat.
 
 Při mapování můžeme používat jak URI vzory pomocí regex výrazů (např \texttt{"/resources/*.png"}) tak i proměnné v URI (např \texttt{"/resources/{id}"}). Ten používáme třeba zde na výše zmíněném výpisu kontroléru postavy \coderef{code:characterController}[, řádek 9] pro získání jedné entity \textit{Character}. S tím se pojí anotace \texttt{@PathVariable}, která určuje, že vstupní parametr id bude brán z URI a bude se jednat o datový typ \texttt{int}.
 
-Jako další můžeme používat tzv. \textit{query} parametry, které je možné získat získat za pomocí anotace \texttt{@RequestParam}, kde se může předem určit, zda je parametr povinný nebo jakou bude mít výchozí hodnotu \coderef{code:characterController}[, řádek 12]. Ve výsledné URI požadavek pro získání entity s identifikátorem 1 a načteným inventářem bude vypadat následovně: \texttt{GET /characters/1?include\=inventory\&lazy=true}. Tento požadavek vrátí postavu hráče s namapovaným inventářem a s ostatními atributy. Atributy \textit{clazz} a \textit{race} % TODO ref na db schema
+Jako další můžeme používat tzv. \textit{query} parametry, které je možné získat získat za pomocí anotace \texttt{@RequestParam}, kde se může předem určit, zda je parametr povinný nebo jakou bude mít výchozí hodnotu \coderef{code:characterController}[, řádek 12]. Ve výsledné URI požadavek pro získání entity s identifikátorem 1 a načteným inventářem bude vypadat následovně: \texttt{GET /characters/1?include=inventory\&} \texttt{lazy=true}. Tento požadavek vrátí postavu hráče s namapovaným inventářem a s ostatními atributy. Atributy \textit{clazz} a \textit{race} \figureref{fig:dix:database_schema}
 budou vypsané pouze jako id a nebudou nainicializované.
 
 Pro metody post byla ještě použita anotace \texttt{@RequestBody}, pomocí které můžeme vzít data z těla požadavku. V našem případě jsme požadovali JSON objekt, který se hned mapoval na objekt třídy.
@@ -164,17 +167,15 @@ Testování probíhalo za pomocí dobrovolníků kteří si zkusili zahrát hru,
 
 
 
-\section{Problémy při vývoji}
+\section{Problémy při vývoji}\label{sec:impl:problems}
 Během vývoje se vyskytlo několik problémů, které se musely vyřešit. Nyní se zaměříme na ty nejzávažnější.
 
-\subsection{Serializace} %%TODO tohle ref nefunguje idk why
-Když byly atributy označeny jako \texttt{lazy}, pořád byl problém při serializaci, kdy k těmto atributům knihovna Jackson přistupovala, čímž byly načteny z databáze a následně serializovány, i když se v kódu s nimi nepracovalo. Tento problém byl vyřešen pomocí vlastní třídy 
-% \coderef{code:lazyFieldsSerializer} 
+\subsection{Serializace}
+Když byly atributy označeny jako \texttt{lazy}, pořád byl problém při serializaci, kdy k těmto atributům knihovna Jackson přistupovala, čímž byly načteny z databáze a následně serializovány, i když se v kódu s nimi nepracovalo. Tento problém byl vyřešen pomocí vlastní třídy \texttt{LazyFieldsSerializer}
 na serializování namapovaných objektů. \sectionref{sec:impl:serialization}
 
 \subsection{Lazy load}
 Knihovna Hibernate bohužel nemá metodu pro rekurzivní načtení relací objektu, v souvislosti s vlastní serializací pak nastal problém, když se měl serializovat objekt se všemi jeho relacemi. Hibernate podporuje jen načtení objektu který je instancí \texttt{HibernateProxy}. Tento problém byl vyřešen pomocí statické funkce \texttt{hibernateInitializeAll()}. \sectionref{sec:impl:lazyload}
 
 \subsection{Příliš velká databáze}
-%TODO idk jestli všechno zz toho tu nechat nebo to trošku prostříhat
 Při návrhu databáze nebyl brán ohled na možnou časovou náročnost. Databáze se navrhovala jako funkční celek připravený do produkce s ohledem na případné rozšíření. To vyústilo v problém, kdy jednotlivé případné úkony jako je \gls{orm} či CRUD operace nad jednotlivými entitami byly velice zdlouhavé a zabíraly většinu času vývoje. S tímto se pojil o to složitější management změn u koncových bodů. Z tohoto důvodu se v implementaci vynechaly entity \textit{summon} a \textit{item}.
