@@ -32,7 +32,7 @@ Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a t
 
 Po úspěšné instalaci bylo dalším krokem rozvržení navigace, která se nachází na levé straně stránky. Jednotlivé odkazy poté následně směřují na podstránky, kde lze vidět obsah jednotlivých tabulek, kde se nachází možnost filtrovat, hledat nebo provádět zbytek CRUD operací.
 
-Průběh otevření každé ze stránek navigace je možné vidět na diagramu~\ref{fig:OpenPage}, kde prvně dochází k ověření přihlášení uživatele, následnému zobrazení dočasného obsahu stránky, který je v pozdější době asynchronně doplněn obsahem z API\@.
+Průběh otevření každé ze stránek navigace je možné vidět na Diagramu~\ref{fig:OpenPage}, kde prvně dochází k ověření přihlášení uživatele, následnému zobrazení dočasného obsahu stránky, který je v pozdější době asynchronně doplněn obsahem z API\@.
 
 \processDiagram{diagrams/OpenPage}{OpenPage}{0.75\textwidth}{Diagram zobrazující otevření stránky.}
 
@@ -59,7 +59,7 @@ V našem případě jsme použili pro autorizace obyčejný token, které je ulo
 
 \section{Volba technologií}
 \label{sec:implementation-technologies}
-V této sekci se budu věnovat výběru technologii, které jsem zvolil v průběhu implmentace aplikace. Výběr technologii většinou vychází z analýzy uvedené v kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
+V této sekci se budu věnovat výběru technologii, které jsem zvolil v průběhu implmentace aplikace. Výběr technologii většinou vychází z analýzy uvedené v Kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
 
 \subsection{Framework}
 \label{subsec:implementation-technologies-framework}
@@ -67,7 +67,7 @@ Jak bylo zmíněno v sekci analýze rozhraní, pro vývoj aplikace administrativ
 
 Framework jako samotný neobsahuje rozšířené prvky pro použití na frontendu, z toho důvodu jsem byl nucen psát si tyto komponenty sám. Pro jejich vývoj jsem tam využil jazyk TypeScriptu, kde výsledné komponenty jsou mezi stránkami sdíleny. Pro dynamické načítaní obsahu je využíváno asynchronní načítání dat pomocí AJAXu, po prvotním načtení stránky zavoláno a po jeho zpracování dojde k překreslení části stránky.
 
-Jedna z komponent, která slouží pro asynchronní získávání dat je zobrazena v ukázce kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem, který je získán v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
+Jedna z komponent, která slouží pro asynchronní získávání dat je zobrazena v ukázce Zdrojového Kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem, který je získán v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
 
 \lstinputlisting[language=TypeScript, caption={Komponenta pro získání asynchronních dat.}, label={lst:data-request-component}]{sourceCodes/DataRequestComponent.ts}
 
@@ -93,7 +93,7 @@ Pro podporu vícejazyčné funkčnosti byla v této práci využita knihovna i18
 
 \lstinputlisting[language=JavaScript, caption={Ukázka využití knihovny i18next.}, label={lst:i18next-example}]{sourceCodes/LanguageLocalization.js}
 
-Na ukázce kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
+Na ukázce Zdrojového Kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
 
 \subsection{Databáze}
 \label{subsec:implementation-technologies-database}
@@ -101,7 +101,7 @@ Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\h
 
 \subsubsection*{Schéma}
 \label{subsubsec:implementation-technologies-database-scheme}
-Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterém se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na obrázku~\ref{fig:db_scheme}. Software DbDiagram nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
+Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterém se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na Obrázku~\ref{fig:db_scheme}. Software DbDiagram nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
 
 \begin{figure}[H]
     \centering
@@ -116,9 +116,9 @@ Automatizace vytváření a plnění databáze je důležitá pro kontinuální 
 
 Pro vytvoření databáze byl použitý SQL soubory, který se po každé úpravě v nástroji DbDiagram.io zmíněným výše vyexportoval. Jakmile byla databáze resetována do výchozí podoby a vše proběhlo úspěšně. Došlo na řadu její plnění. Pro plnění databáze jsou data uložena v souborech ve formátu JSON. Tyto soubory lze jednoduše exportovat z administračního rozhraní a uložit pro pozdější použití při obnově nebo plnění databáze.
 
-Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů, bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účet byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na obrázku~\ref{fig:db_table_priority}. Tento diagram slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
+Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů, bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účet byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na Obrázku~\ref{fig:db_table_priority}. Tento diagram slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
 
-Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou mají největší počet cest k sobě. V případě, že tabulka nemá žádnou cestu k sobě, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v tabulce~\ref{tab:db_table_priority}.
+Pro čtení priority z Grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou mají největší počet cest k sobě. V případě, že tabulka nemá žádnou cestu k sobě, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v Tabulce~\ref{tab:db_table_priority}.
 
 \begin{figure}[H]
     \centering
@@ -153,7 +153,7 @@ Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít
 
             \bottomrule
         \end{tabular}
-    \caption{Tabulka s prioritou dle diagramu~\ref{fig:db_table_priority}
+    \caption{Tabulka s prioritou dle Diagramu~\ref{fig:db_table_priority}
     \label{tab:db_table_priority}}
 \end{table}
 
@@ -163,7 +163,7 @@ Týmová spolupráce ve čtyřčlenném týmu studentů se stává obzvláště 
 
 \subsection{Rozdělení práce}
 \label{subsec:implementation-collaboration-distribution}
-Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně, nebo ve spolupráci. Spolupráce je zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na obrázku~\ref{fig:job_distribution} je tak navíc jasně velikostně zobrazena náročnost jednotlivých částí projektu.
+Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně, nebo ve spolupráci. Spolupráce je zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na Obrázku~\ref{fig:job_distribution} je tak navíc jasně velikostně zobrazena náročnost jednotlivých částí projektu.
 
 \begin{figure}[H]
     \centering
@@ -178,14 +178,14 @@ Efektivnost verzování kódu je důležitou součástí každé týmové spolup
 
 \subsubsection*{Větve}
 \label{subsubsec:implementation-collaboration-versioning-branches}
-V moderních vývojích systému se každá část nebo projekt celý rozděluje do složitějšího stromu větví známého pod názvem \textit{Git Worfkflow}, jeho efektivní reprezentace lze vidět na obrázku~\ref{fig:git_workflow}. Tento strom se dělí na vícero větví, kde mezi ty hlavní tři větve patří \textit{live} neboli master, \textit{develop} a \textit{uat} známá jako testing branch.
+V moderních vývojích systému se každá část nebo projekt celý rozděluje do složitějšího stromu větví známého pod názvem \textit{Git Worfkflow}, jeho efektivní reprezentace lze vidět na Obrázku~\ref{fig:git_workflow}. Tento strom se dělí na vícero větví, kde mezi ty hlavní tři větve patří \textit{live} neboli master, \textit{develop} a \textit{uat} známá jako testing branch.
 
 Větev \textit{master} slouží pro produkční verze projektu, které jsou již plně připraveny k nasazení, zatímco větev \textit{develop} slouží pro vývoj nových funkcí případně oprav chyb. Při každém vývoji nové funkce se pak každá tato aktualizace dostává pomocí tzv. \textit{pull requestu} do větve testovací. V této větvi pak dochází ke konstantnímu testování celého systému, pokud je následně vše v pořádku. Aktualizace se dostávají do produkční větve.
 
 Následně strom obsahuje pod větve vývojové, tyto větve se štěpí z větve developu a slouží pro vývoj nových funkcí nebo opravu chyb. Po dokončení a úspěšném testování je tato větev spojena zpět do developu a po vydání nové verze je spojena do masteru.
 
 \subsubsection*{Zkratky}
-Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o funkční příkazy softwaru Git, ale o pouhé zkratky pro přehlednější vyobrazení v schématu.
+Tabulka zkratek zobrazena v Obrázku~\ref{fig:git_workflow}. Nejedná se zde o funkční příkazy softwaru Git, ale o pouhé zkratky pro přehlednější vyobrazení v schématu.
 
 \begin{table}[H]
     \centering
@@ -207,7 +207,7 @@ Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o 
 
             \bottomrule
         \end{tabular}}
-    \caption{Seznam zkratek pro větve v Git Workflow dle obrázku~\ref{fig:git_workflow}
+    \caption{Seznam zkratek pro větve v Git Workflow dle Obrázku~\ref{fig:git_workflow}
     \label{tab:git_workflow}}
 \end{table}
 
@@ -231,7 +231,7 @@ V rámci organizace byly vytvořeny následující části:
 
 \begin{itemize}
     \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se nachází pod odkazem  \url{https://docs.tts-game.fun/thesis/intro}.
-    \item TTS-Database  -- obsahuje skripty pro vytvoření a naplnění databáze základními daty, jejichž schéma je viditelné na obrázku~\ref{fig:db_scheme} nebo pod odkazem: \url{https://db.tts-game.fun}.
+    \item TTS-Database  -- obsahuje skripty pro vytvoření a naplnění databáze základními daty, jejichž schéma je viditelné na Obrázku~\ref{fig:db_scheme} nebo pod odkazem: \url{https://db.tts-game.fun}.
     \item TTS-API       -- obsahuje zdrojové kódy API, které slouží pro komunikaci mezi frontendem a backendem. Funkční produkční verze běží pod odkazem \url{https://api.tts-game.fun}.
     \item TTS-Dashboard -- obsahuje zdrojové kódy frontendu, který slouží pro zobrazení dat a správu aplikace. Produkční verze nalezena pod odkazem \url{https://dashboard.tts-game.fun}.
     \item TTS-Frontend  -- obsahuje frontend, který slouží pro interakci s uživatelem. Produkční verze dostupná na \url{https://play.tts-game.fun}.
@@ -259,12 +259,12 @@ Během implementace bylo nutné vykreslit hexagonální mapu, která slouží ja
 
 Při používání hexagonálního rozložení bylo nezbytné načítat z databáze veškeré hexagony, jeho sousedy a vazby, které obsahuje s dalšími objekty. Po několika pokusech s klasickými souřadnicemi ve formátu \textit{(x, y)} nám bylo doporučeno přejít na souřadnicový systém osový, známý jako \textit{axial coordinates}, který je reprezentován formátem \textit{(q, r, s)}. Tento systém je používán právě v hexagonálních hrách, protože usnadňuje výpočet vzdálenosti mezi hexagony a identifikaci jejich sousedů pomocí třetí osy.
 
-Pro ověření správnosti souřadnic je možné sečíst všechny koordináty souřadnice hexagonu, které by měly dát výsledek 0. Tento výpočet je zobrazen v rovnici~\ref{eq:axial-coordinates-verification}.
+Pro ověření správnosti souřadnic je možné sečíst všechny koordináty souřadnice hexagonu, které by měly dát výsledek 0. Tento výpočet je zobrazen v Rovnici~\ref{eq:axial-coordinates-verification}.
 \begin{equation}
     q + r + s = 0\label{eq:axial-coordinates-verification}
 \end{equation}
 
-Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obrázku vedle rovnice~\ref{eq:hexagon-neighbors}. V případě použít normálního souřadnicového systému by bylo zapotřebí vytvořit složitý algoritmus pro výpočet sousedů, zatímco v případě osových součadnic stačí ke každému koordinátu přičíst nebo odečíst 1. Výpočet sousedů je zobrazen v Rovnici~\ref{eq:hexagon-neighbors}. \cite{hexagon_grid}
+Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obrázku vedle Rovnice~\ref{eq:hexagon-neighbors}. V případě použít normálního souřadnicového systému by bylo zapotřebí vytvořit složitý algoritmus pro výpočet sousedů, zatímco v případě osových součadnic stačí ke každému koordinátu přičíst nebo odečíst 1. Výpočet sousedů je zobrazen v Rovnici~\ref{eq:hexagon-neighbors}. \cite{hexagon_grid}
 
 \begin{equation}
     \vcenter{\hbox{\includegraphics[width=6cm,height=6cm]{diagrams/hexagonNeighbors}}}
