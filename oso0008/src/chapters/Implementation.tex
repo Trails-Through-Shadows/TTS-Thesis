@@ -16,7 +16,6 @@ Komunikace s API byla implementována pomocí XMLHttpRequest, který je součás
   \label{code:post_usage}
 \end{listing}
 
-
 \section{Databáze}
 Databáze byla vyvíjena za účasti všech řešitelů tohoto projektu. Je implementována v MariaDB, což je open-source odvětví MySQL databáze. Ta nám byla díky její spolehlivosti doporučena vedoucím práce. Databáze se v průběhu vývoje měnila, jelikož se měnila i struktura dat, které byly potřeba ukládat. V současné době obsahuje 48 tabulek, z čehož 11 z nich slouží čistě jako vazební. Databáze je přístupna pouze z backendové části aplikace, přes koncové body API. Schéma celé databáze (bez vazebních tabulek) je zobrazeno na obrázku \ref{fig:db_schema}.
 
@@ -34,11 +33,18 @@ V následující sekci budou popsány jednotlivé stránky, které byly implemen
 Přihlašování je první komponenta, která je uživateli po navštívení stránky zobrazena. Jedná se o jednoduchý formulář se dvěma poli, kde uživatel zadá své licenční číslo a heslo. Po potvrzení formuláře se data odešlou na server, kde se porovnají s daty v databázi. Pokud je vše v pořádku, tak se z API vrátí odpověď s tokenem a identifikátorem licence a obě tyto informace se uloží do relace. Token se dále používá pro autorizaci dotazů. Následně je uživatel přesměrován na další komponentu. V případě, že je příhlášení chybné, je uživateli zobrazena chybová hláška pomocí knihovny Notiflix. Jedná se o jednoduchou komponentu, která nevyžaduje žádné složité operace, tudíž ani její implementace nebyla nijak náročná.
 
 \subsection{Výběr dobrodružství}
-Tato komponenta následuje hned po přihlášení. Zde si může uživatel prohlédnout, vybrat, či vytvořit takzvané dobrodružství (ta jsou stručně popsáne zde: \ref{sec:adventure}). Každé z nich má vlastní kartu, která obsahuje název, popis a výčet zdrojů, které mají hráči dostupné. Uživatel si může vybrat dobrodružství, které chce hrát, a následně je přesměrován na další komponentu. Pokud si žádné nevybere, může si vytvořit nové. Vytvoření nového dobrodružství je možné pouze v případě, že jich na dané licenci existuje méně než osm, což by mělo být dostatečné množství. Zároveň je zde možnost dobrodružství smazat, či upravit jeho název a popis.
+Tato komponenta následuje hned po přihlášení. Zde si může uživatel prohlédnout, vybrat, či vytvořit takzvané dobrodružství (ta jsou stručně popsáne zde: \ref{sec:adventure}). Každé z nich má vlastní kartu, která obsahuje název, popis a výčet zdrojů, které mají hráči dostupné. Uživatel si může vybrat dobrodružství, které chce hrát, a následně je přesměrován na další komponentu. Pokud si žádné nevybere, může si vytvořit nové. Vytvoření nového dobrodružství je možné pouze v případě, že jich na dané licenci existuje méně než osm, což by mělo být dostatečné množství. Zároveň je zde možnost dobrodružství smazat, či upravit jeho název a popis. Sekvenční diagram této komponenty je zobrazen na obrázku \ref{fig:adventure_diagram}.
 
 U této komponenty se projevil problém s rozlišováním jednotlivých karet s dobrodružstvími. Svelte framework umožnujě použití cyklů, které byly využity pro vytvoření karet. Problém nastal při pokusu o přidání funkcí pro smazání a úpravu. Tyto funkce byly implementovány pomocí modálních oken, které se zobrazí po kliknutí na tlačítko na kartě. Problém byl v tom, že všechny karty měly stejný identifikátor, tudíž nebylo možné rozlišit, která z nich byla vybrána. Tento problém byl vyřešen přesunutím karty a modálního okna do samostatné komponenty, která si udržuje svůj vlastní stav. Podobný problém s identifikátory se v tomto projektu vyskytl několikrát a vždy byl vyřešen obdobným způsobem.
 
 Další problém se naskytl, když jsem se pokusil dynamicky měnit barvu svg obrázku, který je použit na tlačítku pro přidání nového dobrodružství. Při pokusu o změnu barvy pomocí standardních CSS vlastností nenastala žádná změna. Tento problém byl vyřešen přidáním vlastnosti \texttt{filter}, která umožňuje aplikovat obrázkům různé efekty pomocí několika barevných filtrů. Tyto filtry zahrnují mimo jiné také \texttt{brightness}, \texttt{contrast}, \texttt{sepia}, \texttt{saturate}, \texttt{hue-rotate} a \texttt{invert}, které byly pro potřebnou změnu barvy použity. Z původní černé byly takto vytvořeny barvy světle šedá (s hexadecimální hodnotou \texttt{\#bababa}) pro výchozí stav a tmavě šedá (\texttt{\#222}) pro stav po najetí myši. Tyto světlé barvy odpovídají těm použitým ve zbytku aplikace. Ukázka kódu, kterým byla tato změna provedena, je uvedena v ukázce \ref{code:svg_filter}. Tento problém nebylo složité vyřešit, ale jeho řešení jsem považoval za zajímavé, jelikož je nutné barvu aproximovat pomocí filtrů, místo aby bylo možné ji nastavit přímo.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.84\textwidth]{resources/figures/adventure_diagram.pdf}
+  \caption{Sekvenční diagram komponenty pro výběr dobrodružství}
+  \label{fig:adventure_diagram}
+\end{figure}
 
 \begin{listing}[H]
   \inputminted[breaklines]{css}{resources/code/svg_color.css}
@@ -55,7 +61,7 @@ Použitá okna nápovědy byla importována z knihovny Bootstrap. Vyvstal u nich
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Charracter Creation.pdf}
+  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Charracter Creation.png}
   \caption{Snímek obrazovky komponenty pro vytváření postav}
   \label{fig:character-creation}
 \end{figure}
@@ -71,7 +77,7 @@ Po odkliknutí příběhu je zobrazena hrací plocha ukazující první místnos
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Map.pdf}
+  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Map.png}
   \caption{Snímek obrazovky komponenty pro mapu}
   \label{fig:map}
 \end{figure}
@@ -92,7 +98,7 @@ Po zadání iniciativy je zobrazena hlavní část střetnutí, kde se karty s p
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Encounter.pdf}
+  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Encounter.png}
   \caption{Snímek obrazovky komponenty pro střetnutí}
   \label{fig:combat}
 \end{figure}
