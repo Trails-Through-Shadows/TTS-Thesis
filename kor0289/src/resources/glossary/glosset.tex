@@ -24,7 +24,10 @@
                     \glstarget{##1}{\glossentryname{##1}}]
         \ifglshaslong{##1}%
         { (\abbrtype{##1}: \glsentrylong{##1})\space}{}%
-        \glossentrydesc{##1}\glspostdescription\space ##2}%
+        \glossentrydesc{##1}\glspostdescription\space ##2
+        %add optional link to web
+        \ifglshasfield{useri}{##1}{\par \url{\glsentryuseri{##1}}{Link}}{}%
+    }%
 }
 
 % Define the style for the glossary
@@ -59,7 +62,7 @@
     type=shortcuts,
     name={Representational state transfer (REST)},
     text={REST},
-    description={},
+    description={Styl architektury aplikačního rozhraní, které používá HTTP požadavky pro přístup k datům.},
     user1={https://www.google.com},
     user2={https://www.seznam.cz},
 }
@@ -68,7 +71,7 @@
     type=shortcuts,
     name={Simple object access protocol (SOAP)},
     text={SOAP},
-    description={},
+    description={Protokol pro výměnu zpráv založených na XML především pomocí HTTP},
     user1={https://www.google.com},
     user2={https://www.seznam.cz},
 }
@@ -139,5 +142,14 @@
     name={Stoplight},
     text={Stoplight},
     description={Stoplight je nástroj pro tvorbu a správu API dokumentace.},
+    user1={https://stoplight.io/},
+}
+
+% restful api
+\newglossaryentry{restful api}{
+    type=term,
+    name={RESTful aplikační rozhranní},
+    text={RESTful API},
+    description={API které dodržuje architektonický styl REST.},
     user1={https://stoplight.io/},
 }

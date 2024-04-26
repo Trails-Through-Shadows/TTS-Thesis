@@ -32,8 +32,9 @@ Hra nejprve vyžaduje registraci přes endpoint \texttt{/v2/register}. Ten vrát
 \end{listing}
 \footnotetext{Velká část dat musela být pro přehlednost smazána}
 
-Jako odpověď se zde používá formát JSON, který obsahuje především objekt \texttt{data} a poté dodatečné objekty jako třeba \texttt{meta}, ve kterých mohou být další informace jako stránkování. % TODO odkaz na stránkování
-Status je použit v souladu s klasickým výkladem statusových kódů % TODO odkaz na ty pravidla někde v restku
+Jako odpověď se zde používá formát JSON, který obsahuje především objekt \texttt{data} a poté dodatečné objekty jako třeba \texttt{meta}, ve kterých mohou být další informace jako stránkování.
+\cite{pagination}
+Status je použit v souladu s klasickým výkladem statusových kódů \sectionref{sec:rest:principles} 
 a dále je obsahu rozšířen o konkrétní popis chyby v daném požadavku. Příklad je vidět na výpisu \ref{code:space_error}, kde je zobrazena chyba při požadavku na odlet na jinou planetu, neboť loď není na orbitě.
 
 
@@ -150,12 +151,6 @@ Nakonec jsme vybrali primárně díky doporučení našeho vedoucího práce Mar
 v této kapitole bude probráno jaké frameworky a technologie jsou dostupné pro tvorbu API. Níže je výčet těch nejznámějších a nejpoužívanějších s ohledem na požadavky a zkušenosti týmu.
 
 \subsection{Spring Boot}\label{sec:api_technologies:spring}
-% \begin{wrapfigure}{r}{0.3\textwidth} % TODO idk jestli tu dávat obrázky
-%     \centering
-%     \includegraphics[width=0.2\textwidth]{figures/logos/springboot.png}
-%     \caption{Logo Spring Bootu, zdroj: } %%TODO kdyžtak to dát do cite \url{https://www.pngaaa.com/detail/2459546}
-%     \label{fig:spring}
-% \end{wrapfigure}
 Založen originálně na Spring technologii ale snaží se udělat originální Spring framework více uživatelsky přívětivý. Spring boot obsahuje v sobě vše, co je třeba, bez velkého konfigurování knihoven. Je určen i pro velké aplikace ve velkých společnostech jako je Netflix. Kromě programovacího jazyku Java podporuje i Kotlin a Groovy. Má velkou podporu komunity a skvělou dokumentaci. Ovšem může být náročnější na hardware a binární soubory jsou větší kvůli velkému množství knihoven.
 
 \subsection{ASP.NET Core}\label{sec:api_technologies:asp}
@@ -165,8 +160,8 @@ Uzavřený framework od Microsoftu, který je určen pro webové aplikace. Jedn�
 Založeno na Django frameworku a jeho pohledech založených na třídách \textit{class-based views}. Celkově se jedná o velice bezpečný framework určený pro programovací jazyk Python, s rychlou učící křivkou a s obsáhlou dokumentací. Ovšem u větších projektů je méně přehledný než výše zmíněné frameworky.
 
 \subsection{Fast API}\label{sec:api_technologies:fast}
-Jakožto alternativu k Djangu zde máme Fast API, kde je plně podporováno asynchronní programování a je přímo určeno pro vývoj RESTful API. Je taktéž pro Python, je velmi rychlý jak na naučení tak i framework jako takový a je plně otypovaný oproti Djangu. Má dobrou dokumentaci a mezi vývojáři je čím dál populárnější. Ovšem má horší validaci vstupních dat.
+Jakožto alternativu k Djangu zde máme Fast API, kde je plně podporováno asynchronní programování a je přímo určeno pro vývoj \gls{restful api}. Je taktéž pro Python, je velmi rychlý jak na naučení tak i framework jako takový a je plně otypovaný oproti Djangu. Má dobrou dokumentaci a mezi vývojáři je čím dál populárnější. Ovšem má horší validaci vstupních dat.
 
 
 \subsection{Výběr frameworku}\label{sec:api_technologies:summary}
-Pro účely RESTful API byl výběr očividný, Fast API které je navrhnuto pro rychlou tvorbu RESTful API a pro vývojáře velice příjemným otypováním. Je taktéž jeden z nejrychlejších Python frameworků v některých věcech na úrovní například Spring bootu.\cite{benchmarks} Taktéž Python je jeden z jednodušších jazyků a všichni členové týmu už s ním mají zkušenosti. Ovšem později se na doporučení přešlo na Spring boot díky jeho jednoduššímu \gls{orm} a větší přehlednosti.
+Pro účely \gls{restful api} byl výběr očividný, Fast API které je navrhnuto pro rychlou tvorbu \gls{restful api} a pro vývojáře velice příjemným otypováním. Je taktéž jeden z nejrychlejších Python frameworků v některých věcech na úrovní například Spring bootu.\cite{benchmarks} Taktéž Python je jeden z jednodušších jazyků a všichni členové týmu už s ním mají zkušenosti. Ovšem později se na doporučení přešlo na Spring boot díky jeho jednoduššímu \gls{orm} a větší přehlednosti.

@@ -4,7 +4,7 @@ Tato kapitola se bude zabývat návrhem sestavy technologií, které se budou vy
 \section{Model vývoje}\label{sec:development_model}
 Jako model vývoje byl použit klasický vodopádový model \figureref{fig:waterfall}, který sice v praxi není úplně realistický, ale je dobrým základem pro popis vývojového procesu modelové hry. Používá se primárně v situacích, kdy je definice projektu jasná a je zřejmý i cíl, kdy je dost času pro vývoj a kdy je možné všechny fáze vývoje pečlivě naplánovat, aby se minimalizovaly chyby.
 
-První vlastností tohoto modelu je \textbf{sekvenční přístup}, neboť nemožnost pracovat na další části vývoje, dokud přechozí není plně dokončena. Další z vlastností je \textbf{řízení dokumentací}, kdy se všechny fáze vývoje musí pečlivě dokumentovat, aby se minimalizoval čas strávený zpětnou analýzou provedených kroků. \textbf{Kontrola kvality} je při tomto modelu důležitá, neboť chyby, které by se mohly vyskytnout v prvotních fázích vývoje, se mohou nepříjemně projevit a vývoj zkomplikovat. S tím se pojí i \textbf{přísné plánování}, kdy je nutné všechny fáze vývoje pečlivě naplánovat a zvážit možná rizika, která by mohla vzniknout.
+První vlastností tohoto modelu je \textbf{sekvenční přístup}, neboť nemožnost pracovat na další části vývoje, dokud přechozí není plně dokončena. Další z vlastností je \textbf{řízení dokumentací}, kdy se všechny fáze vývoje musí pečlivě dokumentovat, aby se minimalizoval čas strávený zpětnou analýzou provedených kroků. \textbf{Kontrola kvality} je při tomto modelu důležitá, neboť chyby, které by se mohly vyskytnout v prvotních fázích vývoje, se mohou nepříjemně projevit a vývoj zkomplikovat. S tím se pojí i \textbf{přísné plánování}, kdy je nutné všechny fáze vývoje pečlivě naplánovat a zvážit možná rizika, která by mohla vzniknout.\cite{geeksForGeeks:waterfall}
 
 Tímto modelem jsme se snažili řídit, ale i přes důkladné promyšlení použitých návrhů se muselo v průběhu pár drobností upravovat. 
 
@@ -16,7 +16,7 @@ Tímto modelem jsme se snažili řídit, ale i přes důkladné promyšlení pou
 
 Ve fázi \textbf{požadavků} byly vzneseny nápady, jak samotná hra bude fungovat, jaké mechaniky použijeme a jakým způsobem by je bylo možné implementovat, přičemž nám vystačil pouze dokument s nápady a požadavky. Taktéž si zde všichni ujasnili, jaké herní mechaniky budou použity a za jakých okolností. 
 
-Ve druhé fázi \textbf{návrhu} probíhala tvorba upřesňujících diagramů, návrhu architektury a uživatelského rozhraní. V našem případě byly přesněji rozvrženy jednotlivé mechaniky a bylo blíže popsáno, co se od nich očekává. Zároveň byly aplikovány návrhové vzory, které byly vhodné pro daný problém, především ty týkající se RESTful API.
+Ve druhé fázi \textbf{návrhu} probíhala tvorba upřesňujících diagramů, návrhu architektury a uživatelského rozhraní. V našem případě byly přesněji rozvrženy jednotlivé mechaniky a bylo blíže popsáno, co se od nich očekává. Zároveň byly aplikovány návrhové vzory, které byly vhodné pro daný problém, především ty týkající se \gls{restful api}.
 
 Fáze \textbf{vývoje} zahrnuje implementaci návrhů a vytvoření funkčního programu. V této fázi se taktéž využívají unit testy, které ověřují funkčnost jednotlivých částí programu. 
 
@@ -61,7 +61,7 @@ Poté, co byla vytvořena kostra API, se začaly řádně využívat větve a je
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{figures/impl/git-flow.png}
-    \caption{Příklad \textit{Gitflow} workflow}
+    \caption{Příklad \textit{Gitflow} workflow \cite{tilburgScienceHub:gitBranching}}
     \label{fig:gitflow}
 \end{figure}
 

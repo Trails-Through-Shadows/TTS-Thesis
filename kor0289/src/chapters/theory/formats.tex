@@ -2,7 +2,7 @@
 V této kapitole budou popsány především dva základní formáty dat které jsou stále aktivní -- JSON a XML.
 
 
-\subsection*{Serializace a deserializace}\label{sec:formats:deserialization} %TODO cite https://www.baeldung.com/cs/serialization-deserialization
+\subsection*{Serializace a deserializace}\label{sec:formats:deserialization} 
 Serializace a deserializace jsou důležité koncepty v programování, které umožňují ukládat, přenášet a znovu sestavit data. Používají se celou řadu věcí, od ukládání objektů do databáze přes posílání dat po síti až po pro účely reprezentace mezipaměťi.
 
 Objekt, se kterým se během těchto procesů pracuje, má 3 základní vlastnosti: identitu, stav a chování. Stav reprezentuje samotná data objektu.
@@ -11,12 +11,10 @@ Objekt, se kterým se během těchto procesů pracuje, má 3 základní vlastnos
 
 \textbf{Deserializace} je opačný proces, kdy se data z bytového proudu převedou zpět na objekt. Tento proces je důležitý pro získání dat z různých zdrojů, jako jsou soubory, databáze nebo síťové zdroje.
 
-Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon, neboť převod může trvat nezanedbatelné množství času, obzvlášť u velkých objektů. Za zmínku stojí i fakt, že ne všechny objekty mohou být serializovány, příkladem mohou být sockety nebo file handlery. \cite[]{serializationDeserialization}
-
+Jednou z nevýhod serializace a deserializace jsou vysoké nároky na výkon, neboť převod může trvat nezanedbatelné množství času, obzvlášť u velkých objektů. Za zmínku stojí i fakt, že ne všechny objekty mohou být serializovány, příkladem mohou být sockety nebo file handlery. \cite{serializationDeserialization}
 
 \section{JSON}\label{sec:formats:json}
 JavaScript Object Notation neboli JSON je formát, který je odvozen z Javascriptu, nicméně mnoho dnešních jazyků už má serializaci do JSONu zabudovanou interně. Jedná se o textový formát zápisu objektů, který je dobře čitelný člověkem. Ukládá data do párů \textbf{key:value} kdy key je klíč a value hodnota, která je pod ním uložená, obvykle může jít o číslo, textový řetězec, pole nebo i další objekt. Znaky v JSONu musí být v kódování UTF-8, ale formát podporuje i speciální znaky pokud jsou escaped, jako příklad můžeme uvést jakékoliv emotikony. JSON je využíván primárně k výměně dat mezi webovými aplikacemi a servery, ale dá se používat i pro jednoduché databáze. Má prostá ale zato striktní pravidla podle normy ISO \cite[ISO21778]{ISO71616} a tudíž je jednoduché zkontrolovat jeho správnost. Jeden z jeho nedostatků je, že nemá podporu komentářů oproti XML, které tuto podporu má. Ovšem můžeme použít formát JSONC který má podporu komentářů ale bohužel není jeho serializace a především deserializace tak široce podporovaná programovacími jazyky.\cite[]{enwiki:1217773005}\cite[]{zapierDataFormats}
-%\textbf{ TODO odkaz někde na iso normu https://www.iso.org/standard/71616.html}
 
 
 \subsection{Pravidla}\label{sec:formats:json:rules}
@@ -42,12 +40,12 @@ A nakonec zde máme na řádku 29 atribut \texttt{dead} s hodnotou \texttt{false
 
 
 \section{XML}\label{sec:formats:xml}
-Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat, který je podobně jako JSON čitelný i člověkem. Základní stavební blok je node, atributy jsou uloženy do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Díky XML Schema definition také podporuje celou řadu datových typů a oproti JSONu podporuje i komentáře. Standardy spravuje společnost W3C. \cite[]{zapierDataFormats} \cite[text]{awsXML} %\textbf{fest fajny odkaz na w3c specifikaci do bibtex} %TODO bibtech na w3c
+Extensible Markup Language je jazyk primárně určený na serializaci a přenášení dat, který je podobně jako JSON čitelný i člověkem. Základní stavební blok je node, atributy jsou uloženy do párů kterým říkáme tagy. Za pomocí své deklarace podporuje určení kódování a různé verze. Díky XML Schema definition také podporuje celou řadu datových typů a oproti JSONu podporuje i komentáře. Standardy spravuje společnost W3C. \cite{w3schoolsXML} \cite{zapierDataFormats} \cite{awsXML}
 
 
 \subsection{Pravidla}\label{sec:formats:xml:rules}
 Na začátku dokumentu je vždycky XML deklarace, která určuje, o jakou verzi se jedná a jaké mají znaky kódování.
-Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným \textbf{element}, které se zapisují jako počáteční (\texttt{<character>}) a ukončovací (\texttt{</character>}) tag, kde \textit{character} značí název atributu, podobně jako \textbf{key} u JSONu. Hodnota atributu se píše buď mezi počáteční a ukončovací tag, nebo přímo do tagu samotného (\texttt{<character id=4>}). Tzv. \textit{procesory} analyzují XML dokumenty a posílají dále strukturovaná data aplikaci, která se využívá. Procesory můžou být jak validující tak nevalidující, přičemž validující musí nalezenou chybu nahlásit ale pořád mohou v parsování pokračovat. \cite[]{w3XMLSchema} \cite[]{enwiki:1218715782}
+Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným \textbf{element}, které se zapisují jako počáteční (\texttt{<character>}) a ukončovací (\texttt{</character>}) tag, kde \textit{character} značí název atributu, podobně jako \textbf{key} u JSONu. Hodnota atributu se píše buď mezi počáteční a ukončovací tag, nebo přímo do tagu samotného (\texttt{<character id=4>}). Tzv. \textit{procesory} analyzují XML dokumenty a posílají dále strukturovaná data aplikaci, která se využívá. Procesory můžou být jak validující tak nevalidující, přičemž validující musí nalezenou chybu nahlásit ale pořád mohou v parsování pokračovat. \cite{w3XMLSchema} \cite{enwiki:1218715782}
 
 \begin{listing}[ht!]
     \inputminted{xml}{resources/code/standards/player.xml}
@@ -62,8 +60,6 @@ Samotná data jsou zaznamenána pomocí párových tagů, dohromady nazývaným 
     \label{fig:xml_datatypes}
 \end{figure}
 
-
-%TODO nějaký odkaz pěkný nebo tak něco na xml asi idk co jsem tím tady chtěl říct
 Tento XML dokument \coderef{code:xml_player} reprezentuje stejnou strukturu jako JSON popsaný výše. Oproti němu je však rozšířen o schéma, ve kterém můžeme určit jeden z mnoha datových typů \ref{fig:xml_datatypes} pro každý element \coderef{code:xml_player}[, řádek 3] či atribut \coderef{code:xml_player}[, řádek 6 a 7]. Když není schéma specifikováno, všechny datové typy jsou považovány za text. Velká změna oproti JSONu také spočívá v tom, že víme, o jaký objekt se jedná (řádek 23 a 48) -- místo obyčejných složených závorek zde máme element se jménem \textit{character}, což je informace, kterou JSON neposkytuje.
 
 
