@@ -17,6 +17,7 @@ jobs:
     continue-on-error: true
     steps:
       - uses: actions/checkout@v3
+      
       - uses: DavidAnson/markdownlint-cli2-action@v13.0.0
         with:
           fix: true
@@ -24,6 +25,8 @@ jobs:
 
   build-latex:
     runs-on: ubuntu-latest
+    env: 
+      ROAD: "\\newcommand{\\ROAD}{.}"
     steps:
       - uses: actions/checkout@v3
 
@@ -32,6 +35,7 @@ jobs:
         with:
           root_file: main.tex
           working_directory: oso0008/src
+          args: -pdf -halt-on-error -synctex=1 -interaction=nonstopmode --shell-escape --enable-write18
 
       - name: Upload LaTeX documents
         uses: actions/upload-artifact@v3
