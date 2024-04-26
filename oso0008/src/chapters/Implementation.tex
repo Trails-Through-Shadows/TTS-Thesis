@@ -1,6 +1,16 @@
 \chapter{Implementace}
 V této kapitole bude obsažen popis implementace návrhu z předchozích kapitol. Budou zde do detailu rozebrány jednotlivé části implementace a popsány problémy, které se vyskytly během vývoje. Dále bude popsána spolupráce na vývoji a nástroje, které byly použity k usnadnění této spolupráce.
 
+\section{Databáze}
+Databáze byla vyvíjena za účasti všech řešitelů tohoto projektu. Je implementována v MariaDB, což je open-source odvětví MySQL databáze. Ta nám byla díky její spolehlivosti doporučena vedoucím práce. Databáze se v průběhu vývoje měnila, jelikož se měnila i struktura dat, které byly potřeba ukládat. V současné době obsahuje 48 tabulek, z čehož 11 z nich slouží čistě jako vazební. Databáze je přístupna pouze z backendové části aplikace, přes koncové body API. Schéma celé databáze (bez vazebních tabulek) je zobrazeno na obrázku \ref{fig:db_schema}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.95\textwidth]{../../shared/diagrams/dbScheme.pdf}
+  \caption{Schéma databáze}
+  \label{fig:db_schema}
+\end{figure}
+
 \section{Komunikace s API}
 Komunikace s API byla implementována pomocí XMLHttpRequest, který je součástí JavaScriptu. Byly vytvořeny čtyři základní funkce, které slouží k odesílání dotazů na API. Tyto funkce jsou \texttt{get}, \texttt{post}, \texttt{put} a \texttt{delete}. Každá z nich má čtyři parametry: URL dotazu, token, úspěšný callback a neúspěšný callback. Token je autorizační token, který je nutné přidat do hlavičky většiny dotazů, aby bylo možné je provést. Token není vždy povinný, ale většina dotazů ho vyžaduje. Úspěšný callback je funkce, která se provede v případě úspěšného dotazu a neúspěšný callback je funkce, která se provede v případě, kdy API vrátí chybu. Funkce \texttt{post} a \texttt{put} navíc mají ještě pátý parametr, kterým jsou data. Tato data jsou v dotazu předána API a jsou dále zpracována podle toho, o jaký dotaz se jedná. Ukázku implementace jedné z těchto funkcí lze najít v ukázce \ref{code:post_request} a její užití v jednom z jednodužších případů v ukázce \ref{code:post_usage}.
 
@@ -15,16 +25,6 @@ Komunikace s API byla implementována pomocí XMLHttpRequest, který je součás
   \caption{Použití funkce pro odeslání POST dotazu}
   \label{code:post_usage}
 \end{listing}
-
-\section{Databáze}
-Databáze byla vyvíjena za účasti všech řešitelů tohoto projektu. Je implementována v MariaDB, což je open-source odvětví MySQL databáze. Ta nám byla díky její spolehlivosti doporučena vedoucím práce. Databáze se v průběhu vývoje měnila, jelikož se měnila i struktura dat, které byly potřeba ukládat. V současné době obsahuje 48 tabulek, z čehož 11 z nich slouží čistě jako vazební. Databáze je přístupna pouze z backendové části aplikace, přes koncové body API. Schéma celé databáze (bez vazebních tabulek) je zobrazeno na obrázku \ref{fig:db_schema}.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=.95\textwidth]{../../shared/diagrams/dbScheme.pdf}
-  \caption{Schéma databáze}
-  \label{fig:db_schema}
-\end{figure}
 
 \section{Stránky frontendové aplikace}
 V následující sekci budou popsány jednotlivé stránky, které byly implementovány v rámci frontendové části této práce. Všechny komponenty, které jsou součástí těchto stránek, byly implementovány tak, aby byly co nejvíce modulární a znovupoužitelné. Bylo také dbáno na to, aby byly co nejvíce odděleny od zbytku aplikace, což by mělo zjednodušit případné budoucí úpravy a rozšíření. Komponenty komunikují s backendem pomocí API, které bylo implementováno kolegy, se kterými jsem se spolupodílel na tomto projektu.
@@ -41,7 +41,7 @@ Další problém se naskytl, když jsem se pokusil dynamicky měnit barvu svg ob
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=.84\textwidth]{resources/figures/adventure_diagram.pdf}
+  \includegraphics[width=.80\textwidth]{resources/figures/adventure_diagram.pdf}
   \caption{Sekvenční diagram komponenty pro výběr dobrodružství}
   \label{fig:adventure_diagram}
 \end{figure}
@@ -70,7 +70,14 @@ Použitá okna nápovědy byla importována z knihovny Bootstrap. Vyvstal u nich
 Po vytvoření postav je uživatel přesměrován na tuto komponentu, kde si může prohlédnout všechny postavy, které v daném dobrodružství vytvořil. Každá z nich má svou kartu, která obsahuje jméno, jméno hráče, rasu, povolání, statistiky a její předměty. Zároveň se zde nechází tlačítko, které uživateli dovolí začít nové střetnutí, či pokračovat v dříve započlém.
 
 \subsection{Střetnutí}
-Tato komponenta je nejkomplexnější a také nejdůležitější ze všech. Jedná se již totiž o samotnou hru. Uživateli je jako první věc zobrazen příběh daného střetnutí, který slouží jako clona, jež maskuje načítání a vykreslování dat. Střetnutí může mít několik různých ukončovacích podmínek, které jsou zde také vypsány. Kvůli komplexity této komponenty bude popsána podrobněji v následujících sekcích.
+Tato komponenta je nejkomplexnější a také nejdůležitější ze všech. Jedná se již totiž o samotnou hru. Uživateli je jako první věc zobrazen příběh daného střetnutí, který slouží jako clona, jež maskuje načítání a vykreslování dat. Střetnutí může mít několik různých ukončovacích podmínek, které jsou zde také vypsány. Kvůli komplexity této komponenty bude popsána podrobněji v následujících sekcích. Sekvenční diagram této komponenty je zobrazen na obrázku \ref{fig:encounter_diagram}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.70\textwidth]{resources/figures/encounter_diagram.pdf}
+  \caption{Sekvenční diagram komponenty pro střetnutí}
+  \label{fig:encounter_diagram}
+\end{figure}
 
 \subsubsection*{Mapa}
 Po odkliknutí příběhu je zobrazena hrací plocha ukazující první místnost s tokeny nepřátel a překážek, dveřmi a startovacími poli pro postavy. Ta slouží jako návrh pro fyzickou hrací plochu, kterou hráč podle této předlohy připraví. Tokeny nepřátel a pastí jsou zmenšené, detailnější obrázky jejich protějšků, kterým byl pro lepší pŕehlednost přidán barevný okraj. Mapa také vyobrazuje dveře, které vedou do dalších místností. Při kliknutí na ně se uživateli zobrazí možnost je otevřít. Vyhodnocení otevření dveří se provede vždy na konci kola. Potom co se tak stane se krom stávající místnosti zobrazí také nová a uživatel může přepínat mezi jednotlivými náhledy pomocí tlačítek na okraji mapy. Ukázku této komponenty lze najít na obrázku \ref{fig:map}.
