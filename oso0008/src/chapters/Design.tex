@@ -7,7 +7,7 @@ Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplik
 \subsection{Vzhled}
 Vzhled aplikace by měl odrážet tématiku hry. Ta je situovaná do temného fantaskního světa s RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, tak bylo vybráno několik málo následujících barev, které se v aplikaci vyskytnou. Základem designu ovládacích prvků budou odstíny tmavě šedé, které budou doplněny o zelené prvky pro zvýraznění a indikaci interaktivních prvků. Všechny tyto barvy budou v kontrastu s bílou barvou, která, společně se světlými odstíny šedé, bude použita pro texty a popisky. Tímto způsobem bude vytvořen jednotný vzhled aplikace, který pomůže hráčům se v ní lépe orientovat
 
-Zážitek ze hry bude podporován tematickými obrázky, které hráčům pomohou lépe se do hry vcítit. Obrázky budou použity na pozadí herních stránek, ikonách postav a nepřátel a na kartách, které budou hráči používat. Tyto obrázky budou vygenerovány pomocí umělé inteligence, o které se bude hovořit v kapitole \ref{sec:generovani_obrazku}.
+Zážitek ze hry bude podporován tematickými obrázky, které hráčům pomohou lépe se do hry vcítit. Obrázky budou použity na pozadí herních stránek, ikonách postav a nepřátel a na kartách, které budou hráči používat. Tyto obrázky budou vygenerovány pomocí umělé inteligence, o které se bude hovořit v kapitole \ref{sec:image_generation}.
 
 Vzhled aplikace by měl být jednoduchý a přehledný. Hráči by měli mít možnost snadno se na stránce orientovat a mít přehled o všech herních prvcích.
 
@@ -34,7 +34,7 @@ Následující funkcionality vyplývají z vlastního návrhu, který vzešel z 
 \subsubsection*{Přihlášení}
 Jeden z funkčních požadavků, která bude aplikace splňovat, je možnost přihlášení. Hráči dostanou přiřazené unikátní licenční číslo a heslo, které jim umožní se do aplikace přihlásit. Přihlášení bude pro hru nutné, jelikož se tak budou ukládat data o postavách a kampaních, které hráči vytvoří.
 
-\subsubsection*{Vytváření dobrodružství}\label{sec:dobrodruzstvi}
+\subsubsection*{Vytváření dobrodružství}\label{sec:adventure}
 Dobrodružstvím se rozumí kombinace postav a herního příběhu (neboli kampaně), který určuje průběh a cíl hry. Ke každému účtu bude možno vytvořit takovýchto dobrodružství několik a hráči budou schopni mezi nimi vybírat. Při jejich tvorbě budou hráči vyzváni k zadání názvu a popisu a k výběru kampaně. Ta bude pomocí API získána z databáze a bude obsahovat informace o lokacích, které mohou být ve hře navštíveny, nepřátelích, kteří se v nich mohou vyskytovat a o odměnách, které hráči mohou získat.
 
 \subsubsection*{Vytváření postav}
@@ -49,7 +49,7 @@ Tato funkcionalita byla nakonec odsunut pro budoucí rozšíření hry. Aplikace
 \section{Využití umělé inteligence}
 Umělou inteligenci je možné v tomto projektu využít hned v několika případech. Jedním z nich je generování obrázků, které budou použity v grafickém rozhraní aplikace. Dále je možné využít umělou inteligenci pro předčítání textů. V této kapitole si popíšeme, jak by mohla být umělá inteligence využita v těchto dvou případech.
 
-\subsection{Generování obrázků}\label{sec:generovani_obrazku}
+\subsection{Generování obrázků}\label{sec:image_generation}
 Existuje velká řada nástrojů, které umožňují generování obrázků pomocí umělé inteligence. Většina z nich využívá neuronové sítě, které byly natrénovány na velkém množství dat. Tyto sítě jsou pak schopny generovat obrázky na základě těch, které byly pro trénování použity. Využití takovýchto nástrojů většinou obnáší jakousi sadu slov, jakožto vstupní parametr (těmto slovům se běžně říká prompty), na základě které je obrázek vygenerován. V našem případě půjde například o popis vzhledu nepřátel, které by hráči mohli potkat v průběhu hry.
 
 Při výběru technologie, která bude pro tento účel použita, bylo vyzkoušeno několik nástrojů. Mezi ně patří například lokálně nainstalovaný model Stable Diffusion\cite{stability_ai}. Jedná se o open-source model, kterému lze nahrát jednu z mnoha volně dostupných datových sad a upravit tak styl výsledných obrázků. Tento nástroj se však ukázal jako nepoužitelný, kvůli jeho náročnosti na lokální stroj a kvůli jeho nekonzistentním výsledkům. Dále byl vyzkoušen nástroj Midjourney\cite*{midjourney}, kterému se bude věnovat následující sekce.
@@ -59,7 +59,7 @@ Obě tyto technologie využívají difuzní modely. Jsou to generativní modely,
 \subsubsection*{Midjourney}
 Tento model je dostupný online a jeho využívání je v současné době podmíněno předplatným. Byl však schopen generovat obrázky, které byly velmi kvalitní a téměř dokonale odpovídaly našim požadavkům. Díky tomu byl tento nástroj vybrán pro použití v našem projektu.
 
-Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu \textit{/imagine} je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na obrázku \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
+Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce Midjourney a zajistit předplatné. Stránka následně poskytne přístup k API, se kterým lze komunikovat přes sociální platformu Discord. Pomocí příkazu \texttt{/imagine} je možné modelu poslat sadu promptů, které se pro generování použijí, jak lze vidět na obrázku \ref{fig:mj_prompts}. Výsledný obrázek je následně zaslán zpět uživateli. Ten se může rozhodnout, zda je výsledek uspokojivý, či nikoliv a popřípadě provádět různé úpravy.
 
 \begin{figure}[H]
     \centering
@@ -70,7 +70,7 @@ Pro generování obrázků bylo nutné se zaregistrovat na oficiální stránce 
 
 Tento proces je však také možné obrátit. Modelu je možné poslat obrázek ve formě odkazu. Ten je následně zanalyzován a na základě něj je vygenerován několik textových popisů, které by měly daný vstup vystihnout. Tento způsob je velmi užitečný v případech, kdy chce uživatel použít pouze určité části, či kvality daného obrázku jako předlohu pro generování dalších. Midjourney je také schopno přímo ze vstupních obrázků vygenerovat obrázky nové. V tomto případě však bere model v potaz celý obrázek, což může být v některých případech nežádoucí.
 
-Mimo promptů lze modelu předat i parametry, které dále alterují výstup. Ty se označují dvěma pomlčkami před samotným parametrem. Velmi užitečným se jeví být parametr \textit{{-}{-}no} pro negativní prompty. To jsou takové prompty, které modelu říkají, co by obrázek neměl obsahovat. Dále lze však využít parametry jako \textit{{-}{-}style}, který mění styl obrázku, či \textit{{-}{-}cref}, díky kterému lze do výsledku přidat konkrétní postavu v různých kompozicích. Tímto způsobem je možné přesněji specifikovat a ovlivnit požadovaný výstup. Celý vstupní řádek je možné vidět na obrázku \ref{fig:mj_prompts_params}.
+Mimo promptů lze modelu předat i parametry, které dále alterují výstup. Ty se označují dvěma pomlčkami před samotným parametrem. Velmi užitečným se jeví být parametr \texttt{{-}{-}no} pro negativní prompty. To jsou takové prompty, které modelu říkají, co by obrázek neměl obsahovat. Dále lze však využít parametry jako \texttt{{-}{-}style}, který mění styl obrázku, či \texttt{{-}{-}cref}, díky kterému lze do výsledku přidat konkrétní postavu v různých kompozicích. Tímto způsobem je možné přesněji specifikovat a ovlivnit požadovaný výstup. Celý vstupní řádek je možné vidět na obrázku \ref{fig:mj_prompts_params}.
 
 \begin{figure}[H]
     \centering
@@ -91,6 +91,20 @@ Návrh této stolní hry počítá s několika fyzickými komponentami, které b
 Herní plocha pro každou z lokací bude tvořena z dílů, které bude možno skládat k sobě. Propojovat je budou speciální dílky, které budou představovat dveře mezi jednotlivými místnostmi. Díly budou mít na sobě vyobrazeny hexagonová pole, které budou reprezentovat možnosti, kam hráč bude moci v průběhu hry pohnout svou postavu. Na těchto políčkách budou umístěny figurky postav a nepřátel a také tokeny pastí a překážek.
 
 Samotná plocha bude vytištěna na speciální papír, který bude přilepen na materiál vyrobený z lisovaného papíru. Tento způsob se běžně v herním průmyslu používá. Potisk desky bude vygenerován pomocí umělé inteligence a vytištěn ve vysokém rozlišení. Mezi další materiály, které byly zvažovány, patří například plastové desky, které by byly odolnější a mohly by být použity i jako magnetické. Tyto desky by však byly mnohem dražší a jejich výroba by byla náročnější, proto byly pro tento projekt zavrženy. Bylo by však možné tuto možnost použít například pro prémiové vydání hry.
+
+\subsection{Kostka}
+Bylo rozhodnuto, že pro tuto hru bude použit jeden druh kostky. Bude se jednat o dvacetistěnnou kostku, která bude upravena s ohledem na potřeby hry. Na ní budou vyiobrazeny symboly nacházející se v tabulce \ref{tab:dice_symbols}. Kostka bude vyrobena z odlitého polymeru. Tento materiál byl zvolen, jelikož je odolný a zároveň dostatečně lehký.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{*{21}{c}}
+        \toprule
+        \multicolumn{1}{c|}{\textbf{Symbol}} & MISS & -4 & -4 & -3 & -3 & -2 & -2 & -1 & -1 & 0 & 0 & 1 & 1 & 2 & 2 & 3 & 3 & 4 & 4 & CRIT \\
+        \bottomrule
+    \end{tabular}
+    \caption{Symboly na dvacetistěnné kostce}
+    \label{tab:dice_symbols}
+\end{table}
 
 \subsection{Figurky}
 Zatímco rozhodnutí o herní ploše bylo poměrně jednoduché, rozhodnutí o figurkách bylo mnohem složitější. Figurky by měly být dostatečně odlišné, aby hráči neměli problém je od sebe rozeznat. Bylo zvažováno několik možností výroby figur, od 2D tisku na karton, přes 3D tisk, až po vstřikování plastů. Každá z těchto možností má své výhody a nevýhody o kterých budou pojednávat následující sekce.

@@ -1,0 +1,7 @@
+.add-character-image {
+  filter: invert(90%) sepia(0%) saturate(0%) hue-rotate(177deg) brightness(86%) contrast(84%);
+}
+
+.add-character-image:hover {
+  filter: invert(0%) sepia(13%) saturate(5094%) hue-rotate(358deg) brightness(85%) contrast(73%);
+}
