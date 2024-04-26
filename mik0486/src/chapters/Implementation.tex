@@ -1,10 +1,10 @@
 \chapter{Implementace}
 \label{ch:implementation}
-Tato sekce obsahuje popis implementace aplikace, která byla vytvořena na základě analýzy v předchozích kapitolách. V této sekci se tak zaměřím na popis jednotlivých komponent aplikace, které byly vytvořeny a následně nasazeny do produkce. Dále se zaměřím na popis týmové spolupráce, která byla nutná pro vytvoření celého projektu a na závěr se zaměřím na popis problémů, které se v průběhu vývoje objevily.
+Tato sekce obsahuje popis implementace aplikace, která byla vytvořena na základě analýzy v předchozích kapitolách. V této sekci se zaměřím na popis jednotlivých komponent aplikace, které byly vytvořeny a následně nasazeny do produkce. Dále se zaměřím na popis týmové spolupráce, která byla nutná pro vytvoření celého projektu a na závěr se zaměřím na popis problémů, které se v průběhu vývoje objevily.
 
 \section{Požadavky na implementaci}
 \label{sec:implementation-requirements}
-Požadavků na implementaci ze strany administrativního rozhraní není mnoho, přesto ale existují. V této sekci se tak pokusím popsat veškeré požadavky, které byly kladeny na implementaci aplikace během jejího návrhu a vývoje.
+Požadavků na implementaci ze strany administrativního rozhraní není mnoho, přesto ale existují. V této sekci se pokusím popsat veškeré požadavky, které byly kladeny na implementaci aplikace během jejího návrhu a vývoje.
 
 Během vývoje se tyto požadavky průběžně měnily, proto je celkem obtížné vždy předem definovat úplný seznam požadavků.
 
@@ -12,8 +12,8 @@ Během vývoje se tyto požadavky průběžně měnily, proto je celkem obtížn
 \label{subsec:implementation-requirements-functional}
 
 \begin{description}
-    \item \textbf{Přihlášení} -- Jelikož se jedná o aplikaci administrační, vstup do aplikace je možný pouze pro přihlášené uživatele. Z funkčního hlediska je v rámci projektu využita pouhá role \textit{Administrátora}, z toho důvodu tak není nutné rozlišovat mezi různými uživatelskými rolemi.
-    \item \textbf{Správa obsahu} -- Hlavním účelem tohoto rozhraní je správa obsahu hry, bez možnosti formulářové editace obsahu jsou administrátoři vymezeni na surovou správu dat pomocí editace záznamů v databázi nebo změnou výchozích dat v souborech. Z tohoto důvodu je tak nutné zajistit plnou možnost správy obsahu hry stylem \textit{CRUD}.
+    \item \textbf{Přihlášení} -- Jelikož se jedná o aplikaci administrační, vstup do aplikace je možný pouze pro přihlášené uživatele. Z funkčního hlediska je v rámci projektu využita pouhá role \textit{Administrátora}, z toho důvodu není nutné rozlišovat mezi různými uživatelskými rolemi.
+    \item \textbf{Správa obsahu} -- Hlavním účelem tohoto rozhraní je správa obsahu hry, bez možnosti formulářové editace obsahu jsou administrátoři vymezeni na surovou správu dat pomocí editace záznamů v databázi nebo změnou výchozích dat v souborech. Z tohoto důvodu je nutné zajistit plnou možnost správy obsahu hry stylem \textit{CRUD}.
     \item \textbf{Filtrace a vyhledávání} -- Pro přehlednou správu dat jednotlivých tabulek je důležité umožnit administrátorům rychlé a efektivní prvky filtrování.
     \item \textbf{Vykreslování} -- Určité části projektu obsahují grafické prvky, které je pro lepší pochopí nutné graficky zpracovat a vykreslit na obrazovku. Pro tento účel bude využit HTML prvek \textit{canvas}, který umožňuje grafické vykreslování.
     \item \textbf{Validace} -- Při vkládání obsahu do databáze pomocí API, je nutné klást důraz na správné formátování všech dat před odesláním do API\@.
@@ -22,13 +22,13 @@ Během vývoje se tyto požadavky průběžně měnily, proto je celkem obtížn
 
 \section{Komponenty aplikace}
 \label{sec:implementation-components}
-V případě implementace administračního rozhraní nelze pouze implementovat frontend aplikace, ale je nutné implementovat i backend, který tak zajišťuje zpracování dat a jejich následná komunikace pomocí API.\@.
+V případě implementace administračního rozhraní nelze pouze implementovat frontend aplikace, ale je nutné implementovat i backend, který zajišťuje zpracování dat a jejich následná komunikace pomocí API.\@.
 
 V níže uvedených sekcích se blíže zaměřím na implementaci jednotlivých komponent.
 
 \subsection{Frontend}
 \label{subsec:implementation-frontend}
-Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a to z důvodu usnadnění designových potřeb a možnosti se tak plně věnovat další části aplikace. Výsledek hledání byl úspěšný a nalezená šablona byla kompatibilní s frameworkem Django. Přesněji se jedná o šablonu od autora \textit{Themesberg}\footnote{\href{https://themesberg.com/}{https://themesberg.com/}}, konkrétně šablona administračního rozhraní \textit{Volt}\footnote{\href{https://themesberg.com/product/django/volt-admin-dashboard-template}{https://themesberg.com/product/django/volt-admin-dashboard-template}}.
+Vývoj frontendu byl zahájen vyhledáním již předem vytvořené šablony a to z důvodu usnadnění designových potřeb a možnosti se plně věnovat další části aplikace. Výsledek hledání byl úspěšný a nalezená šablona byla kompatibilní s frameworkem Django. Přesněji se jedná o šablonu od autora \textit{Themesberg}\footnote{\href{https://themesberg.com/}{https://themesberg.com/}}, konkrétně šablona administračního rozhraní \textit{Volt}\footnote{\href{https://themesberg.com/product/django/volt-admin-dashboard-template}{https://themesberg.com/product/django/volt-admin-dashboard-template}}.
 
 Po úspěšné instalaci bylo dalším krokem rozvržení navigace, která se nachází na levé straně stránky. Jednotlivé odkazy poté následně směřují na podstránky, kde lze vidět obsah jednotlivých tabulek, kde se nachází možnost filtrovat, hledat nebo provádět zbytek CRUD operací.
 
@@ -38,17 +38,17 @@ Průběh otevření každé ze stránek navigace je možné vidět na diagramu~\
 
 \subsection{Backend}
 \label{subsec:implementation-backend}
-Backend aplikace byl vytvořen pod frameworkem Django stejně jako část frontendu. Backend aplikace tak zajištuje zpracování dat podle žádosti uživatele. K získání dotazu dochází pomocí URL adresy, která je v aplikace zpracována pomocí \textit{view} komponenty pod následnou routing adresou. Po vyřízení požadavku jsou data zpět odeslány uživateli, který je následně upozorněn na úspěšné provedení akce.
+Backend aplikace byl vytvořen pod frameworkem Django stejně jako část frontendu. Backend  zajištuje zpracování dat podle žádosti uživatele. K získání dotazu dochází pomocí URL adresy, která je v aplikace zpracována pomocí \textit{view} komponenty pod následnou routing adresou. Po vyřízení požadavku jsou data zpět odeslány uživateli, který je následně upozorněn na úspěšné provedení akce.
 
-Níže zobrazený diagram~\ref{fig:NewObject} zobrazuje průběh vytvoření nebo editace objektu, kde tato funkcionalita reprezentuje nejdůležitější prvek celé aplikace z důvodu, že umožňuje definovat herní obsah. Po odeslání formuláře dochází ke kontaktování API, která následně požadavek zpracuje a odešle zpět odpověď, která je následně zobrazena uživateli.
+Níže zobrazený Diagram~\ref{fig:NewObject} zobrazuje průběh vytvoření nebo editace objektu, kde tato funkcionalita reprezentuje nejdůležitější prvek celé aplikace z důvodu, že umožňuje definovat herní obsah. Po odeslání formuláře dochází ke kontaktování API, která následně požadavek zpracuje a odešle zpět odpověď, která je následně zobrazena uživateli.
 
 \processDiagram{diagrams/NewObject}{NewObject}{0.75\textwidth}{Diagram reprezentující průběh vytvoření nebo editace objektu.}
 
 \subsection{API}
 \label{subsec:implementation-api}
-Přestože API je součástí práce kolegy, pro usnadnění a zabezpečení jsem použil vlastní lokální API, které zpracovává dotazy a v případě, že je nutné získat data odešle požadovaný dotaz směrem na veřejné API pod url adresou \textit{https://api.ttsapi.dev/}. Díky zmíněnému mezikroku je tak možné zabezpečit identitu API klíče, který tak zůstává skrytý pod lokálním API spravovaným jazykem Python. V opačném případě by tento klíč byl odesílán s každým dotazem, čímž by se tak stal zachytitelný pro útočníky.
+Přestože API je součástí práce kolegy, pro usnadnění a zabezpečení jsem použil vlastní lokální API, které zpracovává dotazy a v případě, že je nutné získat data odešle požadovaný dotaz směrem na veřejné API pod url adresou \textit{https://api.ttsapi.dev/}. Díky zmíněnému mezikroku je možné zabezpečit identitu API klíče, který zůstává skrytý pod lokálním API spravovaným jazykem Python. V opačném případě by tento klíč byl odesílán s každým dotazem, čímž by se stal zachytitelný pro útočníky.
 
-V našem případě jsme použili pro autorizace obyčejný token, které je uložen v nastavení API. Nejedná se o nejbezpečnější použití, ale z pohledu této práce je dostatečně bezpečné. Schéma komunikace při použití prostřední API je možné vidět na obrázku~\ref{fig:api_communication}.
+V našem případě jsme použili pro autorizace obyčejný token, které je uložen v nastavení API. Nejedná se o nejbezpečnější použití, ale z pohledu této práce je dostatečně bezpečné. Schéma komunikace při použití prostřední API je možné vidět na Obrázku~\ref{fig:api_communication}.
 
 \begin{figure}[H]
     \centering
@@ -59,30 +59,30 @@ V našem případě jsme použili pro autorizace obyčejný token, které je ulo
 
 \section{Volba technologií}
 \label{sec:implementation-technologies}
-V této sekci se budu věnovat výběru technologii které jsem zvolil v průběhu implmentace aplikace. Výběr technologii tak většinou vychází z analýzy uvedené v kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
+V této sekci se budu věnovat výběru technologii, které jsem zvolil v průběhu implmentace aplikace. Výběr technologii většinou vychází z analýzy uvedené v kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
 
 \subsection{Framework}
 \label{subsec:implementation-technologies-framework}
-Jak bylo zmíněno v sekci analýze rozhraní, pro vývoj aplikace administrativního rozhraní jsem zvolil framework Django. Díky tomuto frameworku jsem tak mohl využít jeho širokou škálu již předem zakomponovaných funkcí, které mi usnadnily vývoj. Díky těmto funkcím jsem se mohl zaměřit na vývoj samotného rozhraní, které jsem tam psal v jazyce TypeScript s využitím frontendového frameworku Bootstrap.
+Jak bylo zmíněno v sekci analýze rozhraní, pro vývoj aplikace administrativního rozhraní jsem zvolil framework Django. Díky tomuto frameworku jsem mohl využít jeho širokou škálu již předem zakomponovaných funkcí, které mi usnadnily vývoj. Díky těmto funkcím jsem se mohl zaměřit na vývoj samotného rozhraní, které jsem tam psal v jazyce TypeScript s využitím frontendového frameworku Bootstrap.
 
 Framework jako samotný neobsahuje rozšířené prvky pro použití na frontendu, z toho důvodu jsem byl nucen psát si tyto komponenty sám. Pro jejich vývoj jsem tam využil jazyk TypeScriptu, kde výsledné komponenty jsou mezi stránkami sdíleny. Pro dynamické načítaní obsahu je využíváno asynchronní načítání dat pomocí AJAXu, po prvotním načtení stránky zavoláno a po jeho zpracování dojde k překreslení části stránky.
 
-Jedna z komponent, která slouží pro asynchronní získávaní dat je zobrazena v ukázce kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem, který je získán v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
+Jedna z komponent, která slouží pro asynchronní získávání dat je zobrazena v ukázce kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce obsahem, který je získán v pozdějším procesu. Data jsou získány pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty získanými z API a následně k jeho zobrazení.
 
 \lstinputlisting[language=TypeScript, caption={Komponenta pro získání asynchronních dat.}, label={lst:data-request-component}]{sourceCodes/DataRequestComponent.ts}
 
 \subsection{Knihovny}
 \label{subsec:implementation-technologies-libraries}
-Při vývoji aplikace jsem tak využil několik knihoven třetích stran, které mi tak usnadnily vývoj a zároveň zrychlily proces vývoje, protože nebylo nutné psát vše od základu. Mezi tyto knihovny tak patří:
+Při vývoji aplikace jsem využil několik knihoven třetích stran, které mi usnadnily vývoj a zároveň zrychlily proces vývoje, protože nebylo nutné psát vše od základu. Mezi tyto knihovny patří:
 
 \begin{description}
-    \item Font Awesome\footnote{\href{https://fontawesome.com/}{https://fontawesome.com/}} -- je knihovna ikon, která disponuje širokou škálou veřejně dostupných ikon, které jsou zdarma k použití. Ve vývoji jsem tak tyto ikony použil pro reprezentaci různých akcí, které může uživatel provést.
-    \item Bootstrap\footnote{\href{https://getbootstrap.com/}{https://getbootstrap.com/}} -- jsem použil jako frontendovou knihovnu předem napsaných stylů, díky kterým jsem tak mohl rychle vytvořit efektivní a responzivní rozhraní. Bootstrap tak nabízí širokou škálu komponent, které jsou podrobně popsány v dokumentaci.
-    \item SweetAlert2\footnote{\href{https://sweetalert2.github.io/}{https://sweetalert2.github.io/}} -- je knihovna, která umožnuje jednoduche zobrazovat nofikace a upozornění uživateli. Tato knihovna tak byla využita například pro zobrazení upozornění při chybě nebo úspěšném provedení akce.
+    \item Font Awesome\footnote{\href{https://fontawesome.com/}{https://fontawesome.com/}} -- je knihovna ikon, která disponuje širokou škálou veřejně dostupných ikon, které jsou zdarma k použití. Ve vývoji jsem tyto ikony použil pro reprezentaci různých akcí, které může uživatel provést.
+    \item Bootstrap\footnote{\href{https://getbootstrap.com/}{https://getbootstrap.com/}} -- jsem použil jako frontendovou knihovnu předem napsaných stylů, díky kterým jsem mohl rychle vytvořit efektivní a responzivní rozhraní. Bootstrap nabízí širokou škálu komponent, které jsou podrobně popsány v dokumentaci.
+    \item SweetAlert2\footnote{\href{https://sweetalert2.github.io/}{https://sweetalert2.github.io/}} -- je knihovna, která umožnuje jednoduche zobrazovat nofikace a upozornění uživateli. Knihovna byla využita například pro zobrazení upozornění při chybě nebo úspěšném provedení akce.
     \item GoJS\footnote{\href{https://gojs.net/latest/index.html}{https://gojs.net/latest/index.html}} -- obsahuje funkce pro jednoduché a efektivní vytváření grafů, které byly využity pro interaktivní zobrazení návaznosti lokací na sebe.
     \item Animate.css\footnote{\href{https://animate.style/}{https://animate.style/}}, Hover.css\footnote{\href{https://ianlunn.github.io/Hover/}{https://ianlunn.github.io/Hover/}} -- jsou knihovny, které obsahuje před připravené animační styly, které stačí pouze aplikovat pomocí CSS tříd nebo dynamicky pomocí JavaScriptu.
     \item Notiflix\footnote{\href{https://notiflix.github.io/}{https://notiflix.github.io/}} -- je další z knihoven pro zobrazování notifikace, v tomto projektu jsem ale pro notifikace zvolil knihovnu SweetAlert2. Z toho důvodu je tato knihovna využita pouze pro blokaci uživatelského vstupu během načítání nebo zpracování dat formou loading spinneru.
-    \item NoUISlider\footnote{\href{https://refreshless.com/nouislider/}{https://refreshless.com/nouislider/}} -- jedná se o knihovnu, které do prvků HTML přidává možnost vytvořit posuvníky, které je následně možné využit pro výběr hodnoty z rozsahu. Jeho příklad použití je v formuláři s filtrací dat.
+    \item NoUISlider\footnote{\href{https://refreshless.com/nouislider/}{https://refreshless.com/nouislider/}} -- jedná se o knihovnu, které do prvků HTML přidává možnost vytvořit posuvníky, které je následně možné využit pro výběr hodnoty z rozsahu. Jeho příklad použití je ve formuláři s filtrací dat.
 \end{description}
 
 \subsection{Jazykový procesor}
@@ -93,15 +93,15 @@ Pro podporu vícejazyčné funkčnosti byla v této práci využita knihovna i18
 
 \lstinputlisting[language=JavaScript, caption={Ukázka využití knihovny i18next.}, label={lst:i18next-example}]{sourceCodes/LanguageLocalization.js}
 
-Na ukázce kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna tak ale sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
+Na ukázce kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
 
 \subsection{Databáze}
 \label{subsec:implementation-technologies-database}
-Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale o jednu s vysokou stabilitou a širokou historii použití. Databázi jsme tak pro bezpečnější použití rozdělili na dvě \textit{tts\_api} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity scripty, které budou dále popsány v sekci automatizace.
+Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale o jednu s vysokou stabilitou a širokou historii použití. Databázi jsme pro bezpečnější použití rozdělili na dvě \textit{tts\_api} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity scripty, které budou dále popsány v sekci automatizace.
 
 \subsubsection*{Schéma}
 \label{subsubsec:implementation-technologies-database-scheme}
-Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterém se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na obrázku~\ref{fig:db_scheme}. Software DbDiagram tak nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
+Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který tak nabízí možnost živého návrhu schémata, na kterém se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o n:n relacích je zobrazeno na obrázku~\ref{fig:db_scheme}. Software DbDiagram nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
 
 \begin{figure}[H]
     \centering
@@ -112,13 +112,13 @@ Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\hre
 
 \subsubsection*{Automatizace}
 \label{subsubsec:implementation-technologies-database-automatization}
-Automatizace vytváření a plnění databáze je důležitá pro kontinuální vývoj softwaru a v praxi se tak nazývá \textit{migrace}. Skripty pro vytvoření a naplnění databáze tak byly vytvořeny v skriptovacím jazyce Python\footnote{\href{https://www.python.org/}{https://www.python.org/}}. Tyto skripty tak byly vytvořeny tak, aby při jejich spuštění provedly kompletní smazání databáze, následně pak její znovu vytvoření a pozdější naplnění. Ukázka výstupu vytvořených scriptu je zobrazena v příloze~\ref{fig:databaseScriptsOutput}.
+Automatizace vytváření a plnění databáze je důležitá pro kontinuální vývoj softwaru a v praxi se nazývá \textit{migrace}. Skripty pro vytvoření a naplnění databáze byly vytvořeny v skriptovacím jazyce Python\footnote{\href{https://www.python.org/}{https://www.python.org/}}. Tyto skripty byly vytvořeny tak, aby při jejich spuštění provedly kompletní smazání databáze, následně pak její znovu vytvoření a pozdější naplnění. Ukázka výstupu vytvořených scriptu je zobrazena v příloze~\ref{fig:databaseScriptsOutput}.
 
 Pro vytvoření databáze byl použitý SQL soubory, který se po každé úpravě v nástroji DbDiagram.io zmíněným výše vyexportoval. Jakmile byla databáze resetována do výchozí podoby a vše proběhlo úspěšně. Došlo na řadu její plnění. Pro plnění databáze jsou data uložena v souborech ve formátu JSON. Tyto soubory lze jednoduše exportovat z administračního rozhraní a uložit pro pozdější použití při obnově nebo plnění databáze.
 
-Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účet byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na obrázku~\ref{fig:db_table_priority}. Tento diagram tak slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
+Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů, bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účet byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na obrázku~\ref{fig:db_table_priority}. Tento diagram slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
 
-Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou tak mají největší počet cest k sobě. V případě, že tabulka nemá žádnou cestu k sobě, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v tabulce~\ref{tab:db_table_priority}.
+Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou mají největší počet cest k sobě. V případě, že tabulka nemá žádnou cestu k sobě, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v tabulce~\ref{tab:db_table_priority}.
 
 \begin{figure}[H]
     \centering
@@ -159,11 +159,11 @@ Pro čtení priority z grafu~\ref{fig:db_table_priority} je nutné vždy začít
 
 \section{Týmová spolupráce}
 \label{sec:implementation-collaboration}
-Týmová spolupráce ve čtyřčlenném týmu studentů se stává obzvláště komplikovaná v době, kdy je projekt rozdělen do separátních části, které jsou na sobě závislé a je tak nutná vzájemná komunikace a spolupráce. Jako hlavní a nejvíce důležitou komponentou tohoto projektu se tak stává API, která slouží pro kompletní komunikaci v rámci projektu. V této sekci se tak zaměřím na to, jak jsme si rozdělili práci a jaký software jsme k tomu využili.
+Týmová spolupráce ve čtyřčlenném týmu studentů se stává obzvláště komplikovaná v době, kdy je projekt rozdělen do separátních části, které jsou na sobě závislé a je nutná vzájemná komunikace a spolupráce. Jako hlavní a nejvíce důležitou komponentou tohoto projektu se stává API, která slouží pro kompletní komunikaci v rámci projektu. V této sekci se zaměřím na to, jak jsme si rozdělili práci a jaký software jsme k tomu využili.
 
 \subsection{Rozdělení práce}
 \label{subsec:implementation-collaboration-distribution}
-Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně nebo ve spolupráci. Spolupráce je tak zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na obrázku~\ref{fig:job_distribution} je tak navíc jasně velikostně zobrazena náročnost jednotlivých částí projektu.
+Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadání přidělenou určitou hlavní část projektu, za kterou byl plně zodpovědný. Každá z těchto částí projektu pak byla následně rozdělena na menší sekce, na kterých se daní členové podíleli buď samostatně, nebo ve spolupráci. Spolupráce je zobrazena v šedém boxu, kde její vnitřní barevné čtverec reprezentuje daného člena. Ve výsledném rozdělení práce na obrázku~\ref{fig:job_distribution} je tak navíc jasně velikostně zobrazena náročnost jednotlivých částí projektu.
 
 \begin{figure}[H]
     \centering
@@ -174,15 +174,15 @@ Rozdělení práce v týmu bylo provedeno tak, že každý člen měl dle zadán
 
 \subsection{Verzování kódu}
 \label{subsec:implementation-collaboration-versioning}
-Efektivnost verzování kódu je důležitou součástí každé týmové spolupráce na větším projektu. Pro správu obsahu práce jsem tak využili nástroj Git pod službou GitHub\footnote{https://github.com/}, který nám umožnil efektivně sledovat změny a udržovat si tak přehled o vývoji projektu. Využití Gitu bylo zvoleno především pro jeho jednoduchost a znalost všech členů týmu, kteří s ním již měli zkušenosti v minulosti.
+Efektivnost verzování kódu je důležitou součástí každé týmové spolupráce na větším projektu. Pro správu obsahu práce jsem využili nástroj Git pod službou GitHub\footnote{https://github.com/}, který nám umožnil efektivně sledovat změny a udržovat si přehled o vývoji projektu. Využití Gitu bylo zvoleno především pro jeho jednoduchost a znalost všech členů týmu, kteří s ním již měli zkušenosti v minulosti.
 
 \subsubsection*{Větve}
 \label{subsubsec:implementation-collaboration-versioning-branches}
 V moderních vývojích systému se každá část nebo projekt celý rozděluje do složitějšího stromu větví známého pod názvem \textit{Git Worfkflow}, jeho efektivní reprezentace lze vidět na obrázku~\ref{fig:git_workflow}. Tento strom se dělí na vícero větví, kde mezi ty hlavní tři větve patří \textit{live} neboli master, \textit{develop} a \textit{uat} známá jako testing branch.
 
-Větev \textit{master} slouží pro produkční verze projektu, které jsou již plně připraveny k nasazení, zatímco větev \textit{develop} slouží pro vývoj nových funkcí případně oprav chyb. Při každém vývoji nové funkce se pak každá tato aktualizace dostává pomocí tzv. \textit{pull requestu} do větve testovací. V této větvi pak dochází k konstantnímu testování celého systému, pokuď je následně vše v pořádku. Aktualizace se dostávají do produkční větve.
+Větev \textit{master} slouží pro produkční verze projektu, které jsou již plně připraveny k nasazení, zatímco větev \textit{develop} slouží pro vývoj nových funkcí případně oprav chyb. Při každém vývoji nové funkce se pak každá tato aktualizace dostává pomocí tzv. \textit{pull requestu} do větve testovací. V této větvi pak dochází ke konstantnímu testování celého systému, pokud je následně vše v pořádku. Aktualizace se dostávají do produkční větve.
 
-Následně strom obsahuje pod větve vývojové, tyto větve se často štěpí z větve developu a slouží pro vývoj nových funkcí nebo opravu chyb. Po dokončení a úspěšném testování je tato větev spojena zpět do developu a po vydání nové verze je spojena do masteru.
+Následně strom obsahuje pod větve vývojové, tyto větve se štěpí z větve developu a slouží pro vývoj nových funkcí nebo opravu chyb. Po dokončení a úspěšném testování je tato větev spojena zpět do developu a po vydání nové verze je spojena do masteru.
 
 \subsubsection*{Zkratky}
 Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o funkční příkazy softwaru Git, ale o pouhé zkratky pro přehlednější vyobrazení v schématu.
@@ -220,17 +220,17 @@ Tabulka zkratek zobrazena v obrázku ~\ref{fig:git_workflow}. Nejedná se zde o 
 
 \subsection{Sdílení kódu}
 \label{subsec:implementation-collaboration-sharing}
-Sdílení kódu není ve vývoji softwaru novinkou, neboť kód ve větším týmu spravuje vícero programátoru. Pro náš účel jsme tak opět použili systém \textit{GitHub}\footnote{https://github.com/}, kde po založení organizace dostávají všichni členové možnost zapojit se do vývoje. Obrázek~\ref{fig:git_organization} zobrazuje reprezentaci organizace na webové stránce \textit{GitHub}\footnote{https://github.com/Trails-Through-Shadows}, v nichž jsou zobrazeny jednotlivé části projektu, jejich krátky popis a jazyk, který v dané části převládá.
+Sdílení kódu není ve vývoji softwaru novinkou, neboť kód ve větším týmu spravuje vícero programátoru. Pro náš účel jsme opět použili systém \textit{GitHub}\footnote{https://github.com/}, kde po založení organizace dostávají všichni členové možnost zapojit se do vývoje. Obrázek~\ref{fig:git_organization} zobrazuje reprezentaci organizace na webové stránce \textit{GitHub}\footnote{https://github.com/Trails-Through-Shadows}, v nichž jsou zobrazeny jednotlivé části projektu, jejich krátky popis a jazyk, který v dané části převládá.
 
 \subsection*{Rozdělení částí}
 \label{subsec:implementation-collaboration-sharing-parts}
-Při zakládaní organizace také došlo k zakoupení domény na kterou následně byly jednotlivé produkční verze nasazeny pomocí dalšího z nástrojů GitHubu a to \textit{GitHub Actions}\footnote{\href{https://github.com/features/actions}{https://github.com/features/actions}}, tento nástroj slouží pro automatizaci testování a následného nasazení funkční verze na server. Tento systém nám tak umožnil přehledný a automatický proces spuštění aplikace v praxi.
+Při zakládání organizace také došlo k zakoupení domény, na kterou následně byly jednotlivé produkční verze nasazeny pomocí dalšího z nástrojů GitHubu a to \textit{GitHub Actions}\footnote{\href{https://github.com/features/actions}{https://github.com/features/actions}}, tento nástroj slouží pro automatizaci testování a následného nasazení funkční verze na server. Tento systém nám umožnil přehledný a automatický proces spuštění aplikace v praxi.
 
 \noindent
 V rámci organizace byly vytvořeny následující části:
 
 \begin{itemize}
-    \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se taky nachází pod odkazem  \url{https://docs.tts-game.fun/thesis/intro}.
+    \item TTS-Thesis    -- obsahuje texty diplomové práce od jednotlivých členů týmu se sdílenými materiály, který se nachází pod odkazem  \url{https://docs.tts-game.fun/thesis/intro}.
     \item TTS-Database  -- obsahuje skripty pro vytvoření a naplnění databáze základními daty, jejichž schéma je viditelné na obrázku~\ref{fig:db_scheme} nebo pod odkazem: \url{https://db.tts-game.fun}.
     \item TTS-API       -- obsahuje zdrojové kódy API, které slouží pro komunikaci mezi frontendem a backendem. Funkční produkční verze běží pod odkazem \url{https://api.tts-game.fun}.
     \item TTS-Dashboard -- obsahuje zdrojové kódy frontendu, který slouží pro zobrazení dat a správu aplikace. Produkční verze nalezena pod odkazem \url{https://dashboard.tts-game.fun}.
@@ -255,16 +255,16 @@ Během vývoje aplikace se vyskytlo mnoho menších a větších problémů, kte
 
 \subsection*{Hexagonální grid}
 \label{subsec:implementation-problems-hexagon}
-Během implementace bylo nutné vykreslit hexagonální mapu, která slouží jako základ pro reprezentaci lokace, například jeskyně z angličtiny \textit{dungeon}. Tato mapa tak reprezentuje bojové pole, kde se odehrává herní děj, a je tedy nezbytné správně zaznamenat polohu každého objektu na mapě do databáze, včetně umístění každého hexagonu na plánku, který byl zaviněn
+Během implementace bylo nutné vykreslit hexagonální mapu, která slouží jako základ pro reprezentaci lokace, například jeskyně z angličtiny \textit{dungeon}. Tato mapa reprezentuje bojové pole, kde se odehrává herní děj, a je tedy nezbytné správně zaznamenat polohu každého objektu na mapě do databáze, včetně umístění každého hexagonu na plánku, který byl zaviněn
 
-Při používání hexagonálního rozložení bylo nezbytné načítat z databáze veškeré hexagony, jeho sousedy a vazby které obsahuje s dalšími objekty. Po několika pokusech s klasickými souřadnicemi ve formátu \textit{(x, y)} nám bylo doporučeno přejít na souřadnicový systém osový, známý jako \textit{axial coordinates}, který je reprezentován formátem \textit{(q, r, s)}. Tento systém je často používán právě v hexagonálních hrách, protože usnadňuje výpočet vzdálenosti mezi hexagony a identifikaci jejich sousedů pomocí třetí osy.
+Při používání hexagonálního rozložení bylo nezbytné načítat z databáze veškeré hexagony, jeho sousedy a vazby, které obsahuje s dalšími objekty. Po několika pokusech s klasickými souřadnicemi ve formátu \textit{(x, y)} nám bylo doporučeno přejít na souřadnicový systém osový, známý jako \textit{axial coordinates}, který je reprezentován formátem \textit{(q, r, s)}. Tento systém je používán právě v hexagonálních hrách, protože usnadňuje výpočet vzdálenosti mezi hexagony a identifikaci jejich sousedů pomocí třetí osy.
 
 Pro ověření správnosti souřadnic je možné sečíst všechny koordináty souřadnice hexagonu, které by měly dát výsledek 0. Tento výpočet je zobrazen v rovnici~\ref{eq:axial-coordinates-verification}.
 \begin{equation}
     q + r + s = 0\label{eq:axial-coordinates-verification}
 \end{equation}
 
-Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obrázku vedle rovnice~\ref{eq:hexagon-neighbors}. V případě použít normálního souřadnicového systému by bylo zapotřebí vytvořit složitý algoritmus pro výpočet sousedů, zatímco v případě osových součadnic stačí ke každému koordinátu přičíst nebo odečíst 1. Výpočet sousedů je tak zobrazen v rovnici~\ref{eq:hexagon-neighbors}. \cite{hexagon_grid}
+Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obrázku vedle rovnice~\ref{eq:hexagon-neighbors}. V případě použít normálního souřadnicového systému by bylo zapotřebí vytvořit složitý algoritmus pro výpočet sousedů, zatímco v případě osových součadnic stačí ke každému koordinátu přičíst nebo odečíst 1. Výpočet sousedů je zobrazen v Rovnici~\ref{eq:hexagon-neighbors}. \cite{hexagon_grid}
 
 \begin{equation}
     \vcenter{\hbox{\includegraphics[width=6cm,height=6cm]{diagrams/hexagonNeighbors}}}
@@ -281,7 +281,7 @@ Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obr
 
 \subsection*{Časová náročnost}
 \label{subsec:implementation-problems-time}
-Dalším z problému, který byl zaviněn špatným návrhem byla časová náročnost aplikace. Vzhledem k tomu, že návrh projektu byl proveden bez zohlednění časové náročnosti, pro dokončení práce tak bylo zapotřebí vynechat několik funkcí. Mezi příklad funkcí, které byly vynechány patří implementace \textit{summons} a \textit{achievements}, které byly původně plánovány jako součást hry.
+Dalším z problému, který byl zaviněn špatným návrhem byla časová náročnost aplikace. Vzhledem k tomu, že návrh projektu byl proveden bez zohlednění časové náročnosti, pro dokončení práce bylo zapotřebí vynechat několik funkcí. Mezi příklad funkcí, které byly vynechány, patří implementace \textit{summons} a \textit{achievements}, které byly původně plánovány jako součást hry.
 
 K této funkcionalitě bychom se v budoucnu rádi vrátili a implementaci dokončili.
 

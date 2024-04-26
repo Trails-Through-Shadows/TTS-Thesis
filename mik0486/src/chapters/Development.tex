@@ -4,7 +4,7 @@ V této kapitole se budu věnovat popisu technologií, které jsem použil při 
 
 \section{Programovací Jazyky}
 \label{sec:languages}
-Programovací jazyky v kontextu uživatelského rozhraní (UI) hrají klíčovou roli ve vývoji a implementaci interaktivních prvků. Zaměřím se tak především na jazyky, které jsem použil a které jsou nejčastěji využívány v rámci vývoje webových aplikací, jejich výhody a nevýhody a jakým způsobem se liší od sebe.
+Programovací jazyky v kontextu uživatelského rozhraní (UI) hrají klíčovou roli ve vývoji a implementaci interaktivních prvků. Zaměřím se především na jazyky, které jsem použil a které jsou nejčastěji využívány v rámci vývoje webových aplikací, jejich výhody a nevýhody a jakým způsobem se liší od sebe.
 
 \subsection{Kompilované Jazyky}
 \label{subsec:languages-compiled}
@@ -16,19 +16,19 @@ Mezi první druh programovacích jazyků patří jazyky kompilované, které se 
     \item \textbf{Bezpečnost:} Kompilované jazyky ošetřují mnoho chyb již při jejich kompilaci, což zvyšuje bezpečnost aplikace a snižuje rizika chyb.
 \end{itemize}
 
-Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, Java, Rust, Go a mnoho dalších. V rámci této práce jsem se zaměřil na jazyk \textit{TypeScript} a \textit{Less}, který mi tak usnadní vývoj frontendu aplikace.
+Mezi nejznámější kompilované jazyky můžeme zařadit jazyky jako C, C++, Java, Rust, Go a mnoho dalších. V rámci této práce jsem se zaměřil na jazyk \textit{TypeScript} a \textit{Less}, který mi usnadní vývoj frontendu aplikace.
 
-\subsubsection{TypeScript}
+\subsubsection*{TypeScript}
 \label{subsubsec:languages-compiled-typescript}
 TypeScript je jedním z kompilovaných jazyků, který byl vytvořen jako nadstavba nad existující jazyk \textit{JavaScript}. Poprvé byl uveden v roce 2012 společností Microsoft a jeho hlavním cílem je obohacení JavaScriptu o statické typování, které umožňuje programátorům definovat typy proměnných, parametrů funkcí a návratových hodnot. Mimo statické typování dále obohacuje JavaScript o funkce jako jsou třídy, moduly, generické typy a další. Díky těmto funkcím je možné zabezpečit kód proti chybám, které by mohly vzniknout v průběhu vývoje aplikace pod standardním JavaScriptem.
 
 Oproti jiným jazykům sám o sobě není spustitelný, ale je nutné jej nejprvě přeložit do kódu JavaScriptu, Tento proces se nazývá transpilace pomocí nástroje \textit{tsc}\footnote{\href{https://www.typescriptlang.org/}{https://www.typescriptlang.org/}}, který je součástí balíčku \textit{Node.js}\footnote{\href{https://nodejs.org/}{https://nodejs.org/}}
 
-\subsubsection{Less}
+\subsubsection*{Less}
 \label{subsubsec:languages-compiled-less}
 Less je dalším z kompilovaných jazyků, které se zaměřují na zlepšení a obohacení jazyka CSS. Tento jazyk byl vytvořen v roce 2009 autorem Alexis Sellier a jako TypeScript je jeho cílem poskytnout dodatečné funkce pro pohodlnější a efektivnější psaní kaskádových stylů. Jako hlavní výhody můžeme uvést možnost definovat proměnné, funkce nebo vnořování selectoru.
 
-Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů jako jsou \textit{Less.js}\footnote{\href{http://lesscss.org/}{http://lesscss.org/}} nebo \textit{Node.js}.
+Pro využití Less je nutné jej přeložit do kódu CSS, což je možné provést pomocí nástrojů, jako jsou \textit{Less.js}\footnote{\href{http://lesscss.org/}{http://lesscss.org/}} nebo \textit{Node.js}.
 
 \subsection{Interpretované Jazyky}
 \label{subsec:languages-interpreted}
@@ -41,32 +41,32 @@ Interpretované jazyky jsou oproti jazykům kompilovaným zpracovávany za běhu
     \item \textbf{Snadná ladění:} Interpretované jazyky umožňují snadné ladění kódu a zobrazení chyb v reálném čase.
 \end{itemize}
 
-Bohužel tyto jazyky tak obsahují i svá negativa, protože kód je interpretován v reálnem čase jeho výkon je tak lehce nižší a bez příslušného interpretu není spustitelný.
+Bohužel tyto jazyky obsahují i svá negativa, protože kód je interpretován v reálnem čase jeho výkon je lehce nižší a bez příslušného interpretu není spustitelný.
 
-\subsubsection{JavaScript}
+\subsubsection*{JavaScript}
 \label{subsubsec:languages-interpreted-javascript}
 JavaScript je vysokoúrovňový interpretovaný skriptovací jazyk určený pro vývoj webových aplikací. Za jeho vytvoření je zodpovědný Brendan Eich, který jej poprvé uvedl v roce 1995 jako součást prohlížeče Netscape Navigator. Jeho použitím v spolupráci s HTML je možné vytvářet dynamická a interaktivní uživatelská rozhraní, která reagují na uživatelské akce a události v reálnem čase. JavaScript tak podporuje různé programovací paradigma, jako jsou procedurální, objektově orientované nebo funkcionální, ale oproti jiným jazykům je netypovaný, což znamená, že nemá pevně definované datové typy.
 
-\subsubsection{Python}
+\subsubsection*{Python}
 \label{subsubsec:languages-interpreted-python}
-Python tak na druhou stranu slouží jako vysokoúrovňový interpretovaný programovací jazyk, který byl vytvořen v roce 1991 Guido van Rossumem. Python je známý svou jednoduchostí, čitelností a efektivitou, což z něj činí oblíbenou volbu pro vývojáře. Volba Pythonu je často spojena s rychlým developmentem nebo pro vytvoření scriptů, které se konkrétně zaměřují na automatizaci úloh nebo zpracování dat. Python se tak dá jednoduše spouštět na různých platformách a operačních systémech, což z něj činí univerzální jazyk pro vývoj aplikací.
+Python na druhou stranu slouží jako vysokoúrovňový interpretovaný programovací jazyk, který byl vytvořen v roce 1991 Guido van Rossumem. Python je známý svou jednoduchostí, čitelností a efektivitou, což z něj činí oblíbenou volbu pro vývojáře. Volba Pythonu je často spojena s rychlým developmentem nebo pro vytvoření scriptů, které se konkrétně zaměřují na automatizaci úloh nebo zpracování dat. Python se tak dá jednoduše spouštět na různých platformách a operačních systémech, což z něj činí univerzální jazyk pro vývoj aplikací.
 
 \subsection{Značkovací Jazyky}
 \label{subsec:languages-markup}
-Značkovací jazyky se velmi liší od jazyků kompilovaných nebo interpretovaných a to z důvodu toho, že slouží pro anotaci dokumentu způsobem, kde dochází k syntaktickému odlišení textu od značek kódu. Pomocí značek tak definují strukturu dokumentu, formátování textu, vkládání komponent jako jsou odkazy, obrázky a další. Z tohoto důvodu tak nejsou primárně určeny pro popis algoritmů nebo pro výpočetní účely, ale slouží jako prostředek pro prezentaci dat. Mezi hlavní výhody značkovacích jazyků tak patří:
+Značkovací jazyky se velmi liší od jazyků kompilovaných nebo interpretovaných a to z důvodu toho, že slouží pro anotaci dokumentu způsobem, kde dochází k syntaktickému odlišení textu od značek kódu. Pomocí značek definují strukturu dokumentu, formátování textu, vkládání komponent jako jsou odkazy, obrázky a další. Z tohoto důvodu nejsou primárně určeny pro popis algoritmů nebo pro výpočetní účely, ale slouží jako prostředek pro prezentaci dat. Mezi hlavní výhody značkovacích jazyků patří:
 
 \begin{itemize}
     \item \textbf{Struktura:} Značkovací jazyky umožňují definovat strukturu dokumentu pomocí značek, což zvyšuje jeho čitelnost a srozumitelnost.
     \item \textbf{Rozšiřitelnost:} Dokumenty lze snadno upravit nebo rozšířit o nový obsah bez narušení stávající struktury nebo nutnosti přepisování velkého množství kódu.
 \end{itemize}
 
-\subsubsection{HTML}
+\subsubsection*{HTML}
 \label{subsubsec:languages-markup-html}
-HTML neboli \textit{Hyper Text Markup Language} je značkovací jazyk určený pro tvorbu strukturovanch webových stránek. Za jeho vývojem stojí Tim Berners-Lee, který jej uvedl v roce 1993 jako součast prvního webového prohlížeče. HTML se tak stal základním stavebním prvkem všech webových stránek a je podporován všemi moderními prohlížeči. Jeho syntaxe je založena na značkách, které definují jeho strukturu, jako příklad značek můžeme uvést blíže přiblížené značky z kapitoly~\ref{sec:admin-tags}.
+HTML neboli \textit{Hyper Text Markup Language} je značkovací jazyk určený pro tvorbu strukturovanch webových stránek. Za jeho vývojem stojí Tim Berners-Lee, který jej uvedl v roce 1993 jako součast prvního webového prohlížeče. HTML se stal základním stavebním prvkem všech webových stránek a je podporován všemi moderními prohlížeči. Jeho syntaxe je založena na značkách, které definují jeho strukturu, jako příklad značek můžeme uvést blíže přiblížené značky z kapitoly~\ref{sec:admin-tags}.
 
-\subsubsection{Markdown}
+\subsubsection*{Markdown}
 \label{subsubsec:languages-markup-markdown}
-Markdown je oproti HTML jednodušší z důvodu, že jeho cílem je pouhé formátování textu. Byl vytvořen v roce 2004 \textit{Johnem Gruberem} a \textit{Aaronem Swartzem}. Jeho hlavní výhodou je čitelnost a jednoduchost, kterou tak nabízí jednoduché formátování pro zvýraznění textu, vytváření odkazů, seznamů, obrázků a další. Markdown je tak často využíván pro psaní dokumentace, blogů nebo pro zápis poznámek.
+Markdown je oproti HTML jednodušší z důvodu, že jeho cílem je pouhé formátování textu. Byl vytvořen v roce 2004 \textit{Johnem Gruberem} a \textit{Aaronem Swartzem}. Jeho hlavní výhodou je čitelnost a jednoduchost, kterou tak nabízí jednoduché formátování pro zvýraznění textu, vytváření odkazů, seznamů, obrázků a další. Markdown je využíván pro psaní dokumentace, blogů nebo pro zápis poznámek.
 
 \section{Frameworky}
 \label{sec:dev-framework}
@@ -75,9 +75,9 @@ Framework, v jiných slovech struktura nebo kostra, představuje v informatice a
 Ve svéře informatiky se frameworky dělí podle programovacího jazyku nebo zaměření na aplikaci. Máme zde druhy frameworku určených na vývoj webů, her, mobilních aplikací nebo čistě na široký výzkum. \cite{about_framework}
 
 \subsection*{Rozdíl mezi Frameworkem a Knihovnou}
-Framework a knihovna jsou dvě často zaměňované koncepce, avšak existují zásadní rozdíly mezi nimi. Knihovna je soubor funkcí nebo tříd, které lze využít při vytváření aplikace. Zajišťuje určitou funkcionalitu, ale vývojář nese odpovědnost za řízení toku aplikace a volání funkcí knihovny.
+Framework a knihovna jsou dvě zaměňované koncepce, avšak existují zásadní rozdíly mezi nimi. Knihovna je soubor funkcí nebo tříd, které lze využít při vytváření aplikace. Zajišťuje určitou funkcionalitu, ale vývojář nese odpovědnost za řízení toku aplikace a volání funkcí knihovny.
 
-Naopak framework poskytuje kompletní strukturu aplikace, kde vývojář implementuje pouze specifickou funkcionalitu. Framework tak aktivně řídí tok aplikace a volá konkrétní části kódu, zatímco vývojář se zaměřuje na přizpůsobení těchto specifických částí.
+Naopak framework poskytuje kompletní strukturu aplikace, kde vývojář implementuje pouze specifickou funkcionalitu. Framework aktivně řídí tok aplikace a volá konkrétní části kódu, zatímco vývojář se zaměřuje na přizpůsobení těchto specifických částí.
 
 \begin{figure}[H]
     \centering
@@ -91,7 +91,7 @@ Model-View-Template dále jen jako MVT a Model-View-Controller dále jen jako MV
 
 V případě MVT je aplikace rozdělena na tři části: \textit{Model}, \textit{View} a \textit{Template}. Model zde reprezentuje datovou strukturu, většinou tedy namapované objekty získané z databáze nebo případně z jiného zdroje. View (zobrazení) je zodpovědné za přijímání uživatelských požadavků a zobrazování odpovědi od serveru zpět uživateli, v rámci této komunikace reprezentuje určitý most mezi modelem a šablonou. Jako poslední je zde template (šablona), která v tomto případě přijatá data zpracovává do výsledného HTML kódu pomocí speciálních značek určující předem daný formát stránky. Výsledný HTML kód je následně odeslán zpět uživateli.
 
-Na druhé straně MVC, který je často používán ve zbytku frameworku se oproti MVT liší pouze lehce. Model zde stále reprezentuje datovou strukturu, ale View je naopak zodpovědný o pouhé vykreslování dat uživateli. Novým prvkem je zde Controller, který se zaobírá zbylou interakcí uživatele s aplikací, tedy přijímání požadavků, zpracování dat a následné odeslání zpět uživateli. \cite{mvc_mvt_difference}
+Na druhé straně MVC, který je používán ve zbytku frameworku se oproti MVT liší pouze lehce. Model zde stále reprezentuje datovou strukturu, ale View je naopak zodpovědný o pouhé vykreslování dat uživateli. Novým prvkem je zde Controller, který se zaobírá zbylou interakcí uživatele s aplikací, tedy přijímání požadavků, zpracování dat a následné odeslání zpět uživateli. \cite{mvc_mvt_difference}
 
 \begin{figure}[H]
     \centering
@@ -120,9 +120,9 @@ React vyniká v poskytování responzivního a interaktivního uživatelského p
 \label{subsec:dev-framework-angular}
 Angular je populární open-source framework pro vývoj webových aplikací. Je sponzorován a udržován převážně společností Google a vyniká díky široké komunitě a schopnosti řešit výzvy spojené s vývojem jednostránkových aplikací (SPA). Angular je postaven na jazyce TypeScript a využívá komponentovou architekturu pro tvorbu uživatelských rozhraní.
 
-Jednou z klíčových vlastností Angularu je jeho komplexní systém modulů a komponent, který usnadňuje organizaci a správu kódu. Angular používá návrhový vzor \textit{Model-View-Controller} (MVC) a klade důraz na dvoucestný data-binding, což znamená, že změny v modelu automaticky odrážejí změny v vykreslování a naopak.
+Jednou z klíčových vlastností Angularu je jeho komplexní systém modulů a komponent, který usnadňuje organizaci a správu kódu. Angular používá návrhový vzor \textit{Model-View-Controller} (MVC) a klade důraz na dvoucestný data-binding, což znamená, že změny v modelu automaticky odrážejí změny ve vykreslování a naopak.
 
-Framework obsahuje mnoho vestavěných funkcí, jako například modulární routování, HTTP služby pro komunikaci se serverem, a nástroje pro testování. Angular také poskytuje kompletní sadu nástrojů pro správu stavu aplikace. \cite{about_angular}
+Framework obsahuje mnoho vestavěných funkcí, jako například modulární routování, HTTP služby pro komunikaci se serverem, a nástroje pro testování. Angular poskytuje kompletní sadu nástrojů pro správu stavu aplikace. \cite{about_angular}
 
 \subsection{Laravel}
 \label{subsec:dev-framework-laravel}
@@ -136,13 +136,13 @@ Vue.js je moderní JavaScriptový framework určený pro vývoj uživatelského 
 
 Jedním z klíčových prvků Vue.js je reaktivní datová vrstva, která umožňuje snadná sledování a aktualizaci dat. Framework využívá jednosměrný datový tok, což znamená, že veškeré změny v datech jsou automaticky aktualizovány v uživatelským rozhraní. Toto chování usnadňuje sledování stavu aplikace a vytváření dynamických a interaktivních uživatelských rozhraní.
 
-Vue.js je navržen ohledem na progresivitu, což znamená, že ho lze snadno a postupně intergrovat do existujícího projektu a nijak tak nenarušit jakoukoliv funkčnost. Při této integraci lze jednoduše rozdělit aplikaci do Frontend části, reprezentovanou Vue.js a backend části, která může být reprezentována například frameworkem Django. \cite{about_vuejs}
+Vue.js je navržen ohledem na progresivitu, což znamená, že ho lze snadno a postupně intergrovat do existujícího projektu a nijak nenarušit jakoukoliv funkčnost. Při této integraci lze jednoduše rozdělit aplikaci do Frontend části, reprezentovanou Vue.js a backend části, která může být reprezentována například frameworkem Django. \cite{about_vuejs}
 
 \subsection{Svelte}
 \label{subsec:dev-framework-svelte}
-Svelte je jedním z inovativních JavaScriptových frameworků, který se zaměřuje na efektivní kompilací v ranné fázi build procesu, což přináší nový pohled na vývoj uživatelského rozhraní. Zatímco tradiční frameworky provadějí většinu práce na straně klienta nebo serveru za běhu, Svelte přesouvá tuto činnost do fáze komiplace, čímž mnohonásobně zlepšuje výkon a optimalizuje výslednou velikost kódu.
+Svelte je jedním z inovativních JavaScriptových frameworků, který se zaměřuje na efektivní kompilací v rané fázi build procesu, což přináší nový pohled na vývoj uživatelského rozhraní. Zatímco tradiční frameworky provádějí většinu práce na straně klienta nebo serveru za běhu, Svelte přesouvá tuto činnost do fáze kompilace, čímž mnohonásobně zlepšuje výkon a optimalizuje výslednou velikost kódu.
 
-Klíčovým konceptem Svelte je štěpení kódu do komponent, které jsou více než pouze části uživatelské rozhraní. Tyto komponenty obsahuje více než prezentační logiku, definují také jak se má komponent chovat a jaké akce má provádět pod určitými podmínkami. Tento přístup tak umožnuje jednoduše eliminovat zbytečný nebo duplicitní kód ve fázi kompilace, jako dělají například \textit{C++ kompilátory}.
+Klíčovým konceptem Svelte je štěpení kódu do komponent, které jsou více než pouze části uživatelské rozhraní. Tyto komponenty obsahuje více než prezentační logiku, definují, jak se má komponent chovat a jaké akce má provádět pod určitými podmínkami. Tento přístup umožnuje jednoduše eliminovat zbytečný nebo duplicitní kód ve fázi kompilace, jako dělají například \textit{C++ kompilátory}.
 
 Pro plné využití tohoto frameworku, je nutné jeho rozšíření o backendovou část, která bývá zodpovědná za zpracování dat a komunikaci se serverem. Tato část může být reprezentována například jedním s frameworků zmíněných výše. \cite{about_svelte}
 
@@ -168,9 +168,9 @@ Při vývoji je nutné si předem určit, který ze stylů zpracování bude pro
 
 \subsection{Server-Side Rendering}
 \label{subsec:dev-request-processing-server-side-rendering}
-Server-Side Rendering (SSR) je často využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahují často vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
+Server-Side Rendering (SSR) je využívaný způsob zpracování, který se obvykle uplatňuje u menších webových aplikací, jež bývají označovány jako statické stránky. Tyto stránky svůj obsah po zpracování již nikdy nemění. Základem SSR je, že veškeré zpracování dat probíhá na straně serveru, a klient poté již obdrží kompletně vykreslenou stránku, kterou prohlížeč jednoduše načte. Tyto stránky díky své statické povaze dosahují vysokých hodnocení v SEO, což je klíčové pro zvýšení návštěvnosti.
 
-Jednou z nevýhod SSR je však vysoká náročnost na vypočetní výkon serveru. Tento problém se projevuje zejména v případě, kdy server zaznamená velké množství klientských požadavků v krátkém časovém období. Při každém požadavku dojde k novému kompletnímu vykreslení stránky, i když se obsah stránky změnil jen minimálně.
+Jednou z nevýhod SSR je však vysoká náročnost na výpočetní výkon serveru. Tento problém se projevuje zejména v případě, kdy server zaznamená velké množství klientských požadavků v krátkém časovém období. Při každém požadavku dojde k novému kompletnímu vykreslení stránky, i když se obsah stránky změnil jen minimálně.
 
 \begin{figure}[H]
     \centering
@@ -210,7 +210,7 @@ Jako systém umožňuje definovat strukturu a vzhled webových stránek pomocí 
 Mezi hlavní výhody používání šablon patří:
 \begin{enumerate}
     \item \textbf{Oddělení prezentace a logiky:} Šablonovací systém oddělením prezentace dat a logiky zpracování umožňuje vývojářům a designérům efektivně spolupracovat.
-    \item \textbf{Univerzální použitelnost:} Šablony lze použít pro vytváření jak statických tak dynamických uživatelských rozhraní, což zvyšuje modularitu a znovupoužitelnost kódu.
+    \item \textbf{Univerzální použitelnost:} Šablony lze použít pro vytváření jak statických, tak dynamických uživatelských rozhraní, což zvyšuje modularitu a znovupoužitelnost kódu.
     \item \textbf{Podpora dynamických dat:} Díky použití proměnných a filtrů umožňuje šablonovací systém dynamicky zobrazovat data na stránkách. To je klíčové pro vytváření interaktivních a daty řízených uživatelských rozhraní.
     \item \textbf{Zabezpečení:} Systém frameworku obsahuje mechanismy pro prevenci útoků jako Cross-Site Scripting (XSS), Form tampering, SQL injection a další. Tato zabezpečení jsou automaticky aplikována na šablony, což zvyšuje bezpečnost aplikace.
 \end{enumerate}
@@ -219,16 +219,16 @@ Celkově lze konstatovat, že technologie šablonování přispívá k efektivn�
 
 \lstinputlisting[language=HTML, caption={Příklad použití templatu v Djangu.}, label={lst:django-template-example}]{sourceCodes/DjangoTemplateExample.html}
 
-Na výše uvedeném zdrojovém kódu lze vidět několik \textit{block} značek, které rozdělují šablonu na jednotlivé části. Tyto bloky lze pak následně později implementovat v jiných šablonách, kde se daná šablona rozšiřuje. Na řádku 19. tak můžeme vidět, že sekce \textit{content} bude později implementována.
+Na výše uvedeném zdrojovém kódu lze vidět několik \textit{block} značek, které rozdělují šablonu na jednotlivé části. Tyto bloky lze pak následně později implementovat v jiných šablonách, kde se daná šablona rozšiřuje. Na řádku 19. můžeme vidět, že sekce \textit{content} bude později implementována.
 
 \subsection{Boostrap}
 \label{subsec:dev-technology-bootstrap}
-Bootstrap je open-source framework, který byl původně vytvořen firmou Twitter s hlavním cílem zjednodušit vývoj konzistentních a responzivních uživatelských rozhraní pro webové aplikace a stránky. Tento framework se tak stal díky jeho modularitě a flexibilitě jedním z nejpopulárnějších nástrojů pro vývojáře a designéry.
+Bootstrap je open-source framework, který byl původně vytvořen firmou Twitter s hlavním cílem zjednodušit vývoj konzistentních a responzivních uživatelských rozhraní pro webové aplikace a stránky. Tento framework se stal díky jeho modularitě a flexibilitě jedním z nejpopulárnějších nástrojů pro vývojáře a designéry.
 
-Jeho klíčovou vlastní, která přímo navazuje na principy responzivního designu~\ref{subsec:ui-gui-theory-responsive-design} zmíněné v předchozí sekci, je použití tzv. \textit{Grid systému}, tedy rozložení mřížky. Tento systém Boostrapu tak umožňuje vývojářům snadno vytvářet komplexní rozložení stránek za použití základních předdefinovaných tříd, které určují šířku sloupců, vnitří a vnější okraje a další. Při změně velikosti obrazovky pak dojde v systému o automatické přizpůsobení velikosti jednotlivých oken čímž nevzniknou žádné problémy s rozložením komponent.
+Jeho klíčovou vlastní, která přímo navazuje na principy responzivního designu~\ref{subsec:ui-gui-theory-responsive-design} zmíněné v předchozí sekci, je použití tzv. \textit{Grid systému}, tedy rozložení mřížky. Tento systém Boostrapu umožňuje vývojářům snadno vytvářet komplexní rozložení stránek za použití základních předdefinovaných tříd, které určují šířku sloupců, vnitří a vnější okraje a další. Při změně velikosti obrazovky pak dojde v systému o automatické přizpůsobení velikosti jednotlivých oken čímž nevzniknou žádné problémy s rozložením komponent.
 
-Bootstrap nadále neobsahuje pouze předdefinovaný CSS třídy, ale obsahuje také nemalé množství JavaScriptových pluginů, které tak rozšiřuj funkčnost základních komponent HTML o interaktivitu. Příkladem takové komponenty může být například \textit{Dropdown}, \textit{Modal}, \textit{Carousel} a další.
+Bootstrap nadále neobsahuje pouze předdefinovaný CSS třídy, ale obsahuje také nemalé množství JavaScriptových pluginů, které rozšiřuj funkčnost základních komponent HTML o interaktivitu. Příkladem takové komponenty může být například \textit{Dropdown}, \textit{Modal}, \textit{Carousel} a další.
 
-V praxi tak lze tento systém velmi snadno implementovat do jakéhokoliv projektu. Pro jeho implementaci stačí přidat odkazy na soubory CSS a JavaScript do hlavní HTML dokumentu, po správném vložení tak lze ihned začít využívat komponent Bootstrapu. Díky této praktiky tak je možné urychlit vývoj prototypů aniž by bylo nutné psát vlastní styly.
+V praxi lze tento systém velmi snadno implementovat do jakéhokoliv projektu. Pro jeho implementaci stačí přidat odkazy na soubory CSS a JavaScript do hlavní HTML dokumentu, po správném vložení lze ihned začít využívat komponent Bootstrapu. Díky této praktiky je možné urychlit vývoj prototypů, aniž by bylo nutné psát vlastní styly.
 
 \endinput
