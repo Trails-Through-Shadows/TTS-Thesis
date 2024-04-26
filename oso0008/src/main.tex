@@ -4,9 +4,12 @@
 \usepackage[backend=biber, style=iso-numeric, alldates=iso]{biblatex} % bibliografie
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
-%TODO kdyžtak změn cestu kam se ti to buildi
-\usepackage[outputdir=./build]{minted} % vkladani zdrojovych kodu
 \usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage[outputdir=./build]{minted} % vkladani zdrojovych kodu
+
+\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos}
+\renewcommand\listingscaption{Výpis}
+\renewcommand\listoflistingscaption{Seznam výpisů zdrojového kódu}
 
 % Pozadovane vstupy pro generovani titulnich stran.
 \ThesisAuthor{Miroslav Osoba}
