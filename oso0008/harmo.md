@@ -16,3 +16,4 @@ herního modelu.
 
 ## Harmonogram:
 Taky bych rád věděl kdy co stihnu.
+P.S. Nestihnu, chápu.
