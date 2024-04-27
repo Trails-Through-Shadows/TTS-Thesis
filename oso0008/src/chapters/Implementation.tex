@@ -2,7 +2,7 @@
 V této kapitole bude obsažen popis implementace návrhu z předchozích kapitol. Budou zde do detailu rozebrány jednotlivé části implementace a popsány problémy, které se vyskytly během vývoje. Dále bude popsána spolupráce na vývoji a nástroje, které byly použity k usnadnění této spolupráce.
 
 \section{Databáze}
-Databáze byla vyvíjena za účasti všech řešitelů tohoto projektu. Je implementována v MariaDB, což je open-source odvětví MySQL databáze. Ta nám byla díky její spolehlivosti doporučena vedoucím práce. Databáze se v průběhu vývoje měnila, jelikož se měnila i struktura dat, které byly potřeba ukládat. V současné době obsahuje 48 tabulek, z čehož 11 z nich slouží čistě jako vazební. Databáze je přístupna pouze z backendové části aplikace, přes koncové body API. Schéma celé databáze (bez vazebních tabulek) je zobrazeno na Obrázku \ref{fig:db_schema}.
+Databáze byla vyvíjena za účasti všech řešitelů tohoto projektu. Je implementována v \textit{MariaDB}, což je open-source odvětví \textit{MySQL} databáze. Ta nám byla díky její spolehlivosti doporučena vedoucím práce. Databáze se v průběhu vývoje měnila, jelikož se měnila i struktura dat, které byly potřeba ukládat. V současné době obsahuje 48 tabulek, z čehož 11 z nich slouží čistě jako vazební. Databáze je přístupna pouze z backendové části aplikace, přes koncové body API. Schéma celé databáze (bez vazebních tabulek) je zobrazeno na Obrázku \ref{fig:db_schema}.
 
 \begin{figure}[htbp]
   \centering
