@@ -51,7 +51,6 @@ The main goal of this bachelor thesis is to create and document a gaming system 
 \addbibresource{resources/sauce.bib}
 
 
-
 % Minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
 \immediate\write18{echo $ROAD "nejhorší hack by žožka"}
@@ -63,9 +62,6 @@ The main goal of this bachelor thesis is to create and document a gaming system 
 
 % Command ať nemusím psát celý Dungeons & Dragons;
 \newcommand{\dnd}{\textit{D\&D}}
-
-% Novy druh tabulkoveho sloupce, ve kterem jsou cisla zarovnana podle desetinne carky
-\newcolumntype{d}[1]{D{,}{,}{#1}}
 
 % Uprava hloubky obsahu - pozdeji smazat !
 % \setcounter{tocdepth}{2}
@@ -136,6 +132,7 @@ The main goal of this bachelor thesis is to create and document a gaming system 
 % Přílohy
 \appendix
 \input{chapters/appendix/DatabaseSchema.tex}
+\input{chapters/appendix/Rulebook.tex}
 \input{chapters/appendix/GameList.tex}
 
 \end{document}
