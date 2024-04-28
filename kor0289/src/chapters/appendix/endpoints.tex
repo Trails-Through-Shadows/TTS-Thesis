@@ -1,14 +1,13 @@
-\chapter{Seznam koncových bodů API}
-\label{sec:api}
+\chapter{Seznam koncových bodů API}\label{sec:dix:api_endpoints}
 
 \begin{longtable}{|l|l|p{0.5\textwidth}|}
     \hline
-    \textbf{Metoda} & \textbf{Endpoint}           & \textbf{Popis}                                                                                                                             \\
+    \textbf{Metoda} & \textbf{Endpoint}                      & \textbf{Popis}                                                                                                                             \\
     \hline
     \endfirsthead
 
     \hline
-    \textbf{Metoda} & \textbf{Endpoint}           & \textbf{Popis}                                                                                                                             \\
+    \textbf{Metoda} & \textbf{Endpoint}                      & \textbf{Popis}                                                                                                                             \\
     \hline
     \endhead
 
@@ -18,132 +17,136 @@
     \hline
     \endlastfoot
 
-    \multicolumn{3}{|c|}{\textbf{Action Controller}}                                                                                                                                           \\
+    \multicolumn{3}{|c|}{\textbf{Action Controller}}                                                                                                                                                      \\
     \hline
-    GET             & /actions                    & Načte všechny akce.                                                                                                                        \\
-    GET             & /actions/{id}               & Načte akci podle jejího identifikátoru.                                                                                                    \\
-    GET             & /actions/{id}/card          & Načte informace pro vytvoření karty od specifické akce.                                                                                    \\
-    PUT             & /actions/{id}               & Aktualizuje existující akci podle jejího identifikátoru.                                                                                   \\
-    POST            & /actions                    & Vytvoří novou akci.                                                                                                                        \\
-    DELETE          & /actions/{id}               & Smaže akci podle jejího identifikátoru.                                                                                                    \\
+    GET             & /actions                               & Načte všechny akce.                                                                                                                        \\
+    GET             & /actions/{id}                          & Načte akci podle jejího identifikátoru.                                                                                                    \\
+    GET             & /actions/{id}/card                     & Načte informace pro vytvoření karty od specifické akce.                                                                                    \\
+    PUT             & /actions/{id}                          & Aktualizuje existující akci podle jejího identifikátoru.                                                                                   \\
+    POST            & /actions                               & Vytvoří novou akci.                                                                                                                        \\
+    DELETE          & /actions/{id}                          & Smaže akci podle jejího identifikátoru.                                                                                                    \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Adventure Controller}}                                                                                                                                        \\
+    \multicolumn{3}{|c|}{\textbf{Adventure Controller}}                                                                                                                                                   \\
     \hline
-    GET             & /adventures                 & Načte všechna dobrodružství.                                                                                                               \\
-    GET             & /adventures/{id}            & Načte dobrodružství podle jeho identifikátoru.                                                                                             \\
-    GET             & /adventures/{id}/characters & Načte všechny postavy spojené se specifickým dobrodružstvím.                                                                               \\
-    PUT             & /adventures/{id}            & Aktualizuje existující dobrodružství podle jeho identifikátoru.                                                                            \\
-    POST            & /adventures/{idLicense}     & Vytvoří nové dobrodružství s konkrétní licencí.                                                                                            \\
-    POST            & /adventures/{id}/characters & Přidá novou postavu do specifického dobrodružství.                                                                                         \\
-    DELETE          & /adventures/{id}            & Smaže dobrodružství podle jeho identifikátoru.                                                                                             \\
+    GET             & /adventures                            & Načte všechna dobrodružství.                                                                                                               \\
+    GET             & /adventures/{id}                       & Načte dobrodružství podle jeho identifikátoru.                                                                                             \\
+    GET             & /adventures/{id}/characters            & Načte všechny postavy spojené se specifickým dobrodružstvím.                                                                               \\
+    PUT             & /adventures/{id}                       & Aktualizuje existující dobrodružství podle jeho identifikátoru.                                                                            \\
+    POST            & /adventures/{idLicense}                & Vytvoří nové dobrodružství s konkrétní licencí.                                                                                            \\
+    POST            & /adventures/{id}/characters            & Přidá novou postavu do specifického dobrodružství.                                                                                         \\
+    DELETE          & /adventures/{id}                       & Smaže dobrodružství podle jeho identifikátoru.                                                                                             \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Achievement Controller}}                                                                                                                                      \\
+    \multicolumn{3}{|c|}{\textbf{Achievement Controller}}                                                                                                                                                 \\
     \hline
-    GET             & /achievements               & Načte všechna dosažení.                                                                                                                    \\
-    GET             & /achievements/{id}          & Načte konkrétní dosažení podle jeho identifikátoru.                                                                                        \\
+    GET             & /achievements                          & Načte všechna dosažení.                                                                                                                    \\
+    GET             & /achievements/{id}                     & Načte konkrétní dosažení podle jeho identifikátoru.                                                                                        \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Campaign Controller}}                                                                                                                                         \\
+    \multicolumn{3}{|c|}{\textbf{Campaign Controller}}                                                                                                                                                    \\
     \hline
-    GET             & /campaigns                  & Načte všechny kampaně.                                                                                                                     \\
-    GET             & /campaigns/{id}             & Načte kampaň podle jejího identifikátoru.                                                                                                  \\
-    GET             & /campaigns/{id}/tree        & Načte možné cesty průchodu v kampani.                                                                                                      \\
-    POST            & /campaigns                  & Vytvoří novou kampaň.                                                                                                                      \\
+    GET             & /campaigns                             & Načte všechny kampaně.                                                                                                                     \\
+    GET             & /campaigns/{id}                        & Načte kampaň podle jejího identifikátoru.                                                                                                  \\
+    GET             & /campaigns/{id}/tree                   & Načte možné cesty průchodu v kampani.                                                                                                      \\
+    POST            & /campaigns                             & Vytvoří novou kampaň.                                                                                                                      \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Class Controller}}                                                                                                                                            \\
+    \multicolumn{3}{|c|}{\textbf{Class Controller}}                                                                                                                                                       \\
     \hline
-    GET             & /classes                    & Načte všechny třídy co postavy můžou mít.                                                                                                  \\
-    GET             & /classes/{id}               & Načte třídu co může mít postava podle jejího identifikátoru.                                                                               \\
-    PUT             & /classes/{id}               & Aktualizuje existující třídu co může mít postava podle jejího identifikátoru.                                                              \\
-    POST            & /classes                    & Vytvoří novou třídu co může mít postava.                                                                                                   \\
-    DELETE          & /classes/{id}               & Smaže třídu co může mít postava podle jejího identifikátoru.                                                                               \\
+    GET             & /classes                               & Načte všechny třídy co postavy můžou mít.                                                                                                  \\
+    GET             & /classes/{id}                          & Načte třídu co může mít postava podle jejího identifikátoru.                                                                               \\
+    PUT             & /classes/{id}                          & Aktualizuje existující třídu co může mít postava podle jejího identifikátoru.                                                              \\
+    POST            & /classes                               & Vytvoří novou třídu co může mít postava.                                                                                                   \\
+    DELETE          & /classes/{id}                          & Smaže třídu co může mít postava podle jejího identifikátoru.                                                                               \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Debug Controller}}                                                                                                                                            \\
+    \multicolumn{3}{|c|}{\textbf{Debug Controller}}                                                                                                                                                       \\
     \hline
-    GET             & /debug/logs/latest          & Načte posledních x znaků z logu.                                                                                                           \\
+    GET             & /debug/logs/latest                     & Načte posledních x znaků z logu.                                                                                                           \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Effect Controller}}                                                                                                                                           \\
+    \multicolumn{3}{|c|}{\textbf{Effect Controller}}                                                                                                                                                      \\
     \hline
-    GET             & /effects                    & Načte všechny efekty.                                                                                                                      \\
-    GET             & /effects/{id}               & Načte efekt podle jeho identifikátoru.                                                                                                     \\
-    GET             & /enum/effectType            & Načte všechny možné typy a jejich vlastnosti co efekt může nabývat.                                                                        \\
-    GET             & /enum/effectTarget          & Načte všechny možné cíle efektů.                                                                                                           \\
-    PUT             & /effects/{id}               & Aktualizuje existující efekt podle jeho identifikátoru.                                                                                    \\
-    POST            & /effects                    & Vytvoří nový efekt.                                                                                                                        \\
-    DELETE          & /effects/{id}               & Smaže efekt podle jeho identifikátoru.                                                                                                     \\
+    GET             & /effects                               & Načte všechny efekty.                                                                                                                      \\
+    GET             & /effects/{id}                          & Načte efekt podle jeho identifikátoru.                                                                                                     \\
+    GET             & /enum/effectType                       & Načte všechny možné typy a jejich vlastnosti co efekt může nabývat.                                                                        \\
+    GET             & /enum/effectTarget                     & Načte všechny možné cíle efektů.                                                                                                           \\
+    PUT             & /effects/{id}                          & Aktualizuje existující efekt podle jeho identifikátoru.                                                                                    \\
+    POST            & /effects                               & Vytvoří nový efekt.                                                                                                                        \\
+    DELETE          & /effects/{id}                          & Smaže efekt podle jeho identifikátoru.                                                                                                     \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Enemy Controller}}                                                                                                                                            \\
+    \multicolumn{3}{|c|}{\textbf{Enemy Controller}}                                                                                                                                                       \\
     \hline
-    GET             & /enemies                    & Načte všechny nepřátele.                                                                                                                   \\
-    GET             & /enemies/{id}               & Načte nepřítele podle jeho identifikátoru.                                                                                                 \\
-    PUT             & /enemies/{id}               & Aktualizuje existujícího nepřítele podle jeho identifikátoru.                                                                              \\
-    POST            & /enemies                    & Vytvoří nového nepřítele.                                                                                                                  \\
-    DELETE          & /enemies/{id}               & Smaže nepřítele podle jeho identifikátoru.                                                                                                 \\
+    GET             & /enemies                               & Načte všechny nepřátele.                                                                                                                   \\
+    GET             & /enemies/{id}                          & Načte nepřítele podle jeho identifikátoru.                                                                                                 \\
+    PUT             & /enemies/{id}                          & Aktualizuje existujícího nepřítele podle jeho identifikátoru.                                                                              \\
+    POST            & /enemies                               & Vytvoří nového nepřítele.                                                                                                                  \\
+    DELETE          & /enemies/{id}                          & Smaže nepřítele podle jeho identifikátoru.                                                                                                 \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Character Controller}}                                                                                                                                        \\
+    \multicolumn{3}{|c|}{\textbf{Character Controller}}                                                                                                                                                   \\
     \hline
-    GET             & /characters                 & Načte všechny postavy.                                                                                                                     \\
-    GET             & /characters/{id}            & Načte postavu podle jejího identifikátoru.                                                                                                 \\
-    PUT             & /characters/{id}            & Aktualizuje existující postavu podle jejího identifikátoru.                                                                                \\
-    DELETE          & /characters/{id}            & Smaže postavu podle jejího identifikátoru.                                                                                                 \\
+    GET             & /characters                            & Načte všechny postavy.                                                                                                                     \\
+    GET             & /characters/{id}                       & Načte postavu podle jejího identifikátoru.                                                                                                 \\
+    PUT             & /characters/{id}                       & Aktualizuje existující postavu podle jejího identifikátoru.                                                                                \\
+    DELETE          & /characters/{id}                       & Smaže postavu podle jejího identifikátoru.                                                                                                 \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Image Controller}}                                                                                                                                            \\
+    \multicolumn{3}{|c|}{\textbf{Image Controller}}                                                                                                                                                       \\
     \hline
-    GET             & /images/{type}/{file}       & Načte obrázek podle toho o jaký obrázek se jedná (postava, nepřítel, efekt ...) a samotného názvu souboru.                                 \\
-    GET             & /images/svg/{type}/{file}   & Načte obrázek podle toho o jaký obrázek se jedná (postava, nepřítel, efekt ...) a samotného názvu souboru ovšem ve vektorovém formátu svg. \\
+    GET             & /images/{type}/{file}                  & Načte obrázek podle toho o jaký obrázek se jedná (postava, nepřítel, efekt ...) a samotného názvu souboru.                                 \\
+    GET             & /images/svg/{type}/{file}              & Načte obrázek podle toho o jaký obrázek se jedná (postava, nepřítel, efekt ...) a samotného názvu souboru ovšem ve vektorovém formátu svg. \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Item Controller}}                                                                                                                                             \\
+    \multicolumn{3}{|c|}{\textbf{Item Controller}}                                                                                                                                                        \\
     \hline
-    GET             & /items                      & Načte všechny položky.                                                                                                                     \\
-    GET             & /items/{id}                 & Načte položku podle jejího identifikátoru.                                                                                                 \\
-    PUT             & /items/{id}                 & Aktualizuje existující položku podle jejího identifikátoru.                                                                                \\
-    POST            & /items                      & Vytvoří novou položku.                                                                                                                     \\
-    DELETE          & /items/{id}                 & Smaže položku podle jejího identifikátoru.                                                                                                 \\
+    GET             & /items                                 & Načte všechny položky.                                                                                                                     \\
+    GET             & /items/{id}                            & Načte položku podle jejího identifikátoru.                                                                                                 \\
+    PUT             & /items/{id}                            & Aktualizuje existující položku podle jejího identifikátoru.                                                                                \\
+    POST            & /items                                 & Vytvoří novou položku.                                                                                                                     \\
+    DELETE          & /items/{id}                            & Smaže položku podle jejího identifikátoru.                                                                                                 \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Location Controller}}                                                                                                                                         \\
+    \multicolumn{3}{|c|}{\textbf{Location Controller}}                                                                                                                                                    \\
     \hline
-    GET             & /locations                  & Načte všechna místa.                                                                                                                       \\
-    GET             & /locations/{id}             & Načte místo podle jeho identifikátoru.                                                                                                     \\
-    GET             & {idLocation}/parts/{idPart} & Načte specifické části místa.                                                                                                              \\%%/locations/
+    GET             & /locations                             & Načte všechna místa.                                                                                                                       \\
+    GET             & /locations/{id}                        & Načte místo podle jeho identifikátoru.                                                                                                     \\
+    GET             & /locations/{idLocation}/parts/{idPart} & Načte specifické části místa.                                                                                                              \\%%/locations/
     \hline
-    \multicolumn{3}{|c|}{\textbf{Market Controller}}                                                                                                                                           \\
+    \multicolumn{3}{|c|}{\textbf{Market Controller}}                                                                                                                                                      \\
     \hline
-    GET             & /markets                    & Načte všechny trhy.                                                                                                                        \\
-    GET             & /markets/items              & Načte položky dostupné na trzích.                                                                                                          \\
+    GET             & /markets                               & Načte všechny trhy.                                                                                                                        \\
+    GET             & /markets/items                         & Načte položky dostupné na trzích.                                                                                                          \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Obstacle Controller}}                                                                                                                                         \\
+    \multicolumn{3}{|c|}{\textbf{Obstacle Controller}}                                                                                                                                                    \\
     \hline
-    GET             & /obstacles/{id}             & Načte překážku podle jejího identifikátoru.                                                                                                \\
-    PUT             & /obstacles/{id}             & Aktualizuje existující překážku podle jejího identifikátoru.                                                                               \\
-    DELETE          & /obstacles/{id}             & Smaže překážku podle jejího identifikátoru.                                                                                                \\
-    GET             & /obstacles                  & Načte všechny překážky.                                                                                                                    \\
-    POST            & /obstacles                  & Vytvoří novou překážku.                                                                                                                    \\
+    GET             & /obstacles                             & Načte všechny překážky.                                                                                                                    \\
+    GET             & /obstacles/{id}                        & Načte překážku podle jejího identifikátoru.                                                                                                \\
+    PUT             & /obstacles/{id}                        & Aktualizuje existující překážku podle jejího identifikátoru.                                                                               \\
+    POST            & /obstacles                             & Vytvoří novou překážku.                                                                                                                    \\
+    DELETE          & /obstacles/{id}                        & Smaže překážku podle jejího identifikátoru.                                                                                                \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Part Controller}}                                                                                                                                             \\
+    \multicolumn{3}{|c|}{\textbf{Part Controller}}                                                                                                                                                        \\
     \hline
-    GET             & /parts/{id}                 & Načte část podle jejího identifikátoru.                                                                                                    \\
-    PUT             & /parts/{id}                 & Aktualizuje existující část podle jejího identifikátoru.                                                                                   \\
-    DELETE          & /parts/{id}                 & Smaže část podle jejího identifikátoru.                                                                                                    \\
-    GET             & /parts                      & Načte všechny části.                                                                                                                       \\
-    POST            & /parts                      & Vytvoří novou část.                                                                                                                        \\
+    GET             & /parts                                 & Načte všechny části.                                                                                                                       \\
+    GET             & /parts/{id}                            & Načte část podle jejího identifikátoru.                                                                                                    \\
+    PUT             & /parts/{id}                            & Aktualizuje existující část podle jejího identifikátoru.                                                                                   \\
+    POST            & /parts                                 & Vytvoří novou část.                                                                                                                        \\
+    DELETE          & /parts/{id}                            & Smaže část podle jejího identifikátoru.                                                                                                    \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Player Data Controller}}                                                                                                                                      \\
+    \multicolumn{3}{|c|}{\textbf{Player Data Controller}}                                                                                                                                                 \\
     \hline
-    GET             & /playerdata/characters      & Načte data hráčů pro všechny postavy.                                                                                                      \\
-    GET             & /playerdata/characters/{id} & Načte data hráče pro konkrétní postavu podle jejího identifikátoru.                                                                        \\
+    GET             & /playerdata/characters                 & Načte všechny postavy hráčů.                                                                                                               \\
+    GET             & /playerdata/characters/{id}            & Načte data hráče podle identifikátoru.                                                                                                     \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Race Controller}}                                                                                                                                             \\
+    \multicolumn{3}{|c|}{\textbf{Race Controller}}                                                                                                                                                        \\
     \hline
-    GET             & /races/{id}                 & Načte rasu podle jejího identifikátoru.                                                                                                    \\
-    PUT             & /races/{id}                 & Aktualizuje existující rasu podle jejího identifikátoru.                                                                                   \\
-    DELETE          & /races/{id}                 & Smaže rasu podle jejího identifikátoru.                                                                                                    \\
-    POST            & /races                      & Vytvoří novou rasu.                                                                                                                        \\
-    GET             & /races                      & Načte všechny rasy.                                                                                                                        \\
+    GET             & /races                                 & Načte všechny rasy.                                                                                                                        \\
+    GET             & /races/{id}                            & Načte rasu podle jejího identifikátoru.                                                                                                    \\
+    PUT             & /races/{id}                            & Aktualizuje existující rasu podle jejího identifikátoru.                                                                                   \\
+    POST            & /races                                 & Vytvoří novou rasu.                                                                                                                        \\
+    DELETE          & /races/{id}                            & Smaže rasu podle jejího identifikátoru.                                                                                                    \\
     \hline
-    \multicolumn{3}{|c|}{\textbf{Summon Controller}}                                                                                                                                           \\
+    \multicolumn{3}{|c|}{\textbf{Summon Controller}}                                                                                                                                                      \\
     \hline
-    GET             & /summons/{id}               & Načte vyvolání podle jeho identifikátoru.                                                                                                  \\
-    GET             & /summons/                   & Načte všechna vyvolání.                                                                                                                    \\
+    GET             & /summons/                              & Načte všechna vyvolání.                                                                                                                    \\
+    GET             & /summons/{id}                          & Načte poskoky podle identifikátoru.                                                                                                        \\
     \hline
+    \multicolumn{3}{|c|}{\textbf{Other Controllers}}                                                                                                                                                      \\
+    \multicolumn{3}{|m{\textwidth}|}{V projektu API byly vytvořeny i jiné koncové body, ty však nebyly předmětem této práce, takže jsou ze seznamu vynechány.}                                            \\
+    \hline
+
     \caption{Seznam koncových bodů API}
     \label{tab:endpoints}
 \end{longtable}
