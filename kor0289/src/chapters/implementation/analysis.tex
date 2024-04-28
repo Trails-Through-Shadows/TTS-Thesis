@@ -34,7 +34,7 @@ Hra nejprve vyžaduje registraci přes endpoint \texttt{/v2/register}. Ten vrát
 
 Jako odpověď se zde používá formát JSON, který obsahuje především objekt \texttt{data} a poté dodatečné objekty jako třeba \texttt{meta}, ve kterých mohou být další informace jako stránkování.
 \cite{pagination}
-Status je použit v souladu s klasickým výkladem statusových kódů \sectionref{sec:rest:principles} 
+Status je použit v souladu s klasickým výkladem statusových kódů \sectionref{sec:rest:principles}
 a dále je obsahu rozšířen o konkrétní popis chyby v daném požadavku. Příklad je vidět na výpisu \ref{code:space_error}, kde je zobrazena chyba při požadavku na odlet na jinou planetu, neboť loď není na orbitě.
 
 
@@ -138,7 +138,7 @@ V tabulce \ref{tab:sql_vs_nosql} máme přehledně porovnány vlastnosti SQL a n
 Nyní si představíme nejznámější SQL databáze.
 
 \subsection{MySQL}\label{sec:data_storage:mysql}
-MySQL je jedna z nejpoužívanějších databází. Má velkou podporu a je open-source, funguje velmi dobře s většinou knihoven a frameworků. Skvěle se hodí na menší až střední projekty. Obsahuje komplexní sadu funkcionalit jako jsou triggery, procedury, pohledy a podpora transakcí. Ve větších projektech může mít problémy s výkonem  a s komplexními dotazy.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
+MySQL je jedna z nejpoužívanějších databází. Má velkou podporu a je open-source, funguje velmi dobře s většinou knihoven a \gls{framework}ů. Skvěle se hodí na menší až střední projekty. Obsahuje komplexní sadu funkcionalit jako jsou triggery, procedury, pohledy a podpora transakcí. Ve větších projektech může mít problémy s výkonem  a s komplexními dotazy.\cite{guidetochoosingdatabase}\cite{howtochoosedatabase}
 
 
 \subsection{PostgreSQL}\label{sec:data_storage:postgresql}
@@ -148,20 +148,20 @@ Tato databáze je objektově relační což je podobné jako relační jen data 
 Nakonec jsme vybrali primárně díky doporučení našeho vedoucího práce MariaDB, což je založeno na MySQL. MariaDB je osamocená větev původních vývojářů, po tom co MySQL bylo získáno společností Oracle. Je rychlejší, podporuje \textit{neviditelné sloupce} a má propracovanější views.
 
 \section{Technologie pro tvorbu API}\label{sec:api_technologies}
-v této kapitole bude probráno jaké frameworky a technologie jsou dostupné pro tvorbu API. Níže je výčet těch nejznámějších a nejpoužívanějších s ohledem na požadavky a zkušenosti týmu.
+V této kapitole bude probráno jaké \gls{framework}y a technologie jsou dostupné pro tvorbu API. Níže je výčet těch nejznámějších a nejpoužívanějších s ohledem na požadavky a zkušenosti týmu.
 
 \subsection{Spring Boot}\label{sec:api_technologies:spring}
-Založen originálně na Spring technologii ale snaží se udělat originální Spring framework více uživatelsky přívětivý. Spring boot obsahuje v sobě vše, co je třeba, bez velkého konfigurování knihoven. Je určen i pro velké aplikace ve velkých společnostech jako je Netflix. Kromě programovacího jazyku Java podporuje i Kotlin a Groovy. Má velkou podporu komunity a skvělou dokumentaci. Ovšem může být náročnější na hardware a binární soubory jsou větší kvůli velkému množství knihoven.
+Založen originálně na Spring technologii ale snaží se udělat originální Spring \gls{framework} více uživatelsky přívětivý. Spring boot obsahuje v sobě vše, co je třeba, bez velkého konfigurování knihoven. Je určen i pro velké aplikace ve velkých společnostech jako je Netflix. Kromě programovacího jazyku Java podporuje i Kotlin a Groovy. Má velkou podporu komunity a skvělou dokumentaci. Ovšem může být náročnější na hardware a binární soubory jsou větší kvůli velkému množství knihoven.
 
 \subsection{ASP.NET Core}\label{sec:api_technologies:asp}
-Uzavřený framework od Microsoftu, který je určen pro webové aplikace. Jedná se o alternativu ke Springu u Javy ovšem pro jazyk C\#. Je zde navíc lepší podpora asynchronních operací a je zde \gls{linq}. Oproti Springbootu má i vlastní ekosystém nástrojů jako je třeba microsoft Azure nebo MSSql databáze. ASP.NET Core i Spring boot jsou velmi solidní frameworky i pro velké firmy a vyloženě záleží na preferenci programovacího jazyka.
+Uzavřený \gls{framework} od Microsoftu, který je určen pro webové aplikace. Jedná se o alternativu ke Springu u Javy ovšem pro jazyk C\#. Je zde navíc lepší podpora asynchronních operací a je zde \gls{linq}. Oproti Springbootu má i vlastní ekosystém nástrojů jako je třeba microsoft Azure nebo MSSql databáze. ASP.NET Core i Spring boot jsou velmi solidní \gls{framework}y i pro velké firmy a vyloženě záleží na preferenci programovacího jazyka.
 
 \subsection{Django REST}\label{sec:api_technologies:django}
-Založeno na Django frameworku a jeho pohledech založených na třídách \textit{class-based views}. Celkově se jedná o velice bezpečný framework určený pro programovací jazyk Python, s rychlou učící křivkou a s obsáhlou dokumentací. Ovšem u větších projektů je méně přehledný než výše zmíněné frameworky.
+Založeno na Django \gls{framework}u a jeho pohledech založených na třídách \textit{class-based views}. Celkově se jedná o velice bezpečný \gls{framework} určený pro programovací jazyk Python, s rychlou učící křivkou a s obsáhlou dokumentací. Ovšem u větších projektů je méně přehledný než výše zmíněné \gls{framework}y.
 
 \subsection{Fast API}\label{sec:api_technologies:fast}
-Jakožto alternativu k Djangu zde máme Fast API, kde je plně podporováno asynchronní programování a je přímo určeno pro vývoj \gls{restful api}. Je taktéž pro Python, je velmi rychlý jak na naučení tak i framework jako takový a je plně otypovaný oproti Djangu. Má dobrou dokumentaci a mezi vývojáři je čím dál populárnější. Ovšem má horší validaci vstupních dat.
+Jakožto alternativu k Djangu zde máme Fast API, kde je plně podporováno asynchronní programování a je přímo určeno pro vývoj \gls{restful api}. Je taktéž pro Python, je velmi rychlý jak na naučení tak i \gls{framework} jako takový a je plně otypovaný oproti Djangu. Má dobrou dokumentaci a mezi vývojáři je čím dál populárnější. Ovšem má horší validaci vstupních dat.
 
 
-\subsection{Výběr frameworku}\label{sec:api_technologies:summary}
-Pro účely \gls{restful api} byl výběr očividný, Fast API které je navrhnuto pro rychlou tvorbu \gls{restful api} a pro vývojáře velice příjemným otypováním. Je taktéž jeden z nejrychlejších Python frameworků v některých věcech na úrovní například Spring bootu.\cite{benchmarks} Taktéž Python je jeden z jednodušších jazyků a všichni členové týmu už s ním mají zkušenosti. Ovšem později se na doporučení přešlo na Spring boot díky jeho jednoduššímu \gls{orm} a větší přehlednosti.
+\subsection{Výběr \gls{framework}u}\label{sec:api_technologies:summary}
+Pro účely \gls{restful api} byl výběr očividný, Fast API které je navrhnuto pro rychlou tvorbu \gls{restful api} a pro vývojáře velice příjemným otypováním. Je taktéž jeden z nejrychlejších Python \gls{framework}ů v některých věcech na úrovní například Spring bootu.\cite{benchmarks} Taktéž Python je jeden z jednodušších jazyků a všichni členové týmu už s ním mají zkušenosti. Ovšem později se na doporučení přešlo na Spring boot díky jeho jednoduššímu \gls{orm} a větší přehlednosti.

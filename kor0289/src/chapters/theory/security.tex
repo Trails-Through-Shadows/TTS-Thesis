@@ -14,7 +14,7 @@ API klíč je unikátní token, který umožňuje uživateli se autorizovat, a n
 
 Nejčastější použití API klíče je pro blokování anonymních požadavků, pomocí čehož je možné vyfiltrovat případný škodlivý provoz na API. Díky jeho jednoduchosti se také často používá mezi IoT zařízeními.
 
-V tomto příkladě je definován název API key (\texttt{X-API-key}), který bude přenesen v headeru (Výpis \ref{code:api_key}, řádek 8). Dále s ním můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definicí endpointů, pokud by bylo třeba specifikovat (Výpis \ref{code:api_key}, řádek 20, 21). Pokud potřeba není (Výpis \ref{code:api_key}, řádek 11, 12), autorizaci aplikujeme na všechny operace. 
+V tomto příkladě je definován název API key (\texttt{X-API-key}), který bude přenesen v headeru (Výpis \ref{code:api_key}, řádek 8). Dále s ním můžeme pracovat jako s \texttt{ApiKeyAuth} a dávat jej do všech ostatních definicí endpointů, pokud by bylo třeba specifikovat (Výpis \ref{code:api_key}, řádek 20, 21). Pokud potřeba není (Výpis \ref{code:api_key}, řádek 11, 12), autorizaci aplikujeme na všechny operace.
 
 API klíčů může být využito víc, například pro specifikování uživatele nebo aplikace.
 
@@ -45,14 +45,14 @@ V kompaktní zakódované formě JWT vypadá takto: \texttt{xxxxxx.yyyyyyy.zzzzz
 
 
 \section{OAuth 2.0}
-OAuth 2.0 je autorizační framework, který poskytuje limitovaný přístup k datům. Nahrazuje OAuth z roku 2012 a dnes se již považuje za standard pro online autorizaci. Poskytuje přístup a omezuje akce, které s day může klientská aplikace provádět, bez toho, aby bylo třeba sdílet přihlašovací údaje uživatele.
+OAuth 2.0 je autorizační \gls{framework}, který poskytuje limitovaný přístup k datům. Nahrazuje OAuth z roku 2012 a dnes se již považuje za standard pro online autorizaci. Poskytuje přístup a omezuje akce, které s day může klientská aplikace provádět, bez toho, aby bylo třeba sdílet přihlašovací údaje uživatele.
 % TODO kdyžtak jak to vypadá ve švagrovi
 
 
 \subsection{Principy}
 Jedná se o autorizační, nikoli autentizační protokol, což znamená, že je určen pro získání přístupových práv ke zdrojům, ne k ověření identity uživatele, i když v praxi se často používá pro oba účely.
 
-Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem a poskytují oprávnění k přístupu k datům. I přesto, že Oauth 2.0 nemá nijak definovaný formát přístupového tokenu, nejčastěji se využívá JWT (TODO glossary json web token). Tokeny mohou mít také datum vypršení platnosti, což znamená, že po uplynutí tohoto data je třeba získat nový token. 
+Používají se zde přístupové tokeny, které jsou reprezentovány řetězcem a poskytují oprávnění k přístupu k datům. I přesto, že Oauth 2.0 nemá nijak definovaný formát přístupového tokenu, nejčastěji se využívá JWT (TODO glossary json web token). Tokeny mohou mít také datum vypršení platnosti, což znamená, že po uplynutí tohoto data je třeba získat nový token.
 
 
 \subsection{Role}\label{sec:Oauth_roles}

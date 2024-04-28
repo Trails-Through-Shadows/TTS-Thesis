@@ -78,7 +78,7 @@ Jak již bylo zmíněno výše, \gls{restful api} typicky používá HTTP/S prot
 REST principy vyžadují, aby v odpovědi byly obsaženy následující prvky.
 
 \subsubsection*{Stavové kódy}
-Stavové kódy slouží k rychlé identifikaci toho, daný požadavek dopadl, zda-li bylo vyhodnocení úspěšné nebo se vyskytla chyba. Jejich struktura je pevně daná a její správné použití je základem dobře a efektivně vedené komunikace. Stav je trojmístné číslo, kde je podle počátečního zaznamenán typ odpovědi a následující dvě cifry už slouží k identifikaci jednotlivých stavů v dané kategorii. Kód začínající 2xx značí úspěch, 4xx chybu na straně klienta, 5xx chybu na straně serveru a v neposlední řadě 3xx označuje přesměrování URL.
+Stavové kódy slouží k rychlé identifikaci toho, daný požadavek dopadl, zda-li bylo vyhodnocení úspěšné nebo se vyskytla chyba. Jejich struktura je pevně daná a její správné použití je základem dobře a efektivně vedené komunikace. Stav je trojmístné číslo, kde je podle počáteční číslice zaznamenán typ odpovědi a následující dvě cifry už slouží k identifikaci jednotlivých stavů v dané kategorii. Kód začínající 2xx značí úspěch, 4xx chybu na straně klienta, 5xx chybu na straně serveru a v neposlední řadě 3xx označuje přesměrování URL.
 
 Nejčastěji využívané kódy jsou tyto:
 
@@ -151,7 +151,7 @@ GraphQL je postaven na principu vrácení pouze těch dat, o které si klient ř
 \end{listing}
 
 
-\begin{listing}[ht!]
+\begin{listing}[h]
     \inputminted[]{graphql}{resources/code/standards/types.example.gql}
     \caption{Příklady datových typů}
     \label{code:gql_datatypes}
@@ -159,7 +159,7 @@ GraphQL je postaven na principu vrácení pouze těch dat, o které si klient ř
 
 \begin{itemize}
     \item Type system \sectionref{sec:graphql:datatypes} -- Základ typového systému je Query, která určuje, jaké objekty mohou být získány \coderef{code:gql_type}[, řádek 29]. Vlastnosti ve výchozím stavu mohou nabývat hodnotu \texttt{null}. Za datový typ se může dát vykřičník abychom označili že tato hodnota nikdy nebude \texttt{null}.
-    \item Queries \subsectionref{sec:graphql:query} -- Query přesně definuje, jaká data klient potřebuje. Za pomocí Výpisu \ref{code:gql_querry}dostaneme téměř stejný výsledek jako ve Výpisu \ref{code:json_player}, jen celý JSON s odpovědí bude zabalený do objektu \texttt{"characters": {}}.
+    \item Queries \subsectionref{sec:graphql:query} -- Query přesně definuje, jaká data klient potřebuje. Za pomocí výpisu \coderef{code:gql_querry} dostaneme téměř stejný výsledek jako ve výpisu JSON \coderef{code:json_player}, jen celý JSON s odpovědí bude zabalený do objektu \texttt{"characters": {}}.
     \item Mutations \subsectionref{sec:graphql:mutations} -- GraphQL povoluje pozměnění, smazání nebo přidání dat ze strany klienta, přičemž po změně vrací upravená data. Taktéž je zde třeba definovat, jaký tvar budou vrácená data mít. \coderef{code:gql_datatypes}[]
     \item Subscriptions \subsectionref{sec:graphql:mutations} -- Podpora je také poskytnuta posílání aktualizací v reálném čase, kde je dotaz velice podobný query. \coderef{code:gql_datatypes}[, řádek 17].
 \end{itemize}

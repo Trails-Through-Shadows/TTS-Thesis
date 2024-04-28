@@ -9,6 +9,7 @@
 \usepackage{hyperref} % vkladani hypertextovych odkazu
 \usepackage{enumitem} % lepsi enumerate a descrition and so on
 \usepackage{wrapfig} % obrazky obtekané textem
+\usepackage{longtable} % tabulky na více stran
 \usepackage{latexsym} % symboly
 % minted things
 \immediate\write18{echo $ROAD > .ROAD.tex}
@@ -35,12 +36,10 @@
 
 % Pokud nechceme nikomu dekovat makro zapoznámkujeme.
 \Acknowledgement{V první řadě bych chtěl poděkvoat všem členům týmu za aktivní spolupráci a zkušenosti získané na tomto projektu. Také bych chtěl poděkovat vedoucímu práce Ing. Radoslavu Fasugovi, Ph.D. za jeho vedení a rady. Dále svojí rodině a přátelům, bez kterých by bylo mé studium obtížné.}
-\CzechAbstract{Tato práce se zabývá tvorbou aplikačního rozhranní pro hybridní výpravnou hru, které bude poskytovat koncové body pro administrativní rozhranní a pro rozhranní uživatele. Tato práce se nejprve zabývá analýzou možných způsobů řešení a implementace aplikačního rozhranní. Jako finální produkt by mělo vzniknout aplikační rozhranní které bude poskytovat koncové body ostatním spoluřešitelům. Společně s tímto aplikačním rozhranním by měla vzniknout i příručka popisující koncové body.}
-\CzechKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Databáze; výpravná hra; vývoj hry; Java; Spring Boot; }
-\EnglishAbstract{This thesis deals with the creation of an application interface for a hybrid narrative game that will provide endpoints for the administrative interface and for the user interface. This thesis first discusses the analysis of possible ways of designing and implementing the application interface. The final product should be an application interface that will provide endpoints to other co-researchers. Together with this application interface, a manual describing the endpoints should be produced.
-
-Translated with DeepL.com (free version)}
-\EnglishKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Database; adventure game; game development; Java; Spring Boot;}
+\CzechAbstract{Tato práce se zabývá tvorbou aplikačního rozhranní pro hybridní výpravnou hru, které bude poskytovat koncové body pro administrativní rozhranní a pro rozhranní uživatele. Pro implementaci byl vybrán \gls{framework} Spring Boot pro programovací jayk Java a za pomocí rozhranní Swagger může být výsledné \gls{api} otestováno. Jako úložiště byla vybrána databáze MariaDB založená na MySQL. Jako finální produkt by mělo vzniknout aplikační rozhranní které bude poskytovat koncové body ostatním spoluřešitelům. Společně s tímto aplikačním rozhranním by měla vzniknout i příručka popisující koncové body.}
+\CzechKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Databáze; MariaDB; výpravná hra; vývoj hry; Java; Spring Boot; }
+\EnglishAbstract{This thesis deals with the creation of an application interface for a hybrid narrative game that will provide endpoints for the administrative interface and for the user interface. The \gls{framework} Spring Boot for Java programming has been chosen for implementation and using the Swagger interface the resulting \gls{api} can be tested. The database MariaDB based on MySQL was chosen as the storage. The final product should be an application interface that will provide endpoints to other co-researchers. Together with this application interface, a manual describing the endpoints should be produced.}
+\EnglishKeywords{API; REST; RESTful; SOAP; GraphQL; JSON; HTTP; Database; MariaDB; adventure game; game development; Java; Spring Boot;}
 
 %bib resource
 \addbibresource{resources/sauce.bib}
@@ -96,7 +95,7 @@ Translated with DeepL.com (free version)}
 
 % Přílohy
 \appendix
-\input{chapters/appendix/implProblems}
 \input{chapters/appendix/designappendix}
+\input{chapters/appendix/endpoints}
 
 \end{document}

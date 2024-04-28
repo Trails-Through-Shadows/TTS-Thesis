@@ -93,3 +93,8 @@ nvm potřebuju novou onovu tohle je k ničemu
 
   - formáty obrázku a multimédií
   - konvence
+
+## 7. příručka jak psát API
+  - analýza co chci vlastně dělat za api a vyhradit si požadavky
+  - začít návrh od api a ať si databáze dělá co chce
+  - 
