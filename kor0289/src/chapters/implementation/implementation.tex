@@ -160,12 +160,12 @@ Pro metody post byla ještě použita anotace \texttt{@RequestBody}, pomocí kte
 \end{listing}
 
 \subsubsection*{Popis výsledných koncových bodů}\label{sec:impl:endpoints:desc}   %%TODO barče prosím prosím odsud po další kapitolu
-Koncové body u metody GET obstarávající základní zobrazení entit v databázi např. \texttt{/actions/1}, mají implementován lazy load \subsectionref{sec:impl:lazyload} s možností vypsat pouze námi určené atributy a ostatní atributy, které jsou objekty zde budou mít pouze ID \coderef{code:action:endpoint:single}. Když žádné parametry nespecifikujeme tak se předpokládá že chceme celý objekt se všemi načtenými atributy.
+Koncové body u metody GET obstarávající základní zobrazení entit v databázi (např. \texttt{/actions/1}) mají implementován lazy load \subsectionref{sec:impl:lazyload} s možností vypsat pouze námi určené atributy. Pokud si tuto možnost uživatel zvolí, ostatní atributy, které jsou objekty, zde budou mít pouze ID \coderef{code:action:endpoint:single}. Když žádné parametry nespecifikujeme, předpokládá se, že chceme celý objekt se všemi načtenými atributy.
 
 \begin{listing}[H]
     \begin{minted}{json}
 // /actions/1?lazy=true&include=attack 
-{ // for simplicity there is only important fields
+{ // for simplicity there are only important fields
   "id": 10,
   "title": "Fireball",
   "skill": 2,
@@ -179,7 +179,7 @@ Koncové body u metody GET obstarávající základní zobrazení entit v datab�
     \label{code:action:endpoint:single}
 \end{listing}
 
-Koncové body které vrací více objektů pro metodu GET, jako například \texttt{/actions}, mají kromě výše zmíněné možnosti výběru atributů také možnost stránkování. Za pomocí této možnosti můžeme vzít například pouze prvních 5 objektů a tím zmenšíme potřebné zdroje pro přenos. Tato funkcionalita dá zpět kromě objektů taktéž informace na jaké stránce se nacházíme \coderef{code:action:endpoint:multiple}. Potom samotné objekty jsou v poli \texttt{entries} a jsou stejné co výše zmíněný výstup pro jeden objekt \coderef{code:action:endpoint:single}.
+Koncové body pro metodu GET, které vrací více objektů, jako například \texttt{/actions}, mají kromě výše zmíněné možnosti výběru atributů také možnost stránkování. Za pomocí něj můžeme například vzít pouze prvních pět objektů a tím zmenšíme potřebné zdroje pro přenos. Tato funkcionalita vrací kromě objektů taktéž informace o tom, na jaké stránce se nacházíme \coderef{code:action:endpoint:multiple}. Samotné objekty jsou uloženy v poli \texttt{entries} a mají stejný formát, jako výše zmíněný výstup pro jeden objekt \coderef{code:action:endpoint:single}.
 
 \begin{listing}[H]
     \begin{minted}{json}
@@ -193,21 +193,21 @@ Koncové body které vrací více objektů pro metodu GET, jako například \tex
     "limit": 5
   },
   "entries": [ 
-        // 5 single objects
-    ]
+    // 5 single objects
+  ]
 }
     \end{minted}
-    \caption{Příklad URI pro získání 5 objektů od 6 do 10 a načteným atributem \textit{attack}}
+    \caption{Příklad URI pro získání pěti objektů od 6 do 10 a načteným atributem \textit{attack}}
     \label{code:action:endpoint:multiple}
 \end{listing}
 
-Vytvářecí metoda POST poté bere jako vstupní parametr v těle požadavku objekty, které se mají vytvořit a dotazuje se na množné číslo URI např. \texttt{/actions/}. Metoda PUT pro úpravu dat bere taktéž objekt v těle který se má upravit a navíc v URI se specifikuje ID objektu \texttt{/actions/1}. A nakonec metoda DELETE bere pouze ID objektu jako URI parametr, který se má smazat např. \texttt{/actions/1}.
+Vytvářecí metoda POST poté bere jako vstupní parametr v těle požadavku objekty, které se mají vytvořit, a dotazuje se na množné číslo URI (např. \texttt{/actions/}). Metoda PUT pro úpravu dat bere taktéž objekt, který se má upravit, v těle a navíc v URI se specifikuje ID objektu (např. \texttt{/actions/1}). A nakonec metoda DELETE bere jako URI parametr pouze ID objektu, který se má smazat (např. \texttt{/actions/1}).
 
-Celkový seznam všech koncových bodů s popisem je zde \tableref{tab:endpoints}. Poté ještě byla vytvořena dokumentace pro koncové body pomocí Swaggeru \sectionref{sec:impl:swagger}, které můžete nalézt na adrese \url{https://api.tts-game.fun/swagger-ui/index.html#/}
+Celkový seznam všech koncových bodů s popisem je zapsán v Tabulce \ref{tab:endpoints}. Poté ještě byla vytvořena dokumentace pro koncové body pomocí frameworku Swagger \sectionref{sec:impl:swagger}, které je možné nalézt na adrese \url{https://api.tts-game.fun/swagger-ui/index.html#/}.
 
 
 \section{Testování}\label{sec:testing}
-Testování probíhalo za pomocí dobrovolníků kteří si zkusili zahrát hru, nebo díky dokumentačnímu rozhraní Swagger \sectionref{sec:impl:swagger} pohodlně testovali přímo koncové body v API.
+Testování probíhalo za pomocí dobrovolníků, kteří si zkusili zahrát hru, nebo díky dokumentačnímu rozhraní Swagger \sectionref{sec:impl:swagger} pohodlně testovali přímo koncové body v API.
 
 
 
@@ -222,7 +222,7 @@ na serializování namapovaných objektů. \sectionref{sec:impl:serialization}
 Knihovna Hibernate bohužel nemá metodu pro rekurzivní načtení relací objektu, v souvislosti s vlastní serializací pak nastal problém, když se měl serializovat objekt se všemi jeho relacemi. Hibernate podporuje jen načtení objektu který je instancí \texttt{HibernateProxy}. Tento problém byl vyřešen pomocí statické funkce \texttt{hibernateInitializeAll()}. \sectionref{sec:impl:lazyload}
 
 \subsection{Příliš velká databáze}
-Při návrhu databáze nebyl brán ohled na možnou časovou náročnost. Databáze se navrhovala jako funkční celek připravený do produkce s ohledem na případné rozšíření. To vyústilo v problém, kdy jednotlivé případné úkony jako je \gls{orm} či CRUD operace nad jednotlivými entitami byly velice zdlouhavé a zabíraly většinu času vývoje. S tímto se pojil o to složitější management změn u koncových bodů. Z tohoto důvodu se v implementaci vynechaly entity \textit{summon} a \textit{item}.
+Při návrhu databáze nebyl brán ohled na možnou časovou náročnost. Databáze se navrhovala jako funkční celek připravený do produkce s ohledem na případné rozšíření. To vyústilo v problém, kdy jednotlivé případné úkony jako je \gls{orm} či \gls{crud} operace nad jednotlivými entitami byly velice zdlouhavé a zabíraly většinu času vývoje. S tímto se pojil o to složitější management změn u koncových bodů. Z tohoto důvodu se v implementaci vynechaly entity \textit{summon} a \textit{item}.
 
 \subsection{Začátek návrhu od databáze}
 Před začátkem práce nám bylo doporučeno, abychom jako první provedli návrh databáze. Toto rozhodnutí se ovšem v pozdní fázi vývoje ukázalo jako velice nepraktické, protože při mapování se musely M:N relační tabulky obstarat ručně. Kdybychom začali s vývojem databáze přímo v aplikaci, knihovna JPA \sectionref{fig:JPA} by za nás obstarala M:N relace, čímž by se implementace upravování a vkládání nových vnořených objektů podstatně zjednodušila. Vzhledem k počtu m:n relací, které databáze modelové hry obsahuje, by se tímto jednalo o velkou úsporu času.
