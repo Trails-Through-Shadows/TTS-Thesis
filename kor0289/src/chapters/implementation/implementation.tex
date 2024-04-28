@@ -159,7 +159,7 @@ Pro metody post byla ještě použita anotace \texttt{@RequestBody}, pomocí kte
     \label{code:characterController}
 \end{listing}
 
-\subsubsection*{Popis výsledných koncových bodů} %%TODO barče prosím prosím odsud po další kapitolu
+\subsubsection*{Popis výsledných koncových bodů}\label{sec:impl:endpoints:desc}   %%TODO barče prosím prosím odsud po další kapitolu
 Koncové body u metody GET obstarávající základní zobrazení entit v databázi např. \texttt{/actions/1}, mají implementován lazy load \subsectionref{sec:impl:lazyload} s možností vypsat pouze námi určené atributy a ostatní atributy, které jsou objekty zde budou mít pouze ID \coderef{code:action:endpoint:single}. Když žádné parametry nespecifikujeme tak se předpokládá že chceme celý objekt se všemi načtenými atributy.
 
 \begin{listing}[H]
