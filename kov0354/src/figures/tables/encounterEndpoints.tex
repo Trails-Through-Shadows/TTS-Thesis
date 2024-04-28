@@ -6,18 +6,18 @@
         
         Metoda & 
         \normalfont{\textbf{Endpoint}}
-            \tablefootnote{Cesty ke všem endpointům začínají na adrese \texttt{/encounter}.} & 
+            \tablefootnote{Cesty ke všem \textit{endpointům} začínají na adrese \texttt{/encounter}.} & 
         \normalfont{\textbf{Vstup}}
-            \tablefootnote{Kromě \texttt{idLocation}, který je předán jako parametr URL, je vstup přijímán ve formátu JSON jako tělo požadavku.} & 
+            \tablefootnote{Kromě \texttt{idLocation}, který je předán jako parametr URL, je vstup přijímán ve formátu \texttt{JSON} jako tělo požadavku.} & 
         \normalfont{\textbf{Výstup}} & 
         \textbf{Popis} \\
         \midrule
         
-        POST & /\{idAdventure\} & idLocation & idEncounter & Vytvoření encounteru \\
-        GET & /\{id\} & & Encounter &  Získání daného encounteru \\
-        GET & / & & List<Encounter> & Získání všech encounterů \\
-        DELETE & /\{id\} & & & Odstranění daného encounteru \\
-        GET & /\{id\}/status & & EncounterState & Získání statusu encounteru \\
+        POST & /\{idAdventure\} & idLocation & idEncounter & Vytvoření souboje \\
+        GET & /\{id\} & & Encounter &  Získání daného souboje \\
+        GET & / & & List<Encounter> & Získání všech soubojů \\
+        DELETE & /\{id\} & & & Odstranění daného souboje \\
+        GET & /\{id\}/status & & EncounterState & Získání statusu souboje \\
         \midrule
 
         POST & /\{id\}/initiative & List<Initiative> & & Počáteční hod na iniciativu \\
@@ -51,6 +51,6 @@
         
         \bottomrule
     \end{tabular}}
-    \caption{Seznam endpointů pro práci s encounterem}
+    \caption{Seznam koncových bodů pro práci se soubojem}
     \label{tab:endpoints}
 \end{table}

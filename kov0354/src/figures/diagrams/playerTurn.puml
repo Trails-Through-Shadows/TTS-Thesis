@@ -9,14 +9,14 @@ start
 fork
   :Provedení prvků na kartách akcí;
 fork again
-  :Provedení akce summonů;
+  :Provedení akce poskoků;
 end fork
 :Propsání změn do systému;
 :Zahození zvolených karet;
 
 |Systém|
 :Uvolnění efektů;
-:Snížení počítadel summonů;
+:Snížení počítadel poskoků;
 
 stop
 @enduml
