@@ -5,6 +5,16 @@
 \usepackage[T1]{fontenc}
 \usepackage[czech]{babel}
 
+
+\usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage{xparse} % lepsi commandy s optional params
+\usepackage{hyperref} % vkladani hypertextovych odkazu
+\usepackage{enumitem} % lepsi enumerate a descrition and so on
+\usepackage{wrapfig} % obrazky obtekané textem
+\usepackage{longtable} % tabulky na více stran
+\usepackage{latexsym} % symboly
+
+
 % Balíčky pro lepší formátování textu
 \usepackage{microtype} % Vylepšení typografie
 \usepackage{lipsum}    % Generování náhodného textu
@@ -37,14 +47,14 @@
 \immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
 \input{.ROAD}
 \usepackage[outputdir=\ROAD]{minted} %
-\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos}
+\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos, breaklines}
 %\usemintedstyle{murphy}
 
 
 % Údaje pro titulní stranu
 \title{Příručka pro vývoj API}
-\author{Jméno autora}
-\date{\today}
+\author{Martin Korotwitschka}
+%\date{\today}
 
 % Začátek dokumentu
 \begin{document}
@@ -59,7 +69,7 @@
 
 \newpage
 
-\input{chapters/introduction.tex}
-\input{chapters/implementation.tex}
+\input{chapters/theory}
+\input{chapters/implementation}
 
 \end{document}
