@@ -1,0 +1,126 @@
+\section{Implementace}
+Nyní když máme všechen návrh i analýzu hotovou, můžeme se pustit do implementace. V této kapitole se zaměříme na konkrétní implementaci API pro naši hru.
+
+\subsection{Nastavení projektu}
+
+Pokud máte IntelliJ IDEA ultimate, máte možnost vytvořit nový projekt Spring Boot. Pokud ne, můžete použít Spring Initializer, což je webová aplikace, která vám umožní vytvořit nový projekt Spring Boot.
+Pokud nemáte tak můžete navštívit Spring Initializer \url{https://start.spring.io/} a přidejte následující závislosti do projektu:
+
+\begin{itemize}
+    \item Spring Web
+    \item Spring Data JPA
+    \item H2 Database
+\end{itemize}
+
+Můžete přidat do projektu i další velice užitečné závislosti.
+\begin{itemize}
+    \item Lombok - snižuje množství kódu, který musíte napsat
+    \item Spring HATEOAS - umožňuje jednodušeji vytvářet url odkazy
+\end{itemize}
+
+Místo H2 databáze můžete použít jakoukoli jinou databázi, která je podporována Spring Boot. Ovšem H2 je velice jednoduchá databáze, která je pouze v paměti (H2 in-memory database), což je ideální pro demonstrování. Ovšem to nemění nic na implementaci API, která je stejná pro jakoukoli jinou databázi.
+
+Změňte název projektu a poté vyberte "Generate". Stáhne se .zip soubor, který se musí rozbalit. Uvnitř najdete jednoduchý projekt založený na Maven, včetně souboru pom.xml (Poznámka: Můžete použít i Gradle, ale příklady v tomto příkladu budou založeny na Maven).
+
+Spring Boot funguje s jakýmkoli IDE, můžete použít Eclipse, IntelliJ IDEA, Netbeans, atd.
+
+Pro automaticky generovanou dokumentaci můžete přidat závislost Springdoc Swagger 2 (viz. \ref{code:swagger-dependency}). Tato závislost se přidává do souboru \texttt{pom.xml} v kořeni projektu.
+Poté můžete spustit projekt a zobrazí se vám dokumentace na adrese \url{http://localhost:8080/swagger-ui/index.html}.
+
+\begin{listing}[H]
+    \begin{minted}{xml}
+        <!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+    \end{minted}
+    \caption{Přidání závislosti Springdoc Swagger 2}
+    \label{code:swagger-dependency}
+\end{listing}
+
+
+\subsection{Vytvoření kostry}
+Následně se podíváme na věci, které je třeba udělat pro úplné minimum funkčnosti API. Vytvoříme entitu, repository a načteme nějaké výchozí data a vytvoříme jednoduchý controller.
+
+První věc, kterou musíme udělat, je vytvořit entitu. Entita je třída, která reprezentuje tabulku v databázi. V našem případě budeme mít entitu pro Akci a entitu pro Efekt akce.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+public class Action {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
+    private String name;
+
+    @NonNull @Column(nullable = false)
+    private String description;
+}
+    \end{minted}
+    \caption{Entita Akce}
+    \label{code:action-entity}
+\end{listing}
+
+\subsection*{Definice Třídy \texttt{Action}}
+
+Třída \texttt{Action} je definována s využitím JPA a Lombok anotací pro efektivní práci s databází a snadnější manipulaci s kódem. Níže je detailní popis každé použité anotace:
+
+\begin{itemize}
+    \item \textbf{@Data} - Generuje metody getter, setter, \texttt{toString}, \texttt{equals} a \texttt{hashCode}. To zjednodušuje kód tím, že eliminuje potřebu explicitně je psát.
+    \item \textbf{@Entity} - Označuje třídu jako entitu JPA, což znamená, že bude mapována do databázové tabulky. Název tabulky bude ve výchozím nastavení Action, pokud není uvedeno jinak.
+    \item \textbf{@NoArgsConstructor} - Další anotace z Lomboku, která generuje prázdný konstruktor (konstruktor bez parametrů). To je často vyžadováno JPA pro interní použití.
+    \item \textbf{@AllArgsConstructor} - Lombok anotace, která generuje konstruktor se všemi atributy třídy jako parametry. To usnadňuje vytváření instancí objektu s přednastavenými hodnotami.
+    \item \textbf{@Builder} - Lombok anotace, která umožňuje použití návrhového vzoru builder pro tuto třídu. Tento vzor umožňuje sestavit objekt krok za krokem pomocí řetězení metod. toBuilder = true znamená, že lze získat builder z existující instance.
+    \item \textbf{@Id} a \textbf{@GeneratedValue(strategy = GenerationType.AUTO)} - Specifikují, že pole \texttt{id} je primární klíč entity a jeho hodnota bude automaticky generována. \texttt{Generation.AUTO} znamená, že konkrétní strategie generování klíče je přenechána persistenčnímu poskytovateli, který může vybírat na základě typu databáze.
+    \item \textbf{@NonNull} - Lombok anotace, která označuje, že daný atribut nesmí být null. Lombok vygeneruje kontrolu, která vyvolá výjimku, pokud je do konstruktoru předána null hodnota.
+    \item \textbf{@Column(nullable = false)} - Anotace JPA, která říká, že sloupec v databázové tabulce odpovídající atributu description nesmí obsahovat null hodnoty. Tato specifikace je součástí definice schématu databáze. Taktéž pokud necháme pouze notaci \texttt{@Column}, tak to bude mít stejný efekt jako kdyby tam žádná notace nebyla.
+\end{itemize}
+
+Sice anotace Lomboku, jako \texttt{@Data}, \texttt{@NoArgsConstructor}, \texttt{@AllArgsConstructor}, a \texttt{@Builder}, v našem kódu přinášejí značnou úsporu času tím, že automaticky generují boilerplate kód, včetně metod gettery/settery a konstruktorů, není jejich použití nezbytné. Můžeme se rozhodnout napsat tyto funkce ručně.
+
+
+Nyní když máme entitu tak můžeme vytvořit repository pro tuto entitu. Prosté deklarování rozhraní EmployeeRepository \ref{code:action-repository}, které rozšiřuje JpaRepository od Spring Data JPA, nám automaticky umožní:
+\begin{itemize}
+    \item Vytvořit nový záznam v databázi
+    \item Aktualizovat záznam v databázi
+    \item Smazat záznam z databáze
+    \item Hledat záznamy (jeden, všechny, podle jednodušších či složitějších kritérií)
+\end{itemize}
+
+\begin{listing}[H]
+    \begin{minted}{java}
+    public interface ActionRepository extends JpaRepository<Action,Integer> {
+}
+    \end{minted}
+    \caption{Interface ActionRepository}
+    \label{code:action-repository}
+\end{listing}
+
+
+\subsection{Data}
+Nyní můžeme vytvořit nějaká data, která budou v databázi. Vytvoříme třídu DataLoader \ref{code:dataloader}, která bude implementovat CommandLineRunner. Tato třída bude spuštěna při startu aplikace a vytvoří pomocí dříve vytvořeného repository dvě entity.
+
+\begin{listing}[H]
+    \begin{minted}{java}
+@Configuration
+class LoadDatabase {
+    private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
+    @Bean CommandLineRunner initDatabase(ActionRepository repository) {
+
+        return args -> {
+            log.info("Preloading " + repository.save(Action.builder().name("Punch").description("Punch the enemy").build()));
+            log.info("Preloading " + repository.save(Action.builder().name("Kick").description("Kick the enemy").build()));
+        };
+    }
+}
+    \end{minted}
+    \caption{DataLoader}
+    \label{code:dataloader}
+\end{listing}
+

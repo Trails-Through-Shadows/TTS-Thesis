@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper]{article}
+
+% Balíčky pro kódování, fonty a jazyk
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+
+% Balíčky pro lepší formátování textu
+\usepackage{microtype} % Vylepšení typografie
+\usepackage{lipsum}    % Generování náhodného textu
+
+% Balíčky pro práci s obrázky
+\usepackage{graphicx}
+\graphicspath{{images/}} % Cesta k adresáři s obrázky
+
+% Balíček pro lepší práci s odkazy
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=false, % vypne barevné odkazy
+    pdfborder={0 0 0} % nastaví hranice odkazů na 0, aby se nezobrazovaly rámečky
+}
+
+% Nastavení geometrie stránky
+\usepackage{geometry}
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+% odsazení odstavců
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt} % Vypne odsazení odstavců
+
+% nastavení minted
+\immediate\write18{echo $ROAD > .ROAD.tex}
+\immediate\write18{echo $ROAD "tohle je ten nejhorší hack co jsem kdy udělal"} 
+\input{.ROAD}
+\usepackage[outputdir=\ROAD]{minted} %
+\setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos}
+%\usemintedstyle{murphy}
+
+
+% Údaje pro titulní stranu
+\title{Příručka pro vývoj API}
+\author{Jméno autora}
+\date{\today}
+
+% Začátek dokumentu
+\begin{document}
+
+\maketitle % Vytvoří titulní stranu
+
+\begin{abstract}
+    Tento dokument slouží jako neformální příručka pro vývoj API, poskytující praktické informace a tipy pro vývojáře.
+\end{abstract}
+
+\tableofcontents % Vytvoří obsah na základě sekcí a podsekcí
+
+\newpage
+
+\input{chapters/introduction.tex}
+\input{chapters/implementation.tex}
+
+\end{document}

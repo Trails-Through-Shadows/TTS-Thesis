@@ -53,7 +53,7 @@ Lombok je knihovna, která za pomocí anotací automaticky generuje základní r
 
 První možností této knihovny jsou anotace \texttt{@Getter} a \texttt{@Setter}, které automaticky vygenerují \textbf{gettery} nebo \textbf{settery} s příslušnými modifikátory přístupu pro daný atribut \coderef{code:lombok:getters}. Tato anotace lze použít i nad celou třídou a automaticky vygeneruje kód pro všechny atributy. Vygenerované metody jsou ukázány na výpisu \ref{code:lombok:getters:generated}.
 
-\begin{listing}[H]
+\begin{listing}[h!]
     \begin{minted}[fontsize=\footnotesize]{Java}
         public class GetterSetterExample {
             @Getter private int age = 10;
@@ -64,7 +64,7 @@ První možností této knihovny jsou anotace \texttt{@Getter} a \texttt{@Setter
     \label{code:lombok:getters}
 \end{listing}
 
-\begin{listing}[H]
+\begin{listing}[h!]
     \begin{minted}[fontsize=\footnotesize]{Java}
         public class GetterSetterExample {
             private int age = 10;
@@ -83,7 +83,7 @@ První možností této knihovny jsou anotace \texttt{@Getter} a \texttt{@Setter
 
 Další důležité anotace se týkají konstruktorů. \texttt{@NoArgsConstructor} vygeneruje prázdný konstruktor, \texttt{@AllArgsConstructor} vygeneruje konstruktor se všemi atributy \coderef{code:lombok:constructor} a jako poslední anotace \texttt{@RequiredArgsConstructor} vygeneruje konstruktor s všemi atributy označenými jako \texttt{@NonNull}. Tato anotace se zapisuje nad třídu. \cite{lombok:constructor}
 
-\begin{listing}[H]
+\begin{listing}[h!]
     \begin{minted}[fontsize=\footnotesize]{Java}
         public class ConstrExample {
             private int age;
@@ -137,7 +137,7 @@ Hlavním výstupem této práce je seznam koncových bodů \figureref{fig:action
 
 Níže \figureref{fig:endpoint:general} je zobrazen obecný diagram komponent koncového bodu. Třída \texttt{Controller} zde představuje komponentu poskytující koncové body klientům. Po příchozím požadavku ho přeposílá třídě \texttt{Service}, která se stará o jeho vyhodnocení. Při kladném výsledku data předá zpět třídě \texttt{Controller}, která je výsledek pošle klientovi. Pokud je výsledek záporný, je zachycena výjimka a klientovi je vracena přímo.
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/impl/API Implementation - endpoint.pdf}
     \caption{Obecný diagram koncového bodu}
@@ -162,7 +162,8 @@ Pro metody post byla ještě použita anotace \texttt{@RequestBody}, pomocí kte
 \subsubsection*{Popis výsledných koncových bodů}\label{sec:impl:endpoints:desc}   %%TODO barče prosím prosím odsud po další kapitolu
 Koncové body u metody GET obstarávající základní zobrazení entit v databázi (např. \texttt{/actions/1}) mají implementován lazy load \subsectionref{sec:impl:lazyload} s možností vypsat pouze námi určené atributy. Pokud si tuto možnost uživatel zvolí, ostatní atributy, které jsou objekty, zde budou mít pouze ID \coderef{code:action:endpoint:single}. Když žádné parametry nespecifikujeme, předpokládá se, že chceme celý objekt se všemi načtenými atributy.
 
-\begin{listing}[H]
+
+\begin{listing}[h!]
     \begin{minted}{json}
 // /actions/1?lazy=true&include=attack 
 { // for simplicity there are only important fields
@@ -181,7 +182,7 @@ Koncové body u metody GET obstarávající základní zobrazení entit v datab�
 
 Koncové body pro metodu GET, které vrací více objektů, jako například \texttt{/actions}, mají kromě výše zmíněné možnosti výběru atributů také možnost stránkování. Za pomocí něj můžeme například vzít pouze prvních pět objektů a tím zmenšíme potřebné zdroje pro přenos. Tato funkcionalita vrací kromě objektů taktéž informace o tom, na jaké stránce se nacházíme \coderef{code:action:endpoint:multiple}. Samotné objekty jsou uloženy v poli \texttt{entries} a mají stejný formát, jako výše zmíněný výstup pro jeden objekt \coderef{code:action:endpoint:single}.
 
-\begin{listing}[H]
+\begin{listing}[h!]
     \begin{minted}{json}
 // /actions?page=2&limit=5&include=attack&lazy=true
 {
@@ -224,5 +225,5 @@ Knihovna Hibernate bohužel nemá metodu pro rekurzivní načtení relací objek
 \subsection{Příliš velká databáze}
 Při návrhu databáze nebyl brán ohled na možnou časovou náročnost. Databáze se navrhovala jako funkční celek připravený do produkce s ohledem na případné rozšíření. To vyústilo v problém, kdy jednotlivé případné úkony jako je \gls{orm} či \gls{crud} operace nad jednotlivými entitami byly velice zdlouhavé a zabíraly většinu času vývoje. S tímto se pojil o to složitější management změn u koncových bodů. Z tohoto důvodu se v implementaci vynechaly entity \textit{summon} a \textit{item}.
 
-\subsection{Začátek návrhu od databáze}
+\subsection{Počátek návrhu}
 Před začátkem práce nám bylo doporučeno, abychom jako první provedli návrh databáze. Toto rozhodnutí se ovšem v pozdní fázi vývoje ukázalo jako velice nepraktické, protože při mapování se musely M:N relační tabulky obstarat ručně. Kdybychom začali s vývojem databáze přímo v aplikaci, knihovna JPA \sectionref{fig:JPA} by za nás obstarala M:N relace, čímž by se implementace upravování a vkládání nových vnořených objektů podstatně zjednodušila. Vzhledem k počtu m:n relací, které databáze modelové hry obsahuje, by se tímto jednalo o velkou úsporu času.
