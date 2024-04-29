@@ -85,7 +85,7 @@ Pro tento účel by bylo možné využít některý z~text-to-speach nástrojů,
 Z~časových důvodů bylo rozhodnuto, že tato funkcionalita nebude do aplikace implementována, avšak by mohla být v~budoucnu přidána jako rozšíření.
 
 \section{Návrh fyzických komponent}
-Návrh této stolní hry počítá s~několika fyzickými komponentami, které budou mít hráči k~dispozici. Mezi tyto komponenty patří herní plocha, figurky postav a~nepřátel, karty s~hráčskými akcemi, karty s~předměty a~upravená dvacetistěnná kostka.
+Návrh této stolní hry počítá s~několika fyzickými komponentami, které budou mít hráči k~dispozici. Mezi tyto komponenty patří herní plocha, figurky postav a~nepřátel, karty s~hráčskými akcemi, karty s~předměty a~upravená dvacetistěnná kostka. Jejich návrh zle vidět na Obrázku \ref{fig:physical_components}.
 
 \subsection{Herní plocha}
 Herní plocha pro každou z~lokací bude tvořena z~dílů, které bude možno skládat k~sobě. Propojovat je budou speciální dílky, které budou představovat dveře mezi jednotlivými místnostmi. Díly budou mít na sobě vyobrazena hexagonová pole, které budou reprezentovat možnosti, kam hráč bude moci v~průběhu hry pohnout svou postavu. Na těchto políčkách budou umístěny figurky postav a~nepřátel a~také tokeny pastí a~překážek.
@@ -122,6 +122,16 @@ Figurky by byly vytištěny na karton a~následně vystřiženy. Tento způsob b
 
 \subsubsection*{Zvolené řešení}
 Z~důvodu časové náročnosti a~nákladů bylo rozhodnuto ve prospěch 2D tisku. Figurky budou opatřeny plastovým stojánkem pro stabilitu a~zároveň budou použity různé barvy pro rozlišení hráčů a~nepřátel. Jedno z~předešlých řešení by však mohlo být použito pro prémiové vydání hry.
+
+\subsection{Karty}
+Budou barevně rozděleny podle jednotlivých ras a~povolání, kterým budou náležet. Zároveň na nich budou vyobrazeny texty a~obrázky, které budou reprezentovat jednotlivé akce. Karty budou vytvořeny z~odolného papíru a~budou opatřeny ochrannou vrstvou, která zamezí jejich poškození. Bylo rozhodnuto o~standardní velikosti karet, která je 63x88 mm.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/components.png}
+    \caption{Návrh fyzických komponent}
+    \label{fig:physical_components}
+\end{figure}
 
 \section{Volba technologií pro vývoj aplikace}
 Zprvopočátku jsem vytvořil prototyp GUI v~čistém HTML a~CSS, abych věděl, jak bude samotný produkt zhruba vypadat. Poté jsem svou pozornost obrátil na výběr technologií, které budu pro vývoj GUI používat.

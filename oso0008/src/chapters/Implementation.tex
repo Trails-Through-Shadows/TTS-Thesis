@@ -61,7 +61,7 @@ Použitá okna nápovědy byla importována z~knihovny Bootstrap. Vyvstal u~nich
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Charracter Creation.png}
+  \includegraphics[width=\textwidth]{resources/figures/TTS-Charracter Creation.png}
   \caption{Snímek obrazovky komponenty pro vytváření postav}
   \label{fig:character-creation}
 \end{figure}
@@ -82,9 +82,9 @@ Tato komponenta je nejkomplexnější a~také nejdůležitější ze všech. Jed
 \subsubsection*{Mapa}
 Po odkliknutí příběhu je zobrazena hrací plocha ukazující první místnost s~tokeny nepřátel a~překážek, dveřmi a~startovacími poli pro postavy. Ta slouží jako návrh pro fyzickou hrací plochu, kterou hráč podle této předlohy připraví. Tokeny nepřátel a~pastí jsou zmenšené, detailnější obrázky jejich protějšků, kterým byl pro lepší přehlednost přidán barevný okraj. Mapa také vyobrazuje dveře, které vedou do dalších místností. Při kliknutí na ně se uživateli zobrazí možnost je otevřít. Vyhodnocení otevření dveří se provede vždy na konci kola. Potom co se tak stane se krom stávající místnosti zobrazí také nová a~uživatel může přepínat mezi jednotlivými náhledy pomocí tlačítek na okraji mapy. Ukázku této komponenty lze najít na Obrázku \ref{fig:map}.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Map.png}
+  \includegraphics[width=\textwidth]{resources/figures/TTS-Map.png}
   \caption{Snímek obrazovky komponenty pro mapu}
   \label{fig:map}
 \end{figure}
@@ -105,7 +105,7 @@ Po zadání iniciativy je zobrazena hlavní část střetnutí, kde se karty s~p
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.95\textwidth]{resources/figures/TTS-Encounter.png}
+  \includegraphics[width=\textwidth]{resources/figures/TTS-Encounter.png}
   \caption{Snímek obrazovky komponenty pro střetnutí}
   \label{fig:combat}
 \end{figure}
@@ -114,7 +114,7 @@ V~poměru s~ostatními, byl vývoj této komponenty nejsložitější a~nejvíce
 
 Problémy také nastaly při spojování nepřátel do skupin. Bylo nutné zajistit, aby měl uživatel stále přehled o~všech nepřátelích a~jejich stavech. Tento problém byl původně vyřešen přidáním možnosti přepínat mezi jednotlivými nepřáteli ve skupině, avšak toto se ukázalo jako velmi neohrabané a~nepřehledné. Proto bylo rozhodnuto, že se na úkor jednolitosti karet zobrazí statistiky všech nepřátel ve skupině pod sebou.
 
-Další problém se objevil při implementaci karet s~akcemi, které byly původně implementovány jako HTML elementy. Tyto karty byly ale příliš komplikované pro výpis všech atributů a~těžko se s~nimi pracovalo. Proto bylo rozhodnuto je nahradit generovanými svg obrázky. Tímto způsobem bylo dosaženo lepšího vzhledu a~snadnější práce s~nimi.
+Další problém se objevil při implementaci karet s~akcemi, které byly původně implementovány jako HTML elementy. Tyto karty byly ale příliš nevýrazné a~nepřehledné. Proto bylo rozhodnuto je nahradit generovanými svg obrázky. Tato změna obnášela vytvoření funkcí, které generují obrázky přímo v~aplikaci pomocí knihovny SVG.js. Tato knihovna byla přidána až v~pozdějších fázích vývoje, proto se nenachází v~seznamu knihoven, které byly pro projekt vybrány.
 
 \subsubsection*{Interface pro interakci s~entitami}
 Pro interakci s~entitami byla vytvořena jednoduchá komponenta, která dává hráči možnost vepsat či pomocí tlačítek zvolit, kolik životů má entita ztratit a~pomocí modálního okna zvolit, který efekt má být na entitu aplikován. Tato komponenta je použita vždy, když je potřeba vyhodnotit útočnou akci, a~to včetně akcí nepřátel a~poškození způsobené překážkami.
@@ -124,9 +124,9 @@ Jedná se o~komponentu, která byla navržena primárně pro používání myši
 \section{Spolupráce na vývoji}
 Spolupráce probíhala převážně pomocí verzovacího systému Git a~platformy GitHub, kde byl vytvořen repozitář pro Trails Through Shadows. V~průběhu vývoje bylo vytvořeno několik větví, které sloužily k~implementaci nových funkcí, opravám chyb a~testování nových návrhů. Většina z~nich byla následně sloučena zpět do hlavní větve, kde byly testovány a~připravovány pro nasazení. Rozdělení práce je zobrazeno v~blokovém Schématu \ref{fig:workflow}.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
-  \includegraphics[width=.95\textwidth]{../../shared/diagrams/blocks.pdf}
+  \includegraphics[width=\textwidth]{../../shared/diagrams/blocks.pdf}
   \caption{Blokové schéma rozdělení práce}
   \label{fig:workflow}
 \end{figure}

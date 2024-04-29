@@ -5,6 +5,7 @@
 \usepackage{dcolumn} % sloupce tabulky s ciselnymi hodnotami
 \usepackage{subfig} % makra pro "podobrazky" a "podtabulky"
 \usepackage{float} % lepsi umistovani obrazku (H)
+\usepackage{rotating} % otaceni obrazku
 \usepackage[outputdir=./build]{minted} % vkladani zdrojovych kodu
 
 \setminted{fontsize=\small, baselinestretch=1, frame=lines, framesep=8pt, linenos}
@@ -62,5 +63,9 @@
 
 % Seznam literatury
 \printbibliography[title={Literatura}, heading=bibintoc]
+
+% Přílohy
+\appendix
+\input{appendix/Images.tex}
 
 \end{document}
