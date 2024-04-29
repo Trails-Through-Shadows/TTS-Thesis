@@ -3,52 +3,7 @@
 
 Tato příručka slouží jako pomůcka pro vývojáře, kteří chtějí vyvíjet grafické uživatelské rozhraní (GUI). Budeme se soustředit na rozhraní webových stránek, ale některé zásady lze aplikovat pro jakékoliv GUI.
 
-V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Podíváme se na několik návrhových vzorů a v poslední části se podíváme na několik nástrojů, které nám práci mohou usnadnit.
-
-\section{Technologie}
-\label{sec:technologies}
-
-Pro vývoj webových GUI se používají různé technologie. Většina z nich je založena na jazycích HTML, CSS a JavaScript. HTML určuje strukturu stránky. Jedná se o značkovací jazyk, díky kterému jsme schopni definovat jednotlivé elementy na stránce. CSS se používá pro definici vzhledu stránky. Pomocí CSS můžeme měnit barvy, velikosti písma, zarovnání a mnoho dalších vlastností. JavaScript je skriptovací jazyk, který se používá pro interaktivitu stránky. S jeho pomocí můžeme měnit obsah stránky v reálném čase, reagovat na uživatelské akce a mnoho dalšího.
-
-\subsection{Frameworky}
-\label{subsec:frameworks}
-
-Pro vývoj webových aplikací se používají různé frameworky a knihovny. Několik z nich bych zde rád uvedl jako přiklady. React je knihovna vyvinutá společností Meta. Angular je framework vyvinutý společností Google. Svelte je kompilátor, který převádí kód napsaný ve Svelte syntaxi na čistý JavaScript. Tyto technologie si nyní v rychlosti představíme. Který z nich, pokud nějaký, si vyberete, záleží na vašich preferencích a potřebách projektu.
-
-\subsection*{React}
-\label{subsec:react}
-
-React je knihovna vyvinutá společností Meta (bývalý Facebook). Jedná se o jednu z nejpopulárnějších knihoven pro vývoj jednostránkových webových aplikací. Jde o komponentový framework, což znamená, že celý kód je rozdělen do menších celků zvaných komponenty. Ty jsou znovupoužitelné a modulární. Mohou být do sebe vnořeny, což nám umožňuje vytvářet složitější struktury. Navíc používá JSX syntaxi, která umožňuje psát HTML kód přímo v JavaScriptu. Díky tomu je kód lépe čitelný a snadno se s ním pracuje. React je znám svou komunitou a ekosystémem, který je kolem něj postavený. Díky tomu je možné najít spoustu předpřipravených komponent a knihoven, které urychlí vývoj aplikace. Nedoporučil bych ho však začátečníkům, protože má poměrně strmou křivku učení.
-
-\subsection*{Angular}
-\label{subsec:angular}
-
-Angular je framework vyvinutý společností Google. Jedná se o jednostránkový framework, který je postaven na jazyce TypeScript. TypeScript je nadstavba JavaScriptu, která přidává statické typování a je striktnější co se týče syntaxe. Díky tomu je kód bezpečnější a méně náchylný k chybám. Angular je taktéž komponentový framework. Také má velkou komunitu a ekosystém, ale je méně populární než React. Je vhodný pro větší projekty, kde je potřeba striktního řízení stavu aplikace.
-
-\subsection*{Svelte}
-\label{subsec:svelte}
-
-Svelte je kompilátor, který převádí kód napsaný ve Svelte syntaxi na čistý JavaScript. Jedná se o nový přístup k vývoji webových aplikací. Svelte je komponentový framework, ale na rozdíl od Reactu a Angularu, kde jsou komponenty interpretovány za běhu, jsou komponenty ve Svelte přeloženy do čistého JavaScriptu. Díky tomu je výsledný kód menší a rychlejší. Není zdaleka tak populární jako React nebo Angular, ale to nahrazuje svou jednoduchostí a rychlostí. Svelte je velmi přívětivý na naučení a je vhodný pro začátečníky.
-
-\subsection{Další knihovny}
-\label{sec:other-libraries}
-
-Kromě zmíněných frameworků existuje spousta dalších knihoven, které mohou usnadnit vývoj webových aplikací. Slouží jako stavební kameny pro vytvoření jednolitého vzhledu aplikace. Několik takových možností bych zde opět rád uvedl.
-
-\subsection*{Bootstrap}
-\label{subsec:bootstrap}
-
-Bootstrap je nejpopulárnější knihovna pro vývoj responzivních webových stránek. Jedná se o sadu CSS a JavaScript komponent, které usnadňují jejich tvorbu. Obsahuje mnoho předpřipravených komponent, jako jsou tlačítka, formuláře, navigace a mnoho dalších. Díky tomu je možné rychle vytvořit moderní a responzivní webové stránky. Bootstrap lze teoreticky přizpůsobit vlastními CSS styly a třídami, avšak to může být složité a velmi rychle se může stát nepřehledným. V případě, že se chcete vyhnout vlastnímu designu a pouze potřebujete rychle vytvořit stránku, je Bootstrap ideální volbou. Pokud však chcete vytvořit unikátní design, může být lepší zvolit jinou cestu.
-
-\subsection*{Tailwind CSS}
-\label{subsec:tailwind-css}
-
-Tailwind CSS je nový přístup k psaní CSS. Namísto psaní vlastních CSS stylů, používáme třídy, které definují jednotlivé vlastnosti. Tailwind CSS je velmi flexibilní a umožňuje vytvářet velkou řadu stylů poměrně jednoduše. Je vhodný pro vývoj moderních a responzivních webových stránek. Jeho nevýhodou může být velké množství tříd, které je potřeba použít, což může vést k nepřehlednosti kódu.
-
-\subsection*{Knihovny specifické pro frameworky}
-\label{subsec:framework-specific-libraries}
-
-Pro každý z frameworků existuje spousta takovýchto knihoven. Například pro React existuje Material-UI, React Bootstrap, Ant Design a mnoho dalších. Tyto knihovny obsahují předpřipravené komponenty, které můžeme použít ve svých aplikacích. Často jsou navrženy tak, aby byly snadno přizpůsobitelné a rozšiřitelné, ale to se liší od knihovny k knihovně. Pokud používáte některý z frameworků, může být užitečné si nějakou takovouto knihovnu najít.
+V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Popíšeme si postup, který můžeme využít při návrhu a vývoji GUI. Nakonec si ukážeme, jak můžeme využít umělou inteligenci k vytvoření obsahu pro naše GUI.
 
 \section{Zásady vývoje webového GUI}
 \label{sec:principles}
@@ -108,3 +63,91 @@ Typografie je umění používání písma a fontů k tomu, aby byl text čiteln
   \item \textbf{Responzivnost} -- Jedna z nejdůležitějších vlastností moderního GUI. Responzivní design zajišťuje, že stránka bude vypadat dobře na všech zařízeních, od mobilních telefonů až po stolní počítače, a to pomocí změny velikosti, schování či přesunutí prvků na stránce. K tomu se využívají vlastnosti jazyka CSS, nejčastěji media queries, které umožňují nastavit různé styly pro různé velikosti obrazovek. Responzivní design je v dnešní době kriticky potřebný, protože většina uživatelů používá k prohlížení internetu mobilní zařízení a je důležité, aby se jim stránka zobrazila správně a byla snadno použitelná.
 \end{itemize}
 
+\section{Technologie}
+\label{sec:technologies}
+
+Pro vývoj webových GUI se používají různé technologie. Většina z nich je založena na jazycích HTML, CSS a JavaScript. HTML určuje strukturu stránky. Jedná se o značkovací jazyk, díky kterému jsme schopni definovat jednotlivé elementy na stránce. CSS se používá pro definici vzhledu stránky. Pomocí CSS můžeme měnit barvy, velikosti písma, zarovnání a mnoho dalších vlastností. JavaScript je skriptovací jazyk, který se používá pro interaktivitu stránky. S jeho pomocí můžeme měnit obsah stránky v reálném čase, reagovat na uživatelské akce a mnoho dalšího.
+
+\subsection{Frameworky}
+\label{subsec:frameworks}
+
+Pro vývoj webových aplikací se používají různé frameworky a knihovny. Několik z nich bych zde rád uvedl jako přiklady. React je knihovna vyvinutá společností Meta. Angular je framework vyvinutý společností Google. Svelte je kompilátor, který převádí kód napsaný ve Svelte syntaxi na čistý JavaScript. Tyto technologie si nyní v rychlosti představíme. Který z nich, pokud nějaký, si vyberete, záleží na vašich preferencích a potřebách projektu.
+
+\subsection*{React}
+\label{subsec:react}
+
+React je knihovna vyvinutá společností Meta (bývalý Facebook). Jedná se o jednu z nejpopulárnějších knihoven pro vývoj jednostránkových webových aplikací. Jde o komponentový framework, což znamená, že celý kód je rozdělen do menších celků zvaných komponenty. Ty jsou znovupoužitelné a modulární. Mohou být do sebe vnořeny, což nám umožňuje vytvářet složitější struktury. Navíc používá JSX syntaxi, která umožňuje psát HTML kód přímo v JavaScriptu. Díky tomu je kód lépe čitelný a snadno se s ním pracuje. React je znám svou komunitou a ekosystémem, který je kolem něj postavený. Díky tomu je možné najít spoustu předpřipravených komponent a knihoven, které urychlí vývoj aplikace. Nedoporučil bych ho však začátečníkům, protože má poměrně strmou křivku učení.
+
+\subsection*{Angular}
+\label{subsec:angular}
+
+Angular je framework vyvinutý společností Google. Jedná se o jednostránkový framework, který je postaven na jazyce TypeScript. TypeScript je nadstavba JavaScriptu, která přidává statické typování a je striktnější co se týče syntaxe. Díky tomu je kód bezpečnější a méně náchylný k chybám. Angular je taktéž komponentový framework. Také má velkou komunitu a ekosystém, ale je méně populární než React. Je vhodný pro větší projekty, kde je potřeba striktního řízení stavu aplikace.
+
+\subsection*{Svelte}
+\label{subsec:svelte}
+
+Svelte je kompilátor, který převádí kód napsaný ve Svelte syntaxi na čistý JavaScript. Jedná se o nový přístup k vývoji webových aplikací. Svelte je komponentový framework, ale na rozdíl od Reactu a Angularu, kde jsou komponenty interpretovány za běhu, jsou komponenty ve Svelte přeloženy do čistého JavaScriptu. Díky tomu je výsledný kód menší a rychlejší. Není zdaleka tak populární jako React nebo Angular, ale to nahrazuje svou jednoduchostí a rychlostí. Svelte je velmi přívětivý na naučení a je vhodný pro začátečníky.
+
+\subsection{Další knihovny}
+\label{sec:other-libraries}
+
+Kromě zmíněných frameworků existuje spousta dalších knihoven, které mohou usnadnit vývoj webových aplikací. Slouží jako stavební kameny pro vytvoření jednolitého vzhledu aplikace. Několik takových možností bych zde opět rád uvedl.
+
+\subsection*{Bootstrap}
+\label{subsec:bootstrap}
+
+Bootstrap je nejpopulárnější knihovna pro vývoj responzivních webových stránek. Jedná se o sadu CSS a JavaScript komponent, které usnadňují jejich tvorbu. Obsahuje mnoho předpřipravených komponent, jako jsou tlačítka, formuláře, navigace a mnoho dalších. Díky tomu je možné rychle vytvořit moderní a responzivní webové stránky. Bootstrap lze teoreticky přizpůsobit vlastními CSS styly a třídami, avšak to může být složité a velmi rychle se může stát nepřehledným. V případě, že se chcete vyhnout vlastnímu designu a pouze potřebujete rychle vytvořit stránku, je Bootstrap ideální volbou. Pokud však chcete vytvořit unikátní design, může být lepší zvolit jinou cestu.
+
+\subsection*{Tailwind CSS}
+\label{subsec:tailwind-css}
+
+Tailwind CSS je nový přístup k psaní CSS. Namísto psaní vlastních CSS stylů, používáme třídy, které definují jednotlivé vlastnosti. Tailwind CSS je velmi flexibilní a umožňuje vytvářet velkou řadu stylů poměrně jednoduše. Je vhodný pro vývoj moderních a responzivních webových stránek. Jeho nevýhodou může být velké množství tříd, které je potřeba použít, což může vést k nepřehlednosti kódu.
+
+\subsection*{Knihovny specifické pro frameworky}
+\label{subsec:framework-specific-libraries}
+
+Pro každý z frameworků existuje spousta takovýchto knihoven. Například pro React existuje Material-UI, React Bootstrap, Ant Design a mnoho dalších. Tyto knihovny obsahují předpřipravené komponenty, které můžeme použít ve svých aplikacích. Často jsou navrženy tak, aby byly snadno přizpůsobitelné a rozšiřitelné, ale to se liší od knihovny k knihovně. Pokud používáte některý z frameworků, může být užitečné si nějakou takovouto knihovnu najít.
+
+
+\section{Návrh a vývoj}
+\label{sec:design-and-development}
+
+Nyní se podíváme na postup, který můžeme použít při návrhu a vývoji webového GUI. Tento postup je pouze orientační a může se lišit podle potřeb projektu. Vždy je důležité přizpůsobit si ho tak, aby co nejlépe vyhovoval vašim potřebám.
+
+\subsection{Požadavky}
+\label{subsec:requirements}
+
+Prvním krokem při vývoji webového GUI je definování požadavků. Je důležité si předem promyslet, co chceme, aby naše stránka obsahovala a jaké funkce měla mít. Následuje několik otázek, které bychom si měli položit při definování požadavků:
+
+\begin{itemize}
+  \item \textbf{Cílová skupina} -- Kdo jsou uživatelé naší stránky? Jaké jsou jejich potřeby a očekávání? Je důležité si tyto informace zjistit, abychom mohli navrhnout stránku, která bude co nejvíce vyhovovat potřebám uživatelů.
+  \item \textbf{Funkce} -- Jaké funkce by měla naše stránka obsahovat? Jaké informace by měla zobrazovat? Jaké akce by měla umožňovat uživatelům provádět?
+  \item \textbf{Design} -- Jak by měla naše stránka vypadat? Jaké barvy, písma a obrázky by měla obsahovat? Jaké prvky by měla obsahovat a jak by měly být uspořádány?
+  \item \textbf{Responzivita} -- Jak by měla naše stránka vypadat na různých zařízeních? Jak by měla reagovat na změnu velikosti obrazovky?
+\end{itemize} 
+
+\subsection{Návrh}
+\label{subsec:design}
+
+Další krok při vývoji webového GUI je návrh. Je důležité si předem promyslet, jak bude stránka vypadat a jaké funkce bude mít. Několik tipů, které vám mohou pomoci při návrhu:
+
+\begin{itemize}
+  \item \textbf{Wireframe} -- Jedná se o zjednodušený náčrt stránky, který obsahuje pouze základní prvky. Pomáhá nám rychleji si představit, jak bude stránka vypadat a jaké prvky bude obsahovat. Umožňuje rychlé experimentování s rozložením a uspořádáním prvků bez nutnosti zaměřovat se na detaily.
+  \item \textbf{Mockup} -- Mockup je statický návrh stránky, který obsahuje všechny prvky a detaily. Pomáhá nám lépe si představit, jak bude stránka vypadat a jaké barvy, písma a obrázky bude obsahovat. Slouží k prezentaci konceptu stránky klientům nebo členům týmu pro schválení předtím, než začne samotný vývoj.
+  \item \textbf{Prototyp} -- Prototyp je interaktivní návrh stránky, který obsahuje všechny funkce a interakce. Pomáhá nám lépe si představit, jak bude stránka fungovat a jaké budou uživatelské zkušenosti. Může být statický nebo dynamický, a umožňuje testování navigace, interakcí a uživatelského rozhraní před vlastním vývojem aplikace nebo webové stránky.
+  \item \textbf{Testování} -- Je důležité testovat návrh stránky na reálných uživatelích. Pomáhá nám zjistit, jak bude stránka fungovat v praxi a jaké budou reakce uživatelů. Testování může zahrnovat uživatelské testy, průzkumy spokojenosti, sledování chování na stránce pomocí analytických nástrojů a další metody sběru dat, které pomáhají pochopit potřeby a preference uživatelů.
+  \item \textbf{Iterace} -- Iterací je myšleno neustálé zlepšování návrhu stránky na základě zpětné vazby uživatelů. Pomáhá nám vytvořit co nejlepší uživatelské rozhraní. Během iterací se provádějí úpravy a změny na základě zjištění z testování a dalšího sběru dat, s cílem dosáhnout optimálního uživatelského zážitku a splnit stanovené cíle projektu. Iterativní přístup umožňuje flexibilně reagovat na potřeby uživatelů a provádět postupné vylepšování produktu.
+\end{itemize}
+
+\subsection{Vývoj}
+\label{subsec:development}
+
+Posledním krokem je samotný vývoj. V tomto kroku převádíme návrh stránky do kódu a implementujeme všechny funkce a interakce. Několik tipů, které vám mohou pomoci při vývoji:
+
+\begin{itemize}
+  \item \textbf{Struktura} -- Správná struktura kódu je základním kamenem každého projektu. Oddělení HTML, CSS a JavaScript do samostatných souborů zlepšuje přehlednost a udržitelnost kódu. Používání správných názvů tříd a funkcí usnadňuje další práci na projektu, ať už jde o úpravy, rozšíření funkcí nebo odstraňování chyb.
+  \item \textbf{Responzivita} -- Responzivní design je klíčovým prvkem moderních webových stránek. Vytvoření designu, který se automaticky přizpůsobí různým zařízením, je nezbytné pro poskytnutí uživatelům konzistentní a příjemnou uživatelskou zkušenost. Používání media queries a moderních layoutových technik jako flexbox nebo grid layout pomáhá dosáhnout responzivního uspořádání.
+  \item \textbf{Testování} -- Testování stránky na různých prohlížečích a zařízeních je klíčové pro zajištění funkčnosti a konzistence. Proces testování by měl zahrnovat nejen ověření správného fungování všech funkcí a interakcí, ale také zajištění kompatibility s různými prohlížeči a operačními systémy.
+  \item \textbf{Optimalizace} -- Optimalizace kódu a obrázků pomáhá rychlému načítání stránky a zlepšení uživatelské zkušenosti. Používání technik jako komprese kódu a obrázků, lazy loading obrázků nebo optimalizace pořadí načítání zdrojů může výrazně snížit dobu načítání stránky a zlepšit její výkon.
+  \item \textbf{Dokumentace} --  Psaní dokumentace kódu je důležité pro zajištění jeho udržitelnosti a snadného porozumění pro ostatní členy týmu nebo pro sebe v budoucnosti. Komentování kódu a vysvětlování funkcionality každé části pomáhá při další úpravě a ladění kódu a usnadňuje zapojení nových členů do projektu.
+\end{itemize}
