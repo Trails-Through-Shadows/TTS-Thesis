@@ -1,0 +1,94 @@
+
+\section{Úvod}\label{sec:api-goal}
+
+Je důležité si uvědomit, že kvalitní návrh a pečlivá definice klíčových mechanismů projektu jsou základem pro úspěch jakéhokoli API. Tyto počáteční kroky určují strukturu a funkčnost API, které slouží jako zprostředkovatel mezi uživateli a systémem. Při návrhu API je třeba pečlivě zvážit, jaké typy operací a datových interakcí bude potřeba podporovat, aby byly splněny specifické potřeby aplikace.
+
+\section{Jak na návrh}\label{sec:api-how}
+
+Na samém začátku je klíčové pečlivě navrhnout, jaké funkce bude naše API nabízet a jak celkově bude aplikace fungovat. Musíme přesně specifikovat, jakou funkcionalitu od API očekáváme, protože na základě těchto požadavků definujeme koncové body. Tyto základní funkční požadavky následně použijeme jako výchozí bod pro návrh API a všech věcí okolo.
+
+Tento obecný přístup k návrhu API bude nyní demonstrováno na příkladu naší hry, kde ukážeme praktické aplikace teoretických principů. Následovat bude detailní pohled na návrh a funkční požadavky specifické pro naši hru.
+
+\section{Návrh API pro hru}\label{sec:api-design}
+
+Jako první se může provést tzv. analýza funkčních požadavků. Ta v našem případě zahrnuje definici funkcí a takhle nějak by mohly vypadat:
+
+\subsection{Funkční požadavky}
+
+\subsubsection*{Požadavky, které byly vyčleněny primárně ze strany backoffice}
+
+\begin{enumerate}[label=\textbf{F\arabic*}:, leftmargin=*, align=left]
+    \item \textbf{CRUD operace} -- Nad základními objekty, se kterými se bude často pracovat, a upravovat pomocí endpointů. Těmito objekty jsou \texttt{akce, efekty, předměty, charaktery a jejich vlastnosti, dobrodružství, kampaň, obchody, nepřátelé, překážky, lokace} a \texttt{části lokace}
+    \item \textbf{Filtrování} -- Možnost vyhledat objekty podle vstupních parametrů u koncových bodů, které poskytují seznam objektů.
+    \item \textbf{Lazy load} -- Způsob načítání dat, který umožňuje vracet pouze daný objekt bez jeho závislostí, případně vrácení pouze těch závislostí, které se určí. Výsledkem je rychlejší zpracování a menší objem přesunutých dat, když uživatel tyto závislosti nepotřebuje. Namísto objektu se tedy vrátí jen jeho identifikátor.
+    \item \textbf{Stránkování} -- Další způsob předávání dat, který umožní jejich postupné zpracování, což vede ke zkrácení času potřebného k vyhodnocení požadavku jak v API tak ve zobrazovací části.
+    \item \textbf{Caching} -- Již jednou zpracovaná data z databáze není třeba znovu získávat z databáze, pokud nedošlo ke změně. Tato funkcionalita umožní násobně rychlejší odezvu pro opakované získávání stejných dat.
+    \item \textbf{Administrátorská práva} -- Ne všichni mohou mít přístup pro úpravu dat v databázi. Díky administrátorským přihlašovacím údajům a následnému tokenu se budou moci upravovat a vkládat data do databáze pouze s odpovídajícím ověřením.
+    \item \textbf{Validace} -- Data vkládaná do databáze budou validována a případně vrátí chybovou hlášku, podle které bude možno snadno identifikovat chybu vstupních dat a následně ji opravit.
+\end{enumerate}
+
+
+\subsubsection*{Požadavky primárně ze strany uživatelského prostředí}
+
+\begin{enumerate}[label=\textbf{F\arabic*}:, leftmargin=*, align=left]
+    \item \textbf{Získávání objektů} -- Bude umožněno získávat jakékoliv objekty, které neobsahují herní data či jiné citlivé informace, přímo z databáze.
+    \item \textbf{Podpora herního průběhu} -- Uživatel bude moci projít celým soubojem a interagovat s entitami v něm za pomocí řady validovaných a přehledně uspořádaných koncových bodů.
+    \item \textbf{Zamezení zneužití} -- Postup operací v herním průběhu bude kontrolován tak, aby se zamezilo případnému zneužití nebo obcházení pravidel hry.
+    \item \textbf{Přihlášení} -- Uživatel se bude moci přihlásit a získat token pro ověření v dalších požadavcích.
+    \item \textbf{Herní data} -- Uživatel bude mít pod svým účtem uložený postup hry a bude moci pokračovat tam, kde skončil. Dále bude mít možnost vytvářet nové postavy pro kampaně a také nová dobrodružství.
+    \item \textbf{Validace} -- Obsah vstupních dat bude validován a případně vrátí smysluplnou chybovou hlášku.
+    \item \textbf{Obrázky} -- Bude možné získat obrázek z url adresy přiložené k objektu, případně v požadavku specifikovat jeho velikost.
+\end{enumerate}
+
+
+\subsection{Nefunkční požadavky}
+Dále je důležité vyhradit si nefunkční požadavky. Jejich vznik je stejný jako požadavky funkční, byly sestrojovány postupně s vývojem na základě zkušeností a požadavků ostatních členů týmu.
+
+
+\begin{enumerate}[label=\textbf{F\arabic*}:, leftmargin=*, align=left]
+    \item \textbf{Rozdělení API na dvě části} -- Z důvodu spolupráce na API s jinými členy týmu, především herním systémem, který pro svůj chod využívá stejných modelů, bylo rozhodnuto, že herní logika i mapování bude v jednom projektu. Tomu tedy musí být přizpůsobena i spolupráce a podpůrné technologie.
+    \item \textbf{Dokumentace} API bude zdokumentováno za pomocí OpenAPI a pro vizuální zobrazení koncových bodů bude použit Swagger, který zároveň poslouží jako skvělé ladící rozhraní.
+    \item \textbf{Hosting} API bude stejně jako ostatní části projektu hostováno na veřejných serverech.
+    \item \textbf{Přehlednost} Koncové body API by měly být samopopisující a snadno pochopitelné.
+    \item \textbf{Standardizovanost} API se bude držet ověřených dobrých praktik z praxe a bude udržovat jednotnost a standardizovanost.
+\end{enumerate}
+
+
+\section{Výběr technologií}\label{sec:api-tech}
+
+Návrh API zahrnuje řadu rozhodnutí, od volby architektonického stylu až po výběr konkrétních technologií a frameworků. Každý z těchto výběrů by měl být motivován specifickými potřebami vašeho projektu, včetně typů operací, které bude API podporovat, očekávané zátěže, bezpečnostních požadavků a dalších faktorů.
+
+\subsection{Volba Architektury API}
+\subsubsection*{REST}
+\textbf{Definice:} REST (Representational State Transfer) je architektura založená na standardních HTTP metodách, která využívá jednoduché URL pro přístup k zdrojům a HTTP metody jako GET, POST, PUT a DELETE pro operace nad nimi.
+
+\textbf{Usecase:} REST je ideální pro většinu webových aplikací, které vyžadují škálovatelnost, jednoduchost a snadnou integraci s webovými prohlížeči. REST je široce používán pro veřejné API, například Google Maps API nebo Facebook Graph API.
+
+\subsubsection*{GraphQL}
+\textbf{Definice:} GraphQL je jazyk dotazů pro API vyvinutý Facebookem, který umožňuje klientům specifikovat přesně, jaké data potřebují, což může redukovat množství dat přenesených přes síť.
+
+\textbf{Usecase:} GraphQL je vhodné pro aplikace, které potřebují velkou flexibilitu v tom, jak a jaká data si mohou vyžádat, například mobilní aplikace, které potřebují minimalizovat množství dat přenášených přes mobilní sítě. Příkladem může být GitHub GraphQL API, které umožňuje uživatelům efektivněji získávat specifické informace o repozitářích, uživatelích atd.
+
+\subsection{Výběr Frameworku}
+\subsubsection*{Node.js s Express.js}
+\textbf{Framework} Express.js je minimalistický a flexibilní Node.js web application framework, který poskytuje robustní soubor funkcí pro webové a mobilní aplikace.
+
+\textbf{Usecase:} Express je často používán pro stavbu RESTful API díky své rychlosti a efektivitě. Je vhodný pro situace, kdy potřebujete rychle vyvíjet a iterovat, jako jsou startupy a nové produkty.
+
+\subsubsection*{Spring Boot (Java)}
+\textbf{Framework} Spring Boot umožňuje snadné vytvoření stojatých, produkčních aplikací na bázi Springu s minimem konfigurace.
+
+\textbf{Usecase:} Spring Boot je vhodný pro komplexní podnikové aplikace, které vyžadují robustní bezpečnostní funkce, integrace s databázemi a podporu pro mikroslužby. Například Netflix používá Spring Boot ve své mikroslužbové architektuře.
+
+\subsubsection*{Django (Python)}
+\textbf{Framework} Django je vysokoúrovňový Python web framework, který podporuje rychlý vývoj a čistý, pragmatický design.
+
+\textbf{Usecase:} Django je ideální pro rychlý vývoj aplikací s integrovanou podporou pro správu uživatelů, bezpečnost a databázové migrace, což ho činí vhodným pro webové aplikace a API s rychlým časovým horizontem k uvedení na trh.
+
+\subsubsection*{ASP.NET Core}
+\textbf{Framework:} ASP.NET Core je křížově platformní framework pro vývoj internetových aplikací od Microsoftu.
+
+\textbf{Usecase:} ASP.NET Core je oblíbený v podnikových prostředích pro jeho výkon, bezpečnost a podporu pro vývoj v C\#, což usnadňuje integraci s jinými .NET aplikacemi a službami.
+
+\subsection*{Závěr}
+Výběr mezi REST a GraphQL by měl být založen na požadavcích vaší aplikace na komunikaci dat, zatímco výběr frameworku by měl odpovídat vašim technickým preferencím, očekávané škále a typu aplikace. Každý z těchto frameworků nabízí jedinečné výhody pro různé typy projektů a scénáře použití.
