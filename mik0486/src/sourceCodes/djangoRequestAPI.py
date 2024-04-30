@@ -10,8 +10,8 @@ def requestAPI(method, url, jsonData=None):
     if jsonData is not None:
         print("- Data: ", jsonData)
 
-	# Set credentials
-    credentials = "shadefa11en:ourPassword"
+    # Set credentials
+    credentials = "admin:admin"
     hash = base64.b64encode(credentials.encode('utf-8')).decode('utf-8')
 
     try:
