@@ -107,7 +107,7 @@ Pro zjednodušení práce při tvorbě nových akcí bylo důležité implemento
 \end{figure}
 \newpage
 
-Dynamické vykreslování karet bylo napsáno v jazyce \devTool{JavaScript}{https://www.w3schools.com/js/} zajištěno pomocí knihovny \devTool{SVG.js}{https://svgjs.dev/docs/3.0/}, která umožňuje vytvářet a manipulovat s vektorovými obrázky, kde byl výsledek ve formátu \texttt{SVG} skvělou volbou pro tisk a zároveň bylo možné ho použít i pro zobrazení v uživatelském rozhraní. Jednodušší ikony byly získány z open source knihovny \devTool{SVGrepo}{https://www.svgrepo.com/}, pro obrázky zdroje karty (rasa nebo třída) a pro efekty byly použity dříve vytvořené ikony.
+Dynamické vykreslování karet bylo napsáno v jazyce \devTool{JavaScript}{https://www.w3schools.com/js/} zajištěno pomocí knihovny \devTool{SVG.js}{https://svgjs.dev/docs/3.0/}, která umožňuje vytvářet a manipulovat s vektorovými obrázky, kde byl výsledek ve formátu \texttt{SVG} skvělou volbou pro tisk a zároveň bylo možné ho použít i pro zobrazení v uživatelském rozhraní. Jednodušší ikony byly získány z open-source knihovny \devTool{SVGrepo}{https://www.svgrepo.com/}, pro obrázky zdroje karty (rasa nebo třída) a pro efekty byly použity dříve vytvořené ikony.
 
 Vytvořená funkcionalita tak dokázala dynamicky generovat karty pro jednotlivé akce, které byly následně použity v administrativním rozhraní, uživatelském prostředí i pro tisk.
 
@@ -132,7 +132,7 @@ Hlavním bodem, který tato práce řeší, je implementace herního modelu, kte
 
 V rámci projektu \textit{API} bylo využito mnoho knihoven, které umožnily snadnou práci s daty a zároveň zajišťovaly bezpečnost a efektivitu. Pro implementaci herní logiky byly použita především knihovna \devTool{Lombok}{https://projectlombok.org/}, která umožňuje snadnou tvorbu metod \texttt{getter}, \texttt{setter} a \texttt{constructor}, dále pomocná knihovna \devTool{Jackson}{https://www.baeldung.com/jackson} pro práci s \texttt{JSON} daty a knihovna \devTool{Swagger}{https://swagger.io/}, zajišťující dokumentaci koncových bodů \textit{API}.
 
-Další problém stojící za zmínku je časová náročnost implementace veškerých herních modelů. Vzhledem k tomu, že se jedná o relativně komplexní systém, bylo třeba věnovat dostatečný čas na implementaci a testování, což se ukázalo být časově nákladnější, než bylo původně plánováno. Z tohoto důvodu bylo rozhodnuto o zjednodušení některých částí herního modelu, což zahrnovalo snížení počtu efektů a odložení implementace poskoků a předmětů na potenciální rozšíření hry v budoucím vývoji.
+Další problém stojící za zmínku je časová náročnost implementace veškerých herních modelů. Vzhledem k tomu, že se jedná o relativně komplexní systém, bylo třeba věnovat dostatečný čas na implementaci a testování, což se ukázalo být časově nákladnější, než bylo původně plánováno. Z tohoto důvodu bylo rozhodnuto o zjednodušení některých částí herního modelu, což zahrnovalo snížení počtu efektů a odložení implementace poskoků a předmětů na potenciální rozšíření hry v budoucím vývoji. Vývojový tým se však shodl na potenciálu, který tato hra má, proto bylo rozhodnuto o pokračování v jejím vývoji i mimo rámec této práce.
 
 Nejdůležitější funkcionality této části projektu jsou rozebrány v následujících kapitolách.
 
