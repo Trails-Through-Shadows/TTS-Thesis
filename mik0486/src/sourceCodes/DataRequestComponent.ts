@@ -7,6 +7,7 @@ export class Data {
     public queryData(url: string, lazy: boolean = false, include: [] = []): void {
         const currentTime = new Date().getTime();
 
+        // Block the UI while loading
         const Notiflix = window['Notiflix'];
         Notiflix.Block.circle("#entryDataReplacement", 'Loading...');
 

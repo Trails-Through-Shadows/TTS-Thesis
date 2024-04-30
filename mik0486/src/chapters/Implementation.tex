@@ -57,6 +57,14 @@ V našem případě jsme použili pro autorizaci obyčejný token, které je ulo
     \label{fig:api_communication}
 \end{figure}
 
+Níže ve zdrojovém kódu~\ref{lst:api-cross-processing-api},~\ref{lst:api-cross-processing} lze vidět kus zdrojového kódu který se tak stará o mapování interního API a následného zpracování požadavku. Pomocí urlpatterns dochází k namapování poždavku, které je následně poslán do backendu djanga. Kde dojde k zpracování a případné zaslání dotazu na veřejné API\@.
+
+Na řádku 14 zdrojového kódu~\ref{lst:api-cross-processing-api} lze vidět šifrování administrátorského jména a hesla do tokenu, který je následně na řádku 24 přidáván jako autorizace do veřejného API.
+\pagebreak
+
+\lstinputlisting[language=Python, caption={Zpracování interního API v pythonu}, label={lst:api-cross-processing-api}]{sourceCodes/djangoAPI.py}
+\lstinputlisting[language=Python, caption={Zpracování interního API v pythonu}, label={lst:api-cross-processing}]{sourceCodes/djangoRequestAPI.py}
+
 \section{Volba technologií}
 \label{sec:implementation-technologies}
 V této sekci se budu věnovat výběru technologií, které jsem zvolil v průběhu implementace aplikace. Výběr technologií většinou vychází z analýzy uvedené v Kapitole~\ref{ch:theory_and_analysis} nebo z osobních zkušeností, které jsem získal v průběhu studia.
@@ -69,6 +77,7 @@ Framework jako samotný neobsahuje rozšířené prvky pro použití na frontend
 
 Jedna z komponent, která slouží pro asynchronní získávání dat je zobrazena v ukázce Zdrojového Kódu~\ref{lst:data-request-component}. Tato komponenta slouží pro nahrazení dočasného obsahu na stránce daty, která jsou získána v pozdějším procesu pomocí XMLHttpRequestu, který je volán na interní API, kde následně dochází k vyplnění obsahu templatu daty a jeho zobrazení.
 
+\pagebreak
 \lstinputlisting[language=TypeScript, caption={Komponenta pro získání asynchronních dat}, label={lst:data-request-component}]{sourceCodes/DataRequestComponent.ts}
 
 \subsection{Knihovny}
@@ -95,6 +104,26 @@ Pro podporu vícejazyčné funkčnosti byla v této práci využita knihovna i18
 
 Na ukázce Zdrojového Kódu~\ref{lst:i18next-example} je zobrazeno využití knihovny v případě obyčejného použití v JavaScriptu. Knihovna sama o sobě nabízí možnou integraci do různých frameworků jako například použitý freamework Django v této práci.
 
+\subsection{Autorizace}
+\label{subsec:implementation-technologies-authorization}
+Autorizace do administračního rozhraní zajišťuje backend aplikace, konkrétně tedy Django, které tuto funkcionalitu zajišťuje pomocí vlastního systému autorizace. Konkrétně se aplikace pro zabezpečení nazývá \textit{django.contrib.auth}, jedná se tak o balíček v rámci frameworku Django. Pro přihlášení do aplikace je nutné zadat uživatelské jméno a heslo do formuláře na přihlašovací stránce, po odeslání formuláře dochází k ověření uživatele pomocí interní databáze. V případě úspěchu je uživatel také uložen do session, která se následně stará o udržení přihlášení a ověření uživatele při každém požadavku.
+
+Na ukázce Zdrojového Kódu~\ref{lst:djangoViewURL} je možné vidět dekorátor \textit{@login\_required}, která zajišťuje, že uživatel je přihlášen a má tak přístup k danému view. V případě, že uživatel není přihlášen, dojde k přesměrování na přihlašovací stránku.
+
+\lstinputlisting[language=Python, caption={Ukázka zpracování požadavku Djangem při ověření}, label={lst:djangoViewURL}]{sourceCodes/djangoView.py}
+
+\subsection{Vyhledávání a filtrování}
+\label{subsec:implementation-technologies-search}
+Vyhledání a filtrování jsem implementoval pomocí funkce \textit{search} a \textit{filter}, které jsou zahrnuty v rámci API rozhraní. Pomocí těchto funkcí je tak možné přijmout z uživatelského rozhraní dotaz pomocí textového pole a následně dotaz odeslat na API. Po zpracování dotazu je odpověd od API znovu vykreslena do tabulky, tentokrát již pouze s vyfiltrovanými daty.
+
+Filtrace dat funguje stejným způsobem, kde pomocí vytvořeného modálního okna lze zadat přesné hodnoty, které se mají zobrazit. Po odeslání dotazu je následně zobrazen pouze obsah, který odpovídá zadaným hodnotám.
+
+\subsection{Validace dat}
+\label{subsec:implementation-technologies-validation}
+Validace dat, která je v rámci aplikace prováděna, je zajištěna opět na straně API. Kde v každém formuláři dochází k okamžité validaci pomocí zaslání dat formuláře na API endpoint určený pro daný objekt. V případě, že data nejsou správná, uživatel dostává okamžitě zpětnou vazbu, formou notifikace, která jednoduše informuje o chybě, kterou tak lze následně urychleně opravit.
+
+Tento způsob kontroly tak zajišťuje stabilní a korektní data v databázi a zároveň zabraňuje vzniku chyb, které by mohly být způsobeny nesprávnými daty. Proces validace dat je zobrazen na Diagramu~\ref{fig:NewObject}, kde dochází ke komunikaci s API\@.
+
 \subsection{Databáze}
 \label{subsec:implementation-technologies-database}
 Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\href{https://mariadb.org/}{https://mariadb.org/}}, která nám byla doporučena vedoucím práce. Nejedná se o nejmodernější databázi, ale disponuje vysokou stabilitou a širokou historii použití. Databázi jsme pro bezpečnější použití rozdělili na dvě \textit{tts\_api} a \textit{tts\_api\_dev}, kde první obsahuje základní data a druhá data testovací. Pro vytvoření databáze byly následně využity skripty, které budou dále popsány v sekci Automatizace.
@@ -102,14 +131,6 @@ Pro ukládání dat v našem systému jsme zvolili databázi MariaDB\footnote{\h
 \subsubsection*{Schéma}
 \label{subsubsec:implementation-technologies-database-scheme}
 Schéma databáze bylo vytvořeno placeným softwarem DbDiagram.io\footnote{\href{https://dbdiagram.io/home}{https://dbdiagram.io/home}}, který nabízí možnost živého návrhu schématu, na kterém se tak mohl podílet každý člen týmu zároveň, což usnadnilo aktivní vývoj. Zkrácené schéma o M:N relacích je zobrazeno na Obrázku~\ref{fig:db_scheme}. Software DbDiagram nabízí možnost exportu schématu do různých formátů, které byly následně využity pro vytvoření databáze v MariaDB\@.
-
-% disgusting!
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.96\textwidth]{../../shared/diagrams/dbScheme}
-    \caption{Kompletní schéma databáze}
-    \label{fig:db_scheme}
-\end{figure}
 
 \subsubsection*{Automatizace}
 \label{subsubsec:implementation-technologies-database-automatization}
@@ -120,6 +141,13 @@ Pro vytvoření databáze byl použit SQL soubor, který se po každé úpravě 
 Plnění databáze ale není jednoduchý proces, neboť je nutné zajistit správné pořadí cizích klíčů, bez kterého se žádná tabulka nemůže bezchybně naplnit. Pro tento účel byl vytvořen diagram reprezentující abstraktní schéma databáze s prioritou jednotlivých tabulek, který je zobrazen na Obrázku~\ref{fig:db_table_priority}. Tento diagram slouží jako návod pro správné nastavení priorit jednotlivých tabulek.
 
 Pro čtení priority z Grafu~\ref{fig:db_table_priority} je nutné vždy začít od dané tabulky a spočítat nejhlubší cestu k nejvzdálenější tabulce proti směru šipek. Tabulky s největší prioritou mají k sobě největší počet cest. V případě, že tabulka k sobě nemá žádnou cestu, je její priorita automaticky nastavena na 1. Tabulka priority je následně zobrazena v Tabulce~\ref{tab:db_table_priority}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.96\textwidth]{../../shared/diagrams/dbScheme}
+    \caption{Kompletní schéma databáze}
+    \label{fig:db_scheme}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -284,7 +312,7 @@ Hexagon jako samotný má možnost mít šest sousedů, které lze vidět na obr
 \label{subsec:implementation-problems-time}
 Dalším z problémů, který byl zaviněn špatným návrhem byla časová náročnost aplikace. Vzhledem k tomu, že návrh projektu byl proveden bez zohlednění časové náročnosti, pro dokončení práce bylo zapotřebí vynechat několik funkcí, mezi které patří implementace \textit{summons}, \textit{items}, \textit{achievements} a také správa uživatelských dat, které byly původně plánovány jako součást hry.
 
-K této funkcionalitě bychom se v budoucnu rádi vrátili a implementaci dokončili.
+Tyto funkcionality na rozhraní zobrazeny jako rozpracované z důvodu, že bych se rád v budoucnu k práci vrátil a implementaci dokončil.
 
 \subsection*{Chyba volby frameworku}
 \label{subsec:implementation-problems-framework}
