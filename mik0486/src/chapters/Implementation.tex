@@ -59,8 +59,11 @@ V~našem případě jsme použili pro autorizaci obyčejný token, které je ulo
 
 Ve ukázkách Zdrojového Kódu níže (\ref{lst:api-cross-processing-api},~\ref{lst:api-cross-processing}) lze vidět kus zdrojového kódu, který se stará o~mapování interního API a~následného zpracování požadavku. Pomocí urlpatterns dochází k~namapování požadavku, který je následně poslán do backendu Djanga, k~dojde k~zpracování a~případné zaslání dotazu na veřejné API\@.
 
-Na řádku 14 Zdrojového Kódu~\ref{lst:api-crotakpracování API endpointů v~Djangu}, label={lst:api-cross-processing-api}]{sourceCodes/djangoAPI.py}
-\lstinputlisting[language=Python, caption={Zpracování API požadavku v~Djangu}, label={lst:api-cross-processing}]{sourceCodes/djangoRequestAPI.py}
+Na řádku 14 zdrojového kódu~\ref{lst:api-cross-processing-api} lze vidět šifrování administrátorského jména a hesla do tokenu, který je následně na řádku 24 přidáván jako autorizace do veřejného API\@.
+\pagebreak
+
+\lstinputlisting[language=Python, caption={Zpracování interního API v pythonu}, label={lst:api-cross-processing-api}]{sourceCodes/djangoAPI.py}
+\lstinputlisting[language=Python, caption={Zpracování interního API v pythonu}, label={lst:api-cross-processing}]{sourceCodes/djangoRequestAPI.py}
 
 \section{Volba technologií}
 \label{sec:implementation-technologies}
