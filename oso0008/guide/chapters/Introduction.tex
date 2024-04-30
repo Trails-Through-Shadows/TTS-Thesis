@@ -3,7 +3,7 @@
 
 Tato příručka slouží jako pomůcka pro vývojáře, kteří chtějí vyvíjet grafické uživatelské rozhraní (GUI). Budeme se soustředit na rozhraní webových stránek, ale některé zásady lze aplikovat pro jakékoliv GUI.
 
-V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Popíšeme si postup, který můžeme využít při návrhu a vývoji GUI. Obsah příručky je také doplněn o několik konkrétních příkladů, které ukazují vývoj webové aplikace mé bakalářské práce.
+V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Popíšeme si postup, který můžeme využít při návrhu a vývoji GUI. Obsah příručky je také doplněn o konkrétní příklady z vývoje mé bakalářské práce, které ukazují použití některých bodů v praxi.
 
 \section{Zásady vývoje webového GUI}
 \label{sec:principles}
@@ -35,7 +35,7 @@ Pro uživatelsky přívětivé GUI je důležité dodržovat několik zásad. Ty
   \label{fig:example1}
 \end{figure}
 
-Na obrázku výše si můžeme znázornit několik z těchto principů. Jedná se o ukázku střetnutí, na které můžeme vidět karty entit s ukazately životů, obrany a efektů. Dále je na pravé straně znázorněna kartička akce a vedle ní se nachází panel pro uživatelské vstupy. Karta entity, která je zrovna na tahu je zvětšená, což zajišťuje důraz. Karty jsou uspořádány do řady, což podporuje rytmus. Důraz je zajištěn světlým textem na tmavém pozadí (nebo naopak v případě akce). Pozadí stránky je také dostatečné světlé aby umocňovalo kontrast s tmavými kartami. Všechny karty mají stejný formát (opakování), ale zároveň mají každá jiný obrázek (rozmanitost). Tlačítka na vstupím panelu evokují známý design, který lze najít například na klávesnici telefonů (vzory). Všechny tyto prvky dohromady tvoří jednotný design, který je přehledný a estetický.
+\textit{Na obrázku výše si můžeme znázornit několik z těchto principů. Jedná se o ukázku střetnutí, na které můžeme vidět karty entit s ukazately životů, obrany a efektů. Dále je na pravé straně znázorněna kartička akce a vedle ní se nachází panel pro uživatelské vstupy. Karta entity, která je zrovna na tahu je zvětšená, což zajišťuje důraz. Karty jsou uspořádány do řady, což podporuje rytmus. Důraz je zajištěn světlým textem na tmavém pozadí (nebo naopak v případě akce). Pozadí stránky je také dostatečné světlé aby umocňovalo kontrast s tmavými kartami. Všechny karty mají stejný formát (opakování), ale zároveň mají každá jiný obrázek (rozmanitost). Tlačítka na vstupím panelu evokují známý design, který lze najít například na klávesnici telefonů (vzory). Všechny tyto prvky dohromady tvoří jednotný design, který je přehledný a estetický.}
 
 \subsubsection{Teorie barev}
 Výběr barev je klíčovým prvkem designu uživatelského rozhraní. Teorie barev zkoumá vztahy mezi barvami a jejich psychologickými a emocionálními účinky. Správné použití barev může ovlivnit uživatelovo vnímání aplikace.
@@ -98,7 +98,7 @@ Opět budou následovat příklady z aplikace pro Trails Through Shadows. Někte
   \end{minipage}
 \end{figure}
 
-Na obrázku vlevo nahoře můžeme vidět ukázku zpětné vazby při vybírání cíle útoku. Při přetáhnutí ukazatele zranění na cíl, se mu změní barva aby bylo jasné vidět, kdo je zacílen. Na pravém horním obrázku je pak ukázka těžiště řízení, kdy se systém ptá, zda si je uživatel jist otevíráním dveří. Na spodních obrázcích pak můžeme vidět příklad responzivního designu.
+\textit{Na obrázku vlevo nahoře můžeme vidět ukázku zpětné vazby při vybírání cíle útoku. Při přetáhnutí ukazatele zranění na cíl, se mu změní barva aby bylo jasné vidět, kdo je zacílen. Na pravém horním obrázku je pak ukázka těžiště řízení, kdy se systém ptá, zda si je uživatel jist otevíráním dveří. Na spodních obrázcích pak můžeme vidět příklad responzivního designu.}
 
 \begin{figure}[H]
   \begin{minipage}{0.3\textwidth}
@@ -134,10 +134,28 @@ React je knihovna vyvinutá společností Meta (bývalý Facebook). Jedná se o 
 
 Angular je framework vyvinutý společností Google. Jedná se o jednostránkový framework, který je postaven na jazyce TypeScript. TypeScript je nadstavba JavaScriptu, která přidává statické typování a je striktnější co se týče syntaxe. Díky tomu je kód bezpečnější a méně náchylný k chybám. Angular je taktéž komponentový framework. Také má velkou komunitu a ekosystém, ale je méně populární než React. Je vhodný pro větší projekty, kde je potřeba striktního řízení stavu aplikace.
 
+\pagebreak
 \subsection*{Svelte}
 \label{subsec:svelte}
 
 Svelte je kompilátor, který převádí kód napsaný ve Svelte syntaxi na čistý JavaScript. Jedná se o nový přístup k vývoji webových aplikací. Svelte je komponentový framework, ale na rozdíl od Reactu a Angularu, kde jsou komponenty interpretovány za běhu, jsou komponenty ve Svelte přeloženy do čistého JavaScriptu. Díky tomu je výsledný kód menší a rychlejší. Není zdaleka tak populární jako React nebo Angular, ale to nahrazuje svou jednoduchostí a rychlostí. Svelte je velmi přívětivý na naučení a je vhodný pro začátečníky.
+
+\begin{figure}[H]
+  \begin{minipage}{0.25\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{resources/figures/example7.png}
+    \caption{Ukázka složkové struktury}
+    \label{fig:example7}
+  \end{minipage}
+    \begin{minipage}{0.75\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{resources/figures/example8.png}
+    \caption{Ukázka Svelte komponenty}
+    \label{fig:frameworks}
+  \end{minipage}
+\end{figure}
+
+\textit{Pro práci na Trails Through Shadows jsem zvolil Svelte. Stalo se tak hlavně kvůli jeho jednoduchosti a rychlosti. Na obrázku vlevo můžeme vidět složkovou strukturu projektu. Každá složka obsahuje jednu hlavní komponentu a podsložku s několika dalšími, které jsou v ní použity. Na pravém obrázku pak můžeme vidět ukázku Svelte komponenty. Jedná se o jednoduchou komponentu, která se stará o zobrazení přihlašovacího formuláře a hlavní stránky. Všechny komponenty jsou napsány v Svelte syntaxi, která je velmi intuitivní a podobná HTML a CSS, což zjednodušuje práci s nimi.}
 
 \subsection{Další knihovny}
 \label{sec:other-libraries}
@@ -159,6 +177,22 @@ Tailwind CSS je nový přístup k psaní CSS. Namísto psaní vlastních CSS sty
 
 Pro každý z frameworků existuje spousta takovýchto knihoven. Například pro React existuje Material-UI, React Bootstrap, Ant Design a mnoho dalších. Tyto knihovny obsahují předpřipravené komponenty, které můžeme použít ve svých aplikacích. Často jsou navrženy tak, aby byly snadno přizpůsobitelné a rozšiřitelné, ale to se liší od knihovny k knihovně. Pokud používáte některý z frameworků, může být užitečné si nějakou takovouto knihovnu najít.
 
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example9.png}
+    \label{fig:example9}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example10.png}
+    \label{fig:example10}
+  \end{minipage}
+  \caption{Ukázka Bootstrap komponent}
+\end{figure}
+
+\textit{Na obrázcích na minulé straně můžeme vidět ukázku Bootstrap komponent. Na levém je komponent karta, na které jsou tlačítka a textová pole. Na pravém je ukázka modalového okna. Téměř všechny komponenty, které jsem zatím na ukázkách použil, jsou vytvořeny pomocí Bootstrapu: navigace, tlačítka, karty, modální okna a další. Bootstrap je velmi jednoduchý na použití a rychle se s ním pracuje. Jeho nevýhodou může být, že všechny stránky, které jsou vytvořeny pomocí Bootstrapu, vypadají velmi podobně. Zároveň bych chtěl říct, že kdybych projekt dělal znovu, tak si nejspíše vyberu Tailwind CSS, který nabízí větší flexibilitu a kontrolu nad vzhledem stránky.}
 
 \section{Návrh a vývoj}
 \label{sec:design-and-development}
@@ -175,7 +209,9 @@ Prvním krokem při vývoji webového GUI je definování požadavků. Je důle�
   \item \textbf{Funkce} -- Jaké funkce by měla naše stránka obsahovat? Jaké informace by měla zobrazovat? Jaké akce by měla umožňovat uživatelům provádět?
   \item \textbf{Design} -- Jak by měla naše stránka vypadat? Jaké barvy, písma a obrázky by měla obsahovat? Jaké prvky by měla obsahovat a jak by měly být uspořádány?
   \item \textbf{Responzivita} -- Jak by měla naše stránka vypadat na různých zařízeních? Jak by měla reagovat na změnu velikosti obrazovky?
-\end{itemize} 
+\end{itemize}
+
+\textit{Naše požadavky na Trails Through Shadows byly rozděleny do dvou částí. První část obsahovala požadavky na vzhled stránky. Druhá část pak na funkce a interakce. Při přemýšlení o vzhledu stránky jsme došli k závéru, že by měla být tmavá a tajemná, aby co nejlépe vystihovala atmosféru hry. Navíc již od začátku jsme věděli, že budeme vzhled stránky podporovat generovanými obrázky pro postavy, nepřátele a další aspekty. Při vytváření požadavků jsme se zaměřili na to, aby byla stránka co nejvíce uživatelsky přívětivá a snadno použitelná. Chtěli jsme, aby šlo stránku ovládat pouze myší a aby byla co nejvíce intuitivní. Stránka také měla být responzivní a měla se správně zobrazovat na všech zařízeních, aby mohli hráči používat aplikaci i na svých mobilních telefonech.}
 
 \subsection{Návrh}
 \label{subsec:design}
@@ -190,6 +226,8 @@ Další krok při vývoji webového GUI je návrh. Je důležité si předem pro
   \item \textbf{Iterace} -- Iterací je myšleno neustálé zlepšování návrhu stránky na základě zpětné vazby uživatelů. Pomáhá nám vytvořit co nejlepší uživatelské rozhraní. Během iterací se provádějí úpravy a změny na základě zjištění z testování a dalšího sběru dat, s cílem dosáhnout optimálního uživatelského zážitku a splnit stanovené cíle projektu. Iterativní přístup umožňuje flexibilně reagovat na potřeby uživatelů a provádět postupné vylepšování produktu.
 \end{itemize}
 
+\textit{Při návrhu stránky pro Trails Through Shadows jsem začal s jednoduchým wireframem, který obsahoval pouze velmi základní prvky, jako jsou navigace a tlačítka. Pomocí wireframu jsme se v týmu dohodli na tom, jak bude stránka přibližně vypadat a jaké prvky bude obsahovat. Následně jsem přešel rovnou k prototypu, kterému krom všech prvků a detailů stránky, byly postupně přidávány všechny funkce. Prototyp jsme průběžně testovali, abychom zjistili, jaké budou uživatelské zkušenosti a získali tak velmi cennou zpětnou vazbu. Na jejím základě jsem provedl několik iterací, které stránku vylepšily.}
+
 \subsection{Vývoj}
 \label{subsec:development}
 
@@ -203,7 +241,9 @@ Posledním krokem je samotný vývoj. V tomto kroku převádíme návrh stránky
   \item \textbf{Dokumentace} --  Psaní dokumentace kódu je důležité pro zajištění jeho udržitelnosti a snadného porozumění pro ostatní členy týmu nebo pro sebe v budoucnosti. Komentování kódu a vysvětlování funkcionality každé části pomáhá při další úpravě a ladění kódu a usnadňuje zapojení nových členů do projektu.
 \end{itemize}
 
+\textit{Při vývoji stránky pro Trails Through Shadows jsem se snažil o správné rozdělení souborů do jednotlivých složek, aby byl kód co nejpřehlednější a udržitelný. Dále jsem dbal na responzivitu stránky a testoval ji na různých zařízeních, abych zjistil, jak bude vypadat a fungovat na různých velikostech obrazovek. Také jsem se snažil o optimalizaci kódu a obrázků, abych zajistil rychlé načítání stránky.}
+
 \section{Závěr}
 \label{sec:conclusion}
 
-V této kapitole jsme si představili základní principy designu uživatelského rozhraní a technologie, které se používají při vývoji webových aplikací. Zjistili jsme, že design uživatelského rozhraní je důležitým prvkem každé webové stránky a může mít významný vliv na uživatelskou zkušenost. Zároveň jsme si ukázali, jaké technologie a frameworky se používají při vývoji webových aplikací a jaký postup můžeme použít při návrhu a vývoji webového GUI.
+V této příručce jsme si představili základní principy a technologie pro návrh a vývoj webových uživatelských rozhraní. Zjistili jsme, že je důležité mít na paměti potřeby uživatelů a vytvořit pro ně co nejpřívětivější a snadno použitelné rozhraní. Uk=ázali jsme si, že existuje mnoho technologií a knihoven, které nám mohou pomoci při vývoji webových aplikací, a že je důležité vybrat tu správnou pro náš projekt. Nakonec jsme si ukázali postup, který můžeme použít při návrhu a vývoji webového GUI, a několik tipů, které nám mohou pomoci při každém kroku.
