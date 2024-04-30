@@ -3,7 +3,7 @@
 
 Tato příručka slouží jako pomůcka pro vývojáře, kteří chtějí vyvíjet grafické uživatelské rozhraní (GUI). Budeme se soustředit na rozhraní webových stránek, ale některé zásady lze aplikovat pro jakékoliv GUI.
 
-V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Popíšeme si postup, který můžeme využít při návrhu a vývoji GUI. Nakonec si ukážeme, jak můžeme využít umělou inteligenci k vytvoření obsahu pro naše GUI.
+V první části se seznámíme s technologiemi, které se používají pro vývoj GUI. Řekneme si několik základních principů, které bychom měli dodržovat při vývoji GUI. Popíšeme si postup, který můžeme využít při návrhu a vývoji GUI. Obsah příručky je také doplněn o několik konkrétních příkladů, které ukazují vývoj webové aplikace mé bakalářské práce.
 
 \section{Zásady vývoje webového GUI}
 \label{sec:principles}
@@ -28,13 +28,22 @@ Pro uživatelsky přívětivé GUI je důležité dodržovat několik zásad. Ty
   \item \textbf{Spojitost} -- Spojuje prvky na stránce dohromady, často pomocí opakování barev nebo minimálního počtu fontů.
 \end{itemize}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{resources/figures/example1.png}
+  \caption{Ukázka z aplikace 1}
+  \label{fig:example1}
+\end{figure}
+
+Na obrázku výše si můžeme znázornit několik z těchto principů. Jedná se o ukázku střetnutí, na které můžeme vidět karty entit s ukazately životů, obrany a efektů. Dále je na pravé straně znázorněna kartička akce a vedle ní se nachází panel pro uživatelské vstupy. Karta entity, která je zrovna na tahu je zvětšená, což zajišťuje důraz. Karty jsou uspořádány do řady, což podporuje rytmus. Důraz je zajištěn světlým textem na tmavém pozadí (nebo naopak v případě akce). Pozadí stránky je také dostatečné světlé aby umocňovalo kontrast s tmavými kartami. Všechny karty mají stejný formát (opakování), ale zároveň mají každá jiný obrázek (rozmanitost). Tlačítka na vstupím panelu evokují známý design, který lze najít například na klávesnici telefonů (vzory). Všechny tyto prvky dohromady tvoří jednotný design, který je přehledný a estetický.
+
 \subsubsection{Teorie barev}
 Výběr barev je klíčovým prvkem designu uživatelského rozhraní. Teorie barev zkoumá vztahy mezi barvami a jejich psychologickými a emocionálními účinky. Správné použití barev může ovlivnit uživatelovo vnímání aplikace.
 
 Barvy se člení na teplé a studené. Teplé barvy, jako jsou červená, oranžová a žlutá, patří do části spektra, která často evokuje radost a energii. Studené barvy, jako jsou zelená, modrá a fialová, zase často přinášejí pocit klidu a harmonie. Volba mezi teplými a studenými barvami může ovlivnit celkový dojem, který uživatel získá z aplikace.
 
 \subsubsection*{Barevný kruh}
-Často používá díky jeho intuitivnímu rozložení barev. Obsahuje všechny barvy, které lze vytvořit smícháním tří primárních barev a díky přidání černé či bílé barvy umožňuje i úpravu jejich odstínů. Existuje několik způsobů, jak za pomoci tohoto kruhu vybrat.
+Často používá díky jeho intuitivnímu rozložení barev. Obsahuje všechny barvy, které lze vytvořit smícháním tří primárních barev a díky přidání černé či bílé barvy umožňuje i úpravu jejich odstínů. Existuje několik způsobů, jak za pomoci tohoto kruhu barevnou paletu vybrat. Všechny jsou pro lepší přehlednost ukázány na obrázku pod tímto odstavcem.
 
 \begin{itemize}
     \item \textbf{Komplementární}: Barvy, které jsou na opačných stranách kruhu. Při jejich kombinaci vzniká kontrastní efekt.
@@ -44,6 +53,15 @@ Barvy se člení na teplé a studené. Teplé barvy, jako jsou červená, oranž
     \item \textbf{Rozštěpená komplementární}: Variace komplementární kombinace, kde se namísto protější barvy, používají barvy s ní sousedící. 
     \item \textbf{Tetradické}: Čtyři barvy, kde každé dvě tvoří komplementární pár a vytvářejí obdélník na barevném kruhu. Vytváří kontrastní efekt, ale zároveň je možné vytvořit i harmonický efekt, pokud se barvy správně kombinují.
 \end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{resources/figures/color_theory.png}
+    \caption[Barevný kruh]{Barevný kruh\footnotemark}
+    \label{fig:color-wheel}
+\end{figure}
+
+\footnotetext{Zdroj:\url{https://www.webascender.com/blog/understanding-color-schemes-choosing-colors-for-your-website}}
 
 \subsubsection{Typografie}
 Typografie je umění používání písma a fontů k tomu, aby byl text čitelný, srozumitelný a příjemný ke čtení. Hraje klíčovou roli v designu UI tím, že ovlivňuje rozpoznatelnost značky, rozhodování a pozornost uživatele. Dobrá typografie pomáhá při předávání informací a integruje se s ostatními prvky rozhraní, zlepšujíc celkovou vizuální rovnováhu a uživatelskou zkušenost.
@@ -62,6 +80,39 @@ Typografie je umění používání písma a fontů k tomu, aby byl text čiteln
   \item \textbf{Minimalizace nároků na uživatele} -- Klíčová zásada pro uživatelské rozhraní je minimalizace kognitivní zátěže. Kognitivní zátěž může snížit uživatelovu schopnost vykonávat důležité úkoly, proto je důležité, aby počítače převzaly co nejvíce úkonů na sebe. Uživateli můžeme vypomoci třeba zapamatováním si jeho přihlašovacích či osobních údajů, aby je nemusel zadávat při každém přihlášení. Při návrhu bychom měli vždy dávat přednost rozpoznání před vzpomínáním, abychom uživatelům umožnili rychle a bez problémů dokončit své úkoly.
   \item \textbf{Responzivnost} -- Jedna z nejdůležitějších vlastností moderního GUI. Responzivní design zajišťuje, že stránka bude vypadat dobře na všech zařízeních, od mobilních telefonů až po stolní počítače, a to pomocí změny velikosti, schování či přesunutí prvků na stránce. K tomu se využívají vlastnosti jazyka CSS, nejčastěji media queries, které umožňují nastavit různé styly pro různé velikosti obrazovek. Responzivní design je v dnešní době kriticky potřebný, protože většina uživatelů používá k prohlížení internetu mobilní zařízení a je důležité, aby se jim stránka zobrazila správně a byla snadno použitelná.
 \end{itemize}
+
+Opět budou následovat příklady z aplikace pro Trails Through Shadows. Některé z nich lze jen těžko zobrazit staticky, ale pokusím se je alespoň popsat. Konzistence mezi jednotlivými stránkami aplikace je udržována stálou přítomností navigačního menu s logem v horní části stránky. Tam kde to jde a dává smysl je taky přidáno spodní menu, které uchovává tlačítka pro nejčastější akce. Kliknutím na logo se samozřejmě uživatel vrátí na úvodní stránku.
+
+\begin{figure}[H]
+  \begin{minipage}{0.35\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example2.png}
+    \caption{Ukázka zpětné vazby}
+    \label{fig:example4}
+  \end{minipage}
+  \begin{minipage}{0.65\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example3.png}
+    \caption{Ukázka těžiště řízení}
+    \label{fig:example3}
+  \end{minipage}
+\end{figure}
+
+Na obrázku vlevo nahoře můžeme vidět ukázku zpětné vazby při vybírání cíle útoku. Při přetáhnutí ukazatele zranění na cíl, se mu změní barva aby bylo jasné vidět, kdo je zacílen. Na pravém horním obrázku je pak ukázka těžiště řízení, kdy se systém ptá, zda si je uživatel jist otevíráním dveří. Na spodních obrázcích pak můžeme vidět příklad responzivního designu.
+
+\begin{figure}[H]
+  \begin{minipage}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example5.png}
+    \label{fig:example5}
+  \end{minipage}
+  \begin{minipage}{0.7\textwidth}
+    \centering
+    \includegraphics[width=0.9\textwidth]{resources/figures/example6.png}
+    \label{fig:example6}
+  \end{minipage}
+  \caption{Ukázka responzivního designu}
+\end{figure}
 
 \section{Technologie}
 \label{sec:technologies}
@@ -151,3 +202,8 @@ Posledním krokem je samotný vývoj. V tomto kroku převádíme návrh stránky
   \item \textbf{Optimalizace} -- Optimalizace kódu a obrázků pomáhá rychlému načítání stránky a zlepšení uživatelské zkušenosti. Používání technik jako komprese kódu a obrázků, lazy loading obrázků nebo optimalizace pořadí načítání zdrojů může výrazně snížit dobu načítání stránky a zlepšit její výkon.
   \item \textbf{Dokumentace} --  Psaní dokumentace kódu je důležité pro zajištění jeho udržitelnosti a snadného porozumění pro ostatní členy týmu nebo pro sebe v budoucnosti. Komentování kódu a vysvětlování funkcionality každé části pomáhá při další úpravě a ladění kódu a usnadňuje zapojení nových členů do projektu.
 \end{itemize}
+
+\section{Závěr}
+\label{sec:conclusion}
+
+V této kapitole jsme si představili základní principy designu uživatelského rozhraní a technologie, které se používají při vývoji webových aplikací. Zjistili jsme, že design uživatelského rozhraní je důležitým prvkem každé webové stránky a může mít významný vliv na uživatelskou zkušenost. Zároveň jsme si ukázali, jaké technologie a frameworky se používají při vývoji webových aplikací a jaký postup můžeme použít při návrhu a vývoji webového GUI.
