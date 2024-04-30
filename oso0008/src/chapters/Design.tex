@@ -2,7 +2,7 @@
 Tato kapitola se zabývá návrhem designu stolní hry a~aplikace, která bude sloužit jako její součást. Jsou zde popsány požadavky na aplikaci, návrh grafického rozhraní a~návrh herních prvků.
 
 \section{Požadavky na aplikaci}
-Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplikace splňovat. Jejich stanovení proběhlo na základě analýzy stolních her \textit{Na vlnách neznáma} a \textit{Gloomhaven} a~na základě požadavků, které vyplynuly z~návrhu hry.
+Před samotným návrhem, bylo nutné stanovit požadavky, které by měla aplikace splňovat. Jejich stanovení proběhlo na základě analýzy stolních her \textit{Na vlnách neznáma} a~\textit{Gloomhaven} a~na základě požadavků, které vyplynuly z~návrhu hry.
 
 \subsection{Vzhled}
 Vzhled aplikace by měl odrážet tématiku hry. Ta je situovaná do temného fantaskního světa s~RPG prvky. Samotná aplikace by tato témata měla reflektovat. Aby si hra uchovala tento temný nádech, bylo vybráno několik následujících barev, které se v~aplikaci vyskytnou. Základem designu budou odstíny tmavě šedé, které budou doplněny o~zelenou barvu pro zvýraznění a~indikaci interaktivních prvků. Všechny tyto barvy budou v~kontrastu s~bílou barvou, která, společně se světlými odstíny šedé, bude použita pro texty a~popisky. Tímto způsobem bude vytvořen jednotný vzhled aplikace, který pomůže hráčům se v~ní lépe orientovat
@@ -118,7 +118,7 @@ V~omezené míře jsme však tento způsob použili pro vytvoření prototypu hr
 Vstřikování plastů je technologie, která je za použití forem schopna vytvořit velké množství identických plastových dílů ve velmi krátkém čase. V~závislosti na kvalitě formy a~typu zvoleného materiálu mohou být výsledné produkty velice detailní a~odolné. Tato technologie by byla ideální pro výrobu figur, avšak výroba vhodných forem je extrémně nákladná.
 
 \subsubsection*{2D tisk}
-V takovémto případě by byly figurky vytištěny na karton a~následně vystřiženy. Tento způsob by byl nejlevnější a~nejrychlejší, ale nejméně kvalitní. Figurky by byly náchylné k~poškození a~mohly by být snadno poničeny.
+V~takovémto případě by byly figurky vytištěny na karton a~následně vystřiženy. Tento způsob by byl nejlevnější a~nejrychlejší, ale nejméně kvalitní. Figurky by byly náchylné k~poškození a~mohly by být snadno poničeny.
 
 \subsubsection*{Zvolené řešení}
 Z~důvodu časové náročnosti a~nákladů bylo rozhodnuto ve prospěch 2D tisku. Figurky budou opatřeny plastovým stojánkem pro stabilitu a~zároveň budou použity různé barvy pro rozlišení hráčů a~nepřátel. Jedno z~předešlých řešení by však mohlo být použito pro prémiové vydání hry.
@@ -161,7 +161,7 @@ Dále jsem se rozhodl používat CSS a~JS knihovny, které dokáží ušetřit p
 \textit{Bootstrap} je jeden z~nejpopulárnějších nástrojů pro vytváření responzivních webových stránek. Je to open-source nástroj, který byl původně vyvinut pro sociální platformu \textit{X} (dříve známou jako \textit{Twitter}). Nabízí spoustu předpřipravených komponent, které velmi usnadní vývoj a~zároveň zlepší vzhled aplikace. Mimo to dává vývojáři možnost využít některé z~tříd, které dokáží nastylovat téměř jakýkoliv HTML element, kterému jsou přiřazeny. \textit{Bootstrap} je také velmi dobře zdokumentovaný a~má velkou komunitu uživatelů, takže je poměrně snadné najít řešení k~případným problémům. \cite{bootstrap,what_is_bootstrap}
 
 \subsubsection*{Tailwind CSS}
-\textit{Tailwind CSS} je další nástroj pro tvorbu responzivních webových stránek. Na rozdíl od \textit{Bootstrapu} je však známý svou flexibilitou a~možnostmi přizpůsobení. Je založen na konceptu utility-first, což znamená, že primárním cílem tohoto nástroje je užitek, s~čímž se váže jednoduchost. Vývojáři mohou využít jednotlivé třídy, jež \textit{Tailwind CSS} nabízí. Každá z~nich přidá pouze jeden určitý styl k~elementu a~dodává tak vývojáři možnost je mezi sebou kombinovat dle libosti. Tímto způsobem je možné vytvořit téměř jakýkoliv design, který si vývojář přeje. Opět se jedná o~velmi dobře zdokumentovaný nástroj s poměrně velkou komunitou. \cite{tailwind_css}
+\textit{Tailwind CSS} je další nástroj pro tvorbu responzivních webových stránek. Na rozdíl od \textit{Bootstrapu} je však známý svou flexibilitou a~možnostmi přizpůsobení. Je založen na konceptu utility-first, což znamená, že primárním cílem tohoto nástroje je užitek, s~čímž se váže jednoduchost. Vývojáři mohou využít jednotlivé třídy, jež \textit{Tailwind CSS} nabízí. Každá z~nich přidá pouze jeden určitý styl k~elementu a~dodává tak vývojáři možnost je mezi sebou kombinovat dle libosti. Tímto způsobem je možné vytvořit téměř jakýkoliv design, který si vývojář přeje. Opět se jedná o~velmi dobře zdokumentovaný nástroj s~poměrně velkou komunitou. \cite{tailwind_css}
 
 \subsubsection*{Svelte Material UI}
 Jako jediný ze zde zmíněných, není tento nástroj agnostický a~je určen pouze pro framework \textit{Svelte}. \textit{Svelte Material UI} je knihovna komponentů, které jsou inspirovány vzhledem \textit{Material Design} od společnosti \textit{Google}. Tato knihovna je velmi užitečná pro vývojáře, kteří chtějí vytvořit aplikaci, která bude mít moderní a~čistý design. Díky faktu, že je určena přímo pro \textit{Svelte} je její použití opravdu jednoduché. Nevýhodou je, že není zdaleka tak rozsáhlá jako předešlé možnosti. \cite{svelte_material_ui}
