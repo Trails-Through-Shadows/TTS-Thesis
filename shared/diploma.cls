@@ -81,7 +81,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{longtable}
 \RequirePackage{caption}
-\RequirePackage{rotating}
+%% \RequirePackage{rotating}
+\RequirePackage[figuresleft]{rotating}
 \RequirePackage{setspace}
 \RequirePackage{theorem}
 \RequirePackage{titlesec}
